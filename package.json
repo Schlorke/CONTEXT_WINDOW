@@ -1,0 +1,22 @@
+{
+  "name": "context-window",
+  "version": "1.3.0",
+  "private": true,
+  "description": "Portable SaaS skills library with QA, evals, and export tooling.",
+  "scripts": {
+    "audit:skills": "node scripts/audit-skills.mjs",
+    "evals:init": "node scripts/init-skill-replay.mjs",
+    "evals:score": "node scripts/score-skill-replays.mjs",
+    "qa:skills": "pnpm audit:skills && pnpm lint:md && pnpm export:flat-skills",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:md": "markdownlint-cli2",
+    "lint:md:fix": "markdownlint-cli2 --fix",
+    "fix:md": "node scripts/fix-markdownlint.mjs && pnpm lint:md:fix && prettier --write .",
+    "export:flat-skills": "node scripts/export-flat-skills.mjs"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.22.0",
+    "prettier": "^3.8.2"
+  }
+}

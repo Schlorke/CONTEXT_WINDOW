@@ -1,0 +1,6 @@
+# Regras: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+# Ajustes para conviver com Prettier (formatação) — este arquivo é só “erro de Markdown”.
+default: true
+MD013: false # comprimento de linha (Prettier já cuida do fluxo do texto)
+MD033: false # HTML embutido (comum em READMEs e guias técnicos)
+MD041: false # primeiro elemento não precisa ser H1 (READMEs, templates)

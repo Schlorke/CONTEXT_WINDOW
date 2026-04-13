@@ -1,0 +1,2744 @@
+{
+  "matrix_version": "1.3.0",
+  "generated_at": "2026-04-12T23:47:48.227Z",
+  "environment": "github-copilot",
+  "summary": {
+    "total_cases": 112,
+    "should_trigger": 48,
+    "should_not_trigger": 48,
+    "conflicts": 16
+  },
+  "instructions": {
+    "status_values": [
+      "pending",
+      "passed",
+      "failed",
+      "partial",
+      "not-run"
+    ],
+    "minimum_output_rule": "Mark each covered expected_minimum_output item verbatim in result.minimum_output_covered.",
+    "transcript_rule": "Use result.transcript_ref to point to the log, screenshot, or thread that recorded the replay."
+  },
+  "cases": [
+    {
+      "id": "acd-1",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Create C4 and Mermaid diagrams so our agents can understand the billing architecture and service boundaries.",
+      "reason": "This is a direct diagramming request for AI comprehension.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-2",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Document which containers, components, and external systems interact in our SaaS using Mermaid syntax optimized for LLMs.",
+      "reason": "Mermaid and C4 structure are the core deliverables.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-3",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Replace our ASCII architecture notes with diagrams that show actors, services, and data flow clearly for AI agents.",
+      "reason": "This asks for machine-parseable diagrams.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-c1",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Create an AGENTS.md section with architecture visuals and choose the best C4/Mermaid diagrams for agent onboarding.",
+      "reason": null,
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [
+        "intelligent-project-docs"
+      ],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": "If the missing artifact is the visual model itself, produce the diagrams first and then place them into the broader docs structure.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-n1",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Define the full documentation hierarchy, AGENTS.md contents, and ADR governance for the project.",
+      "reason": "That is documentation system design.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-n2",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Gather requirements, business rules, and MVP scope before we model the solution.",
+      "reason": "That is product and requirements analysis.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "acd-n3",
+      "source_skill": "ai-context-diagrams",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the UX for a chat assistant with visible context, citations, and streaming controls.",
+      "reason": "That is interface design, not diagramming.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-1",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Design Next.js route handlers for invoices with auth, Zod validation, pagination, and standard errors.",
+      "reason": "This is explicitly about HTTP contracts and route handlers.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-2",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Standardize our REST API for public webhooks, rate limiting, and multi-tenant authorization checks.",
+      "reason": "Webhooks, rate limiting, and auth are API design tasks.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-3",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Review our SaaS API and define consistent status codes, error envelopes, and auth middleware patterns.",
+      "reason": "The scope is API contract consistency.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-c1",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "conflict",
+      "prompt": "Build a billing backend with paginated invoice endpoints and a tenant-aware persistence model.",
+      "reason": null,
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [
+        "prisma-database-design"
+      ],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": "Prioritize the HTTP contract when the user asks for endpoints first, but delegate schema details to Prisma design.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-n1",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Create the Prisma schema, indexes, and multi-tenant data model behind the API.",
+      "reason": "That is persistence modeling, not HTTP design.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-n2",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Decompose the product domain into aggregates, use cases, and infrastructure ports.",
+      "reason": "That is a domain architecture request.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "adp-n3",
+      "source_skill": "api-design-patterns",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Design an AI chat interface with streaming, memory, and tool transparency.",
+      "reason": "This has nothing to do with REST API patterns.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-1",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Design a customer support AI chat with streaming responses, visible sources, and clear trust signals for enterprise users.",
+      "reason": "The request is about AI chat UX, streaming, and user trust.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-2",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Implement persistent conversation memory, stop/regenerate controls, and error recovery flows in our SaaS copilot UI.",
+      "reason": "Memory, control, and recovery are core interface design concerns.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-3",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Plan an AI assistant interface that integrates MCP tools, exposes context in scope, and remains WCAG compliant.",
+      "reason": "Tool integration, visible context, and accessibility belong here.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-c1",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Design an AI assistant experience for account managers and also define the prompt contract used behind the UI.",
+      "reason": null,
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [
+        "prompt-engineering-hybrid"
+      ],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": "When the product surface and user trust are central, lead with interface behavior and integrate prompt design as a supporting layer.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-n1",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Write the system prompt and JSON schema for an invoice extraction agent with hallucination safeguards.",
+      "reason": "This is prompt contract design, not interface design.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-n2",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Reduce token cost by compressing documents, reordering context, and choosing between RAG and in-context retrieval.",
+      "reason": "That is context management and token budgeting.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "aid-n3",
+      "source_skill": "ai-interface-design",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Create Mermaid diagrams that explain which services, actors, and data stores our AI system uses.",
+      "reason": "That deliverable is a diagram set, not interface UX.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-1",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Define bounded contexts, use cases, entities, and repository interfaces for a new billing domain.",
+      "reason": "This is a classic DDD and layered architecture request.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-2",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Refactor our service layer into Clean Architecture with domain rules separated from Prisma and Next.js handlers.",
+      "reason": "The user is asking for layer boundaries and domain isolation.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-3",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Write an ADR explaining how our SaaS should separate application services, domain models, and infrastructure adapters.",
+      "reason": "ADR plus layer separation should route here.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-c1",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "conflict",
+      "prompt": "Design a multi-tenant billing module including bounded contexts, use cases, and its public API surface.",
+      "reason": null,
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [
+        "api-design-patterns"
+      ],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": "Define domain and layer boundaries first, then expose them through the HTTP contract.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-n1",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the REST endpoints, auth middleware, and webhook validation for our billing API.",
+      "reason": "HTTP-layer concerns belong to API design.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-n2",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Model the Prisma schema, indexes, and migrations for subscriptions and invoices.",
+      "reason": "Persistence design belongs to Prisma database design.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "caddd-n3",
+      "source_skill": "clean-architecture-ddd",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Gather requirements, define the MVP, and validate business rules with stakeholders before coding.",
+      "reason": "That is pre-code systems analysis.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-1",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Port our Button, Input, and DataTable components from one SaaS project to another and fix missing dependencies.",
+      "reason": "This is direct cross-project component transfer.",
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-2",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Extract a shared chart card from our dashboard app and adapt its design tokens and aliases in a new codebase.",
+      "reason": "The task is extraction, adaptation, and reuse.",
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-3",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Maintain a registry of reusable React components and document dependencies whenever we move them between repos.",
+      "reason": "Registry and transfer workflow are portability concerns.",
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-c1",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "conflict",
+      "prompt": "Extract common components into a shared library while also reorganizing the repo into feature and shared layers.",
+      "reason": null,
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [
+        "react-saas-architecture"
+      ],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": "If component extraction and adaptation are the operational bottleneck, handle portability first and then align the folder structure.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-n1",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Create a brand-new design system with tokens, Storybook, and governance.",
+      "reason": "That is a system build, not cross-project reuse.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-n2",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Pick the best feature-based folder structure for our Next.js SaaS app.",
+      "reason": "Folder decisions belong to architecture.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "crp-n3",
+      "source_skill": "component-reuse-portability",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Define exact text sizes, spacing tokens, and color semantics for our app shell.",
+      "reason": "Concrete UI values belong to specifications.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-1",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Create a token budget for our coding agent and decide what belongs in the prompt, memory, and retrieval layers.",
+      "reason": "This is direct context budgeting and layering.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-2",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Our long prompts keep forgetting constraints midway through. Fix lost-in-the-middle and context drift issues.",
+      "reason": "Positional bias and drift are core triggers.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-3",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Choose between RAG, in-context compression, and periodic reminder injection for a large documentation corpus.",
+      "reason": "The choice between retrieval and compression belongs here.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-c1",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Rework our docs so agents get the right context with fewer tokens, including better document structure and selective retrieval.",
+      "reason": null,
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [
+        "intelligent-project-docs"
+      ],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": "If token limits, retrieval policy, and ordering are the bottleneck, optimize context strategy first and then reshape the docs to support it.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-n1",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Write a strict XML prompt with required sections and a fallback clause for uncertain answers.",
+      "reason": "That is prompt structure, not context optimization.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-n2",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the chat UI states, sources panel, and stop button behavior for our AI assistant.",
+      "reason": "This is interface behavior.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "cwo-n3",
+      "source_skill": "context-window-optimization",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Create AGENTS.md and reorganize our documentation hierarchy for humans and AI agents.",
+      "reason": "That is documentation architecture, not token optimization.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-1",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Create a design system for a new B2B SaaS app with semantic tokens, Storybook documentation, and component governance.",
+      "reason": "The request is about the system process, tokens, Storybook, and governance.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-2",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Migrate our existing React app from hardcoded styles to a token-based design system with component lifecycle rules.",
+      "reason": "Migration to tokens and governance belongs to design system implementation.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-3",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Define how new shared components should be proposed, reviewed, documented, and published across our SaaS frontend.",
+      "reason": "This is a governance workflow for the system, not a concrete UI spec task.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-c1",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "conflict",
+      "prompt": "Set up a new design system and also define the initial color, spacing, and typography tokens for the product.",
+      "reason": null,
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [
+        "saas-ui-specifications"
+      ],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": "Start with system architecture and governance, then pull UI specs only for the concrete token values.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-n1",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Choose the exact typography scale, spacing rules, and color palette for a new analytics dashboard.",
+      "reason": "Concrete UI values belong to specifications.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-n2",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Reorganize our Next.js folders into feature modules with shared components and barrel exports.",
+      "reason": "Folder and module structure should route to architecture.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "dsi-n3",
+      "source_skill": "design-system-implementation",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Port our Button and Modal components from one project to another and fix the imports.",
+      "reason": "Cross-project component transfer is portability work.",
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-1",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Set up README, AGENTS.md, ADRs, and module docs so this project keeps usable memory for humans and AI agents.",
+      "reason": "This is directly about documentation architecture and persistent memory.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-2",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Reorganize our documentation using Diataxis, documentation layers, and docs-as-code governance.",
+      "reason": "Diataxis and documentation governance are core triggers.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-3",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Create an AGENTS.md entry point and define where architecture, module, and local implementation docs should live.",
+      "reason": "AGENTS.md and layer placement belong here.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-c1",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "conflict",
+      "prompt": "Create a full documentation system for the repo and include an architecture diagram strategy for AGENTS.md and module docs.",
+      "reason": null,
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [
+        "ai-context-diagrams"
+      ],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": "Lead with documentation hierarchy and governance, then define which diagrams populate each layer.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-n1",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Write a research report with citations comparing vector databases for enterprise search.",
+      "reason": "That is research and report-writing work.",
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-n2",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Create C4 diagrams in Mermaid to explain our service dependencies to new agents.",
+      "reason": "That is a diagram production task.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ipd-n3",
+      "source_skill": "intelligent-project-docs",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Gather product requirements, BPMN flows, and MVP scope for a new HR SaaS.",
+      "reason": "That is systems analysis, not documentation governance.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-1",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Audit this messy React codebase, find hotspots, and propose a safe refactoring plan before we touch behavior.",
+      "reason": "Hotspots and safe refactoring are direct triggers.",
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-2",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Add characterization tests around an untested billing module and then split its god component safely.",
+      "reason": "Characterization testing plus refactoring of legacy code belongs here.",
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-3",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Use git history to identify high-churn files and prioritize a refactoring sprint for technical debt reduction.",
+      "reason": "Git-based hotspot analysis is specific to this skill.",
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-c1",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "conflict",
+      "prompt": "Stabilize a legacy checkout module by adding tests and then refactor duplicated logic and prop drilling.",
+      "reason": null,
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [
+        "testing-strategies"
+      ],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": "When the system is risky and already in production, lead with characterization-driven refactoring and use testing strategy as the safety mechanism.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-n1",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Set up Vitest, Playwright, and a team-wide testing pyramid for a fresh project.",
+      "reason": "That is testing framework strategy, not legacy rehab.",
+      "expected_primary_skill": "testing-strategies",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Test pyramid or distribution guidance by test type",
+        "Concrete tooling and organization recommendations",
+        "Representative test cases or CI quality gates"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-n2",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Choose the best Next.js feature folder architecture for a new SaaS app.",
+      "reason": "New-project folder structure belongs to architecture.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "lcr-n3",
+      "source_skill": "legacy-code-refactoring",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Define bounded contexts and use cases for a greenfield billing platform.",
+      "reason": "That is greenfield domain architecture, not legacy refactoring.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-1",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Model a Prisma schema for subscriptions, invoices, and organizations with indexes and safe migrations.",
+      "reason": "Schema and migration design are the direct trigger.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-2",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Optimize our PostgreSQL access patterns in Prisma, including select/include strategy and EXPLAIN ANALYZE review.",
+      "reason": "Query and index optimization belongs here.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-3",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_trigger",
+      "prompt": "Choose a multi-tenant Prisma strategy and document how IDs, indexes, and seeds should work.",
+      "reason": "This is DB-level multi-tenancy and persistence strategy.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-c1",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "conflict",
+      "prompt": "Design the invoice schema, repository queries, and the API contract for fetching tenant data.",
+      "reason": null,
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [
+        "api-design-patterns"
+      ],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": "When schema, indexes, and query behavior are central, lead with database design and then shape the API around it.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-n1",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the public REST routes and error envelopes for subscriptions and invoices.",
+      "reason": "That request is HTTP-facing.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-n2",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Define bounded contexts and domain services for subscription billing.",
+      "reason": "That belongs to domain architecture.",
+      "expected_primary_skill": "clean-architecture-ddd",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Layer boundaries and responsibilities",
+        "Core domain model or bounded context decisions",
+        "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "pdd-n3",
+      "source_skill": "prisma-database-design",
+      "collection": "backend",
+      "case_type": "should_not_trigger",
+      "prompt": "Gather requirements, roadmap, and MVP scope for a new SaaS before choosing the data model.",
+      "reason": "That is systems analysis before persistence implementation.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-1",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Write a production prompt for extracting invoice data with a strict JSON schema, fallback clause, and few-shot examples.",
+      "reason": "This is directly about prompt construction and output format.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-2",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Choose whether this LLM workflow should output JSON, markdown, or XML and document the trade-offs.",
+      "reason": "Format selection is a core trigger.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-3",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Redesign our prompt so it stops hallucinating optional fields and returns a stable machine-readable structure.",
+      "reason": "Hallucination mitigation plus structure definition belongs here.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-c1",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Design a support copilot prompt and also decide how much retrieval context to send on each request.",
+      "reason": null,
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [
+        "context-window-optimization"
+      ],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": "Start with prompt contract and output structure, then tune context volume and retrieval strategy.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-n1",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Reduce token usage, choose between RAG and compression, and solve lost-in-the-middle issues.",
+      "reason": "This is context management, not prompt structure.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-n2",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the UI for an AI chat product with streaming, transparency, and persistent memory.",
+      "reason": "That is AI UX and product interface work.",
+      "expected_primary_skill": "ai-interface-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Coverage of the main trust and control pillars",
+        "Streaming, memory, and tool-integration architecture choices",
+        "Accessibility, transparency, and error-recovery rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "peh-n3",
+      "source_skill": "prompt-engineering-hybrid",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Create Mermaid and C4 diagrams so an agent can understand our architecture faster.",
+      "reason": "That is a diagramming task.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-1",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Scaffold a Next.js SaaS repo with feature-based folders, shared layers, and barrel exports.",
+      "reason": "This is a folder and component architecture decision.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-2",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Our component tree is messy. Reorganize it using App Router route groups, co-location, and shared utilities.",
+      "reason": "The request is about structure and organization.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-3",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Choose between feature-based and layer-based organization for a medium-sized React SaaS with reusable shared modules.",
+      "reason": "Pattern choice for project organization is the core trigger.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-c1",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "conflict",
+      "prompt": "Reorganize the repo into shared and feature folders while extracting common components into a reusable package.",
+      "reason": null,
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [
+        "component-reuse-portability"
+      ],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": "Choose the target architecture first, then move and adapt reusable components into the structure.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-n1",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Define the typography ramp, color semantics, and spacing grid for our dashboard UI.",
+      "reason": "That is concrete UI specification work.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-n2",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Build a design system with tokens, Storybook, and component governance policies.",
+      "reason": "That is system implementation, not folder architecture.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "rsa-n3",
+      "source_skill": "react-saas-architecture",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Audit a legacy React module, add characterization tests, and refactor it safely.",
+      "reason": "Legacy refactoring should not route to new-project architecture.",
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-1",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Analyze a new B2B SaaS idea, gather requirements, and define the MVP with business rules and priorities.",
+      "reason": "This is a full systems analysis and MVP definition task.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-2",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Create C4, BPMN, and ER models for our onboarding workflow and validate the architecture with stakeholders.",
+      "reason": "Requirements modeling and validation belong here.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-3",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Turn stakeholder interviews into functional requirements, non-functional constraints, and a release roadmap.",
+      "reason": "This is analyst work linking business needs to system scope.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-c1",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "conflict",
+      "prompt": "Define SaaS requirements and MVP scope for billing, then map the domain into use cases and bounded contexts.",
+      "reason": null,
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [
+        "clean-architecture-ddd"
+      ],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": "Start with stakeholder needs, scope, and business rules; once the problem is framed, refine the internal domain model with DDD.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-n1",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the Prisma schema, indexes, and migrations for subscriptions and invoices.",
+      "reason": "That is persistence implementation.",
+      "expected_primary_skill": "prisma-database-design",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Schema or relation design guidance",
+        "Migration and indexing strategy",
+        "Query and multi-tenancy rules"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-n2",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Create Mermaid diagrams optimized for AI comprehension of our existing architecture.",
+      "reason": "That is targeted diagram production.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sas-n3",
+      "source_skill": "systems-analysis-saas",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Write an evidence-backed whitepaper with citations comparing deployment strategies.",
+      "reason": "That is research reporting, not product/system analysis.",
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-1",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Define the typography scale, color roles, and spacing system for a B2B SaaS dashboard.",
+      "reason": "This asks for concrete UI values and rules.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-2",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Specify our responsive grid, dark mode behavior, and WCAG color contrast targets.",
+      "reason": "Grid, dark mode, and accessibility specs belong here.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-3",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_trigger",
+      "prompt": "Create a compact and comfortable density spec for tables, forms, and navigation in our SaaS product.",
+      "reason": "Density and concrete layout values are UI specifications.",
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-c1",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "conflict",
+      "prompt": "Our design system exists already, but we need exact color, typography, and spacing values for a new admin panel.",
+      "reason": null,
+      "expected_primary_skill": "saas-ui-specifications",
+      "expected_secondary_skills": [
+        "design-system-implementation"
+      ],
+      "expected_minimum_output": [
+        "Typography, color, and spacing decisions",
+        "Responsive and dark mode rules",
+        "Accessibility acceptance criteria"
+      ],
+      "resolution": "Stay in specs mode unless governance or token system changes are also required.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-n1",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Set up Storybook, token governance, and component review policies for the whole design system.",
+      "reason": "That is governance and system setup, not concrete values.",
+      "expected_primary_skill": "design-system-implementation",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Token taxonomy and naming conventions",
+        "Storybook or documentation workflow",
+        "Governance rules for adding and changing components"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-n2",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Choose the best folder structure for React features and shared modules.",
+      "reason": "Folder organization belongs to architecture.",
+      "expected_primary_skill": "react-saas-architecture",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended folder pattern with justification",
+        "Clear rules for co-location and exports",
+        "Boundaries between feature code and shared code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sui-n3",
+      "source_skill": "saas-ui-specifications",
+      "collection": "frontend",
+      "case_type": "should_not_trigger",
+      "prompt": "Copy a Card component from another app and adapt its imports and design tokens.",
+      "reason": "That is cross-project portability work.",
+      "expected_primary_skill": "component-reuse-portability",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Dependency resolution plan",
+        "Import and token adaptation steps",
+        "Registry or README update instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-1",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Write a technical report comparing RAG and fine-tuning for enterprise support copilots, with citations and evidence grading.",
+      "reason": "This is a research report with source evaluation.",
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-2",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Review our source base with the CRAAP test and produce a structured literature review on observability tooling.",
+      "reason": "CRAAP and literature review are direct triggers.",
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-3",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_trigger",
+      "prompt": "Define the research question, evidence hierarchy, and citation method for a whitepaper about AI transparency.",
+      "reason": "That request is about research methodology and writing.",
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-c1",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "conflict",
+      "prompt": "Produce a report that recommends the MVP architecture for a new SaaS, with external evidence and stakeholder-ready justification.",
+      "reason": null,
+      "expected_primary_skill": "technical-research-writing",
+      "expected_secondary_skills": [
+        "systems-analysis-saas"
+      ],
+      "expected_minimum_output": [
+        "Well-scoped research question or hypothesis",
+        "Source evaluation and citation methodology",
+        "Synthesis with evidence quality or uncertainty clearly stated"
+      ],
+      "resolution": "When the main deliverable is an evidence-backed report, start with research framing and pull systems analysis in to structure the recommendation.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-n1",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Create AGENTS.md, ADRs, and a docs-as-code process for this monorepo.",
+      "reason": "That is project documentation architecture.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-n2",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Gather requirements, model the MVP, and validate business rules for a new B2B SaaS.",
+      "reason": "That is systems analysis rather than research reporting.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "trw-n3",
+      "source_skill": "technical-research-writing",
+      "collection": "documentation",
+      "case_type": "should_not_trigger",
+      "prompt": "Design a structured XML prompt with explicit uncertainty handling and output schema.",
+      "reason": "That is prompt design, not research writing.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-1",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Set up Vitest, Testing Library, and Playwright for a Next.js SaaS and define the testing pyramid for the team.",
+      "reason": "This is a direct testing strategy setup request.",
+      "expected_primary_skill": "testing-strategies",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Test pyramid or distribution guidance by test type",
+        "Concrete tooling and organization recommendations",
+        "Representative test cases or CI quality gates"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-2",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Apply TDD to a new API route and decide which tests should be unit, integration, and E2E.",
+      "reason": "TDD and test-level selection are core testing concerns.",
+      "expected_primary_skill": "testing-strategies",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Test pyramid or distribution guidance by test type",
+        "Concrete tooling and organization recommendations",
+        "Representative test cases or CI quality gates"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-3",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_trigger",
+      "prompt": "Review our coverage gaps and propose test cases for React components, hooks, and route handlers.",
+      "reason": "Coverage planning and test selection belong here.",
+      "expected_primary_skill": "testing-strategies",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Test pyramid or distribution guidance by test type",
+        "Concrete tooling and organization recommendations",
+        "Representative test cases or CI quality gates"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-c1",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "conflict",
+      "prompt": "Rescue a fragile legacy module by defining the right automated tests and then cleaning up the implementation.",
+      "reason": null,
+      "expected_primary_skill": "testing-strategies",
+      "expected_secondary_skills": [
+        "legacy-code-refactoring"
+      ],
+      "expected_minimum_output": [
+        "Test pyramid or distribution guidance by test type",
+        "Concrete tooling and organization recommendations",
+        "Representative test cases or CI quality gates"
+      ],
+      "resolution": "If the immediate blocker is missing automated coverage and test architecture, lead with the testing strategy and then refactor inside that safety net.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-n1",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Audit a risky legacy module, identify hotspots, and refactor it safely with minimal behavior change.",
+      "reason": "That is legacy stabilization work.",
+      "expected_primary_skill": "legacy-code-refactoring",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Audit of hotspots, smells, or dependency risks",
+        "Characterization or safety-test plan before structural change",
+        "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-n2",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Design the REST contract, auth middleware, and error envelopes for a billing API.",
+      "reason": "That is API design, not testing strategy.",
+      "expected_primary_skill": "api-design-patterns",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Resource model and route contract",
+        "Auth, validation, and error handling rules",
+        "Guidance for pagination, rate limiting, or webhooks when relevant"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "ts-n3",
+      "source_skill": "testing-strategies",
+      "collection": "engineering",
+      "case_type": "should_not_trigger",
+      "prompt": "Create the requirements, MVP priorities, and BPMN flows for a new multi-tenant SaaS.",
+      "reason": "That is project analysis before implementation.",
+      "expected_primary_skill": "systems-analysis-saas",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Functional and non-functional requirements set",
+        "MVP scope or prioritization model",
+        "System models or business rules with validation checkpoints"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    }
+  ]
+}
