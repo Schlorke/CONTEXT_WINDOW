@@ -14,11 +14,19 @@ Para esta biblioteca, a estratégia correta é:
 - **política de update:** edite `saas-skills/` e sincronize; não edite cópias instaladas
 - **runtime Codex:** `$CODEX_HOME/skills/<skill>/SKILL.md`
 - **runtime Claude:** `.claude/skills/<skill>/SKILL.md` ou `~/.claude/skills/<skill>/SKILL.md`
-- **runtime Cursor:** `.cursor/rules/*.mdc` ou `~/.cursor/rules/*.mdc`
+- **runtime Cursor por projeto:** `.cursor/rules/*.mdc`
+- **compatibilidade global do Cursor:** `~/.cursor/rules/*.mdc`
+- **bootstrap global oficial do Cursor:** `Cursor Settings > Rules`
 
 Ou seja, a biblioteca precisa de adapters por ambiente.
 
 Cada runtime gerenciado recebe `.saas-skills-manifest.json`. Esse manifest registra a versão instalada e permite verificar se uma instância ficou desatualizada em relação à fonte atual.
+
+Se você quiser obrigar o agente a declarar quais skills usou em cada tarefa, aplique também a política de disclosure do projeto:
+
+- `AGENTS.md` para Codex
+- `CLAUDE.md` para Claude
+- `.cursor/rules/skill-usage-reporting.mdc` para Cursor
 
 ## Codex
 
@@ -68,7 +76,7 @@ Cursor usa regras em:
 .cursor/rules/*.mdc
 ```
 
-Para uso global neste repositório, as rules também podem ser materializadas em:
+Como compatibilidade global neste repositório, as rules também podem ser materializadas em:
 
 ```text
 ~/.cursor/rules/*.mdc
@@ -80,7 +88,9 @@ Pontos importantes:
 - o runtime real do Cursor é `.cursor/rules/`
 - algumas regras funcionam melhor como **Agent Requested**
 - outras podem ser **Auto Attached** quando existe um conjunto de `globs` bem definido
-- a documentação oficial do Cursor descreve o conceito como `User Rules` globais; neste repositório, esse runtime global é materializado em `~/.cursor/rules/`
+- a documentação oficial do Cursor descreve `User Rules` globais na interface
+- por isso, neste repositório, `~/.cursor/rules/` é tratado como export de compatibilidade e não como equivalente perfeito da UI
+- para o caminho global oficialmente alinhado, use também `pnpm export:cursor-user-rules` e cole o bootstrap em `Cursor Settings > Rules`
 
 Nesta biblioteca, o adapter de Cursor é gerado a partir de:
 
@@ -113,6 +123,7 @@ Se você quiser instalar também as versões globais de Claude e Cursor:
 ```bash
 pnpm install:agent-runtimes -- <target-dir> --global-all
 pnpm verify:agent-runtimes -- <target-dir> --global-all
+pnpm export:cursor-user-rules
 ```
 
 Se você quiser apenas os runtimes globais:
@@ -120,6 +131,7 @@ Se você quiser apenas os runtimes globais:
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+pnpm export:cursor-user-rules
 ```
 
 ## Modos Úteis
@@ -157,6 +169,7 @@ pnpm verify:agent-runtimes -- . --cursor-only
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+pnpm export:cursor-user-rules
 ```
 
 ### Status e sincronização
@@ -171,6 +184,35 @@ pnpm sync:global-runtimes
 
 Use `status` para descobrir quais runtimes estão `current`, `outdated`, `missing` ou `foreign`.
 Use `sync` para reaplicar a versão atual de `saas-skills/` nos runtimes desejados.
+Se o escopo incluir Cursor global, regenere também `pnpm export:cursor-user-rules` e atualize o texto colado em `Cursor Settings > Rules` quando o bootstrap mudar.
+
+## Política de Disclosure das Skills Usadas
+
+Para exigir que o agente informe no final da tarefa quais skills realmente foram usadas, rode:
+
+```bash
+pnpm install:skill-usage-reporting -- .
+pnpm verify:skill-usage-reporting -- .
+```
+
+Esse fluxo instala a política em:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursor/rules/skill-usage-reporting.mdc`
+
+Formato exigido:
+
+```text
+Skills Used
+- <skill-name>: <short reason>
+```
+
+Se nenhuma skill foi usada:
+
+```text
+Skills Used: none
+```
 
 ## Smoke Seguro dos Runtimes Globais
 
@@ -229,7 +271,8 @@ Considere a instalação funcional quando:
 - `pnpm status:agent-runtimes` ou `pnpm status:global-runtimes` mostrar `current`
 - Codex encontrar as skills em `$CODEX_HOME/skills/`
 - Claude encontrar as skills em `.claude/skills/` ou `~/.claude/skills/`
-- Cursor carregar as regras geradas em `.cursor/rules/` ou `~/.cursor/rules/`
+- Cursor carregar as regras geradas em `.cursor/rules/`
+- se o escopo for Cursor global, o export de compatibilidade existir em `~/.cursor/rules/` e o bootstrap `CURSOR_USER_RULES.md` ter sido gerado para `Settings > Rules`
 - smoke tests sem edição mostrarem comportamento coerente com a skill esperada
 
 ## O Que Esta Estratégia Evita
@@ -239,6 +282,7 @@ Ela evita:
 - usar o `skill-installer` da Codex como se ele instalasse também Claude e Cursor
 - instalar a árvore errada em `.claude/skills/`
 - depender de `.cursor/skills/` como se fosse runtime nativo
+- tratar `~/.cursor/rules/` como se fosse garantia de exibição na UI do Cursor
 - tocar no código da aplicação para apenas validar a biblioteca
 - misturar fonte de verdade com adapters específicos por plataforma
 - deixar uma IA atualizada e as outras desatualizadas sem detecção
@@ -252,6 +296,7 @@ Ela evita:
 ## Troubleshooting
 
 - **Cursor não aplicou a library:** confirme que os arquivos foram para `.cursor/rules/` ou `~/.cursor/rules/`, não para `.cursor/skills/`.
+- **As rules globais do Cursor não apareceram na interface:** isso não invalida o export de compatibilidade. Gere `pnpm export:cursor-user-rules` e cole o bootstrap em `Cursor Settings > Rules`.
 - **Claude não encontrou a skill:** confirme que existe uma pasta imediata por skill em `.claude/skills/` ou `~/.claude/skills/`.
 - **Só a Codex recebeu as skills:** isso acontece quando o fluxo usou apenas o `skill-installer` nativo da Codex.
 - **Atualizei uma cópia instalada e as outras IAs não acompanharam:** o fluxo correto é editar `saas-skills/` e rodar `sync`.
@@ -263,5 +308,6 @@ Ela evita:
 ## Documentos Relacionados
 
 - [README.md](README.md)
+- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md)
 - [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md)
 - [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md)

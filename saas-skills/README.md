@@ -16,6 +16,7 @@ Na prática, ela entrega:
 - tooling para instalar em projetos-alvo sem tocar no código da aplicação
 - tooling para instalar seletivamente em apenas uma IA
 - tooling para sincronizar updates e detectar drift entre runtimes
+- política opcional para exigir disclosure das skills usadas ao final de cada tarefa
 - documentação operacional e QA
 
 ## Coleções
@@ -125,13 +126,19 @@ Cursor usa:
 .cursor/rules/*.mdc
 ```
 
-e, para uso global neste repositório, também materializa rules em:
+Como compatibilidade global neste repositório, também materializa rules em:
 
 ```text
 ~/.cursor/rules/*.mdc
 ```
 
-Para este runtime, a biblioteca gera adapters `.mdc` a partir das skills canônicas.
+Para o global oficialmente documentado do Cursor, a biblioteca também exporta um bootstrap curto para:
+
+```text
+Cursor Settings > Rules
+```
+
+Para este runtime, a biblioteca gera adapters `.mdc` a partir das skills canônicas e um bootstrap separado para `User Rules`.
 
 ### O Que Não Fazer
 
@@ -146,31 +153,36 @@ Eles não são o runtime recomendado desta biblioteca.
 ## Documentos de Runtime
 
 - [../AGENTS.md](../AGENTS.md): ponto de entrada para agentes no repositório
+- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md): política copiável para exigir disclosure de skills usadas
+- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md): explicação do global do Cursor, limites e bootstrap oficial
 - [IDE_RUNTIME_GUIDE.md](IDE_RUNTIME_GUIDE.md): instalação correta por plataforma
 - [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md): arquivo copiável para agentes
 - [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md): matriz de instalação por ambiente
 
 ## Comandos Principais
 
-| Comando                                       | O que faz                                                                              | Quando usar                                           |
-| --------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| `pnpm export:flat-skills`                     | Gera `dist/flat-skills/`                                                               | Para Claude runtime e loaders rasos                   |
-| `pnpm export:cursor-rules`                    | Gera `dist/cursor-rules/`                                                              | Para Cursor runtime                                   |
-| `pnpm install:codex -- <target-dir>`          | Instala somente a Codex                                                                | Quando você quer só `$CODEX_HOME/skills/`             |
-| `pnpm install:claude -- <target-dir>`         | Instala somente o Claude do projeto                                                    | Quando você quer só `.claude/skills/`                 |
-| `pnpm install:cursor -- <target-dir>`         | Instala somente o Cursor do projeto                                                    | Quando você quer só `.cursor/rules/`                  |
-| `pnpm install:claude-global`                  | Instala somente o Claude global                                                        | Quando você quer só `~/.claude/skills/`               |
-| `pnpm install:cursor-global`                  | Instala somente o Cursor global                                                        | Quando você quer só `~/.cursor/rules/`                |
-| `pnpm install:ide-runtime -- <target-dir>`    | Instala apenas Claude e Cursor no projeto-alvo                                         | Quando a Codex não entra no escopo                    |
-| `pnpm verify:ide-runtime -- <target-dir>`     | Verifica apenas Claude e Cursor                                                        | Depois da instalação de projeto                       |
-| `pnpm install:agent-runtimes -- <target-dir>` | Instala Codex global e Claude/Cursor no projeto                                        | Para um único fluxo multi-IA por projeto              |
-| `pnpm verify:agent-runtimes -- <target-dir>`  | Verifica Codex global e Claude/Cursor no projeto                                       | Depois da instalação unificada                        |
-| `pnpm sync:agent-runtimes -- <target-dir>`    | Reaplica a fonte de verdade nos runtimes selecionados                                  | Quando uma skill mudou em `saas-skills/`              |
-| `pnpm sync:global-runtimes`                   | Reaplica a fonte de verdade nos runtimes globais                                       | Quando você quer atualizar tudo                       |
-| `pnpm status:agent-runtimes -- <target-dir>`  | Mostra `current`, `outdated`, `missing` ou `foreign` por runtime                       | Para diagnosticar instalações                         |
-| `pnpm install:global-runtimes`                | Instala Codex, Claude e Cursor globalmente                                             | Para disponibilizar a biblioteca em todos os projetos |
-| `pnpm verify:global-runtimes`                 | Verifica a instalação global                                                           | Depois da instalação global                           |
-| `pnpm qa:skills`                              | Executa QA completo, incluindo smoke install multi-IA, verificação e status em `dist/` | Antes de release                                      |
+| Comando                                              | O que faz                                                                              | Quando usar                                                  |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `pnpm export:flat-skills`                            | Gera `dist/flat-skills/`                                                               | Para Claude runtime e loaders rasos                          |
+| `pnpm export:cursor-rules`                           | Gera `dist/cursor-rules/`                                                              | Para Cursor runtime                                          |
+| `pnpm export:cursor-user-rules`                      | Gera `dist/cursor-user-rules/CURSOR_USER_RULES.md`                                     | Para colar em `Cursor Settings > Rules`                      |
+| `pnpm install:codex -- <target-dir>`                 | Instala somente a Codex                                                                | Quando você quer só `$CODEX_HOME/skills/`                    |
+| `pnpm install:claude -- <target-dir>`                | Instala somente o Claude do projeto                                                    | Quando você quer só `.claude/skills/`                        |
+| `pnpm install:cursor -- <target-dir>`                | Instala somente o Cursor do projeto                                                    | Quando você quer só `.cursor/rules/`                         |
+| `pnpm install:claude-global`                         | Instala somente o Claude global                                                        | Quando você quer só `~/.claude/skills/`                      |
+| `pnpm install:cursor-global`                         | Instala o export global de compatibilidade do Cursor e grava `CURSOR_USER_RULES.md`    | Quando você quer preparar o global do Cursor                 |
+| `pnpm install:skill-usage-reporting -- <target-dir>` | Instala a política de disclosure em `AGENTS.md`, `CLAUDE.md` e Cursor rule             | Quando você quer rastrear skills usadas nas respostas finais |
+| `pnpm install:ide-runtime -- <target-dir>`           | Instala apenas Claude e Cursor no projeto-alvo                                         | Quando a Codex não entra no escopo                           |
+| `pnpm verify:ide-runtime -- <target-dir>`            | Verifica apenas Claude e Cursor                                                        | Depois da instalação de projeto                              |
+| `pnpm install:agent-runtimes -- <target-dir>`        | Instala Codex global e Claude/Cursor no projeto                                        | Para um único fluxo multi-IA por projeto                     |
+| `pnpm verify:agent-runtimes -- <target-dir>`         | Verifica Codex global e Claude/Cursor no projeto                                       | Depois da instalação unificada                               |
+| `pnpm verify:skill-usage-reporting -- <target-dir>`  | Verifica a política de disclosure em `AGENTS.md`, `CLAUDE.md` e Cursor rule            | Depois da instalação da política                             |
+| `pnpm sync:agent-runtimes -- <target-dir>`           | Reaplica a fonte de verdade nos runtimes selecionados                                  | Quando uma skill mudou em `saas-skills/`                     |
+| `pnpm sync:global-runtimes`                          | Reaplica a fonte de verdade nos runtimes globais                                       | Quando você quer atualizar tudo                              |
+| `pnpm status:agent-runtimes -- <target-dir>`         | Mostra `current`, `outdated`, `missing` ou `foreign` por runtime                       | Para diagnosticar instalações                                |
+| `pnpm install:global-runtimes`                       | Instala Codex e Claude globalmente e prepara o export global do Cursor                 | Para disponibilizar a biblioteca em todos os projetos        |
+| `pnpm verify:global-runtimes`                        | Verifica a instalação global                                                           | Depois da instalação global                                  |
+| `pnpm qa:skills`                                     | Executa QA completo, incluindo smoke install multi-IA, verificação e status em `dist/` | Antes de release                                             |
 
 ## Instalação por Ambiente
 
@@ -256,17 +268,18 @@ pnpm verify:cursor -- C:\caminho\do\projeto
 Modo recomendado:
 
 ```bash
-pnpm install:global-runtimes
-```
-
-Isso instala adapters `.mdc` em `~/.cursor/rules/`.
-
-Somente Cursor global:
-
-```bash
 pnpm install:cursor-global
 pnpm verify:cursor-global
+pnpm export:cursor-user-rules
 ```
+
+Isso instala adapters `.mdc` em `~/.cursor/rules/` como compatibilidade e gera o bootstrap curto para `Cursor Settings > Rules`.
+
+Depois disso:
+
+- abra `dist/cursor-user-rules/CURSOR_USER_RULES.md`
+- copie o conteúdo
+- cole em `Cursor Settings > Rules`
 
 ### Claude dentro do Cursor
 
@@ -297,9 +310,44 @@ Se você quer um fluxo único global para as três IAs:
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+pnpm export:cursor-user-rules
 ```
 
 Depois de instalada, a própria biblioteca passa a oferecer a skill [multi-agent-skill-installer](C:/Projetos/Context_Window/saas-skills/ai-integration/multi-agent-skill-installer/SKILL.md:1), que você pode invocar para pedir o fluxo em linguagem natural.
+
+## Como Exigir Disclosure das Skills Usadas
+
+Se você quer observabilidade de uso real das skills, instale a política de disclosure no projeto-alvo.
+
+Comandos:
+
+```bash
+pnpm install:skill-usage-reporting -- C:\caminho\do\projeto
+pnpm verify:skill-usage-reporting -- C:\caminho\do\projeto
+```
+
+Esse fluxo instala:
+
+- um bloco gerenciado em `AGENTS.md`
+- um bloco gerenciado em `CLAUDE.md`
+- uma rule do Cursor em `.cursor/rules/skill-usage-reporting.mdc`
+
+Formato exigido ao final da tarefa:
+
+```text
+Skills Used
+- <skill-name>: <short reason>
+```
+
+Sem skill:
+
+```text
+Skills Used: none
+```
+
+Documento-base:
+
+- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md)
 
 ## Como Atualizar uma Skill sem Criar Drift
 
@@ -337,6 +385,7 @@ Esse modelo resolve o problema de drift entre instâncias:
 - Codex atualizada e Claude/Cursor antigas
 - Claude do projeto atualizada e Claude global antiga
 - rules do Cursor antigas depois de mudança de descrição ou `globs`
+- bootstrap global do Cursor desatualizado em `Settings > Rules` depois de mudança na biblioteca
 
 ### GitHub Copilot / loaders sem descoberta recursiva
 
@@ -379,7 +428,9 @@ O instalador deste repo resolve:
 
 - runtime real da Codex
 - runtime real do Claude local e global
-- runtime real do Cursor local e global
+- runtime real do Cursor por projeto
+- export global de compatibilidade do Cursor em `~/.cursor/rules/`
+- bootstrap global do Cursor para `Settings > Rules`
 - verificação estrutural
 - manifests de runtime para detectar drift
 - smoke seguro usando `--codex-home`, `--claude-home` e `--cursor-home`
@@ -435,6 +486,8 @@ A biblioteca mantém:
 Documentos relacionados:
 
 - [../CHANGELOG.md](../CHANGELOG.md)
+- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md)
+- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md)
 - [QA_REPORT.md](QA_REPORT.md)
 - [EVALS_REPORT.md](EVALS_REPORT.md)
 - [PRACTICAL_SKILL_TEST_REPORT.md](PRACTICAL_SKILL_TEST_REPORT.md)
@@ -444,6 +497,7 @@ Uso recomendado:
 
 - consulte `CHANGELOG.md` para histórico público e resumido
 - consulte `RELEASE_NOTES.md` para trilha operacional detalhada
+- consulte `AGENT_SKILL_USAGE_REPORTING.md` quando quiser governança explícita de disclosure das skills usadas
 
 ## Resumo Prático
 
@@ -454,7 +508,8 @@ Se você quer o fluxo mais útil:
 3. `pnpm install:agent-runtimes -- <target-dir>`
 4. `pnpm verify:agent-runtimes -- <target-dir>`
 5. para global, rode `pnpm install:global-runtimes`
-6. para instalação seletiva, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
-7. para updates, use os comandos `sync:*`
-8. para validar sem tocar nos runtimes reais, use `--codex-home`, `--claude-home` e `--cursor-home`
-9. use [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição
+6. para o Cursor global, rode também `pnpm export:cursor-user-rules` e cole em `Settings > Rules`
+7. para instalação seletiva, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
+8. para updates, use os comandos `sync:*`
+9. para validar sem tocar nos runtimes reais, use `--codex-home`, `--claude-home` e `--cursor-home`
+10. use [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição

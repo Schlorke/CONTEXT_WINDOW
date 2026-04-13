@@ -18,6 +18,7 @@ Na prática, isso significa:
 - instalação segura em três runtimes diferentes
 - instalação seletiva para apenas uma IA, quando necessário
 - sincronização explícita para evitar drift entre instâncias
+- política opcional para obrigar agentes a declararem as skills usadas ao final da tarefa
 - verificação estrutural e smoke tests sem impacto no app
 
 ## Estrutura
@@ -46,7 +47,10 @@ Esta biblioteca usa uma estratégia de adapters. Não existe um formato único d
 - runtimes instalados são cópias geradas, não o local correto para manutenção
 - Codex usa `$CODEX_HOME/skills/<skill>/SKILL.md`
 - Claude pode usar `.claude/skills/<skill>/SKILL.md` por projeto ou `~/.claude/skills/<skill>/SKILL.md` globalmente
-- Cursor pode usar `.cursor/rules/*.mdc` por projeto ou `~/.cursor/rules/*.mdc` globalmente
+- Cursor usa `.cursor/rules/*.mdc` como runtime oficial por projeto
+- Cursor global fica dividido entre:
+  - export de compatibilidade em `~/.cursor/rules/*.mdc`
+  - bootstrap oficial em `Cursor Settings > Rules`, gerado por `pnpm export:cursor-user-rules`
 
 Política de atualização:
 
@@ -60,13 +64,15 @@ Pontos importantes:
 - o `skill-installer` nativo da Codex instala skills na área da própria Codex; ele não instala rules do Cursor nem runtime do Claude por conta própria
 - `.cursor/skills/` não é o runtime oficial do Cursor
 - copiar a árvore agrupada por coleção para dentro de `.claude/skills/` não é o modo recomendado de runtime do Claude
-- no Cursor, a documentação oficial fala em `User Rules` globais nas configurações; este repositório materializa esse runtime global como arquivos em `~/.cursor/rules/`
+- no Cursor, `Project Rules` e `User Rules` são superfícies diferentes; por isso o repositório gera rules em `~/.cursor/rules/` como compatibilidade e também exporta um bootstrap curto para `Cursor Settings > Rules`
 
 Detalhes completos:
 
 - [AGENTS.md](AGENTS.md)
 - [CHANGELOG.md](CHANGELOG.md)
 - [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
+- [saas-skills/CURSOR_USER_RULES_GUIDE.md](saas-skills/CURSOR_USER_RULES_GUIDE.md)
+- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
 - [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
 - [saas-skills/PORTABILITY_MATRIX.md](saas-skills/PORTABILITY_MATRIX.md)
 
@@ -87,30 +93,33 @@ Isso valida:
 
 ## Comandos
 
-| Comando                                       | O que faz                                                                                 | Quando usar                                             |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `pnpm install`                                | Instala dependências de tooling                                                           | Sempre após clonar                                      |
-| `pnpm audit:skills`                           | Valida frontmatter, seções obrigatórias, referências internas e cobertura mínima de evals | Antes de release                                        |
-| `pnpm lint:md`                                | Roda `markdownlint`                                                                       | Após editar documentação                                |
-| `pnpm export:flat-skills`                     | Gera `dist/flat-skills/` com uma pasta imediata por skill                                 | Para runtime do Claude e loaders rasos                  |
-| `pnpm export:cursor-rules`                    | Gera `dist/cursor-rules/` com adapters `.mdc`                                             | Para runtime do Cursor                                  |
-| `pnpm install:codex -- <target-dir>`          | Instala somente a Codex                                                                   | Quando você quer só o runtime global da Codex           |
-| `pnpm install:claude -- <target-dir>`         | Instala somente o Claude do projeto                                                       | Quando você quer só `.claude/skills/`                   |
-| `pnpm install:cursor -- <target-dir>`         | Instala somente o Cursor do projeto                                                       | Quando você quer só `.cursor/rules/`                    |
-| `pnpm install:claude-global`                  | Instala somente o Claude global                                                           | Quando você quer todas as skills em `~/.claude/skills/` |
-| `pnpm install:cursor-global`                  | Instala somente o Cursor global                                                           | Quando você quer todas as rules em `~/.cursor/rules/`   |
-| `pnpm install:ide-runtime -- <target-dir>`    | Instala apenas os runtimes de projeto de Claude e Cursor                                  | Quando você não quer tocar na Codex                     |
-| `pnpm verify:ide-runtime -- <target-dir>`     | Verifica apenas os runtimes de projeto de Claude e Cursor                                 | Depois da instalação de projeto                         |
-| `pnpm install:agent-runtimes -- <target-dir>` | Instala Codex global e Claude/Cursor no projeto                                           | Para instalação unificada multi-IA por projeto          |
-| `pnpm verify:agent-runtimes -- <target-dir>`  | Verifica Codex global e Claude/Cursor no projeto                                          | Depois da instalação unificada por projeto              |
-| `pnpm sync:agent-runtimes -- <target-dir>`    | Reaplica a fonte de verdade nos runtimes selecionados                                     | Quando uma skill foi atualizada no repo                 |
-| `pnpm sync:global-runtimes`                   | Reaplica a fonte de verdade nos três runtimes globais                                     | Quando você quer propagar updates para todo o ambiente  |
-| `pnpm status:agent-runtimes -- <target-dir>`  | Mostra se cada runtime está `current`, `outdated`, `missing` ou `foreign`                 | Antes de atualizar ou para diagnosticar drift           |
-| `pnpm install:global-runtimes`                | Instala Codex, Claude e Cursor globalmente                                                | Para disponibilizar a biblioteca em todos os projetos   |
-| `pnpm verify:global-runtimes`                 | Verifica a instalação global das três plataformas                                         | Depois da instalação global                             |
-| `pnpm evals:init -- <ambiente>`               | Cria um template de replay                                                                | Só para benchmark/QA avançado                           |
-| `pnpm evals:score -- <arquivo-ou-diretorio>`  | Consolida replay e gera relatórios                                                        | Só para benchmark/QA avançado                           |
-| `pnpm qa:skills`                              | Executa auditoria, lint, export, instalação smoke-test multi-IA, verificação e status     | Validação final da biblioteca                           |
+| Comando                                              | O que faz                                                                                 | Quando usar                                                   |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `pnpm install`                                       | Instala dependências de tooling                                                           | Sempre após clonar                                            |
+| `pnpm audit:skills`                                  | Valida frontmatter, seções obrigatórias, referências internas e cobertura mínima de evals | Antes de release                                              |
+| `pnpm lint:md`                                       | Roda `markdownlint`                                                                       | Após editar documentação                                      |
+| `pnpm export:flat-skills`                            | Gera `dist/flat-skills/` com uma pasta imediata por skill                                 | Para runtime do Claude e loaders rasos                        |
+| `pnpm export:cursor-rules`                           | Gera `dist/cursor-rules/` com adapters `.mdc`                                             | Para runtime do Cursor                                        |
+| `pnpm export:cursor-user-rules`                      | Gera `dist/cursor-user-rules/CURSOR_USER_RULES.md` para colar no `Settings > Rules`       | Para bootstrap global oficialmente alinhado do Cursor         |
+| `pnpm install:codex -- <target-dir>`                 | Instala somente a Codex                                                                   | Quando você quer só o runtime global da Codex                 |
+| `pnpm install:claude -- <target-dir>`                | Instala somente o Claude do projeto                                                       | Quando você quer só `.claude/skills/`                         |
+| `pnpm install:cursor -- <target-dir>`                | Instala somente o Cursor do projeto                                                       | Quando você quer só `.cursor/rules/`                          |
+| `pnpm install:claude-global`                         | Instala somente o Claude global                                                           | Quando você quer todas as skills em `~/.claude/skills/`       |
+| `pnpm install:cursor-global`                         | Instala o export de compatibilidade global do Cursor e gera `CURSOR_USER_RULES.md`        | Quando você quer preparar o global do Cursor sem tocar na UI  |
+| `pnpm install:skill-usage-reporting -- <target-dir>` | Instala a política de reporte de skills em `AGENTS.md`, `CLAUDE.md` e Cursor rule         | Quando você quer observabilidade obrigatória de uso de skills |
+| `pnpm install:ide-runtime -- <target-dir>`           | Instala apenas os runtimes de projeto de Claude e Cursor                                  | Quando você não quer tocar na Codex                           |
+| `pnpm verify:ide-runtime -- <target-dir>`            | Verifica apenas os runtimes de projeto de Claude e Cursor                                 | Depois da instalação de projeto                               |
+| `pnpm install:agent-runtimes -- <target-dir>`        | Instala Codex global e Claude/Cursor no projeto                                           | Para instalação unificada multi-IA por projeto                |
+| `pnpm verify:agent-runtimes -- <target-dir>`         | Verifica Codex global e Claude/Cursor no projeto                                          | Depois da instalação unificada por projeto                    |
+| `pnpm verify:skill-usage-reporting -- <target-dir>`  | Verifica a política de reporte em `AGENTS.md`, `CLAUDE.md` e Cursor rule                  | Depois de instalar a política                                 |
+| `pnpm sync:agent-runtimes -- <target-dir>`           | Reaplica a fonte de verdade nos runtimes selecionados                                     | Quando uma skill foi atualizada no repo                       |
+| `pnpm sync:global-runtimes`                          | Reaplica a fonte de verdade nos três runtimes globais                                     | Quando você quer propagar updates para todo o ambiente        |
+| `pnpm status:agent-runtimes -- <target-dir>`         | Mostra se cada runtime está `current`, `outdated`, `missing` ou `foreign`                 | Antes de atualizar ou para diagnosticar drift                 |
+| `pnpm install:global-runtimes`                       | Instala Codex e Claude globalmente, mais o export global de compatibilidade do Cursor     | Para disponibilizar a biblioteca em todos os projetos         |
+| `pnpm verify:global-runtimes`                        | Verifica a instalação global das três plataformas                                         | Depois da instalação global                                   |
+| `pnpm evals:init -- <ambiente>`                      | Cria um template de replay                                                                | Só para benchmark/QA avançado                                 |
+| `pnpm evals:score -- <arquivo-ou-diretorio>`         | Consolida replay e gera relatórios                                                        | Só para benchmark/QA avançado                                 |
+| `pnpm qa:skills`                                     | Executa auditoria, lint, export, instalação smoke-test multi-IA, verificação e status     | Validação final da biblioteca                                 |
 
 ## Instalação Unificada por Projeto
 
@@ -174,7 +183,8 @@ Comportamento:
 
 - instala Codex em `%CODEX_HOME%/skills` ou `~/.codex/skills`
 - instala Claude em `~/.claude/skills/`
-- instala Cursor em `~/.cursor/rules/`
+- instala o export de compatibilidade do Cursor em `~/.cursor/rules/`
+- gera `~/.cursor/rules/CURSOR_USER_RULES.md` para colar em `Cursor Settings > Rules`
 
 Se você quiser instalar global e também manter o runtime do projeto:
 
@@ -190,6 +200,12 @@ $multi-agent-skill-installer
 Instale esta biblioteca globalmente para Codex, Claude e Cursor e valide em sandbox antes de tocar nos runtimes reais.
 ```
 
+Para o Cursor, o passo final oficial continua sendo colar o bootstrap exportado em `Settings > Rules`:
+
+```bash
+pnpm export:cursor-user-rules
+```
+
 ## Qual Comando Usar
 
 Use esta regra rápida:
@@ -198,7 +214,8 @@ Use esta regra rápida:
 - quer usar só na Codex: `pnpm install:codex -- .`
 - quer usar só no Claude do projeto: `pnpm install:claude -- .`
 - quer usar só no Cursor do projeto: `pnpm install:cursor -- .`
-- quer usar em todos os seus projetos: `pnpm install:global-runtimes`
+- quer usar no Cursor global com o caminho oficial: `pnpm install:cursor-global` e depois `pnpm export:cursor-user-rules`
+- quer usar em todos os seus projetos: `pnpm install:global-runtimes` e, para o Cursor, também `pnpm export:cursor-user-rules`
 - quer projeto atual + global ao mesmo tempo: `pnpm install:agent-runtimes -- . --global-all`
 - quer provar que não vai tocar nos runtimes reais: adicione `--codex-home`, `--claude-home` e `--cursor-home`
 
@@ -219,8 +236,43 @@ Regras operacionais:
 - trate essas pastas como artefatos gerados
 - se quiser sincronizar só uma IA, use os comandos seletivos
 - se quiser propagar a correção para todas as IAs, use `sync:agent-runtimes` ou `sync:global-runtimes`
+- se o escopo incluir Cursor global, regenere também `pnpm export:cursor-user-rules` e atualize o texto colado em `Settings > Rules` quando o bootstrap mudar
 
 O instalador agora escreve `.saas-skills-manifest.json` em cada runtime gerenciado. Esse manifest registra a versão instalada e permite ao `verify` e ao `status` apontarem runtime desatualizado.
+
+## Como Exigir que o Agente Declare as Skills Usadas
+
+Se você quer controle real sobre adoção de skills, a solução mais confiável é instalar uma política de resposta final no repositório-alvo.
+
+Comandos:
+
+```bash
+pnpm install:skill-usage-reporting -- <target-dir>
+pnpm verify:skill-usage-reporting -- <target-dir>
+```
+
+Esse fluxo cria ou atualiza:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursor/rules/skill-usage-reporting.mdc`
+
+Resultado esperado ao final de cada tarefa:
+
+```text
+Skills Used
+- <skill-name>: <short reason>
+```
+
+Se nenhuma skill foi usada:
+
+```text
+Skills Used: none
+```
+
+Documento-base:
+
+- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
 
 ## Validação Segura sem Tocar nos Runtimes Reais
 
@@ -256,7 +308,9 @@ O instalador deste repositório resolve isso:
 
 - copia as skills canônicas para a Codex
 - instala o runtime correto do Claude no projeto ou globalmente
-- gera e instala as rules corretas do Cursor no projeto ou globalmente
+- gera e instala as rules corretas do Cursor no projeto
+- gera o export de compatibilidade global do Cursor em `~/.cursor/rules/`
+- gera um bootstrap curto para `Cursor Settings > Rules`
 - verifica tudo
 - marca cada runtime com manifest para detectar drift
 - permite smoke test com homes isolados
@@ -314,17 +368,23 @@ Hoje a biblioteca mantém:
 
 - [saas-skills/README.md](saas-skills/README.md)
 - [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
+- [saas-skills/CURSOR_USER_RULES_GUIDE.md](saas-skills/CURSOR_USER_RULES_GUIDE.md)
+- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
 - [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
 - [CHANGELOG.md](CHANGELOG.md)
 - [scripts/export-flat-skills.mjs](scripts/export-flat-skills.mjs)
 - [scripts/export-cursor-rules.mjs](scripts/export-cursor-rules.mjs)
+- [scripts/export-cursor-user-rules.mjs](scripts/export-cursor-user-rules.mjs)
 - [scripts/install-agent-runtimes.mjs](scripts/install-agent-runtimes.mjs)
+- [scripts/install-skill-usage-reporting.mjs](scripts/install-skill-usage-reporting.mjs)
 - [scripts/verify-agent-runtimes.mjs](scripts/verify-agent-runtimes.mjs)
+- [scripts/verify-skill-usage-reporting.mjs](scripts/verify-skill-usage-reporting.mjs)
 - [scripts/status-agent-runtimes.mjs](scripts/status-agent-runtimes.mjs)
 
 ## Troubleshooting
 
-- `A skill foi para .cursor/skills e não funcionou`: o runtime oficial do Cursor é `.cursor/rules/` ou `~/.cursor/rules/`.
+- `A skill foi para .cursor/skills e não funcionou`: o runtime oficial do Cursor é `.cursor/rules/`; no escopo global, `~/.cursor/rules/` é apenas o export de compatibilidade.
+- `As rules globais do Cursor não apareceram na UI`: isso é esperado se você só escreveu em `~/.cursor/rules/`. Gere o bootstrap com `pnpm export:cursor-user-rules` e cole em `Cursor Settings > Rules`.
 - `A skill foi para .claude/skills/saas-skills/frontend/...`: isso está errado; Claude espera uma pasta imediata por skill.
 - `Codex instalou, mas Claude e Cursor não`: isso é esperado se você usou apenas o `skill-installer` nativo da Codex.
 - `Atualizei uma skill só na Codex e o resto não mudou`: isso é esperado se você alterou apenas a cópia instalada. Edite `saas-skills/` e rode `pnpm sync:agent-runtimes -- <target-dir>` ou o sync seletivo.
@@ -340,8 +400,9 @@ Se você quer o fluxo certo e curto:
 2. rode `pnpm qa:skills`
 3. para uso por projeto, rode `pnpm install:agent-runtimes -- <target-dir>`
 4. para uso global, rode `pnpm install:global-runtimes`
-5. se você quiser só uma IA, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
-6. valide com `pnpm verify:agent-runtimes -- <target-dir>` ou `pnpm verify:global-runtimes`
-7. para updates, use `pnpm sync:agent-runtimes -- <target-dir>` e confirme com `pnpm status:agent-runtimes -- <target-dir>`
-8. para smoke seguro, use `--codex-home`, `--claude-home` e `--cursor-home`
-9. use o playbook do agente para testar sem editar o app
+5. para o Cursor global oficial, rode também `pnpm export:cursor-user-rules` e cole em `Settings > Rules`
+6. se você quiser só uma IA, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
+7. valide com `pnpm verify:agent-runtimes -- <target-dir>` ou `pnpm verify:global-runtimes`
+8. para updates, use `pnpm sync:agent-runtimes -- <target-dir>` e confirme com `pnpm status:agent-runtimes -- <target-dir>`
+9. para smoke seguro, use `--codex-home`, `--claude-home` e `--cursor-home`
+10. use o playbook do agente para testar sem editar o app

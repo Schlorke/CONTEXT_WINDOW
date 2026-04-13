@@ -1,5 +1,46 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.10.0 — 13 de abril de 2026
+
+### Added in 1.10.0
+
+- `scripts/export-cursor-user-rules.mjs` para gerar um bootstrap curto e copiável para `Cursor Settings > Rules`.
+- `CURSOR_USER_RULES_GUIDE.md` para documentar o modelo correto do Cursor global.
+- Geração automática de `CURSOR_USER_RULES.md` dentro do export global compatível do Cursor.
+
+### Changed in 1.10.0
+
+- `install-agent-runtimes.mjs` agora trata o Cursor global como export de compatibilidade e informa explicitamente o passo oficial de `User Rules`.
+- `verify-agent-runtimes.mjs` e `status-agent-runtimes.mjs` agora explicam que a validação estrutural do Cursor global não substitui a configuração da UI do Cursor.
+- `README.md`, `AGENTS.md`, `saas-skills/README.md`, `IDE_RUNTIME_GUIDE.md`, `TARGET_REPO_AGENT_GUIDE.md`, `PORTABILITY_MATRIX.md` e `multi-agent-skill-installer` passaram a documentar a diferença entre:
+  - `.cursor/rules/` por projeto
+  - `~/.cursor/rules/` como compatibilidade
+  - `Cursor Settings > Rules` como superfície global oficialmente documentada
+- `package.json` foi elevado para `1.10.0`.
+
+### Fixed in 1.10.0
+
+- A biblioteca deixou de sugerir que o global do Cursor funcionaria de forma equivalente a Codex e Claude apenas pela presença de arquivos em `~/.cursor/rules/`.
+
+## 1.9.0 — 13 de abril de 2026
+
+### Added in 1.9.0
+
+- `scripts/install-skill-usage-reporting.mjs` para instalar uma política obrigatória de disclosure das skills usadas no projeto-alvo.
+- `scripts/verify-skill-usage-reporting.mjs` para verificar a presença da política em `AGENTS.md`, `CLAUDE.md` e `.cursor/rules/skill-usage-reporting.mdc`.
+- `scripts/skill-usage-reporting-utils.mjs` para centralizar a geração e atualização do bloco gerenciado de disclosure.
+- `AGENT_SKILL_USAGE_REPORTING.md` como documento-base copiável para governança de uso de skills.
+- Scripts `pnpm install:skill-usage-reporting` e `pnpm verify:skill-usage-reporting`.
+
+### Changed in 1.9.0
+
+- `README.md`, `AGENTS.md`, `saas-skills/README.md`, `IDE_RUNTIME_GUIDE.md`, `TARGET_REPO_AGENT_GUIDE.md` e `multi-agent-skill-installer` passaram a documentar explicitamente o fluxo de disclosure obrigatório de skills.
+- `package.json` foi elevado para `1.9.0`.
+
+### Fixed in 1.9.0
+
+- A biblioteca agora oferece um mecanismo padronizado para medir adoção real de skills nas respostas dos agentes, sem depender apenas de inferência manual.
+
 ## 1.8.0 — 13 de abril de 2026
 
 ### Added in 1.8.0

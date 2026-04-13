@@ -7,7 +7,11 @@ Use este documento quando quiser que um agente instale `saas-skills` corretament
 
 Se a intenção for instalar também os runtimes globais do usuário, use os homes isolados primeiro e só depois faça a instalação real.
 
+Se o escopo incluir Cursor global, trate `~/.cursor/rules/` como export de compatibilidade e gere também o bootstrap para `Cursor Settings > Rules`.
+
 Se o objetivo for atualizar uma skill já instalada, trate a biblioteca canônica como fonte de verdade e sincronize os runtimes. Não corrija a cópia instalada diretamente.
+
+Se o objetivo incluir governança ou observabilidade, instale também a política de disclosure de skills para exigir que o agente reporte no final da tarefa quais skills realmente usou.
 
 ## Instrução para o Agente
 
@@ -28,7 +32,9 @@ Você deve instalar e validar a biblioteca `saas-skills` neste repositório segu
 3. **Use três runtimes diferentes.**
    - Codex runtime: `$CODEX_HOME/skills/<skill>/SKILL.md`
    - Claude runtime: `.claude/skills/<skill>/SKILL.md` ou `~/.claude/skills/<skill>/SKILL.md`
-   - Cursor runtime: `.cursor/rules/*.mdc` ou `~/.cursor/rules/*.mdc`
+   - Cursor projeto: `.cursor/rules/*.mdc`
+   - Cursor global compat: `~/.cursor/rules/*.mdc`
+   - Cursor global oficial: `Cursor Settings > Rules` com o bootstrap exportado
 
 4. **Não trate `.cursor/skills/` como runtime oficial do Cursor.**
    O runtime oficial do Cursor é `.cursor/rules/`.
@@ -41,6 +47,10 @@ Você deve instalar e validar a biblioteca `saas-skills` neste repositório segu
 
 7. **Trate o runtime instalado como artefato gerado.**
    Se o usuário pedir update, edite `saas-skills/` e rode sync. Não aplique hotfix diretamente em `.claude/skills/`, `.cursor/rules/` ou `$CODEX_HOME/skills/`.
+   Se o escopo incluir Cursor global, regenere também o bootstrap de `Cursor Settings > Rules`.
+
+8. **Se a política de disclosure estiver instalada, cumpra-a em toda resposta final.**
+   Ao final da tarefa, inclua a seção `Skills Used`.
 
 ## Fluxo Obrigatório
 
@@ -53,6 +63,15 @@ Escolha o escopo certo antes de instalar:
 - somente Cursor do projeto: `node scripts/install-agent-runtimes.mjs . --cursor-only`
 - projeto completo: `node scripts/install-agent-runtimes.mjs . --project-only`
 - projeto + globais: `node scripts/install-agent-runtimes.mjs . --global-all`
+
+### Política opcional de disclosure
+
+Se o usuário quiser rastrear skills usadas, execute também:
+
+```bash
+node scripts/install-skill-usage-reporting.mjs .
+node scripts/verify-skill-usage-reporting.mjs .
+```
 
 ### Etapa 1: Prévia sem escrita
 
@@ -92,7 +111,8 @@ Considere falha se:
 - alguma skill do Claude estiver ausente
 - alguma rule do Cursor estiver ausente
 - alguma instalação global do Claude estiver ausente
-- alguma instalação global do Cursor estiver ausente
+- o export global de compatibilidade do Cursor estiver ausente
+- o bootstrap `CURSOR_USER_RULES.md` não tiver sido gerado para o Cursor global
 - algum runtime gerenciado não tiver `.saas-skills-manifest.json`
 - a instalação depender de editar código do app
 
@@ -135,6 +155,7 @@ Se a sandbox passar, execute a instalação real:
 node scripts/install-agent-runtimes.mjs . --global-all
 node scripts/verify-agent-runtimes.mjs . --global-all
 node scripts/status-agent-runtimes.mjs . --global-all
+node scripts/export-cursor-user-rules.mjs
 ```
 
 ## Critério de Aprovação
@@ -143,7 +164,9 @@ Considere a instalação funcional quando:
 
 - Codex runtime existir em `$CODEX_HOME/skills/`
 - Claude runtime existir em `.claude/skills/` e `~/.claude/skills/`
-- Cursor runtime existir em `.cursor/rules/` e `~/.cursor/rules/`
+- Cursor runtime existir em `.cursor/rules/`
+- export de compatibilidade do Cursor existir em `~/.cursor/rules/`, quando o escopo incluir global
+- bootstrap `CURSOR_USER_RULES.md` ter sido gerado para o Cursor global
 - todos os manifests estiverem na versão atual da biblioteca
 - os smoke tests responderem no domínio certo
 - as respostas cobrirem o essencial do assunto pedido
@@ -157,6 +180,7 @@ Considere falha quando:
 - o agente copiar a árvore canônica inteira para dentro de `.claude/skills/` sem flatten
 - o agente usar o `skill-installer` da Codex como se ele instalasse também Claude e Cursor
 - o agente ignorar os runtimes globais quando o objetivo declarado for instalação global
+- o agente afirmar que o Cursor global está completo sem gerar o bootstrap de `User Rules`
 - o agente editar a cópia instalada em vez da fonte canônica e não sincronizar as outras IAs
 - o agente precisar editar o app para "testar"
 - o smoke test responder de forma genérica e sem foco no domínio correto
@@ -169,8 +193,10 @@ Ao final, o agente deve responder com:
 1. resultado da verificação estrutural em sandbox
 1. resultado do `status` para mostrar se o runtime está `current`
 1. resultado resumido dos smoke tests
+1. se o escopo incluir Cursor global, o caminho do bootstrap `CURSOR_USER_RULES.md`
 1. confirmação explícita de que o código da aplicação não foi alterado
 1. se a instalação real global foi ou não executada
+1. `Skills Used` com as skills realmente aplicadas na tarefa, se a política tiver sido instalada
 
 ## Observação
 

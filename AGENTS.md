@@ -24,7 +24,8 @@ Runtimes corretos:
 - Claude projeto: `.claude/skills/<skill>/SKILL.md`
 - Claude global: `~/.claude/skills/<skill>/SKILL.md`
 - Cursor projeto: `.cursor/rules/*.mdc`
-- Cursor global: `~/.cursor/rules/*.mdc`
+- Cursor global compat: `~/.cursor/rules/*.mdc`
+- Cursor global oficial: `Cursor Settings > Rules` com o bootstrap exportado por `pnpm export:cursor-user-rules`
 
 Não use:
 
@@ -41,8 +42,25 @@ Considere todo runtime instalado como artefato gerado.
 - depois sincronize os runtimes desejados
 - confirme a versão com `status` e `verify`
 - não faça hotfix diretamente em `.claude/skills/`, `.cursor/rules/` ou `$CODEX_HOME/skills/`
+- se o update envolver Cursor global, regenere o bootstrap com `pnpm export:cursor-user-rules` e informe que o texto em `Settings > Rules` pode precisar ser recopiado
 
 Cada runtime gerenciado recebe `.saas-skills-manifest.json`. Use esse manifest para detectar drift.
+
+## Política de Disclosure de Skills
+
+Quando uma tarefa usar uma ou mais skills, a resposta final deve incluir uma seção `Skills Used`.
+
+Formato:
+
+- se houve uso de skill: `- <skill-name>: <short reason>`
+- se nenhuma skill foi usada: `Skills Used: none`
+
+Regras:
+
+- relatar apenas skills realmente usadas
+- não listar skills apenas disponíveis no ambiente
+- não omitir uma skill que influenciou materialmente a solução
+- manter a justificativa curta e factual
 
 ## Comandos Canônicos
 
@@ -78,6 +96,14 @@ pnpm verify:cursor -- .
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+pnpm export:cursor-user-rules
+```
+
+### Instalar política obrigatória de disclosure
+
+```bash
+pnpm install:skill-usage-reporting -- .
+pnpm verify:skill-usage-reporting -- .
 ```
 
 ### Sincronizar updates
@@ -104,7 +130,7 @@ pnpm verify:agent-runtimes -- . --global-all --codex-home .agent-runtime-smoke/c
 - Se o usuário disse "só na Codex", use `install:codex -- .`
 - Se o usuário disse "só no Claude", use `install:claude -- .` ou `install:claude-global`
 - Se o usuário disse "só no Cursor", use `install:cursor -- .` ou `install:cursor-global`
-- Se o usuário disse "em todos os meus projetos", use `install:global-runtimes`
+- Se o usuário disse "em todos os meus projetos", use `install:global-runtimes` e gere também `export:cursor-user-rules`
 - Se o usuário quer os dois, use `install:agent-runtimes -- . --global-all`
 - Se o usuário pediu update de uma skill já instalada, edite a fonte canônica e rode `sync`, não patch na cópia instalada
 - Se houver qualquer dúvida sobre impacto, comece com sandbox
@@ -145,7 +171,8 @@ Instale esta biblioteca globalmente para Codex, Claude e Cursor e valide em sand
 1. [README.md](C:/Projetos/Context_Window/README.md:1)
 2. [saas-skills/README.md](C:/Projetos/Context_Window/saas-skills/README.md:1)
 3. [saas-skills/IDE_RUNTIME_GUIDE.md](C:/Projetos/Context_Window/saas-skills/IDE_RUNTIME_GUIDE.md:1)
-4. [saas-skills/TARGET_REPO_AGENT_GUIDE.md](C:/Projetos/Context_Window/saas-skills/TARGET_REPO_AGENT_GUIDE.md:1)
+4. [saas-skills/CURSOR_USER_RULES_GUIDE.md](C:/Projetos/Context_Window/saas-skills/CURSOR_USER_RULES_GUIDE.md:1)
+5. [saas-skills/TARGET_REPO_AGENT_GUIDE.md](C:/Projetos/Context_Window/saas-skills/TARGET_REPO_AGENT_GUIDE.md:1)
 
 ## Critério de Sucesso
 
@@ -155,5 +182,6 @@ Considere sucesso quando:
 - os manifests de runtime estão presentes e na mesma versão da fonte atual
 - `pnpm verify:agent-runtimes` ou `pnpm verify:global-runtimes` passa
 - `pnpm status:agent-runtimes` ou `pnpm status:global-runtimes` mostra `current`
+- se o escopo incluir Cursor global, o bootstrap exportado para `Settings > Rules` foi gerado e informado ao usuário
 - o smoke test responde no domínio correto
 - nenhum arquivo da aplicação foi alterado

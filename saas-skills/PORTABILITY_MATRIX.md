@@ -14,7 +14,8 @@ Matriz de portabilidade da biblioteca `saas-skills`.
 3. **Runtime Claude por projeto** em `.claude/skills/`
 4. **Runtime Claude global** em `~/.claude/skills/`
 5. **Runtime Cursor por projeto** em `.cursor/rules/`
-6. **Runtime Cursor global** em `~/.cursor/rules/`
+6. **Export global de compatibilidade do Cursor** em `~/.cursor/rules/`
+7. **Bootstrap global oficial do Cursor** em `Cursor Settings > Rules`
 
 Isso significa que portabilidade aqui não é "copiar a mesma pasta para todo lugar".  
 Portabilidade, neste projeto, significa gerar ou instalar o adapter certo para cada ambiente.
@@ -27,24 +28,24 @@ Também significa que update não é patch em runtime. O update correto é:
 
 ## Matriz por Ambiente
 
-| Ambiente                          | Runtime correto                                                  | Artefato de origem                | Instalação recomendada                                       | Status |
-| --------------------------------- | ---------------------------------------------------------------- | --------------------------------- | ------------------------------------------------------------ | ------ |
-| Codex                             | `$CODEX_HOME/skills/<skill>/SKILL.md`                            | `saas-skills/` -> install         | `pnpm install:agent-runtimes -- <target-dir> --codex-only`   | ✅     |
-| Codex somente via alias           | `$CODEX_HOME/skills/<skill>/SKILL.md`                            | `saas-skills/` -> install         | `pnpm install:codex -- <target-dir>`                         | ✅     |
-| Claude Code / Claude.ai Projects  | `.claude/skills/<skill>/SKILL.md`                                | `saas-skills/` -> install/export  | `pnpm install:agent-runtimes -- <target-dir> --claude-only`  | ✅     |
-| Claude projeto via alias          | `.claude/skills/<skill>/SKILL.md`                                | `saas-skills/` -> install/export  | `pnpm install:claude -- <target-dir>`                        | ✅     |
-| Claude global                     | `~/.claude/skills/<skill>/SKILL.md`                              | `saas-skills/` -> install         | `pnpm install:global-runtimes`                               | ✅     |
-| Claude global seletivo            | `~/.claude/skills/<skill>/SKILL.md`                              | `saas-skills/` -> install         | `pnpm install:claude-global`                                 | ✅     |
-| Claude dentro do Cursor           | `.claude/skills/<skill>/SKILL.md`                                | `saas-skills/` -> install/export  | `pnpm install:agent-runtimes -- <target-dir> --claude-only`  | ✅     |
-| Cursor IDE (agent nativo)         | `.cursor/rules/*.mdc`                                            | `saas-skills/` -> Cursor adapter  | `pnpm install:agent-runtimes -- <target-dir> --cursor-only`  | ✅     |
-| Cursor projeto via alias          | `.cursor/rules/*.mdc`                                            | `saas-skills/` -> Cursor adapter  | `pnpm install:cursor -- <target-dir>`                        | ✅     |
-| Cursor global                     | `~/.cursor/rules/*.mdc`                                          | `saas-skills/` -> Cursor adapter  | `pnpm install:global-runtimes`                               | ✅     |
-| Cursor global seletivo            | `~/.cursor/rules/*.mdc`                                          | `saas-skills/` -> Cursor adapter  | `pnpm install:cursor-global`                                 | ✅     |
-| Cursor com Claude + agent nativo  | `.claude/skills/` + `.cursor/rules/`                             | `saas-skills/` -> dual install    | `pnpm install:agent-runtimes -- <target-dir> --project-only` | ✅     |
-| Codex + Claude + Cursor           | `$CODEX_HOME/skills/` + `.claude/skills/` + `.cursor/rules/`     | `saas-skills/` -> unified install | `pnpm install:agent-runtimes -- <target-dir>`                | ✅     |
-| Codex + Claude + Cursor globais   | `$CODEX_HOME/skills/` + `~/.claude/skills/` + `~/.cursor/rules/` | `saas-skills/` -> unified install | `pnpm install:global-runtimes`                               | ✅     |
-| GitHub Copilot / loaders rasos    | subpastas imediatas por skill                                    | `dist/flat-skills/`               | `pnpm export:flat-skills`                                    | ✅     |
-| Uso manual / referência explícita | `saas-skills/.../SKILL.md`                                       | árvore canônica                   | referência explícita ao arquivo                              | ✅     |
+| Ambiente                          | Runtime correto                                                    | Artefato de origem                | Instalação recomendada                                           | Status |
+| --------------------------------- | ------------------------------------------------------------------ | --------------------------------- | ---------------------------------------------------------------- | ------ |
+| Codex                             | `$CODEX_HOME/skills/<skill>/SKILL.md`                              | `saas-skills/` -> install         | `pnpm install:agent-runtimes -- <target-dir> --codex-only`       | ✅     |
+| Codex somente via alias           | `$CODEX_HOME/skills/<skill>/SKILL.md`                              | `saas-skills/` -> install         | `pnpm install:codex -- <target-dir>`                             | ✅     |
+| Claude Code / Claude.ai Projects  | `.claude/skills/<skill>/SKILL.md`                                  | `saas-skills/` -> install/export  | `pnpm install:agent-runtimes -- <target-dir> --claude-only`      | ✅     |
+| Claude projeto via alias          | `.claude/skills/<skill>/SKILL.md`                                  | `saas-skills/` -> install/export  | `pnpm install:claude -- <target-dir>`                            | ✅     |
+| Claude global                     | `~/.claude/skills/<skill>/SKILL.md`                                | `saas-skills/` -> install         | `pnpm install:global-runtimes`                                   | ✅     |
+| Claude global seletivo            | `~/.claude/skills/<skill>/SKILL.md`                                | `saas-skills/` -> install         | `pnpm install:claude-global`                                     | ✅     |
+| Claude dentro do Cursor           | `.claude/skills/<skill>/SKILL.md`                                  | `saas-skills/` -> install/export  | `pnpm install:agent-runtimes -- <target-dir> --claude-only`      | ✅     |
+| Cursor IDE (agent nativo)         | `.cursor/rules/*.mdc`                                              | `saas-skills/` -> Cursor adapter  | `pnpm install:agent-runtimes -- <target-dir> --cursor-only`      | ✅     |
+| Cursor projeto via alias          | `.cursor/rules/*.mdc`                                              | `saas-skills/` -> Cursor adapter  | `pnpm install:cursor -- <target-dir>`                            | ✅     |
+| Cursor global compat              | `~/.cursor/rules/*.mdc`                                            | `saas-skills/` -> Cursor adapter  | `pnpm install:cursor-global`                                     | Compat |
+| Cursor User Rules global          | `Cursor Settings > Rules`                                          | `dist/cursor-user-rules/`         | `pnpm export:cursor-user-rules`                                  | Manual |
+| Cursor com Claude + agent nativo  | `.claude/skills/` + `.cursor/rules/`                               | `saas-skills/` -> dual install    | `pnpm install:agent-runtimes -- <target-dir> --project-only`     | ✅     |
+| Codex + Claude + Cursor           | `$CODEX_HOME/skills/` + `.claude/skills/` + `.cursor/rules/`       | `saas-skills/` -> unified install | `pnpm install:agent-runtimes -- <target-dir>`                    | ✅     |
+| Codex + Claude + Cursor globais   | `$CODEX_HOME/skills/` + `~/.claude/skills/` + Cursor compat/export | `saas-skills/` -> unified install | `pnpm install:global-runtimes` + `pnpm export:cursor-user-rules` | ✅     |
+| GitHub Copilot / loaders rasos    | subpastas imediatas por skill                                      | `dist/flat-skills/`               | `pnpm export:flat-skills`                                        | ✅     |
+| Uso manual / referência explícita | `saas-skills/.../SKILL.md`                                         | árvore canônica                   | referência explícita ao arquivo                                  | ✅     |
 
 ## O Que Está Errado como Estratégia
 
@@ -63,7 +64,9 @@ No estado atual do repositório:
 - o runtime `.mdc` para Cursor é exportável
 - a instalação na Codex é automatizável
 - a instalação conjunta em Codex, `.claude/` e `.cursor/` é automatizável
-- a instalação global em `~/.claude/skills/` e `~/.cursor/rules/` é automatizável
+- a instalação global em `~/.claude/skills/` é automatizável
+- o export global de compatibilidade do Cursor em `~/.cursor/rules/` é automatizável
+- o bootstrap global oficial do Cursor para `Settings > Rules` é exportável
 - a verificação estrutural da instalação é automatizável
 - o status por runtime e a detecção de versão desatualizada são automatizáveis
 - o smoke install usado em `qa:skills` não toca os runtimes reais do usuário
@@ -130,6 +133,7 @@ Quando uma skill for corrigida:
 - rode `status`
 
 Essa política existe para evitar que uma IA seja atualizada e as outras permaneçam em versões antigas sem sinalização.
+Se o escopo incluir Cursor global, regenere também `pnpm export:cursor-user-rules` e atualize o texto em `Settings > Rules` quando o bootstrap mudar.
 
 ## Resumo Prático
 
@@ -137,7 +141,8 @@ Se houver dúvida:
 
 - Codex => `$CODEX_HOME/skills/`
 - Claude => `.claude/skills/` ou `~/.claude/skills/`
-- Cursor => `.cursor/rules/` ou `~/.cursor/rules/`
+- Cursor projeto => `.cursor/rules/`
+- Cursor global => `~/.cursor/rules/` como compatibilidade + `Settings > Rules` com o bootstrap exportado
 - biblioteca fonte => `saas-skills/`
 
 Essa é a regra operacional correta deste projeto.

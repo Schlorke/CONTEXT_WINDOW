@@ -3,7 +3,7 @@ name: multi-agent-skill-installer
 description: Install and verify this skills library across Codex, Claude, and Cursor using the correct runtime targets for each platform. Trigger when the user wants global installation, project-local installation, sync across all three AI tools, safe sandbox validation, or a copyable workflow that lets any agent install the library without touching application code.
 metadata:
   author: Codex Agent, SaaS Skills
-  version: 1.1
+  version: 1.2
   last_validated: 2026-04-13
   sources:
     - ../../README.md
@@ -22,6 +22,7 @@ Activate this skill whenever:
 - Syncing the library across all three AI tools
 - Syncing the library back into only one selected runtime
 - Choosing between project-local and global installation
+- Installing a mandatory policy that forces agents to disclose which skills they used at the end of the task
 - Validating the installation in sandbox before touching real runtimes
 - Generating a copyable `AGENTS.md` or operator workflow for multi-IA install
 - Verifying that skills landed in the correct runtime directories
@@ -42,11 +43,12 @@ Choose one of these scopes before writing anything:
 3. **Claude-only** — install only:
    - `.claude/skills/` or `~/.claude/skills/`
 4. **Cursor-only** — install only:
-   - `.cursor/rules/` or `~/.cursor/rules/`
+   - `.cursor/rules/` and, if global, also export the bootstrap for `Cursor Settings > Rules`
 5. **Global-only** — install only:
    - `$CODEX_HOME/skills/`
    - `~/.claude/skills/`
-   - `~/.cursor/rules/`
+   - `~/.cursor/rules/` as compatibility export
+   - `Cursor Settings > Rules` via exported bootstrap
 6. **Unified project install** — install:
    - `$CODEX_HOME/skills/`
    - project `.claude/skills/`
@@ -63,6 +65,7 @@ Prefer the runtime scripts in this repository:
 
 - `scripts/install-agent-runtimes.mjs`
 - `scripts/verify-agent-runtimes.mjs`
+- `scripts/export-cursor-user-rules.mjs`
 
 Canonical commands:
 
@@ -84,11 +87,19 @@ pnpm install:cursor -- <target-dir>
 pnpm verify:cursor -- <target-dir>
 ```
 
+Skill usage disclosure policy:
+
+```bash
+pnpm install:skill-usage-reporting -- <target-dir>
+pnpm verify:skill-usage-reporting -- <target-dir>
+```
+
 Global-only:
 
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+pnpm export:cursor-user-rules
 ```
 
 Project-only:
@@ -104,7 +115,10 @@ For updates and corrections, use the sync aliases:
 pnpm sync:agent-runtimes -- <target-dir>
 pnpm sync:global-runtimes
 pnpm status:agent-runtimes -- <target-dir>
+pnpm export:cursor-user-rules
 ```
+
+If the install scope includes Cursor global, assume the bootstrap in `Cursor Settings > Rules` may need to be recopied after updates.
 
 ### Step 3: Always Start with Sandbox Validation
 
@@ -123,6 +137,7 @@ Use sandbox validation to prove:
 - Codex skills land in `$CODEX_HOME/skills/`
 - Claude skills land in `.claude/skills/` or `~/.claude/skills/`
 - Cursor rules land in `.cursor/rules/` or `~/.cursor/rules/`
+- Cursor global bootstrap is generated for `Settings > Rules`
 - no application code was touched
 
 ### Step 4: Verify the Runtime Targets Explicitly
@@ -133,15 +148,23 @@ Correct targets are:
 - **Claude project:** `.claude/skills/<skill>/SKILL.md`
 - **Claude global:** `~/.claude/skills/<skill>/SKILL.md`
 - **Cursor project:** `.cursor/rules/*.mdc`
-- **Cursor global:** `~/.cursor/rules/*.mdc`
+- **Cursor global compat:** `~/.cursor/rules/*.mdc`
+- **Cursor global official:** `Cursor Settings > Rules` with the exported bootstrap
 
 Every managed runtime should also contain:
 
 - `.saas-skills-manifest.json`
 
+If skill usage disclosure is requested, correct governance targets are:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursor/rules/skill-usage-reporting.mdc`
+
 Reject the install as wrong if:
 
 - it uses `.cursor/skills/` as the Cursor runtime
+- it claims Cursor global is fully configured without generating the bootstrap for `Settings > Rules`
 - it nests `saas-skills/frontend/...` directly under `.claude/skills/`
 - it assumes the Codex `skill-installer` automatically provisions Claude and Cursor
 
@@ -198,6 +221,7 @@ You must enforce these rules:
 - Never patch runtime copies directly when the real intent is to update the library
 - Always verify runtime placement after install
 - Always use sync after changing the canonical source
+- If the user asks for observability of skill usage, install and verify the disclosure policy as part of the workflow
 - Always prefer sandbox validation before writing to global runtimes
 
 ## Common Anti-Patterns
@@ -206,6 +230,7 @@ You must enforce these rules:
 - Installing only Codex and assuming Claude and Cursor will discover the same files
 - Fixing a bug only inside `$CODEX_HOME/skills/`, `.claude/skills/`, or `.cursor/rules/` and assuming the other runtimes will magically update
 - Writing global Cursor guidance into random docs or settings instead of generating `.mdc` rules
+- Treating `~/.cursor/rules/` as if it guaranteed the same behavior and UI visibility as `User Rules`
 - Running build, migrations, or app tests just to validate the library runtime
 - Skipping verification because the files "look right"
 
@@ -216,6 +241,7 @@ If the runtime scripts are unavailable, fall back to manual placement with the s
 - copy each skill folder into `$CODEX_HOME/skills/<skill>/`
 - copy each skill folder into `.claude/skills/<skill>/` or `~/.claude/skills/<skill>/`
 - generate one `.mdc` file per skill for `.cursor/rules/` or `~/.cursor/rules/`
+- generate the Cursor global bootstrap text for `Settings > Rules`
 
 State clearly that manual fallback is lower-confidence than the repository scripts and re-run structural verification after copying.
 

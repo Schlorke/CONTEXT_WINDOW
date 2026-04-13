@@ -13,18 +13,45 @@ Convenções deste projeto:
 
 ## [Unreleased]
 
-### Fixed in Unreleased
+Sem mudanças não lançadas no momento.
 
-- Corrigido o frontmatter YAML de `4` skills de frontend para manter compatibilidade com parsers mais estritos da Codex:
-  - `component-reuse-portability`
-  - `design-system-implementation`
-  - `react-saas-architecture`
-  - `saas-ui-specifications`
-- O `markdownlint` deixou de varrer `dist/**`, evitando falhas de QA causadas por artefatos gerados e caches temporários externos ao source-of-truth.
+## [1.10.0] - 2026-04-13
 
-### Validation in Unreleased
+### Added in 1.10.0
 
-- `pnpm qa:skills` voltou a passar integralmente depois dessas correções.
+- Export dedicado de bootstrap global do Cursor com `pnpm export:cursor-user-rules`.
+- Documento `saas-skills/CURSOR_USER_RULES_GUIDE.md` para explicar a diferença entre `Project Rules`, `User Rules` e o export de compatibilidade.
+- Geração automática de `CURSOR_USER_RULES.md` junto da instalação global compatível do Cursor.
+
+### Changed in 1.10.0
+
+- O runtime global do Cursor passou a ser documentado como dois componentes distintos:
+  - export de compatibilidade em `~/.cursor/rules/`
+  - bootstrap oficial para `Cursor Settings > Rules`
+- `status` e `verify` agora deixam explícito que o global do Cursor validado estruturalmente não prova, por si só, a configuração da UI.
+- `qa:skills` agora exporta também o bootstrap de `Cursor User Rules`.
+
+### Fixed in 1.10.0
+
+- A documentação deixou de prometer equivalência perfeita entre `~/.cursor/rules/` e as `User Rules` globais da interface do Cursor.
+
+## [1.9.0] - 2026-04-13
+
+### Added in 1.9.0
+
+- Política instalável de disclosure de skills com `install:skill-usage-reporting`.
+- Verificação dedicada da política com `verify:skill-usage-reporting`.
+- Documento-base público em `saas-skills/AGENT_SKILL_USAGE_REPORTING.md`.
+- Regra do Cursor para exigir disclosure em `.cursor/rules/skill-usage-reporting.mdc`.
+
+### Changed in 1.9.0
+
+- A documentação passou a cobrir explicitamente o fluxo de observabilidade de skills usadas.
+- O instalador multi-IA passou a documentar o passo opcional de disclosure obrigatório.
+
+### Fixed in 1.9.0
+
+- O projeto agora oferece um mecanismo padronizado para saber se as skills estão sendo usadas de verdade nas respostas finais dos agentes.
 
 ## [1.8.0] - 2026-04-13
 

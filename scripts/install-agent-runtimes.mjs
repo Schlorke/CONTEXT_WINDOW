@@ -3,8 +3,11 @@ import path from "node:path";
 import {
   buildRuntimeManifest,
   buildCursorRule,
+  buildCursorUserRulesBootstrap,
+  cursorUserRulesBootstrapFileName,
   ensureDir,
   findSkillDirs,
+  getCursorArtifactNames,
   getLibraryVersion,
   loadCursorProfiles,
   removeManagedRuntimeArtifacts,
@@ -165,7 +168,7 @@ if (installClaude) {
 if (installCursor) {
   const cursorRulesDir = path.join(targetRoot, ".cursor", "rules");
   ensureDirIfNeeded(cursorRulesDir);
-  const artifactNames = [];
+  const artifactNames = getCursorArtifactNames(skills, profiles);
 
   if (!cli.dryRun) {
     cleanupSummary.push({
@@ -182,7 +185,6 @@ if (installCursor) {
     }
 
     const targetFile = path.join(cursorRulesDir, profile.file);
-    artifactNames.push(profile.file);
     plannedWrites.push(
       path.relative(targetRoot, targetFile).replaceAll("\\", "/"),
     );
@@ -236,7 +238,9 @@ if (installClaudeGlobal) {
 
 if (installCursorGlobal) {
   ensureDirIfNeeded(cursorRulesDirGlobal);
-  const artifactNames = [];
+  const artifactNames = getCursorArtifactNames(skills, profiles, {
+    includeUserRulesBootstrap: true,
+  });
 
   if (!cli.dryRun) {
     cleanupSummary.push({
@@ -253,12 +257,25 @@ if (installCursorGlobal) {
     }
 
     const targetFile = path.join(cursorRulesDirGlobal, profile.file);
-    artifactNames.push(profile.file);
     plannedWrites.push(targetFile);
 
     if (cli.dryRun) continue;
 
     fs.writeFileSync(targetFile, buildCursorRule(skill, profile), "utf8");
+  }
+
+  const cursorBootstrapPath = path.join(
+    cursorRulesDirGlobal,
+    cursorUserRulesBootstrapFileName,
+  );
+  plannedWrites.push(cursorBootstrapPath);
+
+  if (!cli.dryRun) {
+    fs.writeFileSync(
+      cursorBootstrapPath,
+      buildCursorUserRulesBootstrap(skills, profiles),
+      "utf8",
+    );
   }
 
   plannedWrites.push(
@@ -320,6 +337,11 @@ console.log(
 console.log(
   `Cursor global runtime: ${installCursorGlobal ? "enabled" : "skipped"}`,
 );
+if (installCursorGlobal) {
+  console.log(
+    "Cursor global note: ~/.cursor/rules is treated as a compatibility export. For the officially documented global surface, paste CURSOR_USER_RULES.md into Cursor Settings > Rules.",
+  );
+}
 console.log(`Mode: ${cli.dryRun ? "dry-run" : "write"}`);
 console.log(`Planned artifacts: ${plannedWrites.length}`);
 if (!cli.dryRun) {

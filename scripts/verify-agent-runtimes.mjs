@@ -3,6 +3,7 @@ import path from "node:path";
 import {
   findSkillDirs,
   getLibraryVersion,
+  getCursorArtifactNames,
   loadCursorProfiles,
   managedLibraryId,
   parseRuntimeCliArgs,
@@ -129,12 +130,7 @@ if (verifyClaude) {
 if (verifyCursor) {
   runtimeChecks.push({
     dir: path.join(targetRoot, ".cursor", "rules"),
-    expectedArtifacts: skills
-      .map((skill) => {
-        const profile = profiles.get(skill.name);
-        return profile?.file;
-      })
-      .filter(Boolean),
+    expectedArtifacts: getCursorArtifactNames(skills, profiles),
     label: "Cursor project runtime",
   });
 }
@@ -148,12 +144,9 @@ if (verifyClaudeGlobal) {
 if (verifyCursorGlobal) {
   runtimeChecks.push({
     dir: cursorRulesDirGlobal,
-    expectedArtifacts: skills
-      .map((skill) => {
-        const profile = profiles.get(skill.name);
-        return profile?.file;
-      })
-      .filter(Boolean),
+    expectedArtifacts: getCursorArtifactNames(skills, profiles, {
+      includeUserRulesBootstrap: true,
+    }),
     label: "Cursor global runtime",
   });
 }
@@ -303,6 +296,9 @@ if (verifyClaudeGlobal) {
 }
 if (verifyCursorGlobal) {
   console.log(`- Global Cursor rules installed: ${skills.length}`);
+  console.log(
+    "- Global Cursor note: compatibility files in ~/.cursor/rules were verified. Cursor Settings > Rules remains the officially documented global surface; use CURSOR_USER_RULES.md for the paste-ready bootstrap.",
+  );
 }
 if (verifyCodex) {
   console.log(`- Codex skills installed: ${skills.length}`);

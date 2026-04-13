@@ -3,6 +3,7 @@ import path from "node:path";
 import {
   findSkillDirs,
   getLibraryVersion,
+  getCursorArtifactNames,
   loadCursorProfiles,
   managedLibraryId,
   parseRuntimeCliArgs,
@@ -130,9 +131,7 @@ if (checkClaude) {
 if (checkCursor) {
   runtimeChecks.push({
     dir: path.join(targetRoot, ".cursor", "rules"),
-    expectedArtifacts: skills
-      .map((skill) => profiles.get(skill.name)?.file)
-      .filter(Boolean),
+    expectedArtifacts: getCursorArtifactNames(skills, profiles),
     label: "Cursor project",
   });
 }
@@ -148,9 +147,9 @@ if (checkClaudeGlobal) {
 if (checkCursorGlobal) {
   runtimeChecks.push({
     dir: cursorRulesDirGlobal,
-    expectedArtifacts: skills
-      .map((skill) => profiles.get(skill.name)?.file)
-      .filter(Boolean),
+    expectedArtifacts: getCursorArtifactNames(skills, profiles, {
+      includeUserRulesBootstrap: true,
+    }),
     label: "Cursor global",
   });
 }
@@ -198,6 +197,10 @@ for (const runtimeCheck of runtimeChecks) {
     } else {
       status = "current";
       details = `Installed ${manifest.version} with ${manifest.skillCount ?? manifest.artifacts?.length ?? 0} artifacts.`;
+      if (runtimeCheck.label === "Cursor global") {
+        details =
+          "Compatibility export is current in ~/.cursor/rules and includes a paste-ready CURSOR_USER_RULES.md bootstrap. Cursor Settings > Rules remains the officially documented global surface.";
+      }
     }
   } else if (fs.existsSync(runtimeCheck.dir)) {
     details =

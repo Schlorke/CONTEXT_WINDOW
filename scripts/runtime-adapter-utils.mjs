@@ -16,6 +16,7 @@ export const cursorProfilesPath = path.join(
 export const packageJsonPath = path.join(repoRoot, "package.json");
 export const runtimeManifestFileName = ".saas-skills-manifest.json";
 export const managedLibraryId = "context-window/saas-skills";
+export const cursorUserRulesBootstrapFileName = "CURSOR_USER_RULES.md";
 
 export function findSkillDirs(dir = libraryRoot) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -101,6 +102,65 @@ export function buildCursorRule(skill, profile) {
   lines.push(skill.body.trimEnd(), "");
 
   return `${lines.join("\n")}`;
+}
+
+export function getCursorArtifactNames(skills, profiles, options = {}) {
+  const artifacts = skills.map((skill) => {
+    const profile = profiles.get(skill.name);
+
+    if (!profile) {
+      throw new Error(`Missing Cursor rule profile for skill ${skill.name}`);
+    }
+
+    return profile.file;
+  });
+
+  if (options.includeUserRulesBootstrap) {
+    artifacts.push(cursorUserRulesBootstrapFileName);
+  }
+
+  return artifacts;
+}
+
+export function buildCursorUserRulesBootstrap(skills, profiles) {
+  const entries = skills
+    .map((skill) => {
+      const profile = profiles.get(skill.name);
+
+      if (!profile) {
+        throw new Error(`Missing Cursor rule profile for skill ${skill.name}`);
+      }
+
+      return {
+        name: skill.name,
+        description: profile.description || skill.description,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const lines = [
+    "Use Context Window as a lightweight global router for Cursor.",
+    "",
+    "- Treat project `.cursor/rules/*.mdc` as the authoritative runtime when present.",
+    "- Treat this global text as bootstrap guidance, not as a replacement for project rules.",
+    "- Do not use `.cursor/skills/` as runtime.",
+    "- If a repository also has `.claude/skills/`, those files are for Claude integrations, not Cursor native rules.",
+    "- If a request clearly matches one of the domains below and the repository does not have Context Window project rules installed yet, recommend installing or syncing the library instead of improvising from stale copies.",
+    "- If the repository installs a mandatory skill-usage disclosure policy, end the final response with the required `Skills Used` section.",
+    "",
+    "Context Window routing domains:",
+  ];
+
+  for (const entry of entries) {
+    lines.push(`- \`${entry.name}\`: ${entry.description}`);
+  }
+
+  lines.push(
+    "",
+    "When global and project guidance conflict, prefer the project-local `.cursor/rules` for that repository.",
+  );
+
+  return `${lines.join("\n")}\n`;
 }
 
 export function ensureDir(dir) {
