@@ -30,34 +30,34 @@ O que foi validado:
 
 ## Testes Principais
 
-| Skill | Caso | Resultado | Cobertura mínima | Observação |
-| --- | --- | --- | --- | --- |
-| `design-system-implementation` | `dsi-1` | PASS | `3/3` | O prompt força tokens, Storybook e governança; a skill cobre exatamente esse fluxo. |
-| `react-saas-architecture` | `rsa-1` | PASS | `3/3` | A skill orienta estrutura de pastas, fronteiras de compartilhamento e regras de export. |
-| `saas-ui-specifications` | `sus-1` | PASS | `3/3` | O escopo de tipografia, cores e espaçamento dispara a skill correta com critérios de acessibilidade. |
-| `component-reuse-portability` | `crp-1` | PASS | `3/3` | A skill cobre dependências, adaptação de imports/tokens e atualização de registry/README. |
-| `clean-architecture-ddd` | `caddd-1` | PASS | `3/3` | O prompt pede bounded contexts, use cases e interfaces; a skill está alinhada ao domínio. |
-| `api-design-patterns` | `adp-1` | PASS | `3/3` | A skill entrega contrato de rotas, auth/validação/erros e paginação/rate limiting relevantes. |
-| `prisma-database-design` | `pdd-1` | PASS | `3/3` | O prompt é claramente de schema, índices e migrations, e a skill cobre isso diretamente. |
-| `prompt-engineering-hybrid` | `peh-1` | PASS | `3/3` | A skill guia estrutura do prompt, schema explícito e fallback clause. |
-| `ai-interface-design` | `aid-1` | PASS | `3/3` | O foco em streaming, fontes visíveis e confiança ativa a skill correta de AI UX. |
-| `context-window-optimization` | `cwo-1` | PASS | `3/3` | O prompt pede budget, camadas de contexto e critérios de retrieval, exatamente o centro da skill. |
-| `multi-agent-skill-installer` | `masi-1` | PASS | `3/3` | A skill orienta instalação multi-runtime, sandbox validation e verificação sem tocar no app. |
-| `ai-context-diagrams` | `acd-1` | PASS | `3/3` | A skill cobre escolha de diagrama, Mermaid/C4 e localização do artefato na documentação. |
-| `intelligent-project-docs` | `ipd-1` | PASS | `3/3` | README, AGENTS.md, ADRs e memória para agentes estão bem delimitados na skill. |
-| `technical-research-writing` | `trw-1` | PASS | `3/3` | A skill exige pergunta bem definida, metodologia de fontes e síntese com incerteza explícita. |
-| `legacy-code-refactoring` | `lcr-1` | PASS | `3/3` | Hotspots, safety tests e sequência incremental de refatoração estão no núcleo da skill. |
-| `systems-analysis-saas` | `sas-1` | PASS | `3/3` | Requisitos, MVP, regras de negócio e validação com stakeholders pertencem claramente a esta skill. |
-| `testing-strategies` | `ts-1` | PASS | `3/3` | O prompt pede tooling, pirâmide de testes e gates de qualidade; a skill cobre isso diretamente. |
+| Skill                          | Caso      | Resultado | Cobertura mínima | Observação                                                                                           |
+| ------------------------------ | --------- | --------- | ---------------- | ---------------------------------------------------------------------------------------------------- |
+| `design-system-implementation` | `dsi-1`   | PASS      | `3/3`            | O prompt força tokens, Storybook e governança; a skill cobre exatamente esse fluxo.                  |
+| `react-saas-architecture`      | `rsa-1`   | PASS      | `3/3`            | A skill orienta estrutura de pastas, fronteiras de compartilhamento e regras de export.              |
+| `saas-ui-specifications`       | `sus-1`   | PASS      | `3/3`            | O escopo de tipografia, cores e espaçamento dispara a skill correta com critérios de acessibilidade. |
+| `component-reuse-portability`  | `crp-1`   | PASS      | `3/3`            | A skill cobre dependências, adaptação de imports/tokens e atualização de registry/README.            |
+| `clean-architecture-ddd`       | `caddd-1` | PASS      | `3/3`            | O prompt pede bounded contexts, use cases e interfaces; a skill está alinhada ao domínio.            |
+| `api-design-patterns`          | `adp-1`   | PASS      | `3/3`            | A skill entrega contrato de rotas, auth/validação/erros e paginação/rate limiting relevantes.        |
+| `prisma-database-design`       | `pdd-1`   | PASS      | `3/3`            | O prompt é claramente de schema, índices e migrations, e a skill cobre isso diretamente.             |
+| `prompt-engineering-hybrid`    | `peh-1`   | PASS      | `3/3`            | A skill guia estrutura do prompt, schema explícito e fallback clause.                                |
+| `ai-interface-design`          | `aid-1`   | PASS      | `3/3`            | O foco em streaming, fontes visíveis e confiança ativa a skill correta de AI UX.                     |
+| `context-window-optimization`  | `cwo-1`   | PASS      | `3/3`            | O prompt pede budget, camadas de contexto e critérios de retrieval, exatamente o centro da skill.    |
+| `multi-agent-skill-installer`  | `masi-1`  | PASS      | `3/3`            | A skill orienta instalação multi-runtime, sandbox validation e verificação sem tocar no app.         |
+| `ai-context-diagrams`          | `acd-1`   | PASS      | `3/3`            | A skill cobre escolha de diagrama, Mermaid/C4 e localização do artefato na documentação.             |
+| `intelligent-project-docs`     | `ipd-1`   | PASS      | `3/3`            | README, AGENTS.md, ADRs e memória para agentes estão bem delimitados na skill.                       |
+| `technical-research-writing`   | `trw-1`   | PASS      | `3/3`            | A skill exige pergunta bem definida, metodologia de fontes e síntese com incerteza explícita.        |
+| `legacy-code-refactoring`      | `lcr-1`   | PASS      | `3/3`            | Hotspots, safety tests e sequência incremental de refatoração estão no núcleo da skill.              |
+| `systems-analysis-saas`        | `sas-1`   | PASS      | `3/3`            | Requisitos, MVP, regras de negócio e validação com stakeholders pertencem claramente a esta skill.   |
+| `testing-strategies`           | `ts-1`    | PASS      | `3/3`            | O prompt pede tooling, pirâmide de testes e gates de qualidade; a skill cobre isso diretamente.      |
 
 ## Spot-Checks de Fronteira
 
-| Tipo | Caso | Resultado | Veredito |
-| --- | --- | --- | --- |
-| Anti-trigger | `adp-n1` | PASS | Pedido de schema Prisma deve ir para `prisma-database-design`, não `api-design-patterns`. |
-| Conflito | `adp-c1` | PASS | `api-design-patterns` deve liderar quando o contrato HTTP é central, com `prisma-database-design` como secundária. |
-| Anti-trigger | `peh-n1` | PASS | Prompt de budget, RAG e compressão deve ir para `context-window-optimization`, não `prompt-engineering-hybrid`. |
-| Conflito | `ts-c1` | PASS | `testing-strategies` deve liderar quando o bloqueio imediato é cobertura automatizada, com `legacy-code-refactoring` como secundária. |
+| Tipo         | Caso     | Resultado | Veredito                                                                                                                              |
+| ------------ | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Anti-trigger | `adp-n1` | PASS      | Pedido de schema Prisma deve ir para `prisma-database-design`, não `api-design-patterns`.                                             |
+| Conflito     | `adp-c1` | PASS      | `api-design-patterns` deve liderar quando o contrato HTTP é central, com `prisma-database-design` como secundária.                    |
+| Anti-trigger | `peh-n1` | PASS      | Prompt de budget, RAG e compressão deve ir para `context-window-optimization`, não `prompt-engineering-hybrid`.                       |
+| Conflito     | `ts-c1`  | PASS      | `testing-strategies` deve liderar quando o bloqueio imediato é cobertura automatizada, com `legacy-code-refactoring` como secundária. |
 
 ## Leitura Prática do Resultado
 

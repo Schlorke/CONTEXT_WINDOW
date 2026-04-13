@@ -54,11 +54,7 @@
       "skill": "prisma-database-design",
       "file": "skill-prisma-database-design.mdc",
       "description": "Prisma and PostgreSQL design guidance for schema modeling, indexes, migrations, query behavior, and multi-tenancy.",
-      "globs": [
-        "**/*.prisma",
-        "prisma/**/*",
-        "**/migrations/**/*"
-      ]
+      "globs": ["**/*.prisma", "prisma/**/*", "**/migrations/**/*"]
     },
     {
       "skill": "prompt-engineering-hybrid",
@@ -84,23 +80,13 @@
       "skill": "ai-context-diagrams",
       "file": "skill-ai-context-diagrams.mdc",
       "description": "Mermaid and C4 diagram guidance for architecture communication, agent comprehension, and doc placement.",
-      "globs": [
-        "AGENTS.md",
-        "README.md",
-        "**/*.md",
-        "docs/**/*.md"
-      ]
+      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"]
     },
     {
       "skill": "intelligent-project-docs",
       "file": "skill-intelligent-project-docs.mdc",
       "description": "Project documentation governance for README, AGENTS.md, ADRs, module docs, ownership, and single source of truth.",
-      "globs": [
-        "AGENTS.md",
-        "README.md",
-        "**/*.md",
-        "docs/**/*.md"
-      ]
+      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"]
     },
     {
       "skill": "technical-research-writing",

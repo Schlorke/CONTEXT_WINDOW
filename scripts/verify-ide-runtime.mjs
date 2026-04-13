@@ -14,9 +14,17 @@ const skills = findSkillDirs().map((skillDir) => parseSkill(skillDir));
 const issues = [];
 
 for (const skill of skills) {
-  const claudeSkillFile = path.join(targetRoot, ".claude", "skills", skill.name, "SKILL.md");
+  const claudeSkillFile = path.join(
+    targetRoot,
+    ".claude",
+    "skills",
+    skill.name,
+    "SKILL.md",
+  );
   if (!fs.existsSync(claudeSkillFile)) {
-    issues.push(`Missing Claude skill install for ${skill.name}: ${claudeSkillFile}`);
+    issues.push(
+      `Missing Claude skill install for ${skill.name}: ${claudeSkillFile}`,
+    );
   }
 
   const profile = profiles.get(skill.name);
@@ -25,9 +33,16 @@ for (const skill of skills) {
     continue;
   }
 
-  const cursorRuleFile = path.join(targetRoot, ".cursor", "rules", profile.file);
+  const cursorRuleFile = path.join(
+    targetRoot,
+    ".cursor",
+    "rules",
+    profile.file,
+  );
   if (!fs.existsSync(cursorRuleFile)) {
-    issues.push(`Missing Cursor rule install for ${skill.name}: ${cursorRuleFile}`);
+    issues.push(
+      `Missing Cursor rule install for ${skill.name}: ${cursorRuleFile}`,
+    );
   }
 }
 

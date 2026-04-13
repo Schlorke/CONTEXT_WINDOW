@@ -1,5 +1,27 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.8.0 — 13 de abril de 2026
+
+### Added in 1.8.0
+
+- `scripts/status-agent-runtimes.mjs` para inspecionar se cada runtime está `current`, `outdated`, `missing` ou `foreign`.
+- Manifests `.saas-skills-manifest.json` em cada runtime gerenciado para registrar versão instalada, artefatos gerados e política de update.
+- Aliases de conveniência para instalação seletiva por IA: `install:codex`, `install:claude`, `install:cursor`, `install:claude-global` e `install:cursor-global`.
+- Aliases de sync seletivo e global: `sync:agent-runtimes`, `sync:global-runtimes`, `sync:codex`, `sync:claude`, `sync:cursor`, `sync:claude-global` e `sync:cursor-global`.
+- Aliases de verificação seletiva: `verify:codex`, `verify:claude`, `verify:cursor`, `verify:claude-global` e `verify:cursor-global`.
+
+### Changed in 1.8.0
+
+- `install-agent-runtimes.mjs` agora trata a instalação como sincronização gerenciada, limpando artefatos previamente gerados antes de reaplicar a fonte atual.
+- `verify-agent-runtimes.mjs` passou a exigir manifest válido e versão alinhada com a fonte atual da biblioteca.
+- `README.md`, `AGENTS.md`, `saas-skills/README.md`, `IDE_RUNTIME_GUIDE.md`, `TARGET_REPO_AGENT_GUIDE.md` e `PORTABILITY_MATRIX.md` agora documentam explicitamente instalação por IA e o fluxo correto de update sem drift.
+- `package.json` foi elevado para `1.8.0`.
+
+### Fixed in 1.8.0
+
+- A biblioteca agora detecta runtimes desatualizados em vez de apenas confirmar que os arquivos existem.
+- O fluxo de update passou a documentar e suportar propagação explícita de mudanças para Codex, Claude e Cursor sem depender de edição manual nas cópias instaladas.
+
 ## 1.7.0 — 13 de abril de 2026
 
 ### Added in 1.7.0

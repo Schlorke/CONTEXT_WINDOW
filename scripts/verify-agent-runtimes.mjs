@@ -2,9 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   findSkillDirs,
+  getLibraryVersion,
   loadCursorProfiles,
+  managedLibraryId,
   parseRuntimeCliArgs,
   parseSkill,
+  readRuntimeManifest,
   resolveClaudeHome,
   resolveClaudeSkillsDir,
   resolveCodexHome,
@@ -92,7 +95,13 @@ if (cli.flags.has("--skip-cursor-global")) {
   verifyCursorGlobal = false;
 }
 
-if (!verifyClaude && !verifyCursor && !verifyCodex && !verifyClaudeGlobal && !verifyCursorGlobal) {
+if (
+  !verifyClaude &&
+  !verifyCursor &&
+  !verifyCodex &&
+  !verifyClaudeGlobal &&
+  !verifyCursorGlobal
+) {
   console.error("No runtime selected for verification.");
   process.exit(1);
 }
@@ -106,13 +115,107 @@ const cursorHome = resolveCursorHome(cli.cursorHomeOverride);
 const cursorRulesDirGlobal = resolveCursorRulesDir(cli.cursorHomeOverride);
 const profiles = loadCursorProfiles();
 const skills = findSkillDirs().map((skillDir) => parseSkill(skillDir));
+const currentVersion = getLibraryVersion();
 const issues = [];
+
+const runtimeChecks = [];
+if (verifyClaude) {
+  runtimeChecks.push({
+    dir: path.join(targetRoot, ".claude", "skills"),
+    expectedArtifacts: skills.map((skill) => skill.name),
+    label: "Claude project runtime",
+  });
+}
+if (verifyCursor) {
+  runtimeChecks.push({
+    dir: path.join(targetRoot, ".cursor", "rules"),
+    expectedArtifacts: skills
+      .map((skill) => {
+        const profile = profiles.get(skill.name);
+        return profile?.file;
+      })
+      .filter(Boolean),
+    label: "Cursor project runtime",
+  });
+}
+if (verifyClaudeGlobal) {
+  runtimeChecks.push({
+    dir: claudeSkillsDir,
+    expectedArtifacts: skills.map((skill) => skill.name),
+    label: "Claude global runtime",
+  });
+}
+if (verifyCursorGlobal) {
+  runtimeChecks.push({
+    dir: cursorRulesDirGlobal,
+    expectedArtifacts: skills
+      .map((skill) => {
+        const profile = profiles.get(skill.name);
+        return profile?.file;
+      })
+      .filter(Boolean),
+    label: "Cursor global runtime",
+  });
+}
+if (verifyCodex) {
+  runtimeChecks.push({
+    dir: codexSkillsDir,
+    expectedArtifacts: skills.map((skill) => skill.name),
+    label: "Codex runtime",
+  });
+}
+
+for (const runtimeCheck of runtimeChecks) {
+  const manifest = readRuntimeManifest(runtimeCheck.dir);
+
+  if (!manifest) {
+    issues.push(
+      `Missing runtime manifest for ${runtimeCheck.label}: ${path.join(runtimeCheck.dir, ".saas-skills-manifest.json")}`,
+    );
+    continue;
+  }
+
+  if (manifest.library !== managedLibraryId) {
+    issues.push(
+      `Unexpected runtime manifest library for ${runtimeCheck.label}: ${runtimeCheck.dir}`,
+    );
+  }
+
+  if (manifest.version !== currentVersion) {
+    issues.push(
+      `Outdated runtime manifest for ${runtimeCheck.label}: installed=${manifest.version ?? "unknown"}, source=${currentVersion}. Re-run sync.`,
+    );
+  }
+
+  if (!Array.isArray(manifest.artifacts)) {
+    issues.push(
+      `Invalid runtime manifest artifacts list for ${runtimeCheck.label}: ${runtimeCheck.dir}`,
+    );
+    continue;
+  }
+
+  for (const artifact of runtimeCheck.expectedArtifacts) {
+    if (!manifest.artifacts.includes(artifact)) {
+      issues.push(
+        `Runtime manifest missing artifact ${artifact} for ${runtimeCheck.label}: ${runtimeCheck.dir}`,
+      );
+    }
+  }
+}
 
 for (const skill of skills) {
   if (verifyClaude) {
-    const claudeSkillFile = path.join(targetRoot, ".claude", "skills", skill.name, "SKILL.md");
+    const claudeSkillFile = path.join(
+      targetRoot,
+      ".claude",
+      "skills",
+      skill.name,
+      "SKILL.md",
+    );
     if (!fs.existsSync(claudeSkillFile)) {
-      issues.push(`Missing Claude skill install for ${skill.name}: ${claudeSkillFile}`);
+      issues.push(
+        `Missing Claude skill install for ${skill.name}: ${claudeSkillFile}`,
+      );
     }
   }
 
@@ -121,17 +224,30 @@ for (const skill of skills) {
     if (!profile) {
       issues.push(`Missing Cursor profile for ${skill.name}`);
     } else {
-      const cursorRuleFile = path.join(targetRoot, ".cursor", "rules", profile.file);
+      const cursorRuleFile = path.join(
+        targetRoot,
+        ".cursor",
+        "rules",
+        profile.file,
+      );
       if (!fs.existsSync(cursorRuleFile)) {
-        issues.push(`Missing Cursor rule install for ${skill.name}: ${cursorRuleFile}`);
+        issues.push(
+          `Missing Cursor rule install for ${skill.name}: ${cursorRuleFile}`,
+        );
       }
     }
   }
 
   if (verifyClaudeGlobal) {
-    const globalClaudeSkillFile = path.join(claudeSkillsDir, skill.name, "SKILL.md");
+    const globalClaudeSkillFile = path.join(
+      claudeSkillsDir,
+      skill.name,
+      "SKILL.md",
+    );
     if (!fs.existsSync(globalClaudeSkillFile)) {
-      issues.push(`Missing global Claude skill install for ${skill.name}: ${globalClaudeSkillFile}`);
+      issues.push(
+        `Missing global Claude skill install for ${skill.name}: ${globalClaudeSkillFile}`,
+      );
     }
   }
 
@@ -140,9 +256,14 @@ for (const skill of skills) {
     if (!profile) {
       issues.push(`Missing Cursor profile for ${skill.name}`);
     } else {
-      const globalCursorRuleFile = path.join(cursorRulesDirGlobal, profile.file);
+      const globalCursorRuleFile = path.join(
+        cursorRulesDirGlobal,
+        profile.file,
+      );
       if (!fs.existsSync(globalCursorRuleFile)) {
-        issues.push(`Missing global Cursor rule install for ${skill.name}: ${globalCursorRuleFile}`);
+        issues.push(
+          `Missing global Cursor rule install for ${skill.name}: ${globalCursorRuleFile}`,
+        );
       }
     }
   }
@@ -150,7 +271,9 @@ for (const skill of skills) {
   if (verifyCodex) {
     const codexSkillFile = path.join(codexSkillsDir, skill.name, "SKILL.md");
     if (!fs.existsSync(codexSkillFile)) {
-      issues.push(`Missing Codex skill install for ${skill.name}: ${codexSkillFile}`);
+      issues.push(
+        `Missing Codex skill install for ${skill.name}: ${codexSkillFile}`,
+      );
     }
   }
 }
@@ -165,6 +288,7 @@ if (issues.length > 0) {
 
 console.log("AGENT RUNTIME VERIFICATION PASSED");
 console.log(`- Target: ${targetRoot}`);
+console.log(`- Source version: ${currentVersion}`);
 console.log(`- Claude home: ${claudeHome}`);
 console.log(`- Codex home: ${codexHome}`);
 console.log(`- Cursor home: ${cursorHome}`);

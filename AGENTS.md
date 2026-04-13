@@ -11,6 +11,7 @@ Ele existe para:
 - manter as skills canônicas em `saas-skills/`
 - exportar runtimes corretos para Codex, Claude e Cursor
 - instalar esses runtimes com segurança
+- sincronizar updates a partir da fonte de verdade
 - validar a instalação sem tocar no código da aplicação
 
 ## Regra Operacional Mais Importante
@@ -30,6 +31,18 @@ Não use:
 - `.cursor/skills/` como runtime oficial
 - `saas-skills/frontend/...` diretamente dentro de `.claude/skills/`
 - o `skill-installer` nativo da Codex como se ele instalasse Claude e Cursor
+- cópias instaladas como se fossem a fonte correta para manutenção
+
+## Política de Sync
+
+Considere todo runtime instalado como artefato gerado.
+
+- edite sempre `saas-skills/`
+- depois sincronize os runtimes desejados
+- confirme a versão com `status` e `verify`
+- não faça hotfix diretamente em `.claude/skills/`, `.cursor/rules/` ou `$CODEX_HOME/skills/`
+
+Cada runtime gerenciado recebe `.saas-skills-manifest.json`. Use esse manifest para detectar drift.
 
 ## Comandos Canônicos
 
@@ -47,11 +60,34 @@ pnpm install:agent-runtimes -- .
 pnpm verify:agent-runtimes -- .
 ```
 
+### Instalar apenas em uma IA
+
+```bash
+pnpm install:codex -- .
+pnpm verify:codex -- .
+
+pnpm install:claude -- .
+pnpm verify:claude -- .
+
+pnpm install:cursor -- .
+pnpm verify:cursor -- .
+```
+
 ### Instalar globalmente para Codex, Claude e Cursor
 
 ```bash
 pnpm install:global-runtimes
 pnpm verify:global-runtimes
+```
+
+### Sincronizar updates
+
+```bash
+pnpm sync:agent-runtimes -- .
+pnpm status:agent-runtimes -- .
+
+pnpm sync:global-runtimes
+pnpm status:global-runtimes
 ```
 
 ### Validar em sandbox antes de tocar nos runtimes reais
@@ -65,8 +101,12 @@ pnpm verify:agent-runtimes -- . --global-all --codex-home .agent-runtime-smoke/c
 ## Como Escolher o Fluxo
 
 - Se o usuário disse "só neste repositório", use `install:agent-runtimes -- . --project-only`
+- Se o usuário disse "só na Codex", use `install:codex -- .`
+- Se o usuário disse "só no Claude", use `install:claude -- .` ou `install:claude-global`
+- Se o usuário disse "só no Cursor", use `install:cursor -- .` ou `install:cursor-global`
 - Se o usuário disse "em todos os meus projetos", use `install:global-runtimes`
 - Se o usuário quer os dois, use `install:agent-runtimes -- . --global-all`
+- Se o usuário pediu update de uma skill já instalada, edite a fonte canônica e rode `sync`, não patch na cópia instalada
 - Se houver qualquer dúvida sobre impacto, comece com sandbox
 
 ## Smoke Test Permitido
@@ -112,6 +152,8 @@ Instale esta biblioteca globalmente para Codex, Claude e Cursor e valide em sand
 Considere sucesso quando:
 
 - as skills estão no runtime certo de cada plataforma
+- os manifests de runtime estão presentes e na mesma versão da fonte atual
 - `pnpm verify:agent-runtimes` ou `pnpm verify:global-runtimes` passa
+- `pnpm status:agent-runtimes` ou `pnpm status:global-runtimes` mostra `current`
 - o smoke test responde no domínio correto
 - nenhum arquivo da aplicação foi alterado

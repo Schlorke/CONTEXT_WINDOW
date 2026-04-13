@@ -7,6 +7,8 @@ Use este documento quando quiser que um agente instale `saas-skills` corretament
 
 Se a intenção for instalar também os runtimes globais do usuário, use os homes isolados primeiro e só depois faça a instalação real.
 
+Se o objetivo for atualizar uma skill já instalada, trate a biblioteca canônica como fonte de verdade e sincronize os runtimes. Não corrija a cópia instalada diretamente.
+
 ## Instrução para o Agente
 
 Você deve instalar e validar a biblioteca `saas-skills` neste repositório seguindo estas regras:
@@ -37,7 +39,20 @@ Você deve instalar e validar a biblioteca `saas-skills` neste repositório segu
 6. **Valide a Codex em sandbox antes da instalação real.**
    Use homes isolados para provar que o fluxo funciona sem tocar nas instalações reais do usuário.
 
+7. **Trate o runtime instalado como artefato gerado.**
+   Se o usuário pedir update, edite `saas-skills/` e rode sync. Não aplique hotfix diretamente em `.claude/skills/`, `.cursor/rules/` ou `$CODEX_HOME/skills/`.
+
 ## Fluxo Obrigatório
+
+### Escopos suportados
+
+Escolha o escopo certo antes de instalar:
+
+- somente Codex: `node scripts/install-agent-runtimes.mjs . --codex-only`
+- somente Claude do projeto: `node scripts/install-agent-runtimes.mjs . --claude-only`
+- somente Cursor do projeto: `node scripts/install-agent-runtimes.mjs . --cursor-only`
+- projeto completo: `node scripts/install-agent-runtimes.mjs . --project-only`
+- projeto + globais: `node scripts/install-agent-runtimes.mjs . --global-all`
 
 ### Etapa 1: Prévia sem escrita
 
@@ -78,6 +93,7 @@ Considere falha se:
 - alguma rule do Cursor estiver ausente
 - alguma instalação global do Claude estiver ausente
 - alguma instalação global do Cursor estiver ausente
+- algum runtime gerenciado não tiver `.saas-skills-manifest.json`
 - a instalação depender de editar código do app
 
 ### Etapa 4: Smoke tests sem edição
@@ -118,6 +134,7 @@ Se a sandbox passar, execute a instalação real:
 ```bash
 node scripts/install-agent-runtimes.mjs . --global-all
 node scripts/verify-agent-runtimes.mjs . --global-all
+node scripts/status-agent-runtimes.mjs . --global-all
 ```
 
 ## Critério de Aprovação
@@ -127,6 +144,7 @@ Considere a instalação funcional quando:
 - Codex runtime existir em `$CODEX_HOME/skills/`
 - Claude runtime existir em `.claude/skills/` e `~/.claude/skills/`
 - Cursor runtime existir em `.cursor/rules/` e `~/.cursor/rules/`
+- todos os manifests estiverem na versão atual da biblioteca
 - os smoke tests responderem no domínio certo
 - as respostas cobrirem o essencial do assunto pedido
 - nenhum arquivo de aplicação tiver sido alterado
@@ -139,6 +157,7 @@ Considere falha quando:
 - o agente copiar a árvore canônica inteira para dentro de `.claude/skills/` sem flatten
 - o agente usar o `skill-installer` da Codex como se ele instalasse também Claude e Cursor
 - o agente ignorar os runtimes globais quando o objetivo declarado for instalação global
+- o agente editar a cópia instalada em vez da fonte canônica e não sincronizar as outras IAs
 - o agente precisar editar o app para "testar"
 - o smoke test responder de forma genérica e sem foco no domínio correto
 
@@ -148,6 +167,7 @@ Ao final, o agente deve responder com:
 
 1. quais caminhos foram instalados na sandbox
 1. resultado da verificação estrutural em sandbox
+1. resultado do `status` para mostrar se o runtime está `current`
 1. resultado resumido dos smoke tests
 1. confirmação explícita de que o código da aplicação não foi alterado
 1. se a instalação real global foi ou não executada

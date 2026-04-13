@@ -33,7 +33,9 @@ if (installClaude) {
   for (const skillDir of skillDirs) {
     const skill = parseSkill(skillDir);
     const targetDir = path.join(claudeSkillsDir, skill.name);
-    plannedWrites.push(path.relative(targetRoot, targetDir).replaceAll("\\", "/"));
+    plannedWrites.push(
+      path.relative(targetRoot, targetDir).replaceAll("\\", "/"),
+    );
 
     if (dryRun) continue;
 
@@ -55,7 +57,9 @@ if (installCursor) {
     }
 
     const targetFile = path.join(cursorRulesDir, profile.file);
-    plannedWrites.push(path.relative(targetRoot, targetFile).replaceAll("\\", "/"));
+    plannedWrites.push(
+      path.relative(targetRoot, targetFile).replaceAll("\\", "/"),
+    );
 
     if (dryRun) continue;
 

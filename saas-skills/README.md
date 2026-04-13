@@ -14,17 +14,19 @@ Na prática, ela entrega:
 - referências locais por skill quando necessário
 - adapters de runtime para Codex, Claude e Cursor
 - tooling para instalar em projetos-alvo sem tocar no código da aplicação
+- tooling para instalar seletivamente em apenas uma IA
+- tooling para sincronizar updates e detectar drift entre runtimes
 - documentação operacional e QA
 
 ## Coleções
 
-| Coleção | Skills | Finalidade |
-| --- | ---: | --- |
-| `frontend` | 4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
-| `backend` | 3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL |
-| `ai-integration` | 4 | Prompt engineering, AI UX, contexto e diagramas para agentes |
-| `documentation` | 2 | Documentação persistente e escrita técnica |
-| `engineering` | 3 | Refatoração, análise de sistemas e estratégia de testes |
+| Coleção          | Skills | Finalidade                                                                              |
+| ---------------- | -----: | --------------------------------------------------------------------------------------- |
+| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
+| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                             |
+| `ai-integration` |      4 | Prompt engineering, AI UX, contexto e diagramas para agentes                            |
+| `documentation`  |      2 | Documentação persistente e escrita técnica                                              |
+| `engineering`    |      3 | Refatoração, análise de sistemas e estratégia de testes                                 |
 
 ## Catálogo
 
@@ -74,6 +76,17 @@ Ela é usada para:
 - QA
 - export de runtimes
 - instalação em outros projetos
+- sincronização dos runtimes já instalados
+
+### Política de manutenção
+
+As cópias em runtime são artefatos gerados.
+
+- edite sempre `saas-skills/...`
+- sincronize a IA desejada depois de cada alteração
+- confirme o estado com `verify` e `status`
+
+Cada runtime gerenciado recebe `.saas-skills-manifest.json` com a versão instalada. Isso permite detectar runtime ausente, legado ou desatualizado.
 
 ### Runtime Codex
 
@@ -139,17 +152,25 @@ Eles não são o runtime recomendado desta biblioteca.
 
 ## Comandos Principais
 
-| Comando | O que faz | Quando usar |
-| --- | --- | --- |
-| `pnpm export:flat-skills` | Gera `dist/flat-skills/` | Para Claude runtime e loaders rasos |
-| `pnpm export:cursor-rules` | Gera `dist/cursor-rules/` | Para Cursor runtime |
-| `pnpm install:ide-runtime -- <target-dir>` | Instala apenas Claude e Cursor no projeto-alvo | Quando a Codex não entra no escopo |
-| `pnpm verify:ide-runtime -- <target-dir>` | Verifica apenas Claude e Cursor | Depois da instalação de projeto |
-| `pnpm install:agent-runtimes -- <target-dir>` | Instala Codex global e Claude/Cursor no projeto | Para um único fluxo multi-IA por projeto |
-| `pnpm verify:agent-runtimes -- <target-dir>` | Verifica Codex global e Claude/Cursor no projeto | Depois da instalação unificada |
-| `pnpm install:global-runtimes` | Instala Codex, Claude e Cursor globalmente | Para disponibilizar a biblioteca em todos os projetos |
-| `pnpm verify:global-runtimes` | Verifica a instalação global | Depois da instalação global |
-| `pnpm qa:skills` | Executa QA completo, incluindo smoke install multi-IA em `dist/` | Antes de release |
+| Comando                                       | O que faz                                                                              | Quando usar                                           |
+| --------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `pnpm export:flat-skills`                     | Gera `dist/flat-skills/`                                                               | Para Claude runtime e loaders rasos                   |
+| `pnpm export:cursor-rules`                    | Gera `dist/cursor-rules/`                                                              | Para Cursor runtime                                   |
+| `pnpm install:codex -- <target-dir>`          | Instala somente a Codex                                                                | Quando você quer só `$CODEX_HOME/skills/`             |
+| `pnpm install:claude -- <target-dir>`         | Instala somente o Claude do projeto                                                    | Quando você quer só `.claude/skills/`                 |
+| `pnpm install:cursor -- <target-dir>`         | Instala somente o Cursor do projeto                                                    | Quando você quer só `.cursor/rules/`                  |
+| `pnpm install:claude-global`                  | Instala somente o Claude global                                                        | Quando você quer só `~/.claude/skills/`               |
+| `pnpm install:cursor-global`                  | Instala somente o Cursor global                                                        | Quando você quer só `~/.cursor/rules/`                |
+| `pnpm install:ide-runtime -- <target-dir>`    | Instala apenas Claude e Cursor no projeto-alvo                                         | Quando a Codex não entra no escopo                    |
+| `pnpm verify:ide-runtime -- <target-dir>`     | Verifica apenas Claude e Cursor                                                        | Depois da instalação de projeto                       |
+| `pnpm install:agent-runtimes -- <target-dir>` | Instala Codex global e Claude/Cursor no projeto                                        | Para um único fluxo multi-IA por projeto              |
+| `pnpm verify:agent-runtimes -- <target-dir>`  | Verifica Codex global e Claude/Cursor no projeto                                       | Depois da instalação unificada                        |
+| `pnpm sync:agent-runtimes -- <target-dir>`    | Reaplica a fonte de verdade nos runtimes selecionados                                  | Quando uma skill mudou em `saas-skills/`              |
+| `pnpm sync:global-runtimes`                   | Reaplica a fonte de verdade nos runtimes globais                                       | Quando você quer atualizar tudo                       |
+| `pnpm status:agent-runtimes -- <target-dir>`  | Mostra `current`, `outdated`, `missing` ou `foreign` por runtime                       | Para diagnosticar instalações                         |
+| `pnpm install:global-runtimes`                | Instala Codex, Claude e Cursor globalmente                                             | Para disponibilizar a biblioteca em todos os projetos |
+| `pnpm verify:global-runtimes`                 | Verifica a instalação global                                                           | Depois da instalação global                           |
+| `pnpm qa:skills`                              | Executa QA completo, incluindo smoke install multi-IA, verificação e status em `dist/` | Antes de release                                      |
 
 ## Instalação por Ambiente
 
@@ -159,6 +180,13 @@ Modo recomendado:
 
 ```bash
 pnpm install:agent-runtimes -- C:\caminho\do\projeto --codex-only
+```
+
+Alias curto:
+
+```bash
+pnpm install:codex -- C:\caminho\do\projeto
+pnpm verify:codex -- C:\caminho\do\projeto
 ```
 
 Resultado:
@@ -182,6 +210,13 @@ pnpm install:agent-runtimes -- C:\caminho\do\projeto --claude-only
 
 Isso instala skills imediatamente abaixo de `.claude/skills/`.
 
+Alias curto:
+
+```bash
+pnpm install:claude -- C:\caminho\do\projeto
+pnpm verify:claude -- C:\caminho\do\projeto
+```
+
 ### Claude Global
 
 Modo recomendado:
@@ -191,6 +226,13 @@ pnpm install:global-runtimes
 ```
 
 Isso instala skills em `~/.claude/skills/`.
+
+Somente Claude global:
+
+```bash
+pnpm install:claude-global
+pnpm verify:claude-global
+```
 
 ### Cursor IDE
 
@@ -202,6 +244,13 @@ pnpm install:agent-runtimes -- C:\caminho\do\projeto --cursor-only
 
 Isso instala adapters `.mdc` em `.cursor/rules/`.
 
+Alias curto:
+
+```bash
+pnpm install:cursor -- C:\caminho\do\projeto
+pnpm verify:cursor -- C:\caminho\do\projeto
+```
+
 ### Cursor Global
 
 Modo recomendado:
@@ -211,6 +260,13 @@ pnpm install:global-runtimes
 ```
 
 Isso instala adapters `.mdc` em `~/.cursor/rules/`.
+
+Somente Cursor global:
+
+```bash
+pnpm install:cursor-global
+pnpm verify:cursor-global
+```
 
 ### Claude dentro do Cursor
 
@@ -244,6 +300,43 @@ pnpm verify:global-runtimes
 ```
 
 Depois de instalada, a própria biblioteca passa a oferecer a skill [multi-agent-skill-installer](C:/Projetos/Context_Window/saas-skills/ai-integration/multi-agent-skill-installer/SKILL.md:1), que você pode invocar para pedir o fluxo em linguagem natural.
+
+## Como Atualizar uma Skill sem Criar Drift
+
+Se uma skill mudou, o fluxo correto não é editar a cópia instalada.
+
+Faça assim:
+
+1. altere `saas-skills/.../SKILL.md`
+2. rode o sync da IA ou do escopo desejado
+3. rode `verify`
+4. rode `status`
+
+Exemplos:
+
+```bash
+pnpm sync:claude -- C:\caminho\do\projeto
+pnpm verify:claude -- C:\caminho\do\projeto
+pnpm status:agent-runtimes -- C:\caminho\do\projeto --claude-only
+```
+
+```bash
+pnpm sync:agent-runtimes -- C:\caminho\do\projeto
+pnpm verify:agent-runtimes -- C:\caminho\do\projeto
+pnpm status:agent-runtimes -- C:\caminho\do\projeto
+```
+
+```bash
+pnpm sync:global-runtimes
+pnpm verify:global-runtimes
+pnpm status:global-runtimes
+```
+
+Esse modelo resolve o problema de drift entre instâncias:
+
+- Codex atualizada e Claude/Cursor antigas
+- Claude do projeto atualizada e Claude global antiga
+- rules do Cursor antigas depois de mudança de descrição ou `globs`
 
 ### GitHub Copilot / loaders sem descoberta recursiva
 
@@ -288,6 +381,7 @@ O instalador deste repo resolve:
 - runtime real do Claude local e global
 - runtime real do Cursor local e global
 - verificação estrutural
+- manifests de runtime para detectar drift
 - smoke seguro usando `--codex-home`, `--claude-home` e `--cursor-home`
 
 ## Como Levar a Biblioteca para Outro Repositório
@@ -302,6 +396,10 @@ Copie:
 - `pnpm-lock.yaml`
 
 Se você não quiser levar o `package.json` deste repositório, ainda consegue instalar os runtimes usando `node scripts/install-agent-runtimes.mjs` e `node scripts/verify-agent-runtimes.mjs`, porque esses scripts usam apenas módulos nativos do Node.js.
+
+Para diagnosticar drift sem depender de `pnpm`, use também:
+
+- `node scripts/status-agent-runtimes.mjs`
 
 ### Para o agente instalar corretamente no projeto-alvo
 
@@ -350,5 +448,7 @@ Se você quer o fluxo mais útil:
 3. `pnpm install:agent-runtimes -- <target-dir>`
 4. `pnpm verify:agent-runtimes -- <target-dir>`
 5. para global, rode `pnpm install:global-runtimes`
-6. para validar sem tocar nos runtimes reais, use `--codex-home`, `--claude-home` e `--cursor-home`
-7. use [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição
+6. para instalação seletiva, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
+7. para updates, use os comandos `sync:*`
+8. para validar sem tocar nos runtimes reais, use `--codex-home`, `--claude-home` e `--cursor-home`
+9. use [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição

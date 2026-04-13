@@ -11,11 +11,14 @@ Não existe hoje um formato único de "skill" que qualquer IDE consuma da mesma 
 Para esta biblioteca, a estratégia correta é:
 
 - **fonte de verdade:** `saas-skills/`
+- **política de update:** edite `saas-skills/` e sincronize; não edite cópias instaladas
 - **runtime Codex:** `$CODEX_HOME/skills/<skill>/SKILL.md`
 - **runtime Claude:** `.claude/skills/<skill>/SKILL.md` ou `~/.claude/skills/<skill>/SKILL.md`
 - **runtime Cursor:** `.cursor/rules/*.mdc` ou `~/.cursor/rules/*.mdc`
 
 Ou seja, a biblioteca precisa de adapters por ambiente.
+
+Cada runtime gerenciado recebe `.saas-skills-manifest.json`. Esse manifest registra a versão instalada e permite verificar se uma instância ficou desatualizada em relação à fonte atual.
 
 ## Codex
 
@@ -156,6 +159,19 @@ pnpm install:global-runtimes
 pnpm verify:global-runtimes
 ```
 
+### Status e sincronização
+
+```bash
+pnpm status:agent-runtimes -- .
+pnpm status:global-runtimes
+
+pnpm sync:agent-runtimes -- .
+pnpm sync:global-runtimes
+```
+
+Use `status` para descobrir quais runtimes estão `current`, `outdated`, `missing` ou `foreign`.
+Use `sync` para reaplicar a versão atual de `saas-skills/` nos runtimes desejados.
+
 ## Smoke Seguro dos Runtimes Globais
 
 Se você quer validar o fluxo completo sem mexer nas instalações reais do usuário, use homes isolados:
@@ -180,8 +196,9 @@ Use este fluxo quando quiser instalar a biblioteca sem comprometer o projeto:
 2. Confirme que só serão tocadas pastas `.claude/`, `.cursor/` e, se aplicável, o `CODEX_HOME` escolhido.
 3. Rode a instalação real com homes isolados.
 4. Rode a verificação estrutural.
-5. Execute smoke tests que peçam apenas análise, plano ou especificação.
-6. Se tudo estiver bom, repita sem os homes isolados para instalar nos runtimes reais.
+5. Rode `status` para confirmar se a sandbox está `current`.
+6. Execute smoke tests que peçam apenas análise, plano ou especificação.
+7. Se tudo estiver bom, repita sem os homes isolados para instalar nos runtimes reais.
 
 ## Smoke Test Sem Impacto no Projeto
 
@@ -209,6 +226,7 @@ Critério de aprovação:
 Considere a instalação funcional quando:
 
 - `pnpm verify:agent-runtimes` passar
+- `pnpm status:agent-runtimes` ou `pnpm status:global-runtimes` mostrar `current`
 - Codex encontrar as skills em `$CODEX_HOME/skills/`
 - Claude encontrar as skills em `.claude/skills/` ou `~/.claude/skills/`
 - Cursor carregar as regras geradas em `.cursor/rules/` ou `~/.cursor/rules/`
@@ -223,6 +241,7 @@ Ela evita:
 - depender de `.cursor/skills/` como se fosse runtime nativo
 - tocar no código da aplicação para apenas validar a biblioteca
 - misturar fonte de verdade com adapters específicos por plataforma
+- deixar uma IA atualizada e as outras desatualizadas sem detecção
 
 ## Referências Operacionais
 
@@ -235,6 +254,8 @@ Ela evita:
 - **Cursor não aplicou a library:** confirme que os arquivos foram para `.cursor/rules/` ou `~/.cursor/rules/`, não para `.cursor/skills/`.
 - **Claude não encontrou a skill:** confirme que existe uma pasta imediata por skill em `.claude/skills/` ou `~/.claude/skills/`.
 - **Só a Codex recebeu as skills:** isso acontece quando o fluxo usou apenas o `skill-installer` nativo da Codex.
+- **Atualizei uma cópia instalada e as outras IAs não acompanharam:** o fluxo correto é editar `saas-skills/` e rodar `sync`.
+- **Não sei qual runtime está atrasado:** rode `pnpm status:agent-runtimes -- <target-dir>` ou `pnpm status:global-runtimes`.
 - **Você quer testar sem tocar no ambiente real:** rode o instalador com `--codex-home`, `--claude-home` e `--cursor-home`.
 - **Não sabe se usa projeto ou global:** projeto para escopo local; global para disponibilizar em todos os repositórios do usuário.
 - **O agente quer editar o app para “testar”:** isso é erro de fluxo; a validação correta é estrutural + smoke prompt sem edição.

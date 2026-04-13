@@ -3,7 +3,7 @@ name: multi-agent-skill-installer
 description: Install and verify this skills library across Codex, Claude, and Cursor using the correct runtime targets for each platform. Trigger when the user wants global installation, project-local installation, sync across all three AI tools, safe sandbox validation, or a copyable workflow that lets any agent install the library without touching application code.
 metadata:
   author: Codex Agent, SaaS Skills
-  version: 1.0
+  version: 1.1
   last_validated: 2026-04-13
   sources:
     - ../../README.md
@@ -18,7 +18,9 @@ metadata:
 Activate this skill whenever:
 
 - Installing this library into Codex, Claude, or Cursor
+- Installing this library into only one of those runtimes
 - Syncing the library across all three AI tools
+- Syncing the library back into only one selected runtime
 - Choosing between project-local and global installation
 - Validating the installation in sandbox before touching real runtimes
 - Generating a copyable `AGENTS.md` or operator workflow for multi-IA install
@@ -30,23 +32,30 @@ This skill is MANDATORY and must be followed without exception when its trigger 
 
 ### Step 1: Pick the Correct Installation Scope
 
-Choose one of four scopes before writing anything:
+Choose one of these scopes before writing anything:
 
 1. **Project-only** — install only:
    - `.claude/skills/`
    - `.cursor/rules/`
-2. **Global-only** — install only:
+2. **Codex-only** — install only:
+   - `$CODEX_HOME/skills/`
+3. **Claude-only** — install only:
+   - `.claude/skills/` or `~/.claude/skills/`
+4. **Cursor-only** — install only:
+   - `.cursor/rules/` or `~/.cursor/rules/`
+5. **Global-only** — install only:
    - `$CODEX_HOME/skills/`
    - `~/.claude/skills/`
    - `~/.cursor/rules/`
-3. **Unified project install** — install:
+6. **Unified project install** — install:
    - `$CODEX_HOME/skills/`
    - project `.claude/skills/`
    - project `.cursor/rules/`
-4. **Unified global + project install** — install everything above
+7. **Unified global + project install** — install everything above
 
 If the user says "for all my projects," prefer the global flow.
 If the user says "only in this repo," prefer the project flow.
+If the user says "only for Codex", "only for Claude", or "only for Cursor", prefer the single-runtime flow.
 
 ### Step 2: Use the Repository Installer, Not Ad Hoc Copying
 
@@ -62,6 +71,19 @@ pnpm install:agent-runtimes -- <target-dir>
 pnpm verify:agent-runtimes -- <target-dir>
 ```
 
+Single-runtime aliases:
+
+```bash
+pnpm install:codex -- <target-dir>
+pnpm verify:codex -- <target-dir>
+
+pnpm install:claude -- <target-dir>
+pnpm verify:claude -- <target-dir>
+
+pnpm install:cursor -- <target-dir>
+pnpm verify:cursor -- <target-dir>
+```
+
 Global-only:
 
 ```bash
@@ -74,6 +96,14 @@ Project-only:
 ```bash
 pnpm install:agent-runtimes -- <target-dir> --project-only
 pnpm verify:agent-runtimes -- <target-dir> --project-only
+```
+
+For updates and corrections, use the sync aliases:
+
+```bash
+pnpm sync:agent-runtimes -- <target-dir>
+pnpm sync:global-runtimes
+pnpm status:agent-runtimes -- <target-dir>
 ```
 
 ### Step 3: Always Start with Sandbox Validation
@@ -104,6 +134,10 @@ Correct targets are:
 - **Claude global:** `~/.claude/skills/<skill>/SKILL.md`
 - **Cursor project:** `.cursor/rules/*.mdc`
 - **Cursor global:** `~/.cursor/rules/*.mdc`
+
+Every managed runtime should also contain:
+
+- `.saas-skills-manifest.json`
 
 Reject the install as wrong if:
 
@@ -151,6 +185,7 @@ For project + global:
 ```bash
 pnpm install:agent-runtimes -- <target-dir> --global-all
 pnpm verify:agent-runtimes -- <target-dir> --global-all
+pnpm status:agent-runtimes -- <target-dir> --global-all
 ```
 
 ## Enforcement
@@ -160,13 +195,16 @@ You must enforce these rules:
 - Never modify application code just to test installation
 - Never treat `.cursor/skills/` as the official Cursor runtime
 - Never use the Codex `skill-installer` as if it were a universal Claude/Cursor installer
+- Never patch runtime copies directly when the real intent is to update the library
 - Always verify runtime placement after install
+- Always use sync after changing the canonical source
 - Always prefer sandbox validation before writing to global runtimes
 
 ## Common Anti-Patterns
 
 - Copying the canonical `saas-skills/` tree directly into `.claude/skills/`
 - Installing only Codex and assuming Claude and Cursor will discover the same files
+- Fixing a bug only inside `$CODEX_HOME/skills/`, `.claude/skills/`, or `.cursor/rules/` and assuming the other runtimes will magically update
 - Writing global Cursor guidance into random docs or settings instead of generating `.mdc` rules
 - Running build, migrations, or app tests just to validate the library runtime
 - Skipping verification because the files "look right"

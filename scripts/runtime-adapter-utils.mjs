@@ -13,6 +13,9 @@ export const cursorProfilesPath = path.join(
   "integrations",
   "cursor-rule-profiles.json",
 );
+export const packageJsonPath = path.join(repoRoot, "package.json");
+export const runtimeManifestFileName = ".saas-skills-manifest.json";
+export const managedLibraryId = "context-window/saas-skills";
 
 export function findSkillDirs(dir = libraryRoot) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -45,8 +48,11 @@ export function parseSkill(skillDir) {
 
   const frontmatter = match[1];
   const body = raw.slice(match[0].length).trimStart();
-  const name = frontmatter.match(/^name:\s*(.+)$/m)?.[1]?.trim() ?? path.basename(skillDir);
-  const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? "";
+  const name =
+    frontmatter.match(/^name:\s*(.+)$/m)?.[1]?.trim() ??
+    path.basename(skillDir);
+  const description =
+    frontmatter.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? "";
   const collection = path.basename(path.dirname(skillDir));
 
   return {
@@ -56,13 +62,23 @@ export function parseSkill(skillDir) {
     description,
     collection,
     body,
-    sourceRelativePath: path.relative(repoRoot, skillFile).replaceAll("\\", "/"),
+    sourceRelativePath: path
+      .relative(repoRoot, skillFile)
+      .replaceAll("\\", "/"),
   };
 }
 
 export function loadCursorProfiles() {
   const raw = JSON.parse(fs.readFileSync(cursorProfilesPath, "utf8"));
   return new Map(raw.rules.map((entry) => [entry.skill, entry]));
+}
+
+export function loadPackageMetadata() {
+  return JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+}
+
+export function getLibraryVersion() {
+  return loadPackageMetadata().version ?? "0.0.0";
 }
 
 export function buildCursorRule(skill, profile) {
@@ -89,6 +105,82 @@ export function buildCursorRule(skill, profile) {
 
 export function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
+}
+
+export function readRuntimeManifest(runtimeDir) {
+  const manifestPath = path.join(runtimeDir, runtimeManifestFileName);
+
+  if (!fs.existsSync(manifestPath)) {
+    return null;
+  }
+
+  return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+}
+
+export function buildRuntimeManifest({
+  runtime,
+  artifacts,
+  installScope,
+  targetRoot,
+}) {
+  return {
+    library: managedLibraryId,
+    version: getLibraryVersion(),
+    runtime,
+    installScope,
+    installedAt: new Date().toISOString(),
+    sourceRepoRoot: repoRoot,
+    targetRoot,
+    skillCount: artifacts.length,
+    artifacts,
+    generatedBy: "scripts/install-agent-runtimes.mjs",
+    updatePolicy:
+      "Edit saas-skills/ and rerun sync. Do not edit runtime copies directly.",
+  };
+}
+
+export function writeRuntimeManifest(runtimeDir, manifest) {
+  const manifestPath = path.join(runtimeDir, runtimeManifestFileName);
+  fs.writeFileSync(
+    manifestPath,
+    `${JSON.stringify(manifest, null, 2)}\n`,
+    "utf8",
+  );
+}
+
+export function removeManagedRuntimeArtifacts(runtimeDir) {
+  const manifest = readRuntimeManifest(runtimeDir);
+  const removedPaths = [];
+
+  if (
+    !manifest ||
+    manifest.library !== managedLibraryId ||
+    !Array.isArray(manifest.artifacts)
+  ) {
+    return removedPaths;
+  }
+
+  for (const artifact of manifest.artifacts) {
+    if (typeof artifact !== "string" || artifact.includes("..")) {
+      continue;
+    }
+
+    const artifactPath = path.join(runtimeDir, artifact);
+
+    if (!fs.existsSync(artifactPath)) {
+      continue;
+    }
+
+    fs.rmSync(artifactPath, { recursive: true, force: true });
+    removedPaths.push(artifactPath);
+  }
+
+  const manifestPath = path.join(runtimeDir, runtimeManifestFileName);
+  if (fs.existsSync(manifestPath)) {
+    fs.rmSync(manifestPath, { force: true });
+  }
+
+  return removedPaths;
 }
 
 export function resolveCodexHome(override) {
