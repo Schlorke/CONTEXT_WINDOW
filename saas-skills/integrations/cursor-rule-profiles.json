@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "skill": "design-system-implementation",
+      "file": "skill-design-system-implementation.mdc",
+      "description": "Design system guidance for semantic tokens, Storybook, component governance, and shared UI contracts in frontend codebases."
+    },
+    {
+      "skill": "react-saas-architecture",
+      "file": "skill-react-saas-architecture.mdc",
+      "description": "React and Next.js App Router architecture for feature boundaries, shared layers, co-location, and export discipline.",
+      "globs": [
+        "**/*.{ts,tsx,js,jsx}",
+        "app/**/*.{ts,tsx,js,jsx}",
+        "src/**/*.{ts,tsx,js,jsx}",
+        "components/**/*.{ts,tsx,js,jsx}"
+      ]
+    },
+    {
+      "skill": "saas-ui-specifications",
+      "file": "skill-saas-ui-specifications.mdc",
+      "description": "Frontend UI specification guidance for typography, color roles, spacing, density, responsive behavior, and accessibility.",
+      "globs": [
+        "**/*.{tsx,jsx,css,scss,mdx}",
+        "app/**/*.{tsx,jsx,css,scss,mdx}",
+        "src/**/*.{tsx,jsx,css,scss,mdx}",
+        "components/**/*.{tsx,jsx,css,scss,mdx}"
+      ]
+    },
+    {
+      "skill": "component-reuse-portability",
+      "file": "skill-component-reuse-portability.mdc",
+      "description": "Cross-project component porting workflow for dependency resolution, import rewriting, token adaptation, and registry maintenance."
+    },
+    {
+      "skill": "clean-architecture-ddd",
+      "file": "skill-clean-architecture-ddd.mdc",
+      "description": "Domain-driven and clean architecture guidance for bounded contexts, use cases, entities, repositories, and layer separation."
+    },
+    {
+      "skill": "api-design-patterns",
+      "file": "skill-api-design-patterns.mdc",
+      "description": "REST and route-handler guidance for auth, validation, error envelopes, pagination, rate limiting, webhooks, and tenant isolation.",
+      "globs": [
+        "**/api/**/*.{ts,tsx,js,jsx}",
+        "**/route.{ts,tsx,js,jsx}",
+        "app/api/**/*.{ts,tsx,js,jsx}",
+        "src/app/api/**/*.{ts,tsx,js,jsx}",
+        "pages/api/**/*.{ts,tsx,js,jsx}"
+      ]
+    },
+    {
+      "skill": "prisma-database-design",
+      "file": "skill-prisma-database-design.mdc",
+      "description": "Prisma and PostgreSQL design guidance for schema modeling, indexes, migrations, query behavior, and multi-tenancy.",
+      "globs": [
+        "**/*.prisma",
+        "prisma/**/*",
+        "**/migrations/**/*"
+      ]
+    },
+    {
+      "skill": "prompt-engineering-hybrid",
+      "file": "skill-prompt-engineering-hybrid.mdc",
+      "description": "Prompt engineering guidance for structured output, schema contracts, fallback clauses, and output-format decisions."
+    },
+    {
+      "skill": "ai-interface-design",
+      "file": "skill-ai-interface-design.mdc",
+      "description": "AI product interface guidance for streaming, trust signals, memory, transparency, and recovery UX."
+    },
+    {
+      "skill": "context-window-optimization",
+      "file": "skill-context-window-optimization.mdc",
+      "description": "Context-window optimization for token budgeting, ordering, compression, retrieval boundaries, and drift prevention."
+    },
+    {
+      "skill": "multi-agent-skill-installer",
+      "file": "skill-multi-agent-skill-installer.mdc",
+      "description": "Multi-agent install workflow for Codex, Claude, and Cursor runtimes, including global vs project scope, sandbox validation, and non-invasive verification."
+    },
+    {
+      "skill": "ai-context-diagrams",
+      "file": "skill-ai-context-diagrams.mdc",
+      "description": "Mermaid and C4 diagram guidance for architecture communication, agent comprehension, and doc placement.",
+      "globs": [
+        "AGENTS.md",
+        "README.md",
+        "**/*.md",
+        "docs/**/*.md"
+      ]
+    },
+    {
+      "skill": "intelligent-project-docs",
+      "file": "skill-intelligent-project-docs.mdc",
+      "description": "Project documentation governance for README, AGENTS.md, ADRs, module docs, ownership, and single source of truth.",
+      "globs": [
+        "AGENTS.md",
+        "README.md",
+        "**/*.md",
+        "docs/**/*.md"
+      ]
+    },
+    {
+      "skill": "technical-research-writing",
+      "file": "skill-technical-research-writing.mdc",
+      "description": "Technical research and report-writing guidance for scoping, source evaluation, citation quality, synthesis, and uncertainty handling."
+    },
+    {
+      "skill": "legacy-code-refactoring",
+      "file": "skill-legacy-code-refactoring.mdc",
+      "description": "Legacy refactoring workflow focused on hotspots, characterization tests, dependency risks, and incremental cleanup."
+    },
+    {
+      "skill": "systems-analysis-saas",
+      "file": "skill-systems-analysis-saas.mdc",
+      "description": "SaaS systems analysis guidance for requirements, MVP scope, business rules, models, and stakeholder validation."
+    },
+    {
+      "skill": "testing-strategies",
+      "file": "skill-testing-strategies.mdc",
+      "description": "Testing strategy guidance for Vitest, Testing Library, Playwright, test pyramid design, CI gates, and coverage boundaries.",
+      "globs": [
+        "**/*.{test,spec}.{ts,tsx,js,jsx}",
+        "**/__tests__/**/*.{ts,tsx,js,jsx}",
+        "playwright.config.*",
+        "vitest.config.*",
+        "jest.config.*"
+      ]
+    }
+  ]
+}

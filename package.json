@@ -1,19 +1,26 @@
 {
   "name": "context-window",
-  "version": "1.3.1",
+  "version": "1.7.0",
   "private": true,
   "description": "Portable SaaS skills library with QA, evals, and export tooling.",
   "scripts": {
     "audit:skills": "node scripts/audit-skills.mjs",
     "evals:init": "node scripts/init-skill-replay.mjs",
     "evals:score": "node scripts/score-skill-replays.mjs",
-    "qa:skills": "pnpm audit:skills && pnpm lint:md && pnpm export:flat-skills",
+    "qa:skills": "pnpm audit:skills && pnpm lint:md && pnpm export:flat-skills && pnpm export:cursor-rules && pnpm install:agent-runtimes -- dist/agent-runtime-smoke-test --global-all --codex-home dist/agent-runtime-smoke-test/.codex-home --claude-home dist/agent-runtime-smoke-test/.claude-home --cursor-home dist/agent-runtime-smoke-test/.cursor-home && pnpm verify:agent-runtimes -- dist/agent-runtime-smoke-test --global-all --codex-home dist/agent-runtime-smoke-test/.codex-home --claude-home dist/agent-runtime-smoke-test/.claude-home --cursor-home dist/agent-runtime-smoke-test/.cursor-home",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint:md": "markdownlint-cli2",
     "lint:md:fix": "markdownlint-cli2 --fix",
     "fix:md": "node scripts/fix-markdownlint.mjs && pnpm lint:md:fix && prettier --write .",
-    "export:flat-skills": "node scripts/export-flat-skills.mjs"
+    "export:flat-skills": "node scripts/export-flat-skills.mjs",
+    "export:cursor-rules": "node scripts/export-cursor-rules.mjs",
+    "install:agent-runtimes": "node scripts/install-agent-runtimes.mjs",
+    "install:global-runtimes": "node scripts/install-agent-runtimes.mjs . --global-only --global-all",
+    "install:ide-runtime": "node scripts/install-ide-runtime.mjs",
+    "verify:agent-runtimes": "node scripts/verify-agent-runtimes.mjs",
+    "verify:global-runtimes": "node scripts/verify-agent-runtimes.mjs . --global-only --global-all",
+    "verify:ide-runtime": "node scripts/verify-ide-runtime.mjs"
   },
   "devDependencies": {
     "markdownlint-cli2": "^0.22.0",

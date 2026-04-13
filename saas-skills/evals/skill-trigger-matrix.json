@@ -1,5 +1,5 @@
 {
-  "version": "1.3.0",
+  "version": "1.7.0",
   "minimum_case_counts": {
     "should_trigger": 3,
     "should_not_trigger": 3,
@@ -584,6 +584,64 @@
         "Explicit token budget or context allocation model",
         "Ordering, compression, or reminder strategy to reduce drift",
         "Decision criteria for retrieval, memory, and caching"
+      ]
+    },
+    {
+      "skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "should_trigger": [
+        {
+          "id": "masi-1",
+          "prompt": "Install this skills library globally for Codex, Claude, and Cursor, then verify every runtime without touching the app code.",
+          "expected_primary_skill": "multi-agent-skill-installer",
+          "reason": "This is the exact multi-runtime install workflow."
+        },
+        {
+          "id": "masi-2",
+          "prompt": "Set up project-local Claude and Cursor runtimes plus the global Codex runtime for this repo, starting with a dry-run sandbox.",
+          "expected_primary_skill": "multi-agent-skill-installer",
+          "reason": "The request is about choosing correct targets and validating install safely."
+        },
+        {
+          "id": "masi-3",
+          "prompt": "Create a copyable AGENTS.md workflow so any agent can install and smoke-test these skills for Codex, Claude, and Cursor.",
+          "expected_primary_skill": "multi-agent-skill-installer",
+          "reason": "The deliverable is an operator workflow for multi-IA installation."
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "masi-n1",
+          "prompt": "Reorganize our README, AGENTS.md, and ADR structure so humans and agents can find the right docs faster.",
+          "expected_primary_skill": "intelligent-project-docs",
+          "reason": "That is documentation architecture without runtime installation."
+        },
+        {
+          "id": "masi-n2",
+          "prompt": "Reduce token usage by deciding what belongs in retrieval, memory, and prompt layers for our coding agent.",
+          "expected_primary_skill": "context-window-optimization",
+          "reason": "That is context strategy, not installer orchestration."
+        },
+        {
+          "id": "masi-n3",
+          "prompt": "Write a strict prompt template that any installer agent should follow, with JSON output and fallback clauses.",
+          "expected_primary_skill": "prompt-engineering-hybrid",
+          "reason": "That is prompt contract design, not runtime installation."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "masi-c1",
+          "prompt": "Install the skills globally for Codex, Claude, and Cursor, and also create the AGENTS.md entry point that explains the workflow.",
+          "expected_primary_skill": "multi-agent-skill-installer",
+          "expected_secondary_skills": ["intelligent-project-docs"],
+          "resolution": "Execute and verify the runtime installation first; once the install contract is correct, document it for operators and agents."
+        }
+      ],
+      "minimum_output": [
+        "Correct runtime targets for Codex, Claude, and Cursor",
+        "Dry-run or sandbox validation flow before real global install",
+        "Explicit verification and smoke-test steps without editing app code"
       ]
     },
     {

@@ -2,7 +2,7 @@
 
 Relatório da suíte de avaliação da biblioteca `saas-skills`.
 
-**Data de referência:** 12 de abril de 2026  
+**Data de referência:** 13 de abril de 2026  
 **Fonte canônica:** `saas-skills/evals/skill-trigger-matrix.json`
 
 ## Objetivo
@@ -20,16 +20,16 @@ O foco aqui não é validar estrutura do repositório, e sim responder:
 
 A matriz atual contém:
 
-- `16/16` skills cobertas
-- `48` casos `should_trigger`
-- `48` casos `should_not_trigger`
-- `16` casos de conflito
-- `48` checkpoints de `minimum_output`
+- `17/17` skills cobertas
+- `51` casos `should_trigger`
+- `51` casos `should_not_trigger`
+- `17` casos de conflito
+- `51` checkpoints de `minimum_output`
 
 Total:
 
-- `112` prompts de avaliação
-- `48` critérios mínimos de saída
+- `119` prompts de avaliação
+- `51` critérios mínimos de saída
 
 ## O Que a Suíte Valida
 

@@ -1,5 +1,54 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.7.0 — 13 de abril de 2026
+
+### Added in 1.7.0
+
+- `scripts/install-agent-runtimes.mjs` para instalar a biblioteca em Codex, Claude e Cursor em um único fluxo.
+- `scripts/verify-agent-runtimes.mjs` para verificar estruturalmente os três runtimes.
+- Suporte a `--codex-home` para validar o runtime da Codex em sandbox, sem tocar na instalação real do usuário.
+- Suporte a `--claude-home` e `--cursor-home` para validar instalações globais de Claude e Cursor em sandbox.
+- Scripts de conveniência `pnpm install:global-runtimes` e `pnpm verify:global-runtimes`.
+- Nova skill `multi-agent-skill-installer` para orientar qualquer agente a instalar, verificar e fazer smoke test da biblioteca em Codex, Claude e Cursor.
+
+### Changed in 1.7.0
+
+- `AGENTS.md` foi adicionado na raiz como ponto de entrada operacional para agentes que precisem instalar, validar ou usar a biblioteca.
+- `README.md`, `saas-skills/README.md`, `IDE_RUNTIME_GUIDE.md`, `PORTABILITY_MATRIX.md` e `TARGET_REPO_AGENT_GUIDE.md` foram reescritos para documentar explicitamente a diferença entre o `skill-installer` nativo da Codex e o instalador unificado deste repositório.
+- `TARGET_REPO_AGENT_GUIDE.md` agora funciona como playbook copiável para instalação segura em três runtimes, com validação em sandbox antes da instalação real.
+- `qa:skills` passou a validar Codex, Claude e Cursor em `dist/agent-runtime-smoke-test`, usando homes isolados para os três runtimes globais.
+- `saas-skills/evals/skill-trigger-matrix.json` foi ampliado para cobrir `17` skills.
+- `package.json` foi elevado para `1.7.0`.
+
+### Fixed in 1.7.0
+
+- A documentação deixou de sugerir implicitamente que o runtime da Codex e os runtimes de projeto são equivalentes.
+- A validação de instalação agora consegue provar o fluxo multi-IA sem depender dos runtimes globais reais do usuário.
+
+## 1.4.0 — 13 de abril de 2026
+
+### Added in 1.4.0
+
+- `scripts/export-cursor-rules.mjs` para gerar adapters `.mdc` de Cursor a partir das skills canônicas.
+- `scripts/install-ide-runtime.mjs` para instalar runtimes de Claude e Cursor em um projeto-alvo.
+- `scripts/verify-ide-runtime.mjs` para verificar a instalação estrutural dos runtimes.
+- `scripts/runtime-adapter-utils.mjs` para centralizar a lógica de adapter runtime.
+- `saas-skills/integrations/cursor-rule-profiles.json` para mapear skills canônicas para runtime do Cursor.
+- `IDE_RUNTIME_GUIDE.md` para documentar o runtime correto de Claude e Cursor.
+- `TARGET_REPO_AGENT_GUIDE.md` como playbook copiável para agentes instalarem e validarem a biblioteca sem tocar no app.
+
+### Changed in 1.4.0
+
+- `README.md` e `saas-skills/README.md` foram reescritos para refletir corretamente a diferença entre fonte de verdade e runtime por IDE.
+- `PORTABILITY_MATRIX.md` passou a documentar explicitamente `.claude/skills/` e `.cursor/rules/` como runtimes distintos.
+- `qa:skills` agora valida export de Cursor e executa um smoke install em `dist/ide-runtime-smoke-test`.
+- `package.json` foi elevado para `1.4.0`.
+
+### Fixed in 1.4.0
+
+- A documentação deixou de tratar a árvore canônica como runtime direto recomendado para Claude.
+- A documentação deixou de tratar `.cursor/skills/` como runtime oficial do Cursor.
+
 ## 1.3.1 — 12 de abril de 2026
 
 ### Changed in 1.3.1

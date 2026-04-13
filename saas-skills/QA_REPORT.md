@@ -2,8 +2,8 @@
 
 Relatório de qualidade estrutural da biblioteca `saas-skills`.
 
-**Data de referência:** 12 de abril de 2026  
-**Escopo auditado:** `16` skills, `14` reference files, `1` asset file  
+**Data de referência:** 13 de abril de 2026  
+**Escopo auditado:** `17` skills, `14` reference files, `1` asset file  
 **Status:** aprovado no estado atual do repositório
 
 ## Objetivo
@@ -21,14 +21,14 @@ Ele responde a estas perguntas:
 
 No estado atual da árvore:
 
-- `16/16` skills usam frontmatter YAML válido
-- `16/16` skills estão abaixo de `500` linhas
-- `16/16` skills mantêm fallback clause, anti-patterns e enforcement
-- `16/16` skills possuem cobertura de evals com `48` triggers, `48` anti-triggers e `16` conflitos
+- `17/17` skills usam frontmatter YAML válido
+- `17/17` skills estão abaixo de `500` linhas
+- `17/17` skills mantêm fallback clause, anti-patterns e enforcement
+- `17/17` skills possuem cobertura de evals com `51` triggers, `51` anti-triggers e `17` conflitos
 - `14/14` referências e `1/1` asset citados pelas skills existem no caminho esperado
 - `pnpm audit:skills` passou
 - `pnpm lint:md` passou
-- `pnpm export:flat-skills` gerou bundle achatado com `16` skills
+- `pnpm export:flat-skills` gerou bundle achatado com `17` skills
 
 ## O Que Foi Endurecido Nesta Biblioteca
 
@@ -70,6 +70,7 @@ As melhorias principais desta passagem foram:
 | `ai-integration` | `prompt-engineering-hybrid`    |    319 | ✅     |
 | `ai-integration` | `ai-interface-design`          |    346 | ✅     |
 | `ai-integration` | `context-window-optimization`  |    420 | ✅     |
+| `ai-integration` | `multi-agent-skill-installer`  |    136 | ✅     |
 | `ai-integration` | `ai-context-diagrams`          |    445 | ✅     |
 | `documentation`  | `intelligent-project-docs`     |    264 | ✅     |
 | `documentation`  | `technical-research-writing`   |    392 | ✅     |
