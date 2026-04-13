@@ -1,6 +1,6 @@
 ---
 name: design-system-implementation
-description: Build and maintain design systems with design tokens, Atomic Design methodology, Storybook documentation, and component governance in React/Next.js/Tailwind CSS projects. Use when creating design systems, defining design tokens, setting up Storybook, establishing governance, or migrating to token-based architecture. Triggers on: design system, design tokens, Storybook setup, atomic design, component library, token architecture.
+description: "Build and maintain design systems with design tokens, Atomic Design methodology, Storybook documentation, and component governance in React/Next.js/Tailwind CSS projects. Use when creating design systems, defining design tokens, setting up Storybook, establishing governance, or migrating to token-based architecture. Triggers on: design system, design tokens, Storybook setup, atomic design, component library, token architecture."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: component-reuse-portability
-description: Step-by-step procedure for extracting, adapting, and installing reusable React components from one project to another, including dependency resolution, import rewriting, design token adaptation, and registry maintenance. Use when porting components between projects, resolving component dependencies, adapting a component library to a new codebase, or maintaining a shared component registry. Triggers on: reuse component, port component, shared library, component adaptation, cross-project, component registry, component extraction.
+description: "Step-by-step procedure for extracting, adapting, and installing reusable React components from one project to another, including dependency resolution, import rewriting, design token adaptation, and registry maintenance. Use when porting components between projects, resolving component dependencies, adapting a component library to a new codebase, or maintaining a shared component registry. Triggers on: reuse component, port component, shared library, component adaptation, cross-project, component registry, component extraction."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0

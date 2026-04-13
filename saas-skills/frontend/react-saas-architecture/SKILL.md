@@ -1,6 +1,6 @@
 ---
 name: react-saas-architecture
-description: Procedural guide for organizing React components and folder structure in SaaS applications using Next.js App Router, feature-based architecture, co-location principles, and advanced React patterns. Use when scaffolding a new Next.js project, reorganizing folder structure, choosing between feature-based vs. layer-based, or implementing advanced component patterns. Triggers on: folder structure, project organization, feature-based architecture, component patterns, App Router structure, barrel exports, code organization.
+description: "Procedural guide for organizing React components and folder structure in SaaS applications using Next.js App Router, feature-based architecture, co-location principles, and advanced React patterns. Use when scaffolding a new Next.js project, reorganizing folder structure, choosing between feature-based vs. layer-based, or implementing advanced component patterns. Triggers on: folder structure, project organization, feature-based architecture, component patterns, App Router structure, barrel exports, code organization."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0

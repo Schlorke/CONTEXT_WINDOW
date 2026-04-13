@@ -1,6 +1,6 @@
 ---
 name: saas-ui-specifications
-description: Reference-driven skill providing concrete UI/UX specifications for SaaS applications: typographic scales, color systems, spacing tokens, responsive grid, dark mode, and WCAG 2.2 accessibility patterns. Use when defining typography, choosing color palettes, establishing spacing systems, setting up responsive grid, implementing dark mode, or verifying accessibility compliance. Triggers on: typography scale, color palette, spacing system, grid layout, dark mode, WCAG accessibility, responsive design, SaaS UI specifications.
+description: "Reference-driven skill providing concrete UI/UX specifications for SaaS applications: typographic scales, color systems, spacing tokens, responsive grid, dark mode, and WCAG 2.2 accessibility patterns. Use when defining typography, choosing color palettes, establishing spacing systems, setting up responsive grid, implementing dark mode, or verifying accessibility compliance. Triggers on: typography scale, color palette, spacing system, grid layout, dark mode, WCAG accessibility, responsive design, SaaS UI specifications."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0
