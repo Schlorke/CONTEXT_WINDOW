@@ -434,10 +434,16 @@ A biblioteca mantém:
 
 Documentos relacionados:
 
+- [../CHANGELOG.md](../CHANGELOG.md)
 - [QA_REPORT.md](QA_REPORT.md)
 - [EVALS_REPORT.md](EVALS_REPORT.md)
 - [PRACTICAL_SKILL_TEST_REPORT.md](PRACTICAL_SKILL_TEST_REPORT.md)
 - [RELEASE_NOTES.md](RELEASE_NOTES.md)
+
+Uso recomendado:
+
+- consulte `CHANGELOG.md` para histórico público e resumido
+- consulte `RELEASE_NOTES.md` para trilha operacional detalhada
 
 ## Resumo Prático
 

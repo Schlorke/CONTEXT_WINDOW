@@ -65,6 +65,7 @@ Pontos importantes:
 Detalhes completos:
 
 - [AGENTS.md](AGENTS.md)
+- [CHANGELOG.md](CHANGELOG.md)
 - [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
 - [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
 - [saas-skills/PORTABILITY_MATRIX.md](saas-skills/PORTABILITY_MATRIX.md)
@@ -296,6 +297,7 @@ Catálogo e instruções detalhadas:
 
 Os principais artefatos de qualidade são:
 
+- [CHANGELOG.md](CHANGELOG.md)
 - [saas-skills/QA_REPORT.md](saas-skills/QA_REPORT.md)
 - [saas-skills/EVALS_REPORT.md](saas-skills/EVALS_REPORT.md)
 - [saas-skills/PRACTICAL_SKILL_TEST_REPORT.md](saas-skills/PRACTICAL_SKILL_TEST_REPORT.md)
@@ -313,6 +315,7 @@ Hoje a biblioteca mantém:
 - [saas-skills/README.md](saas-skills/README.md)
 - [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
 - [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
+- [CHANGELOG.md](CHANGELOG.md)
 - [scripts/export-flat-skills.mjs](scripts/export-flat-skills.mjs)
 - [scripts/export-cursor-rules.mjs](scripts/export-cursor-rules.mjs)
 - [scripts/install-agent-runtimes.mjs](scripts/install-agent-runtimes.mjs)
