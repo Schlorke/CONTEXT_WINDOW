@@ -53,9 +53,16 @@ Pre-provisioned templates already exist in `results/` for:
 
 The scorer treats a case as approved only when:
 
+- `result.status` is explicitly marked as `passed`
 - the expected primary skill was selected
 - required secondary skills were observed when applicable
 - all expected minimum output items were marked as covered
+
+Additional rules:
+
+- `failed` and `partial` are always counted as failed executions
+- `pending` and `not-run` stay pending
+- when a directory is scored, only JSON files with a valid replay schema are processed
 
 ## Automation
 

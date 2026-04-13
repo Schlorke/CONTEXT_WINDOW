@@ -1,5 +1,20 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.3.1 — 12 de abril de 2026
+
+### Changed in 1.3.1
+
+- `scripts/score-skill-replays.mjs` passou a respeitar `result.status` durante o scoring.
+- O scorer agora valida schema mínimo de replay antes de consolidar arquivos JSON.
+- A documentação de replay foi alinhada ao comportamento real do scorer.
+- A documentação de instalação passou a incluir exemplos em PowerShell.
+- `package.json` foi elevado para `1.3.1`.
+
+### Fixed in 1.3.1
+
+- Casos marcados manualmente como `failed` ou `partial` deixaram de ser promovidos a `pass` por derivação automática.
+- JSONs arbitrários em diretórios de replay deixaram de gerar relatórios falsos.
+
 ## 1.3.0 — 12 de abril de 2026
 
 ### Added in 1.3.0

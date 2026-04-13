@@ -8,37 +8,32 @@ import {
   toPercent,
 } from "./skill-eval-utils.mjs";
 
+const validStatusValues = new Set(["pending", "passed", "failed", "partial", "not-run"]);
 const inputArg = process.argv[2];
 const inputPath = path.resolve(inputArg ?? evalResultsDir);
 const evalMatrix = loadEvalMatrix();
 const expectedCases = buildReplayCases(evalMatrix);
 const expectedMap = new Map(expectedCases.map((item) => [item.id, item]));
 
-const targets = fs.existsSync(inputPath) && fs.statSync(inputPath).isDirectory()
-  ? fs
-      .readdirSync(inputPath)
-      .filter((file) => file.endsWith(".json"))
-      .map((file) => path.join(inputPath, file))
-  : [inputPath];
+const replayTargets = collectReplayTargets(inputPath);
 
-if (targets.length === 0 || !targets.every((file) => fs.existsSync(file))) {
-  console.error("No replay result files found. Use pnpm evals:init -- <environment> first.");
+if (replayTargets.length === 0) {
+  console.error("No valid replay result files found. Use pnpm evals:init -- <environment> first.");
   process.exit(1);
 }
 
 const reports = [];
 
-for (const target of targets) {
-  const replay = JSON.parse(fs.readFileSync(target, "utf8"));
-  const report = scoreReplayFile(replay, target);
-  const reportPath = target.replace(/\.json$/i, ".report.md");
+for (const { filePath, replay } of replayTargets) {
+  const report = scoreReplayFile(replay, filePath);
+  const reportPath = filePath.replace(/\.json$/i, ".report.md");
 
   fs.writeFileSync(reportPath, report.markdown, "utf8");
   reports.push(report);
 }
 
 if (reports.length > 1) {
-  const summaryPath = path.join(path.dirname(targets[0]), "SUMMARY.md");
+  const summaryPath = path.join(path.dirname(replayTargets[0].filePath), "SUMMARY.md");
   fs.writeFileSync(summaryPath, buildSummaryMarkdown(reports), "utf8");
   console.log(`Wrote consolidated summary to ${summaryPath}`);
 }
@@ -79,6 +74,13 @@ function scoreReplayFile(replay, filePath) {
 
     const result = replayCase.result ?? {};
     const status = result.status ?? "pending";
+
+    if (!validStatusValues.has(status)) {
+      throw new Error(
+        `Replay file ${filePath} contains invalid status "${status}" for case ${expectedCase.id}`,
+      );
+    }
+
     const observedPrimary = result.observed_primary_skill ?? null;
     const observedSecondary = normalizeList(result.observed_secondary_skills);
     const coveredOutputs = normalizeList(result.minimum_output_covered);
@@ -114,7 +116,7 @@ function scoreReplayFile(replay, filePath) {
       continue;
     }
 
-    if (derivedPass) {
+    if (status === "passed" && derivedPass) {
       passed += 1;
       trackPerSkill(perSkill, expectedCase.expected_primary_skill, "passed");
     } else {
@@ -151,6 +153,76 @@ function scoreReplayFile(replay, filePath) {
   };
 }
 
+function collectReplayTargets(inputFilePath) {
+  if (!fs.existsSync(inputFilePath)) {
+    return [];
+  }
+
+  if (!fs.statSync(inputFilePath).isDirectory()) {
+    return [{ filePath: inputFilePath, replay: readReplayFile(inputFilePath) }];
+  }
+
+  const entries = [];
+
+  for (const fileName of fs.readdirSync(inputFilePath)) {
+    if (!fileName.endsWith(".json")) continue;
+
+    const filePath = path.join(inputFilePath, fileName);
+    const replay = readReplayFile(filePath, { allowSkip: true });
+
+    if (replay) {
+      entries.push({ filePath, replay });
+    }
+  }
+
+  return entries;
+}
+
+function readReplayFile(filePath, options = {}) {
+  const { allowSkip = false } = options;
+  const relativePath = path.relative(process.cwd(), filePath).replaceAll("\\", "/");
+  let replay;
+
+  try {
+    replay = JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (error) {
+    if (allowSkip) {
+      console.warn(`Skipping ${relativePath}: invalid JSON (${error.message})`);
+      return null;
+    }
+    throw error;
+  }
+
+  const validationError = validateReplayShape(replay, filePath);
+
+  if (!validationError) {
+    return replay;
+  }
+
+  if (allowSkip) {
+    console.warn(`Skipping ${relativePath}: ${validationError}`);
+    return null;
+  }
+
+  throw new Error(validationError);
+}
+
+function validateReplayShape(replay, filePath) {
+  if (!replay || typeof replay !== "object" || Array.isArray(replay)) {
+    return `Replay file ${filePath} must contain a JSON object`;
+  }
+
+  if (typeof replay.environment !== "string" || replay.environment.trim().length === 0) {
+    return `Replay file ${filePath} is missing a valid "environment" field`;
+  }
+
+  if (!Array.isArray(replay.cases)) {
+    return `Replay file ${filePath} is missing a "cases" array`;
+  }
+
+  return null;
+}
+
 function trackPerSkill(store, skill, status) {
   const current = store.get(skill) ?? { passed: 0, failed: 0, pending: 0 };
   current[status] += 1;
@@ -177,7 +249,7 @@ function buildReplayMarkdown({ environment, filePath, total, passed, failed, pen
       : failedCases
           .map(
             (item) =>
-              `- \`${item.id}\`: esperado \`${item.expected_primary_skill}\`, observado \`${item.observed_primary_skill ?? "null"}\`. ${item.notes || "Sem nota adicional."}`,
+              `- \`${item.id}\`: status \`${item.status}\`, esperado \`${item.expected_primary_skill}\`, observado \`${item.observed_primary_skill ?? "null"}\`. ${item.notes || "Sem nota adicional."}`,
           )
           .join("\n");
 

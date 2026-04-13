@@ -21,3 +21,5 @@ Each JSON is a fillable replay template. The paired `*.report.md` files are scor
 
 - A `pending` baseline is expected before the first replay.
 - `transcript_ref` should point to the evidence source for each evaluated case.
+- `status` should reflect the evaluator decision, not just field completeness.
+- `pnpm evals:score` only processes valid replay JSON files in this folder.

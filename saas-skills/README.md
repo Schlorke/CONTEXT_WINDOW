@@ -1,145 +1,239 @@
-# saas-skills — Biblioteca de Agent Skills para Desenvolvimento SaaS
+# saas-skills
 
-Biblioteca de 16 Agent Skills procedurais, prontas para uso em qualquer projeto SaaS com a stack Next.js / React / TypeScript / Prisma / PostgreSQL / Tailwind CSS.
+Biblioteca portátil de `Agent Skills` para desenvolvimento SaaS.
 
-Cada skill é carregada sob demanda quando seu trigger dispara, seguindo o [Agent Skills open standard](https://agentskills.io/specification). São ortogonais entre si (sem sobreposição de domínio), portáveis entre plataformas, e obrigatórias quando ativadas.
+Esta pasta é a fonte de verdade da biblioteca. Ela concentra as skills, os arquivos de referência por skill, os assets necessários e a documentação operacional para instalar, validar, exportar e testar a biblioteca em diferentes ambientes.
 
-**Autor:** Harry Schlorke — Logical Solution  
-**Versão:** 1.3.0  
-**Data:** Abril 2026
+## O que Esta Biblioteca Resolve
 
----
+`saas-skills` existe para transformar conhecimento recorrente de desenvolvimento SaaS em workflows acionáveis para agentes de IA.
 
-## Skills Disponíveis
+Na prática, isso significa oferecer skills que:
 
-### frontend/ (4 skills)
+- têm escopo claro e sem sobreposição desnecessária
+- disparam por intenção de trabalho real
+- carregam referência local quando precisam de profundidade
+- evitam alucinação com fallback, anti-patterns e enforcement
+- podem ser reaproveitadas em múltiplos projetos e ferramentas
 
-| Skill                          | Descrição                                                                                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `design-system-implementation` | Construção e manutenção de design systems com tokens, Atomic Design, Storybook e governança                        |
-| `react-saas-architecture`      | Organização de componentes e pastas em Next.js App Router com patterns avançados (Compound, Headless, Composition) |
-| `saas-ui-specifications`       | Especificações concretas de UI: tipografia, cores, espaçamento, grid responsivo, dark mode, WCAG 2.2               |
-| `component-reuse-portability`  | Extração, adaptação e instalação de componentes reutilizáveis entre projetos                                       |
+## O que Está Incluído
 
-### backend/ (3 skills)
+Esta biblioteca contém:
 
-| Skill                    | Descrição                                                                                                             |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `clean-architecture-ddd` | Clean Architecture, SOLID e DDD (estratégico e tático) aplicados a TypeScript/Next.js/Prisma                          |
-| `api-design-patterns`    | Design de API REST no Next.js: auth, validação Zod, error handling, paginação, rate limiting, webhooks, multi-tenancy |
-| `prisma-database-design` | Schema PostgreSQL com Prisma: modelagem, migrations, queries otimizadas, índices, multi-tenancy                       |
+- `16` skills organizadas em `5` coleções
+- `references/` e `assets/` locais por skill quando aplicável
+- suíte de avaliação com matriz de trigger, anti-trigger e conflito
+- relatórios de QA, portabilidade, evals e release
 
-### ai-integration/ (4 skills)
+## Coleções Disponíveis
 
-| Skill                         | Descrição                                                                                                      |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `prompt-engineering-hybrid`   | Engenharia de prompts híbridos (narrativa + schemas estruturados), seleção de formato, mitigação de alucinação |
-| `ai-interface-design`         | Interfaces IA conversacionais: 6 pilares, Vercel AI SDK, streaming, memória persistente, MCP, compliance       |
-| `context-window-optimization` | Otimização de janela de contexto: token budgeting, Lost in the Middle, context drift, compressão, RAG          |
-| `ai-context-diagrams`         | Diagramas Mermaid e C4 Model para melhorar compreensão arquitetural por agentes IA                             |
+| Coleção | Skills | Finalidade |
+| --- | ---: | --- |
+| `frontend` | 4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
+| `backend` | 3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL |
+| `ai-integration` | 4 | Prompt engineering, AI UX, contexto e diagramas para agentes |
+| `documentation` | 2 | Documentação persistente de projeto e escrita técnica |
+| `engineering` | 3 | Refatoração, análise de sistemas e estratégia de testes |
 
-### documentation/ (2 skills)
+## Catálogo de Skills
 
-| Skill                        | Descrição                                                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `intelligent-project-docs`   | Documentação como memória persistente: hierarquia 3 camadas, AGENTS.md, Diátaxis, ADRs, Docs-as-Code               |
-| `technical-research-writing` | Pesquisa técnica e escrita de relatórios: CRAAP Test, hierarquia de evidências, citações, diferenciação epistêmica |
+### frontend
 
-### engineering/ (3 skills)
+| Skill | Descrição |
+| --- | --- |
+| `design-system-implementation` | Construção e manutenção de design systems com tokens, Storybook e governança |
+| `react-saas-architecture` | Organização de componentes e pastas em Next.js App Router |
+| `saas-ui-specifications` | Especificações concretas de UI: tipografia, cores, grid, densidade e acessibilidade |
+| `component-reuse-portability` | Extração, adaptação e reinstalação de componentes entre projetos |
 
-| Skill                     | Descrição                                                                                                        |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `legacy-code-refactoring` | Refatoração segura de código legado: audit, smells, characterization tests, hotspot analysis, Red-Green-Refactor |
-| `systems-analysis-saas`   | Análise de sistemas SaaS B2B: requisitos, modelagem C4/BPMN/ER, MVP, roadmap, business rules, validação          |
-| `testing-strategies`      | Estratégias de teste: TDD, Vitest, Testing Library, Playwright, testing pyramid, mocking, CI integration         |
+### backend
 
----
+| Skill | Descrição |
+| --- | --- |
+| `clean-architecture-ddd` | Clean Architecture, SOLID e DDD para TypeScript, Next.js e Prisma |
+| `api-design-patterns` | Design de APIs REST com auth, validação, paginação, rate limiting e webhooks |
+| `prisma-database-design` | Modelagem PostgreSQL com Prisma, migrations, índices e multi-tenancy |
+
+### ai-integration
+
+| Skill | Descrição |
+| --- | --- |
+| `prompt-engineering-hybrid` | Prompts híbridos com narrativa, schema, fallback e seleção de formato |
+| `ai-interface-design` | Interfaces conversacionais com transparência, streaming, memória e compliance |
+| `context-window-optimization` | Token budgeting, compressão, prevenção de drift e decisão RAG |
+| `ai-context-diagrams` | Mermaid e C4 para reduzir ambiguidade arquitetural para agentes |
+
+### documentation
+
+| Skill | Descrição |
+| --- | --- |
+| `intelligent-project-docs` | Documentação como memória persistente para humanos e agentes |
+| `technical-research-writing` | Pesquisa técnica, avaliação de fontes e escrita de relatórios |
+
+### engineering
+
+| Skill | Descrição |
+| --- | --- |
+| `legacy-code-refactoring` | Refatoração segura de código legado com characterization tests e hotspot analysis |
+| `systems-analysis-saas` | Requisitos, MVP, modelos C4/BPMN/ER e validação com stakeholders |
+| `testing-strategies` | TDD, testes unitários, integração, E2E e distribuição da pirâmide de testes |
+
+## Quando Usar a Árvore Canônica ou o Bundle Achatado
+
+Existem dois modos oficiais de distribuição.
+
+### Árvore canônica
+
+Use `saas-skills/` diretamente quando a ferramenta:
+
+- aceita descoberta recursiva
+- permite apontar para um `SKILL.md` explicitamente
+- funciona bem com a estrutura por coleção
+
+Esse é o modo recomendado para:
+
+- Claude Code
+- Cursor
+- uso manual
+- qualquer fluxo em que você controla o contexto do agente
+
+### Bundle achatado
+
+Use `dist/flat-skills/` quando a ferramenta espera uma pasta imediata por skill.
+
+Geração:
+
+```bash
+pnpm export:flat-skills
+```
+
+Esse é o modo recomendado para:
+
+- GitHub Copilot
+- loaders sem descoberta recursiva
 
 ## Instalação por Ambiente
 
-Esta biblioteca mantém a estrutura canônica por collection (`frontend/`, `backend/`, etc.). Ferramentas que fazem descoberta recursiva podem usar essa árvore diretamente. Ferramentas que só leem subpastas imediatas devem usar o bundle achatado gerado por `pnpm export:flat-skills`.
-
 ### Claude Code / Claude.ai Projects
 
-Copie a pasta `saas-skills/` para dentro do seu projeto ou para `~/.claude/skills/`:
+Copie a árvore canônica:
 
-```bash
-# Projeto-específico
-cp -r saas-skills/ seu-projeto/.claude/skills/saas-skills/
-
-# Global (todos os projetos)
-cp -r saas-skills/ ~/.claude/skills/saas-skills/
+```powershell
+Copy-Item -Recurse -Force saas-skills seu-projeto\.claude\skills\saas-skills
 ```
 
-## Cursor IDE
+Ou instale globalmente:
 
-Copie para `.cursor/skills/` na raiz do projeto:
-
-```bash
-cp -r saas-skills/ seu-projeto/.cursor/skills/saas-skills/
+```powershell
+Copy-Item -Recurse -Force saas-skills $HOME\.claude\skills\saas-skills
 ```
 
-Ou referência global em `.cursorrules`:
+Em shells POSIX, o equivalente é `cp -r saas-skills/ seu-projeto/.claude/skills/saas-skills/`.
+
+### Cursor IDE
+
+Copie a árvore canônica para o projeto:
+
+```powershell
+Copy-Item -Recurse -Force saas-skills seu-projeto\.cursor\skills\saas-skills
+```
+
+### GitHub Copilot / loaders sem descoberta recursiva
+
+Gere o bundle achatado:
+
+```powershell
+pnpm export:flat-skills
+Copy-Item -Recurse -Force dist\flat-skills seu-projeto\.github\skills\saas-skills-flat
+```
+
+Se a ferramenta exigir skills diretamente nas subpastas imediatas do diretório configurado, copie o conteúdo de `dist/flat-skills/`.
+
+### Continue.dev / uso manual
+
+Use a árvore canônica ou referencie explicitamente o `SKILL.md` necessário.
+
+Exemplo:
 
 ```text
-Para instruções de design system, consulte .cursor/skills/saas-skills/frontend/design-system-implementation/SKILL.md
+Follow saas-skills/backend/api-design-patterns/SKILL.md for this task.
 ```
 
-### GitHub Copilot / Loaders sem descoberta recursiva
+## Se Você Quiser Levar a Biblioteca para Outro Repositório
 
-Gere primeiro um bundle achatado com uma pasta por skill na raiz:
+Você tem dois cenários.
+
+### Uso das skills apenas
+
+Copie:
+
+- `saas-skills/`
+
+Isso é suficiente para usar a biblioteca.
+
+### Uso + manutenção + QA + export
+
+Copie:
+
+- `saas-skills/`
+- `scripts/`
+- `package.json`
+- `pnpm-lock.yaml`
+- `.markdownlint-cli2.jsonc`
+- `.markdownlint.yaml`
+- `.prettierignore`
+- `.gitignore`
+
+Esse pacote completo é o que permite validar, exportar e pontuar replays no novo repositório.
+
+## Quick Start
+
+Depois de clonar:
 
 ```bash
-pnpm export:flat-skills
-cp -r dist/flat-skills/ seu-projeto/.github/skills/saas-skills-flat/
-```
-
-Se o loader esperar skills diretamente em subpastas imediatas, copie o conteúdo de `dist/flat-skills/` para o diretório configurado da ferramenta.
-
-### Continue.dev / Uso Manual
-
-Se a ferramenta não tiver descoberta nativa compatível com a árvore canônica, referencie o `SKILL.md` explicitamente no contexto ou use o bundle achatado gerado pelo script acima.
-
-### Uso Manual (qualquer ferramenta)
-
-Referencie o SKILL.md relevante no system prompt ou contexto do agente:
-
-```text
-Siga as instruções em saas-skills/backend/api-design-patterns/SKILL.md para este task.
-```
-
----
-
-## Validação Operacional
-
-Use estes comandos para validar a biblioteca localmente:
-
-```bash
-pnpm audit:skills
-pnpm lint:md
-pnpm evals:init -- claude-code
-pnpm evals:score -- saas-skills/evals/results/claude-code.json
-pnpm export:flat-skills
+pnpm install
 pnpm qa:skills
 ```
 
-- `pnpm audit:skills` valida estrutura, cobertura de evals, frontmatter, seções obrigatórias e caminhos `references/` / `assets/`.
-- `pnpm lint:md` valida consistência de Markdown.
-- `pnpm evals:init -- <ambiente>` gera um template de replay em `saas-skills/evals/results/`.
-- `pnpm evals:score -- <arquivo-ou-diretorio>` consolida os resultados e gera `*.report.md`.
-- `pnpm export:flat-skills` gera `dist/flat-skills/` para loaders sem descoberta recursiva.
-- `pnpm qa:skills` executa a trilha consolidada de auditoria + lint + export.
+Isso cobre:
 
-### Replay por Ambiente
+- auditoria estrutural
+- lint de Markdown
+- export achatado da biblioteca
 
-Para medir ativação real em uma ferramenta específica:
+## Comandos Operacionais
+
+| Comando | O que faz | Quando usar |
+| --- | --- | --- |
+| `pnpm install` | Instala dependências de tooling | Sempre após clonar |
+| `pnpm audit:skills` | Valida estrutura das skills, frontmatter, seções obrigatórias, caminhos e cobertura mínima de evals | Antes de release ou revisão |
+| `pnpm lint:md` | Roda `markdownlint` em toda a documentação rastreada | Após editar Markdown |
+| `pnpm lint:md:fix` | Tenta corrigir parte dos erros de lint | Para ajustes rápidos |
+| `pnpm format` | Formata o repositório com Prettier | Quando quiser padronizar estilo |
+| `pnpm format:check` | Verifica formatação sem alterar arquivos | Em revisão final |
+| `pnpm fix:md` | Executa correções auxiliares, lint fix e Prettier | Saneamento rápido de docs |
+| `pnpm export:flat-skills` | Gera `dist/flat-skills/` com uma pasta imediata por skill | Para distribuição em loaders simples |
+| `pnpm evals:init -- <ambiente>` | Cria um template de replay em `saas-skills/evals/results/` | Antes de um replay real |
+| `pnpm evals:score -- <arquivo-ou-diretorio>` | Consolida resultados e gera relatórios Markdown, respeitando `status` manual e ignorando JSONs sem schema de replay | Depois de preencher observações |
+| `pnpm qa:skills` | Executa `audit + lint + export` em sequência | Validação final antes de commit ou release |
+
+## Replay e Medição por Ambiente
+
+Para medir ativação real das skills em uma ferramenta específica:
 
 ```bash
 pnpm evals:init -- claude-code
 ```
 
-Preencha o arquivo gerado em `saas-skills/evals/results/claude-code.json` com:
+Isso gera:
 
+```text
+saas-skills/evals/results/claude-code.json
+```
+
+Preencha o bloco `result` de cada caso com:
+
+- `status`
 - `observed_primary_skill`
 - `observed_secondary_skills`
 - `minimum_output_covered`
@@ -152,43 +246,73 @@ Depois consolide:
 pnpm evals:score -- saas-skills/evals/results/claude-code.json
 ```
 
-O scorer gera um relatório Markdown ao lado do JSON de replay.
+Saídas esperadas:
 
----
+- `claude-code.report.md`
+- `SUMMARY.md` quando a pontuação for feita no diretório inteiro
 
 ## Estrutura de Cada Skill
 
 ```text
 skill-name/
-├── SKILL.md           # Arquivo principal (max 500 linhas)
-├── references/        # Documentos de referência (decision tree)
+├── SKILL.md
+├── references/
 │   └── topic.md
-├── scripts/           # Código executável (quando aplicável)
+├── scripts/
 │   └── script.py
-└── assets/            # Templates e recursos reutilizáveis
+└── assets/
     └── template.md
 ```
 
----
+Regras práticas:
 
-## Documentos Operacionais
+- `SKILL.md` é o ponto de entrada da skill
+- `references/` guarda detalhes que não devem inflar o corpo principal
+- `scripts/` existe quando a tarefa pede repetibilidade ou determinismo
+- `assets/` existe quando a skill depende de um arquivo de saída reutilizável
 
-Estes documentos registram validação, portabilidade e manutenção da biblioteca:
+## Documentos Operacionais da Biblioteca
 
-- `saas-skills/QA_REPORT.md` — Relatório de qualidade com checklist por skill
-- `saas-skills/EVALS_REPORT.md` — Cobertura da matriz de triggers, anti-triggers e conflitos
-- `saas-skills/evals/README.md` — Operação do fluxo de replay e scoring por ambiente
-- `saas-skills/PORTABILITY_MATRIX.md` — Modos de instalação por ambiente e status de validação
-- `saas-skills/RELEASE_NOTES.md` — Histórico de mudanças relevantes da biblioteca
-
----
+| Documento | Finalidade |
+| --- | --- |
+| [QA_REPORT.md](QA_REPORT.md) | Estado auditado da biblioteca |
+| [EVALS_REPORT.md](EVALS_REPORT.md) | Cobertura da suíte de avaliação |
+| [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md) | Modo de instalação por ambiente |
+| [RELEASE_NOTES.md](RELEASE_NOTES.md) | Histórico de mudanças |
+| [evals/README.md](evals/README.md) | Operação do fluxo de replay e scoring |
+| [evals/results/README.md](evals/results/README.md) | Preenchimento dos resultados por ambiente |
 
 ## Princípios da Biblioteca
 
-1. **Procedural, não declarativa.** Cada skill contém passos ordenados, não apenas informação.
-2. **Ortogonal.** Nenhuma skill invade o domínio de outra.
-3. **Obrigatória quando ativada.** Se o trigger disparar, a skill DEVE ser seguida.
-4. **Fallback contra alucinação.** Toda skill instrui o agente a sinalizar informação faltante em vez de inventar.
-5. **Portável.** Funciona em Claude Code, Cursor, VS Code Copilot, Continue.dev, e qualquer ferramenta que suporte o Agent Skills standard.
-   Para loaders sem descoberta recursiva, use `pnpm export:flat-skills`.
-6. **Baseada em evidência.** Fontes do repositório Context_Window e autores canônicos referenciados em cada skill.
+1. **Procedural.** Cada skill ensina um workflow, não só um tema.
+2. **Ortogonal.** Skills diferentes não devem disputar o mesmo espaço sem motivo.
+3. **Obrigatória quando ativada.** Se o trigger dispara, a skill deve ser seguida.
+4. **Fallback explícito.** A biblioteca prioriza sinalizar lacuna em vez de inventar contexto.
+5. **Portável.** A mesma base pode ser usada em múltiplos ambientes.
+6. **Auditável.** A biblioteca foi desenhada para ser validada mecanicamente.
+
+## Estado Atual
+
+No estado atual do repositório, a biblioteca mantém:
+
+- `16` skills auditadas
+- `48` casos `should_trigger`
+- `48` casos `should_not_trigger`
+- `16` casos de conflito
+
+Esse estado pode ser revalidado com:
+
+```bash
+pnpm qa:skills
+```
+
+## Resumo Prático
+
+Se você precisa do caminho mais curto:
+
+1. rode `pnpm install`
+2. rode `pnpm qa:skills`
+3. use `saas-skills/` diretamente ou gere `dist/flat-skills/`
+4. copie a biblioteca para o projeto destino conforme o ambiente
+
+Esse é o fluxo padrão para usar `saas-skills` com segurança e previsibilidade.
