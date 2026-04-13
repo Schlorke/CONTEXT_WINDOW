@@ -228,16 +228,15 @@ Web -->|REST API| API
 
 Add notes or comments explaining why you chose this architecture:
 
-```text
-note over API
-    Monolithic for now (simpler ops).
-    Can split into microservices in V2.
-end
+```mermaid
+graph TB
+    API["API Server"]
+    Cache["Redis Cache"]
+    APINote["Monolithic for now<br/>Can split into microservices in V2"]
+    CacheNote["Session cache + feature flags<br/>DB queries would be too slow"]
 
-note over Cache
-    Redis for session cache + feature flags.
-    DB queries would be too slow.
-end
+    API -. rationale .-> APINote
+    Cache -. rationale .-> CacheNote
 ```
 
 ---

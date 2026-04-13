@@ -246,15 +246,11 @@ graph TB
     Web["Web App"]
     API["API Server"]
     DB["Database"]
+    EnvNote["DEV: Postgres (local)<br/>STAGING: RDS (AWS)<br/>PROD: RDS + read replicas (AWS)"]
 
     Web --> API
     API --> DB
-
-    note over DB
-        DEV: Postgres (local)
-        STAGING: RDS (AWS)
-        PROD: RDS + read replicas (AWS)
-    end
+    DB -. Environment specifics .-> EnvNote
 ```
 
 ---
