@@ -6,7 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
 const libraryRoot = path.join(repoRoot, "saas-skills");
-const evalMatrixPath = path.join(libraryRoot, "evals", "skill-trigger-matrix.json");
+const evalMatrixPath = path.join(
+  libraryRoot,
+  "evals",
+  "skill-trigger-matrix.json",
+);
 
 function walk(dir, matcher) {
   const results = [];
@@ -45,7 +49,8 @@ function parseFrontmatter(rawContent) {
 
   const yamlText = match[1];
   const name = yamlText.match(/^name:\s*(.+)$/m)?.[1]?.trim() ?? null;
-  const description = yamlText.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? null;
+  const description =
+    yamlText.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? null;
   const hasMetadata = /^metadata:\s*$/m.test(yamlText);
 
   return { yamlText, name, description, hasMetadata };
@@ -55,14 +60,19 @@ function hasSection(rawContent, sectionName) {
   return new RegExp(`^##?\\s+${sectionName}`, "im").test(rawContent);
 }
 
-const skillFiles = walk(libraryRoot, (file) => path.basename(file) === "SKILL.md");
+const skillFiles = walk(
+  libraryRoot,
+  (file) => path.basename(file) === "SKILL.md",
+);
 const evalMatrix = JSON.parse(fs.readFileSync(evalMatrixPath, "utf8"));
 const minimums = evalMatrix.minimum_case_counts ?? {
   should_trigger: 3,
   should_not_trigger: 3,
   conflicts: 1,
 };
-const evalEntries = new Map(evalMatrix.skills.map((entry) => [entry.skill, entry]));
+const evalEntries = new Map(
+  evalMatrix.skills.map((entry) => [entry.skill, entry]),
+);
 
 const issues = [];
 const summaries = [];
@@ -96,7 +106,10 @@ for (const skillFile of skillFiles) {
     issues.push(`${skillName}: exceeds 500 lines (${lines})`);
   }
 
-  if (!hasSection(rawContent, "Anti-Patterns") && !hasSection(rawContent, "Common Anti-Patterns")) {
+  if (
+    !hasSection(rawContent, "Anti-Patterns") &&
+    !hasSection(rawContent, "Common Anti-Patterns")
+  ) {
     issues.push(`${skillName}: missing anti-patterns section`);
   }
 
@@ -104,7 +117,10 @@ for (const skillFile of skillFiles) {
     issues.push(`${skillName}: missing fallback clause`);
   }
 
-  if (!hasSection(rawContent, "Enforcement") && !/MANDATORY/i.test(rawContent)) {
+  if (
+    !hasSection(rawContent, "Enforcement") &&
+    !/MANDATORY/i.test(rawContent)
+  ) {
     issues.push(`${skillName}: missing enforcement section`);
   }
 
@@ -112,7 +128,9 @@ for (const skillFile of skillFiles) {
     issues.push(`${skillName}: missing source references section`);
   }
 
-  const referenceMatches = [...rawContent.matchAll(/(?:references|assets)\/[^\s)`"'`]+/g)];
+  const referenceMatches = [
+    ...rawContent.matchAll(/(?:references|assets)\/[^\s)`"'`]+/g),
+  ];
   for (const match of referenceMatches) {
     const relativePath = trimReferenceToken(match[0]);
     const resolvedPath = path.join(skillDir, relativePath);
@@ -131,7 +149,9 @@ for (const skillFile of skillFiles) {
       );
     }
 
-    if ((evalEntry.should_not_trigger?.length ?? 0) < minimums.should_not_trigger) {
+    if (
+      (evalEntry.should_not_trigger?.length ?? 0) < minimums.should_not_trigger
+    ) {
       issues.push(
         `${skillName}: should_not_trigger count below minimum (${evalEntry.should_not_trigger?.length ?? 0}/${minimums.should_not_trigger})`,
       );
@@ -144,18 +164,24 @@ for (const skillFile of skillFiles) {
     }
 
     if ((evalEntry.minimum_output?.length ?? 0) < 3) {
-      issues.push(`${skillName}: minimum_output should list at least 3 expectations`);
+      issues.push(
+        `${skillName}: minimum_output should list at least 3 expectations`,
+      );
     }
 
     for (const testCase of evalEntry.should_trigger ?? []) {
       if (testCase.expected_primary_skill !== skillName) {
-        issues.push(`${skillName}: trigger case ${testCase.id} points to ${testCase.expected_primary_skill}`);
+        issues.push(
+          `${skillName}: trigger case ${testCase.id} points to ${testCase.expected_primary_skill}`,
+        );
       }
     }
 
     for (const testCase of evalEntry.should_not_trigger ?? []) {
       if (testCase.expected_primary_skill === skillName) {
-        issues.push(`${skillName}: anti-trigger case ${testCase.id} incorrectly points back to the same skill`);
+        issues.push(
+          `${skillName}: anti-trigger case ${testCase.id} incorrectly points back to the same skill`,
+        );
       }
     }
   }
@@ -171,8 +197,14 @@ for (const skillFile of skillFiles) {
 }
 
 for (const evalSkillName of evalEntries.keys()) {
-  if (!skillFiles.some((file) => path.basename(path.dirname(file)) === evalSkillName)) {
-    issues.push(`${evalSkillName}: present in eval matrix but missing from library`);
+  if (
+    !skillFiles.some(
+      (file) => path.basename(path.dirname(file)) === evalSkillName,
+    )
+  ) {
+    issues.push(
+      `${evalSkillName}: present in eval matrix but missing from library`,
+    );
   }
 }
 
@@ -199,4 +231,6 @@ console.log(`- Skills audited: ${summaries.length}`);
 console.log(`- Trigger evals: ${totals.shouldTrigger}`);
 console.log(`- Anti-trigger evals: ${totals.shouldNotTrigger}`);
 console.log(`- Conflict evals: ${totals.conflicts}`);
-console.log(`- Max skill length: ${Math.max(...summaries.map((item) => item.lines))}`);
+console.log(
+  `- Max skill length: ${Math.max(...summaries.map((item) => item.lines))}`,
+);

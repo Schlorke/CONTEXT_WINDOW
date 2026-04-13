@@ -43,39 +43,39 @@ As melhorias principais desta passagem foram:
 
 ## Critérios Verificados
 
-| Critério | Resultado |
-| --- | --- |
-| Frontmatter YAML válido | ✅ |
-| `SKILL.md` abaixo de 500 linhas | ✅ |
-| Fallback clause presente | ✅ |
-| Anti-patterns presentes | ✅ |
-| Enforcement presente | ✅ |
-| Referências internas resolvidas | ✅ |
-| Cobertura mínima de evals | ✅ |
-| Auditoria estrutural | ✅ |
-| Markdown lint | ✅ |
-| Export achatado para loaders não recursivos | ✅ |
+| Critério                                    | Resultado |
+| ------------------------------------------- | --------- |
+| Frontmatter YAML válido                     | ✅        |
+| `SKILL.md` abaixo de 500 linhas             | ✅        |
+| Fallback clause presente                    | ✅        |
+| Anti-patterns presentes                     | ✅        |
+| Enforcement presente                        | ✅        |
+| Referências internas resolvidas             | ✅        |
+| Cobertura mínima de evals                   | ✅        |
+| Auditoria estrutural                        | ✅        |
+| Markdown lint                               | ✅        |
+| Export achatado para loaders não recursivos | ✅        |
 
 ## Inventário Auditável por Skill
 
-| Collection | Skill | Linhas | Status |
-| --- | --- | ---: | --- |
-| `frontend` | `design-system-implementation` | 336 | ✅ |
-| `frontend` | `react-saas-architecture` | 454 | ✅ |
-| `frontend` | `saas-ui-specifications` | 406 | ✅ |
-| `frontend` | `component-reuse-portability` | 423 | ✅ |
-| `backend` | `clean-architecture-ddd` | 321 | ✅ |
-| `backend` | `api-design-patterns` | 387 | ✅ |
-| `backend` | `prisma-database-design` | 376 | ✅ |
-| `ai-integration` | `prompt-engineering-hybrid` | 319 | ✅ |
-| `ai-integration` | `ai-interface-design` | 346 | ✅ |
-| `ai-integration` | `context-window-optimization` | 420 | ✅ |
-| `ai-integration` | `ai-context-diagrams` | 445 | ✅ |
-| `documentation` | `intelligent-project-docs` | 264 | ✅ |
-| `documentation` | `technical-research-writing` | 392 | ✅ |
-| `engineering` | `legacy-code-refactoring` | 182 | ✅ |
-| `engineering` | `systems-analysis-saas` | 295 | ✅ |
-| `engineering` | `testing-strategies` | 472 | ✅ |
+| Collection       | Skill                          | Linhas | Status |
+| ---------------- | ------------------------------ | -----: | ------ |
+| `frontend`       | `design-system-implementation` |    336 | ✅     |
+| `frontend`       | `react-saas-architecture`      |    454 | ✅     |
+| `frontend`       | `saas-ui-specifications`       |    406 | ✅     |
+| `frontend`       | `component-reuse-portability`  |    423 | ✅     |
+| `backend`        | `clean-architecture-ddd`       |    321 | ✅     |
+| `backend`        | `api-design-patterns`          |    387 | ✅     |
+| `backend`        | `prisma-database-design`       |    376 | ✅     |
+| `ai-integration` | `prompt-engineering-hybrid`    |    319 | ✅     |
+| `ai-integration` | `ai-interface-design`          |    346 | ✅     |
+| `ai-integration` | `context-window-optimization`  |    420 | ✅     |
+| `ai-integration` | `ai-context-diagrams`          |    445 | ✅     |
+| `documentation`  | `intelligent-project-docs`     |    264 | ✅     |
+| `documentation`  | `technical-research-writing`   |    392 | ✅     |
+| `engineering`    | `legacy-code-refactoring`      |    182 | ✅     |
+| `engineering`    | `systems-analysis-saas`        |    295 | ✅     |
+| `engineering`    | `testing-strategies`           |    472 | ✅     |
 
 ## Metodologia
 

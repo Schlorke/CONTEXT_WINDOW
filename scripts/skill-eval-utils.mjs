@@ -7,7 +7,11 @@ const __dirname = path.dirname(__filename);
 
 export const repoRoot = path.resolve(__dirname, "..");
 export const libraryRoot = path.join(repoRoot, "saas-skills");
-export const evalMatrixPath = path.join(libraryRoot, "evals", "skill-trigger-matrix.json");
+export const evalMatrixPath = path.join(
+  libraryRoot,
+  "evals",
+  "skill-trigger-matrix.json",
+);
 export const evalResultsDir = path.join(libraryRoot, "evals", "results");
 
 export function loadEvalMatrix() {
@@ -15,7 +19,9 @@ export function loadEvalMatrix() {
 }
 
 export function buildReplayCases(evalMatrix) {
-  const skillLookup = new Map(evalMatrix.skills.map((entry) => [entry.skill, entry]));
+  const skillLookup = new Map(
+    evalMatrix.skills.map((entry) => [entry.skill, entry]),
+  );
   const cases = [];
 
   for (const entry of evalMatrix.skills) {
@@ -88,8 +94,12 @@ export function buildReplayTemplate(evalMatrix, environment) {
     environment,
     summary: {
       total_cases: cases.length,
-      should_trigger: cases.filter((item) => item.case_type === "should_trigger").length,
-      should_not_trigger: cases.filter((item) => item.case_type === "should_not_trigger").length,
+      should_trigger: cases.filter(
+        (item) => item.case_type === "should_trigger",
+      ).length,
+      should_not_trigger: cases.filter(
+        (item) => item.case_type === "should_not_trigger",
+      ).length,
       conflicts: cases.filter((item) => item.case_type === "conflict").length,
     },
     instructions: {
@@ -122,7 +132,9 @@ export function writeJson(filePath, data) {
 }
 
 export function normalizeList(list) {
-  return [...new Set((list ?? []).map((item) => `${item}`.trim()).filter(Boolean))].sort();
+  return [
+    ...new Set((list ?? []).map((item) => `${item}`.trim()).filter(Boolean)),
+  ].sort();
 }
 
 export function toPercent(numerator, denominator) {

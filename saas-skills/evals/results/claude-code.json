@@ -9,13 +9,7 @@
     "conflicts": 16
   },
   "instructions": {
-    "status_values": [
-      "pending",
-      "passed",
-      "failed",
-      "partial",
-      "not-run"
-    ],
+    "status_values": ["pending", "passed", "failed", "partial", "not-run"],
     "minimum_output_rule": "Mark each covered expected_minimum_output item verbatim in result.minimum_output_covered.",
     "transcript_rule": "Use result.transcript_ref to point to the log, screenshot, or thread that recorded the replay."
   },
@@ -100,9 +94,7 @@
       "prompt": "Create an AGENTS.md section with architecture visuals and choose the best C4/Mermaid diagrams for agent onboarding.",
       "reason": null,
       "expected_primary_skill": "ai-context-diagrams",
-      "expected_secondary_skills": [
-        "intelligent-project-docs"
-      ],
+      "expected_secondary_skills": ["intelligent-project-docs"],
       "expected_minimum_output": [
         "Chosen diagram type with scope justification",
         "A Mermaid or C4 representation with clear boundaries and relations",
@@ -270,9 +262,7 @@
       "prompt": "Build a billing backend with paginated invoice endpoints and a tenant-aware persistence model.",
       "reason": null,
       "expected_primary_skill": "api-design-patterns",
-      "expected_secondary_skills": [
-        "prisma-database-design"
-      ],
+      "expected_secondary_skills": ["prisma-database-design"],
       "expected_minimum_output": [
         "Resource model and route contract",
         "Auth, validation, and error handling rules",
@@ -440,9 +430,7 @@
       "prompt": "Design an AI assistant experience for account managers and also define the prompt contract used behind the UI.",
       "reason": null,
       "expected_primary_skill": "ai-interface-design",
-      "expected_secondary_skills": [
-        "prompt-engineering-hybrid"
-      ],
+      "expected_secondary_skills": ["prompt-engineering-hybrid"],
       "expected_minimum_output": [
         "Coverage of the main trust and control pillars",
         "Streaming, memory, and tool-integration architecture choices",
@@ -610,9 +598,7 @@
       "prompt": "Design a multi-tenant billing module including bounded contexts, use cases, and its public API surface.",
       "reason": null,
       "expected_primary_skill": "clean-architecture-ddd",
-      "expected_secondary_skills": [
-        "api-design-patterns"
-      ],
+      "expected_secondary_skills": ["api-design-patterns"],
       "expected_minimum_output": [
         "Layer boundaries and responsibilities",
         "Core domain model or bounded context decisions",
@@ -780,9 +766,7 @@
       "prompt": "Extract common components into a shared library while also reorganizing the repo into feature and shared layers.",
       "reason": null,
       "expected_primary_skill": "component-reuse-portability",
-      "expected_secondary_skills": [
-        "react-saas-architecture"
-      ],
+      "expected_secondary_skills": ["react-saas-architecture"],
       "expected_minimum_output": [
         "Dependency resolution plan",
         "Import and token adaptation steps",
@@ -950,9 +934,7 @@
       "prompt": "Rework our docs so agents get the right context with fewer tokens, including better document structure and selective retrieval.",
       "reason": null,
       "expected_primary_skill": "context-window-optimization",
-      "expected_secondary_skills": [
-        "intelligent-project-docs"
-      ],
+      "expected_secondary_skills": ["intelligent-project-docs"],
       "expected_minimum_output": [
         "Explicit token budget or context allocation model",
         "Ordering, compression, or reminder strategy to reduce drift",
@@ -1120,9 +1102,7 @@
       "prompt": "Set up a new design system and also define the initial color, spacing, and typography tokens for the product.",
       "reason": null,
       "expected_primary_skill": "design-system-implementation",
-      "expected_secondary_skills": [
-        "saas-ui-specifications"
-      ],
+      "expected_secondary_skills": ["saas-ui-specifications"],
       "expected_minimum_output": [
         "Token taxonomy and naming conventions",
         "Storybook or documentation workflow",
@@ -1290,9 +1270,7 @@
       "prompt": "Create a full documentation system for the repo and include an architecture diagram strategy for AGENTS.md and module docs.",
       "reason": null,
       "expected_primary_skill": "intelligent-project-docs",
-      "expected_secondary_skills": [
-        "ai-context-diagrams"
-      ],
+      "expected_secondary_skills": ["ai-context-diagrams"],
       "expected_minimum_output": [
         "Recommended documentation hierarchy with ownership",
         "AGENTS.md minimum sections and layer boundaries",
@@ -1460,9 +1438,7 @@
       "prompt": "Stabilize a legacy checkout module by adding tests and then refactor duplicated logic and prop drilling.",
       "reason": null,
       "expected_primary_skill": "legacy-code-refactoring",
-      "expected_secondary_skills": [
-        "testing-strategies"
-      ],
+      "expected_secondary_skills": ["testing-strategies"],
       "expected_minimum_output": [
         "Audit of hotspots, smells, or dependency risks",
         "Characterization or safety-test plan before structural change",
@@ -1630,9 +1606,7 @@
       "prompt": "Design the invoice schema, repository queries, and the API contract for fetching tenant data.",
       "reason": null,
       "expected_primary_skill": "prisma-database-design",
-      "expected_secondary_skills": [
-        "api-design-patterns"
-      ],
+      "expected_secondary_skills": ["api-design-patterns"],
       "expected_minimum_output": [
         "Schema or relation design guidance",
         "Migration and indexing strategy",
@@ -1800,9 +1774,7 @@
       "prompt": "Design a support copilot prompt and also decide how much retrieval context to send on each request.",
       "reason": null,
       "expected_primary_skill": "prompt-engineering-hybrid",
-      "expected_secondary_skills": [
-        "context-window-optimization"
-      ],
+      "expected_secondary_skills": ["context-window-optimization"],
       "expected_minimum_output": [
         "Prompt structure with required components",
         "Explicit output contract or schema",
@@ -1970,9 +1942,7 @@
       "prompt": "Reorganize the repo into shared and feature folders while extracting common components into a reusable package.",
       "reason": null,
       "expected_primary_skill": "react-saas-architecture",
-      "expected_secondary_skills": [
-        "component-reuse-portability"
-      ],
+      "expected_secondary_skills": ["component-reuse-portability"],
       "expected_minimum_output": [
         "Recommended folder pattern with justification",
         "Clear rules for co-location and exports",
@@ -2140,9 +2110,7 @@
       "prompt": "Define SaaS requirements and MVP scope for billing, then map the domain into use cases and bounded contexts.",
       "reason": null,
       "expected_primary_skill": "systems-analysis-saas",
-      "expected_secondary_skills": [
-        "clean-architecture-ddd"
-      ],
+      "expected_secondary_skills": ["clean-architecture-ddd"],
       "expected_minimum_output": [
         "Functional and non-functional requirements set",
         "MVP scope or prioritization model",
@@ -2310,9 +2278,7 @@
       "prompt": "Our design system exists already, but we need exact color, typography, and spacing values for a new admin panel.",
       "reason": null,
       "expected_primary_skill": "saas-ui-specifications",
-      "expected_secondary_skills": [
-        "design-system-implementation"
-      ],
+      "expected_secondary_skills": ["design-system-implementation"],
       "expected_minimum_output": [
         "Typography, color, and spacing decisions",
         "Responsive and dark mode rules",
@@ -2480,9 +2446,7 @@
       "prompt": "Produce a report that recommends the MVP architecture for a new SaaS, with external evidence and stakeholder-ready justification.",
       "reason": null,
       "expected_primary_skill": "technical-research-writing",
-      "expected_secondary_skills": [
-        "systems-analysis-saas"
-      ],
+      "expected_secondary_skills": ["systems-analysis-saas"],
       "expected_minimum_output": [
         "Well-scoped research question or hypothesis",
         "Source evaluation and citation methodology",
@@ -2650,9 +2614,7 @@
       "prompt": "Rescue a fragile legacy module by defining the right automated tests and then cleaning up the implementation.",
       "reason": null,
       "expected_primary_skill": "testing-strategies",
-      "expected_secondary_skills": [
-        "legacy-code-refactoring"
-      ],
+      "expected_secondary_skills": ["legacy-code-refactoring"],
       "expected_minimum_output": [
         "Test pyramid or distribution guidance by test type",
         "Concrete tooling and organization recommendations",

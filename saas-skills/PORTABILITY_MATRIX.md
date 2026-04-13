@@ -45,12 +45,12 @@ pnpm export:flat-skills
 
 ## Matriz por Ambiente
 
-| Ambiente | Modo recomendado | Descoberta esperada | Status local | Observação |
-| --- | --- | --- | --- | --- |
-| Claude Code / Claude.ai Projects | Árvore canônica `saas-skills/` | Recursiva ou por referência explícita | ✅ | Layout validado; replay real ainda depende de preenchimento do baseline |
-| Cursor IDE | Árvore canônica `saas-skills/` | Referência direta ou convenção local do ambiente | ✅ | Compatibilidade documental preparada; replay real pendente |
-| GitHub Copilot / loaders sem descoberta recursiva | `dist/flat-skills/` | Subpastas imediatas por skill | ✅ | Export achatado validado com `16` skills |
-| Continue.dev / uso manual | Árvore canônica ou bundle achatado | Referência explícita no contexto | ✅ | Sem dependência de descoberta automática |
+| Ambiente                                          | Modo recomendado                   | Descoberta esperada                              | Status local | Observação                                                              |
+| ------------------------------------------------- | ---------------------------------- | ------------------------------------------------ | ------------ | ----------------------------------------------------------------------- |
+| Claude Code / Claude.ai Projects                  | Árvore canônica `saas-skills/`     | Recursiva ou por referência explícita            | ✅           | Layout validado; replay real ainda depende de preenchimento do baseline |
+| Cursor IDE                                        | Árvore canônica `saas-skills/`     | Referência direta ou convenção local do ambiente | ✅           | Compatibilidade documental preparada; replay real pendente              |
+| GitHub Copilot / loaders sem descoberta recursiva | `dist/flat-skills/`                | Subpastas imediatas por skill                    | ✅           | Export achatado validado com `16` skills                                |
+| Continue.dev / uso manual                         | Árvore canônica ou bundle achatado | Referência explícita no contexto                 | ✅           | Sem dependência de descoberta automática                                |
 
 ## Garantias Verificadas
 

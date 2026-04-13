@@ -68,13 +68,13 @@ Este projeto é útil para:
 
 As skills estão divididas em 5 coleções:
 
-| Coleção | Foco |
-| --- | --- |
-| `frontend` | Design system, arquitetura React, especificações de UI e reutilização de componentes |
-| `backend` | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL |
-| `ai-integration` | Prompt engineering, AI UX, contexto e diagramas para agentes |
-| `documentation` | Documentação de projeto e escrita técnica de pesquisa |
-| `engineering` | Refatoração segura, análise de sistemas e estratégia de testes |
+| Coleção          | Foco                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| `frontend`       | Design system, arquitetura React, especificações de UI e reutilização de componentes |
+| `backend`        | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                          |
+| `ai-integration` | Prompt engineering, AI UX, contexto e diagramas para agentes                         |
+| `documentation`  | Documentação de projeto e escrita técnica de pesquisa                                |
+| `engineering`    | Refatoração segura, análise de sistemas e estratégia de testes                       |
 
 Detalhes completos estão em [saas-skills/README.md](saas-skills/README.md).
 
@@ -95,19 +95,19 @@ Isso instala as dependências de desenvolvimento e valida a biblioteca com:
 
 ## Comandos Disponíveis
 
-| Comando | O que faz | Quando usar |
-| --- | --- | --- |
-| `pnpm install` | Instala as dependências locais de tooling | Sempre após clonar |
-| `pnpm audit:skills` | Valida frontmatter, seções obrigatórias, referências internas e cobertura mínima de evals | Antes de publicar mudanças |
-| `pnpm lint:md` | Roda `markdownlint` em toda a documentação rastreada | Após editar Markdown |
-| `pnpm lint:md:fix` | Tenta corrigir problemas automáticos de lint | Quando houver erros simples de estilo |
-| `pnpm format:check` | Verifica formatação com Prettier | Em revisão final |
-| `pnpm format` | Aplica Prettier no repositório | Quando quiser normalizar formatação |
-| `pnpm fix:md` | Executa correções auxiliares + lint fix + Prettier | Para saneamento rápido de Markdown |
-| `pnpm export:flat-skills` | Gera `dist/flat-skills/` com uma pasta imediata por skill | Para Copilot e loaders sem descoberta recursiva |
-| `pnpm evals:init -- <ambiente>` | Cria um template de replay em `saas-skills/evals/results/` | Para iniciar replay real por ferramenta |
-| `pnpm evals:score -- <arquivo-ou-diretorio>` | Consolida replays e gera `*.report.md` e `SUMMARY.md`, respeitando `status` manual e filtrando JSONs inválidos | Depois de preencher resultados observados |
-| `pnpm qa:skills` | Executa `audit + lint + export` em sequência | Validação final antes de commit ou release |
+| Comando                                      | O que faz                                                                                                      | Quando usar                                     |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `pnpm install`                               | Instala as dependências locais de tooling                                                                      | Sempre após clonar                              |
+| `pnpm audit:skills`                          | Valida frontmatter, seções obrigatórias, referências internas e cobertura mínima de evals                      | Antes de publicar mudanças                      |
+| `pnpm lint:md`                               | Roda `markdownlint` em toda a documentação rastreada                                                           | Após editar Markdown                            |
+| `pnpm lint:md:fix`                           | Tenta corrigir problemas automáticos de lint                                                                   | Quando houver erros simples de estilo           |
+| `pnpm format:check`                          | Verifica formatação com Prettier                                                                               | Em revisão final                                |
+| `pnpm format`                                | Aplica Prettier no repositório                                                                                 | Quando quiser normalizar formatação             |
+| `pnpm fix:md`                                | Executa correções auxiliares + lint fix + Prettier                                                             | Para saneamento rápido de Markdown              |
+| `pnpm export:flat-skills`                    | Gera `dist/flat-skills/` com uma pasta imediata por skill                                                      | Para Copilot e loaders sem descoberta recursiva |
+| `pnpm evals:init -- <ambiente>`              | Cria um template de replay em `saas-skills/evals/results/`                                                     | Para iniciar replay real por ferramenta         |
+| `pnpm evals:score -- <arquivo-ou-diretorio>` | Consolida replays e gera `*.report.md` e `SUMMARY.md`, respeitando `status` manual e filtrando JSONs inválidos | Depois de preencher resultados observados       |
+| `pnpm qa:skills`                             | Executa `audit + lint + export` em sequência                                                                   | Validação final antes de commit ou release      |
 
 ## Como Usar a Biblioteca em Outro Projeto
 

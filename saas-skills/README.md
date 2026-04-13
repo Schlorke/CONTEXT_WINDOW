@@ -27,56 +27,56 @@ Esta biblioteca contém:
 
 ## Coleções Disponíveis
 
-| Coleção | Skills | Finalidade |
-| --- | ---: | --- |
-| `frontend` | 4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
-| `backend` | 3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL |
-| `ai-integration` | 4 | Prompt engineering, AI UX, contexto e diagramas para agentes |
-| `documentation` | 2 | Documentação persistente de projeto e escrita técnica |
-| `engineering` | 3 | Refatoração, análise de sistemas e estratégia de testes |
+| Coleção          | Skills | Finalidade                                                                              |
+| ---------------- | -----: | --------------------------------------------------------------------------------------- |
+| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
+| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                             |
+| `ai-integration` |      4 | Prompt engineering, AI UX, contexto e diagramas para agentes                            |
+| `documentation`  |      2 | Documentação persistente de projeto e escrita técnica                                   |
+| `engineering`    |      3 | Refatoração, análise de sistemas e estratégia de testes                                 |
 
 ## Catálogo de Skills
 
 ### frontend
 
-| Skill | Descrição |
-| --- | --- |
-| `design-system-implementation` | Construção e manutenção de design systems com tokens, Storybook e governança |
-| `react-saas-architecture` | Organização de componentes e pastas em Next.js App Router |
-| `saas-ui-specifications` | Especificações concretas de UI: tipografia, cores, grid, densidade e acessibilidade |
-| `component-reuse-portability` | Extração, adaptação e reinstalação de componentes entre projetos |
+| Skill                          | Descrição                                                                           |
+| ------------------------------ | ----------------------------------------------------------------------------------- |
+| `design-system-implementation` | Construção e manutenção de design systems com tokens, Storybook e governança        |
+| `react-saas-architecture`      | Organização de componentes e pastas em Next.js App Router                           |
+| `saas-ui-specifications`       | Especificações concretas de UI: tipografia, cores, grid, densidade e acessibilidade |
+| `component-reuse-portability`  | Extração, adaptação e reinstalação de componentes entre projetos                    |
 
 ### backend
 
-| Skill | Descrição |
-| --- | --- |
-| `clean-architecture-ddd` | Clean Architecture, SOLID e DDD para TypeScript, Next.js e Prisma |
-| `api-design-patterns` | Design de APIs REST com auth, validação, paginação, rate limiting e webhooks |
-| `prisma-database-design` | Modelagem PostgreSQL com Prisma, migrations, índices e multi-tenancy |
+| Skill                    | Descrição                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `clean-architecture-ddd` | Clean Architecture, SOLID e DDD para TypeScript, Next.js e Prisma            |
+| `api-design-patterns`    | Design de APIs REST com auth, validação, paginação, rate limiting e webhooks |
+| `prisma-database-design` | Modelagem PostgreSQL com Prisma, migrations, índices e multi-tenancy         |
 
 ### ai-integration
 
-| Skill | Descrição |
-| --- | --- |
-| `prompt-engineering-hybrid` | Prompts híbridos com narrativa, schema, fallback e seleção de formato |
-| `ai-interface-design` | Interfaces conversacionais com transparência, streaming, memória e compliance |
-| `context-window-optimization` | Token budgeting, compressão, prevenção de drift e decisão RAG |
-| `ai-context-diagrams` | Mermaid e C4 para reduzir ambiguidade arquitetural para agentes |
+| Skill                         | Descrição                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| `prompt-engineering-hybrid`   | Prompts híbridos com narrativa, schema, fallback e seleção de formato         |
+| `ai-interface-design`         | Interfaces conversacionais com transparência, streaming, memória e compliance |
+| `context-window-optimization` | Token budgeting, compressão, prevenção de drift e decisão RAG                 |
+| `ai-context-diagrams`         | Mermaid e C4 para reduzir ambiguidade arquitetural para agentes               |
 
 ### documentation
 
-| Skill | Descrição |
-| --- | --- |
-| `intelligent-project-docs` | Documentação como memória persistente para humanos e agentes |
+| Skill                        | Descrição                                                     |
+| ---------------------------- | ------------------------------------------------------------- |
+| `intelligent-project-docs`   | Documentação como memória persistente para humanos e agentes  |
 | `technical-research-writing` | Pesquisa técnica, avaliação de fontes e escrita de relatórios |
 
 ### engineering
 
-| Skill | Descrição |
-| --- | --- |
+| Skill                     | Descrição                                                                         |
+| ------------------------- | --------------------------------------------------------------------------------- |
 | `legacy-code-refactoring` | Refatoração segura de código legado com characterization tests e hotspot analysis |
-| `systems-analysis-saas` | Requisitos, MVP, modelos C4/BPMN/ER e validação com stakeholders |
-| `testing-strategies` | TDD, testes unitários, integração, E2E e distribuição da pirâmide de testes |
+| `systems-analysis-saas`   | Requisitos, MVP, modelos C4/BPMN/ER e validação com stakeholders                  |
+| `testing-strategies`      | TDD, testes unitários, integração, E2E e distribuição da pirâmide de testes       |
 
 ## Quando Usar a Árvore Canônica ou o Bundle Achatado
 
@@ -203,19 +203,19 @@ Isso cobre:
 
 ## Comandos Operacionais
 
-| Comando | O que faz | Quando usar |
-| --- | --- | --- |
-| `pnpm install` | Instala dependências de tooling | Sempre após clonar |
-| `pnpm audit:skills` | Valida estrutura das skills, frontmatter, seções obrigatórias, caminhos e cobertura mínima de evals | Antes de release ou revisão |
-| `pnpm lint:md` | Roda `markdownlint` em toda a documentação rastreada | Após editar Markdown |
-| `pnpm lint:md:fix` | Tenta corrigir parte dos erros de lint | Para ajustes rápidos |
-| `pnpm format` | Formata o repositório com Prettier | Quando quiser padronizar estilo |
-| `pnpm format:check` | Verifica formatação sem alterar arquivos | Em revisão final |
-| `pnpm fix:md` | Executa correções auxiliares, lint fix e Prettier | Saneamento rápido de docs |
-| `pnpm export:flat-skills` | Gera `dist/flat-skills/` com uma pasta imediata por skill | Para distribuição em loaders simples |
-| `pnpm evals:init -- <ambiente>` | Cria um template de replay em `saas-skills/evals/results/` | Antes de um replay real |
-| `pnpm evals:score -- <arquivo-ou-diretorio>` | Consolida resultados e gera relatórios Markdown, respeitando `status` manual e ignorando JSONs sem schema de replay | Depois de preencher observações |
-| `pnpm qa:skills` | Executa `audit + lint + export` em sequência | Validação final antes de commit ou release |
+| Comando                                      | O que faz                                                                                                           | Quando usar                                |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `pnpm install`                               | Instala dependências de tooling                                                                                     | Sempre após clonar                         |
+| `pnpm audit:skills`                          | Valida estrutura das skills, frontmatter, seções obrigatórias, caminhos e cobertura mínima de evals                 | Antes de release ou revisão                |
+| `pnpm lint:md`                               | Roda `markdownlint` em toda a documentação rastreada                                                                | Após editar Markdown                       |
+| `pnpm lint:md:fix`                           | Tenta corrigir parte dos erros de lint                                                                              | Para ajustes rápidos                       |
+| `pnpm format`                                | Formata o repositório com Prettier                                                                                  | Quando quiser padronizar estilo            |
+| `pnpm format:check`                          | Verifica formatação sem alterar arquivos                                                                            | Em revisão final                           |
+| `pnpm fix:md`                                | Executa correções auxiliares, lint fix e Prettier                                                                   | Saneamento rápido de docs                  |
+| `pnpm export:flat-skills`                    | Gera `dist/flat-skills/` com uma pasta imediata por skill                                                           | Para distribuição em loaders simples       |
+| `pnpm evals:init -- <ambiente>`              | Cria um template de replay em `saas-skills/evals/results/`                                                          | Antes de um replay real                    |
+| `pnpm evals:score -- <arquivo-ou-diretorio>` | Consolida resultados e gera relatórios Markdown, respeitando `status` manual e ignorando JSONs sem schema de replay | Depois de preencher observações            |
+| `pnpm qa:skills`                             | Executa `audit + lint + export` em sequência                                                                        | Validação final antes de commit ou release |
 
 ## Replay e Medição por Ambiente
 
@@ -273,13 +273,13 @@ Regras práticas:
 
 ## Documentos Operacionais da Biblioteca
 
-| Documento | Finalidade |
-| --- | --- |
-| [QA_REPORT.md](QA_REPORT.md) | Estado auditado da biblioteca |
-| [EVALS_REPORT.md](EVALS_REPORT.md) | Cobertura da suíte de avaliação |
-| [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md) | Modo de instalação por ambiente |
-| [RELEASE_NOTES.md](RELEASE_NOTES.md) | Histórico de mudanças |
-| [evals/README.md](evals/README.md) | Operação do fluxo de replay e scoring |
+| Documento                                          | Finalidade                                |
+| -------------------------------------------------- | ----------------------------------------- |
+| [QA_REPORT.md](QA_REPORT.md)                       | Estado auditado da biblioteca             |
+| [EVALS_REPORT.md](EVALS_REPORT.md)                 | Cobertura da suíte de avaliação           |
+| [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md)     | Modo de instalação por ambiente           |
+| [RELEASE_NOTES.md](RELEASE_NOTES.md)               | Histórico de mudanças                     |
+| [evals/README.md](evals/README.md)                 | Operação do fluxo de replay e scoring     |
 | [evals/results/README.md](evals/results/README.md) | Preenchimento dos resultados por ambiente |
 
 ## Princípios da Biblioteca

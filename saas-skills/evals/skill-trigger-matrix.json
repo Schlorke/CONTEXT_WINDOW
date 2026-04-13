@@ -54,9 +54,7 @@
           "id": "dsi-c1",
           "prompt": "Set up a new design system and also define the initial color, spacing, and typography tokens for the product.",
           "expected_primary_skill": "design-system-implementation",
-          "expected_secondary_skills": [
-            "saas-ui-specifications"
-          ],
+          "expected_secondary_skills": ["saas-ui-specifications"],
           "resolution": "Start with system architecture and governance, then pull UI specs only for the concrete token values."
         }
       ],
@@ -114,9 +112,7 @@
           "id": "rsa-c1",
           "prompt": "Reorganize the repo into shared and feature folders while extracting common components into a reusable package.",
           "expected_primary_skill": "react-saas-architecture",
-          "expected_secondary_skills": [
-            "component-reuse-portability"
-          ],
+          "expected_secondary_skills": ["component-reuse-portability"],
           "resolution": "Choose the target architecture first, then move and adapt reusable components into the structure."
         }
       ],
@@ -174,9 +170,7 @@
           "id": "sui-c1",
           "prompt": "Our design system exists already, but we need exact color, typography, and spacing values for a new admin panel.",
           "expected_primary_skill": "saas-ui-specifications",
-          "expected_secondary_skills": [
-            "design-system-implementation"
-          ],
+          "expected_secondary_skills": ["design-system-implementation"],
           "resolution": "Stay in specs mode unless governance or token system changes are also required."
         }
       ],
@@ -234,9 +228,7 @@
           "id": "crp-c1",
           "prompt": "Extract common components into a shared library while also reorganizing the repo into feature and shared layers.",
           "expected_primary_skill": "component-reuse-portability",
-          "expected_secondary_skills": [
-            "react-saas-architecture"
-          ],
+          "expected_secondary_skills": ["react-saas-architecture"],
           "resolution": "If component extraction and adaptation are the operational bottleneck, handle portability first and then align the folder structure."
         }
       ],
@@ -294,9 +286,7 @@
           "id": "caddd-c1",
           "prompt": "Design a multi-tenant billing module including bounded contexts, use cases, and its public API surface.",
           "expected_primary_skill": "clean-architecture-ddd",
-          "expected_secondary_skills": [
-            "api-design-patterns"
-          ],
+          "expected_secondary_skills": ["api-design-patterns"],
           "resolution": "Define domain and layer boundaries first, then expose them through the HTTP contract."
         }
       ],
@@ -354,9 +344,7 @@
           "id": "adp-c1",
           "prompt": "Build a billing backend with paginated invoice endpoints and a tenant-aware persistence model.",
           "expected_primary_skill": "api-design-patterns",
-          "expected_secondary_skills": [
-            "prisma-database-design"
-          ],
+          "expected_secondary_skills": ["prisma-database-design"],
           "resolution": "Prioritize the HTTP contract when the user asks for endpoints first, but delegate schema details to Prisma design."
         }
       ],
@@ -414,9 +402,7 @@
           "id": "pdd-c1",
           "prompt": "Design the invoice schema, repository queries, and the API contract for fetching tenant data.",
           "expected_primary_skill": "prisma-database-design",
-          "expected_secondary_skills": [
-            "api-design-patterns"
-          ],
+          "expected_secondary_skills": ["api-design-patterns"],
           "resolution": "When schema, indexes, and query behavior are central, lead with database design and then shape the API around it."
         }
       ],
@@ -474,9 +460,7 @@
           "id": "peh-c1",
           "prompt": "Design a support copilot prompt and also decide how much retrieval context to send on each request.",
           "expected_primary_skill": "prompt-engineering-hybrid",
-          "expected_secondary_skills": [
-            "context-window-optimization"
-          ],
+          "expected_secondary_skills": ["context-window-optimization"],
           "resolution": "Start with prompt contract and output structure, then tune context volume and retrieval strategy."
         }
       ],
@@ -534,9 +518,7 @@
           "id": "aid-c1",
           "prompt": "Design an AI assistant experience for account managers and also define the prompt contract used behind the UI.",
           "expected_primary_skill": "ai-interface-design",
-          "expected_secondary_skills": [
-            "prompt-engineering-hybrid"
-          ],
+          "expected_secondary_skills": ["prompt-engineering-hybrid"],
           "resolution": "When the product surface and user trust are central, lead with interface behavior and integrate prompt design as a supporting layer."
         }
       ],
@@ -594,9 +576,7 @@
           "id": "cwo-c1",
           "prompt": "Rework our docs so agents get the right context with fewer tokens, including better document structure and selective retrieval.",
           "expected_primary_skill": "context-window-optimization",
-          "expected_secondary_skills": [
-            "intelligent-project-docs"
-          ],
+          "expected_secondary_skills": ["intelligent-project-docs"],
           "resolution": "If token limits, retrieval policy, and ordering are the bottleneck, optimize context strategy first and then reshape the docs to support it."
         }
       ],
@@ -654,9 +634,7 @@
           "id": "acd-c1",
           "prompt": "Create an AGENTS.md section with architecture visuals and choose the best C4/Mermaid diagrams for agent onboarding.",
           "expected_primary_skill": "ai-context-diagrams",
-          "expected_secondary_skills": [
-            "intelligent-project-docs"
-          ],
+          "expected_secondary_skills": ["intelligent-project-docs"],
           "resolution": "If the missing artifact is the visual model itself, produce the diagrams first and then place them into the broader docs structure."
         }
       ],
@@ -714,9 +692,7 @@
           "id": "ipd-c1",
           "prompt": "Create a full documentation system for the repo and include an architecture diagram strategy for AGENTS.md and module docs.",
           "expected_primary_skill": "intelligent-project-docs",
-          "expected_secondary_skills": [
-            "ai-context-diagrams"
-          ],
+          "expected_secondary_skills": ["ai-context-diagrams"],
           "resolution": "Lead with documentation hierarchy and governance, then define which diagrams populate each layer."
         }
       ],
@@ -774,9 +750,7 @@
           "id": "trw-c1",
           "prompt": "Produce a report that recommends the MVP architecture for a new SaaS, with external evidence and stakeholder-ready justification.",
           "expected_primary_skill": "technical-research-writing",
-          "expected_secondary_skills": [
-            "systems-analysis-saas"
-          ],
+          "expected_secondary_skills": ["systems-analysis-saas"],
           "resolution": "When the main deliverable is an evidence-backed report, start with research framing and pull systems analysis in to structure the recommendation."
         }
       ],
@@ -834,9 +808,7 @@
           "id": "lcr-c1",
           "prompt": "Stabilize a legacy checkout module by adding tests and then refactor duplicated logic and prop drilling.",
           "expected_primary_skill": "legacy-code-refactoring",
-          "expected_secondary_skills": [
-            "testing-strategies"
-          ],
+          "expected_secondary_skills": ["testing-strategies"],
           "resolution": "When the system is risky and already in production, lead with characterization-driven refactoring and use testing strategy as the safety mechanism."
         }
       ],
@@ -894,9 +866,7 @@
           "id": "sas-c1",
           "prompt": "Define SaaS requirements and MVP scope for billing, then map the domain into use cases and bounded contexts.",
           "expected_primary_skill": "systems-analysis-saas",
-          "expected_secondary_skills": [
-            "clean-architecture-ddd"
-          ],
+          "expected_secondary_skills": ["clean-architecture-ddd"],
           "resolution": "Start with stakeholder needs, scope, and business rules; once the problem is framed, refine the internal domain model with DDD."
         }
       ],
@@ -954,9 +924,7 @@
           "id": "ts-c1",
           "prompt": "Rescue a fragile legacy module by defining the right automated tests and then cleaning up the implementation.",
           "expected_primary_skill": "testing-strategies",
-          "expected_secondary_skills": [
-            "legacy-code-refactoring"
-          ],
+          "expected_secondary_skills": ["legacy-code-refactoring"],
           "resolution": "If the immediate blocker is missing automated coverage and test architecture, lead with the testing strategy and then refactor inside that safety net."
         }
       ],

@@ -8,7 +8,13 @@ import {
   toPercent,
 } from "./skill-eval-utils.mjs";
 
-const validStatusValues = new Set(["pending", "passed", "failed", "partial", "not-run"]);
+const validStatusValues = new Set([
+  "pending",
+  "passed",
+  "failed",
+  "partial",
+  "not-run",
+]);
 const inputArg = process.argv[2];
 const inputPath = path.resolve(inputArg ?? evalResultsDir);
 const evalMatrix = loadEvalMatrix();
@@ -18,7 +24,9 @@ const expectedMap = new Map(expectedCases.map((item) => [item.id, item]));
 const replayTargets = collectReplayTargets(inputPath);
 
 if (replayTargets.length === 0) {
-  console.error("No valid replay result files found. Use pnpm evals:init -- <environment> first.");
+  console.error(
+    "No valid replay result files found. Use pnpm evals:init -- <environment> first.",
+  );
   process.exit(1);
 }
 
@@ -33,7 +41,10 @@ for (const { filePath, replay } of replayTargets) {
 }
 
 if (reports.length > 1) {
-  const summaryPath = path.join(path.dirname(replayTargets[0].filePath), "SUMMARY.md");
+  const summaryPath = path.join(
+    path.dirname(replayTargets[0].filePath),
+    "SUMMARY.md",
+  );
   fs.writeFileSync(summaryPath, buildSummaryMarkdown(reports), "utf8");
   console.log(`Wrote consolidated summary to ${summaryPath}`);
 }
@@ -84,10 +95,13 @@ function scoreReplayFile(replay, filePath) {
     const observedPrimary = result.observed_primary_skill ?? null;
     const observedSecondary = normalizeList(result.observed_secondary_skills);
     const coveredOutputs = normalizeList(result.minimum_output_covered);
-    const expectedSecondary = normalizeList(expectedCase.expected_secondary_skills);
+    const expectedSecondary = normalizeList(
+      expectedCase.expected_secondary_skills,
+    );
     const expectedOutputs = normalizeList(expectedCase.expected_minimum_output);
 
-    const selectionPass = observedPrimary === expectedCase.expected_primary_skill;
+    const selectionPass =
+      observedPrimary === expectedCase.expected_primary_skill;
     const secondaryPass =
       expectedSecondary.length === 0 ||
       expectedSecondary.every((item) => observedSecondary.includes(item));
@@ -127,7 +141,9 @@ function scoreReplayFile(replay, filePath) {
 
   for (const replayCaseId of caseMap.keys()) {
     if (!expectedMap.has(replayCaseId)) {
-      throw new Error(`Replay file ${filePath} contains unknown case id ${replayCaseId}`);
+      throw new Error(
+        `Replay file ${filePath} contains unknown case id ${replayCaseId}`,
+      );
     }
   }
 
@@ -180,7 +196,9 @@ function collectReplayTargets(inputFilePath) {
 
 function readReplayFile(filePath, options = {}) {
   const { allowSkip = false } = options;
-  const relativePath = path.relative(process.cwd(), filePath).replaceAll("\\", "/");
+  const relativePath = path
+    .relative(process.cwd(), filePath)
+    .replaceAll("\\", "/");
   let replay;
 
   try {
@@ -212,7 +230,10 @@ function validateReplayShape(replay, filePath) {
     return `Replay file ${filePath} must contain a JSON object`;
   }
 
-  if (typeof replay.environment !== "string" || replay.environment.trim().length === 0) {
+  if (
+    typeof replay.environment !== "string" ||
+    replay.environment.trim().length === 0
+  ) {
     return `Replay file ${filePath} is missing a valid "environment" field`;
   }
 
@@ -229,9 +250,25 @@ function trackPerSkill(store, skill, status) {
   store.set(skill, current);
 }
 
-function buildReplayMarkdown({ environment, filePath, total, passed, failed, pending, findings, perSkill }) {
-  const failedCases = findings.filter((item) => item.status !== "pending" && item.status !== "not-run" && !item.derived_pass);
-  const pendingCases = findings.filter((item) => item.status === "pending" || item.status === "not-run");
+function buildReplayMarkdown({
+  environment,
+  filePath,
+  total,
+  passed,
+  failed,
+  pending,
+  findings,
+  perSkill,
+}) {
+  const failedCases = findings.filter(
+    (item) =>
+      item.status !== "pending" &&
+      item.status !== "not-run" &&
+      !item.derived_pass,
+  );
+  const pendingCases = findings.filter(
+    (item) => item.status === "pending" || item.status === "not-run",
+  );
   const skillRows = [...perSkill.entries()]
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(
@@ -291,10 +328,14 @@ ${pendingList}
 function buildPendingList(pendingCases) {
   const maxItems = 25;
   const visibleItems = pendingCases.slice(0, maxItems);
-  const lines = visibleItems.map((item) => `- \`${item.id}\`: pendente ou não executado.`);
+  const lines = visibleItems.map(
+    (item) => `- \`${item.id}\`: pendente ou não executado.`,
+  );
 
   if (pendingCases.length > maxItems) {
-    lines.push(`- ... e mais ${pendingCases.length - maxItems} casos pendentes.`);
+    lines.push(
+      `- ... e mais ${pendingCases.length - maxItems} casos pendentes.`,
+    );
   }
 
   return lines.join("\n");
