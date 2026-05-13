@@ -80,7 +80,7 @@ As melhorias principais desta passagem foram:
 
 ## Metodologia
 
-As verificações principais são feitas por [scripts/audit-skills.mjs](../scripts/audit-skills.mjs), complementadas por lint e export.
+As verificações principais são feitas por [scripts/audit-skills.mjs](../../../scripts/audit-skills.mjs), complementadas por lint e export.
 
 Comandos de validação:
 
@@ -113,8 +113,8 @@ Ele não prova, sozinho:
 Para isso, use:
 
 - [EVALS_REPORT.md](EVALS_REPORT.md)
-- [evals/README.md](evals/README.md)
-- [evals/results/README.md](evals/results/README.md)
+- [evals/README.md](../../evals/README.md)
+- [evals/results/README.md](../../evals/results/README.md)
 
 ## Conclusão
 

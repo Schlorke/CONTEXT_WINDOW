@@ -70,11 +70,11 @@ Detalhes completos:
 
 - [AGENTS.md](AGENTS.md)
 - [CHANGELOG.md](CHANGELOG.md)
-- [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
-- [saas-skills/CURSOR_USER_RULES_GUIDE.md](saas-skills/CURSOR_USER_RULES_GUIDE.md)
-- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
-- [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
-- [saas-skills/PORTABILITY_MATRIX.md](saas-skills/PORTABILITY_MATRIX.md)
+- [saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md](saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md)
+- [saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md](saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md)
+- [saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md)
+- [saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md](saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md)
+- [saas-skills/docs/runtime/PORTABILITY_MATRIX.md](saas-skills/docs/runtime/PORTABILITY_MATRIX.md)
 
 ## Quick Start
 
@@ -272,7 +272,7 @@ Skills Used: none
 
 Documento-base:
 
-- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
+- [saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md)
 
 ## Validação Segura sem Tocar nos Runtimes Reais
 
@@ -327,7 +327,7 @@ O fluxo recomendado para projeto-alvo é:
 
 O playbook copiável para o agente está em:
 
-- [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
+- [saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md](saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md)
 
 Para agentes trabalhando dentro deste próprio repositório, o ponto de entrada é:
 
@@ -352,10 +352,10 @@ Catálogo e instruções detalhadas:
 Os principais artefatos de qualidade são:
 
 - [CHANGELOG.md](CHANGELOG.md)
-- [saas-skills/QA_REPORT.md](saas-skills/QA_REPORT.md)
-- [saas-skills/EVALS_REPORT.md](saas-skills/EVALS_REPORT.md)
-- [saas-skills/PRACTICAL_SKILL_TEST_REPORT.md](saas-skills/PRACTICAL_SKILL_TEST_REPORT.md)
-- [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
+- [saas-skills/docs/qa/QA_REPORT.md](saas-skills/docs/qa/QA_REPORT.md)
+- [saas-skills/docs/qa/EVALS_REPORT.md](saas-skills/docs/qa/EVALS_REPORT.md)
+- [saas-skills/docs/qa/PRACTICAL_SKILL_TEST_REPORT.md](saas-skills/docs/qa/PRACTICAL_SKILL_TEST_REPORT.md)
+- [saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md](saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md)
 
 Hoje a biblioteca mantém:
 
@@ -367,10 +367,10 @@ Hoje a biblioteca mantém:
 ## Arquivos Mais Importantes
 
 - [saas-skills/README.md](saas-skills/README.md)
-- [saas-skills/IDE_RUNTIME_GUIDE.md](saas-skills/IDE_RUNTIME_GUIDE.md)
-- [saas-skills/CURSOR_USER_RULES_GUIDE.md](saas-skills/CURSOR_USER_RULES_GUIDE.md)
-- [saas-skills/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/AGENT_SKILL_USAGE_REPORTING.md)
-- [saas-skills/TARGET_REPO_AGENT_GUIDE.md](saas-skills/TARGET_REPO_AGENT_GUIDE.md)
+- [saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md](saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md)
+- [saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md](saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md)
+- [saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md](saas-skills/docs/governance/AGENT_SKILL_USAGE_REPORTING.md)
+- [saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md](saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md)
 - [CHANGELOG.md](CHANGELOG.md)
 - [scripts/export-flat-skills.mjs](scripts/export-flat-skills.mjs)
 - [scripts/export-cursor-rules.mjs](scripts/export-cursor-rules.mjs)

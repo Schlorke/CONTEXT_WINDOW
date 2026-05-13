@@ -8,8 +8,8 @@ metadata:
   sources:
     - ../../README.md
     - ../../../README.md
-    - ../../IDE_RUNTIME_GUIDE.md
-    - ../../TARGET_REPO_AGENT_GUIDE.md
+    - ../../docs/runtime/IDE_RUNTIME_GUIDE.md
+    - ../../docs/runtime/TARGET_REPO_AGENT_GUIDE.md
     - Codex skill-installer behavior
 ---
 
@@ -247,9 +247,9 @@ State clearly that manual fallback is lower-confidence than the repository scrip
 
 ## Source References
 
-- Repository runtime guide: `../../IDE_RUNTIME_GUIDE.md`
-- Repository operator playbook: `../../TARGET_REPO_AGENT_GUIDE.md`
-- Runtime matrix: `../../PORTABILITY_MATRIX.md`
+- Repository runtime guide: `../../docs/runtime/IDE_RUNTIME_GUIDE.md`
+- Repository operator playbook: `../../docs/runtime/TARGET_REPO_AGENT_GUIDE.md`
+- Runtime matrix: `../../docs/runtime/PORTABILITY_MATRIX.md`
 - Root operator overview: `../../../README.md`
 - Library overview: `../../README.md`
 - Codex native installer behavior: `C:/Users/harry/.codex/skills/.system/skill-installer/SKILL.md`

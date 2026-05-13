@@ -118,8 +118,8 @@ Ainda dependem de replay humano ou semi-automatizado:
 
 Arquivos relevantes:
 
-- [evals/README.md](evals/README.md): visão geral do fluxo
-- [evals/results/README.md](evals/results/README.md): como preencher resultados
+- [evals/README.md](../../evals/README.md): visão geral do fluxo
+- [evals/results/README.md](../../evals/results/README.md): como preencher resultados
 - `claude-code.report.md`, `cursor.report.md`, `github-copilot.report.md`: relatórios por ambiente
 - `SUMMARY.md`: consolidação do diretório de resultados
 

@@ -153,11 +153,11 @@ Eles não são o runtime recomendado desta biblioteca.
 ## Documentos de Runtime
 
 - [../AGENTS.md](../AGENTS.md): ponto de entrada para agentes no repositório
-- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md): política copiável para exigir disclosure de skills usadas
-- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md): explicação do global do Cursor, limites e bootstrap oficial
-- [IDE_RUNTIME_GUIDE.md](IDE_RUNTIME_GUIDE.md): instalação correta por plataforma
-- [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md): arquivo copiável para agentes
-- [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md): matriz de instalação por ambiente
+- [docs/governance/AGENT_SKILL_USAGE_REPORTING.md](docs/governance/AGENT_SKILL_USAGE_REPORTING.md): política copiável para exigir disclosure de skills usadas
+- [docs/runtime/CURSOR_USER_RULES_GUIDE.md](docs/runtime/CURSOR_USER_RULES_GUIDE.md): explicação do global do Cursor, limites e bootstrap oficial
+- [docs/runtime/IDE_RUNTIME_GUIDE.md](docs/runtime/IDE_RUNTIME_GUIDE.md): instalação correta por plataforma
+- [docs/runtime/TARGET_REPO_AGENT_GUIDE.md](docs/runtime/TARGET_REPO_AGENT_GUIDE.md): arquivo copiável para agentes
+- [docs/runtime/PORTABILITY_MATRIX.md](docs/runtime/PORTABILITY_MATRIX.md): matriz de instalação por ambiente
 
 ## Comandos Principais
 
@@ -347,7 +347,7 @@ Skills Used: none
 
 Documento-base:
 
-- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md)
+- [docs/governance/AGENT_SKILL_USAGE_REPORTING.md](docs/governance/AGENT_SKILL_USAGE_REPORTING.md)
 
 ## Como Atualizar uma Skill sem Criar Drift
 
@@ -410,7 +410,7 @@ Se a ideia é instalar e testar sem impactar a aplicação:
 
 O guia pronto para o agente fazer isso está em:
 
-- [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md)
+- [docs/runtime/TARGET_REPO_AGENT_GUIDE.md](docs/runtime/TARGET_REPO_AGENT_GUIDE.md)
 
 ## Skill Installer da Codex vs Instalador Deste Repo
 
@@ -456,7 +456,7 @@ Para diagnosticar drift sem depender de `pnpm`, use também:
 
 Além do pacote acima, copie ou referencie:
 
-- [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md)
+- [docs/runtime/TARGET_REPO_AGENT_GUIDE.md](docs/runtime/TARGET_REPO_AGENT_GUIDE.md)
 
 Esse arquivo existe exatamente para ser lido pelo agente no repositório de destino e pode ser copiado como `AGENTS.md` se você quiser deixá-lo na raiz do projeto.
 
@@ -486,12 +486,12 @@ A biblioteca mantém:
 Documentos relacionados:
 
 - [../CHANGELOG.md](../CHANGELOG.md)
-- [AGENT_SKILL_USAGE_REPORTING.md](AGENT_SKILL_USAGE_REPORTING.md)
-- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md)
-- [QA_REPORT.md](QA_REPORT.md)
-- [EVALS_REPORT.md](EVALS_REPORT.md)
-- [PRACTICAL_SKILL_TEST_REPORT.md](PRACTICAL_SKILL_TEST_REPORT.md)
-- [RELEASE_NOTES.md](RELEASE_NOTES.md)
+- [docs/governance/AGENT_SKILL_USAGE_REPORTING.md](docs/governance/AGENT_SKILL_USAGE_REPORTING.md)
+- [docs/runtime/CURSOR_USER_RULES_GUIDE.md](docs/runtime/CURSOR_USER_RULES_GUIDE.md)
+- [docs/qa/QA_REPORT.md](docs/qa/QA_REPORT.md)
+- [docs/qa/EVALS_REPORT.md](docs/qa/EVALS_REPORT.md)
+- [docs/qa/PRACTICAL_SKILL_TEST_REPORT.md](docs/qa/PRACTICAL_SKILL_TEST_REPORT.md)
+- [docs/RELEASE_NOTES.md](docs/RELEASE_NOTES.md)
 
 Uso recomendado:
 
@@ -512,4 +512,4 @@ Se você quer o fluxo mais útil:
 7. para instalação seletiva, use `pnpm install:codex`, `pnpm install:claude` ou `pnpm install:cursor`
 8. para updates, use os comandos `sync:*`
 9. para validar sem tocar nos runtimes reais, use `--codex-home`, `--claude-home` e `--cursor-home`
-10. use [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição
+10. use [docs/runtime/TARGET_REPO_AGENT_GUIDE.md](docs/runtime/TARGET_REPO_AGENT_GUIDE.md) para smoke tests sem edição

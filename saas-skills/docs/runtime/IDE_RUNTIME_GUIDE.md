@@ -94,7 +94,7 @@ Pontos importantes:
 
 Nesta biblioteca, o adapter de Cursor é gerado a partir de:
 
-- [cursor-rule-profiles.json](integrations/cursor-rule-profiles.json)
+- [cursor-rule-profiles.json](../../integrations/cursor-rule-profiles.json)
 
 ## Instalador Unificado
 
@@ -307,7 +307,7 @@ Ela evita:
 
 ## Documentos Relacionados
 
-- [README.md](README.md)
+- [README.md](../../README.md)
 - [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md)
 - [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md)
 - [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md)

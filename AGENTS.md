@@ -170,9 +170,9 @@ Instale esta biblioteca globalmente para Codex, Claude e Cursor e valide em sand
 
 1. [README.md](C:/Projetos/Context_Window/README.md:1)
 2. [saas-skills/README.md](C:/Projetos/Context_Window/saas-skills/README.md:1)
-3. [saas-skills/IDE_RUNTIME_GUIDE.md](C:/Projetos/Context_Window/saas-skills/IDE_RUNTIME_GUIDE.md:1)
-4. [saas-skills/CURSOR_USER_RULES_GUIDE.md](C:/Projetos/Context_Window/saas-skills/CURSOR_USER_RULES_GUIDE.md:1)
-5. [saas-skills/TARGET_REPO_AGENT_GUIDE.md](C:/Projetos/Context_Window/saas-skills/TARGET_REPO_AGENT_GUIDE.md:1)
+3. [saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md](C:/Projetos/Context_Window/saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md:1)
+4. [saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md](C:/Projetos/Context_Window/saas-skills/docs/runtime/CURSOR_USER_RULES_GUIDE.md:1)
+5. [saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md](C:/Projetos/Context_Window/saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md:1)
 
 ## Critério de Sucesso
 
