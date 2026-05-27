@@ -1,33 +1,35 @@
 # Replay Report — claude-code
 
 **Arquivo fonte:** `saas-skills/evals/results/claude-code.json`  
-**Casos totais:** 112  
+**Casos totais:** 126  
 **Aprovados:** 0 (0.0%)  
 **Falhos:** 0 (0.0%)  
-**Pendentes:** 112 (100.0%)
+**Pendentes:** 126 (100.0%)
 
 ---
 
 ## Por Skill
 
-| Skill                          | Pass | Fail | Pending | Exec pass rate |
-| ------------------------------ | ---: | ---: | ------: | -------------: |
-| `ai-context-diagrams`          |    0 |    0 |       8 |           0.0% |
-| `ai-interface-design`          |    0 |    0 |       8 |           0.0% |
-| `api-design-patterns`          |    0 |    0 |       7 |           0.0% |
-| `clean-architecture-ddd`       |    0 |    0 |       7 |           0.0% |
-| `component-reuse-portability`  |    0 |    0 |       6 |           0.0% |
-| `context-window-optimization`  |    0 |    0 |       6 |           0.0% |
-| `design-system-implementation` |    0 |    0 |       7 |           0.0% |
-| `intelligent-project-docs`     |    0 |    0 |       7 |           0.0% |
-| `legacy-code-refactoring`      |    0 |    0 |       6 |           0.0% |
-| `prisma-database-design`       |    0 |    0 |       7 |           0.0% |
-| `prompt-engineering-hybrid`    |    0 |    0 |       7 |           0.0% |
-| `react-saas-architecture`      |    0 |    0 |       8 |           0.0% |
-| `saas-ui-specifications`       |    0 |    0 |       7 |           0.0% |
-| `systems-analysis-saas`        |    0 |    0 |      10 |           0.0% |
-| `technical-research-writing`   |    0 |    0 |       6 |           0.0% |
-| `testing-strategies`           |    0 |    0 |       5 |           0.0% |
+| Skill | Pass | Fail | Pending | Exec pass rate |
+| --- | ---: | ---: | ---: | ---: |
+| `ai-context-diagrams` | 0 | 0 | 9 | 0.0% |
+| `ai-interface-design` | 0 | 0 | 8 | 0.0% |
+| `api-design-patterns` | 0 | 0 | 7 | 0.0% |
+| `clean-architecture-ddd` | 0 | 0 | 7 | 0.0% |
+| `component-reuse-portability` | 0 | 0 | 6 | 0.0% |
+| `context-window-optimization` | 0 | 0 | 8 | 0.0% |
+| `design-system-implementation` | 0 | 0 | 7 | 0.0% |
+| `intelligent-project-docs` | 0 | 0 | 8 | 0.0% |
+| `legacy-code-refactoring` | 0 | 0 | 6 | 0.0% |
+| `multi-agent-skill-installer` | 0 | 0 | 4 | 0.0% |
+| `prisma-database-design` | 0 | 0 | 7 | 0.0% |
+| `prompt-engineering-hybrid` | 0 | 0 | 9 | 0.0% |
+| `react-saas-architecture` | 0 | 0 | 8 | 0.0% |
+| `saas-ai-agent-engineer` | 0 | 0 | 4 | 0.0% |
+| `saas-ui-specifications` | 0 | 0 | 7 | 0.0% |
+| `systems-analysis-saas` | 0 | 0 | 10 | 0.0% |
+| `technical-research-writing` | 0 | 0 | 6 | 0.0% |
+| `testing-strategies` | 0 | 0 | 5 | 0.0% |
 
 ---
 
@@ -64,4 +66,4 @@
 - `caddd-2`: pendente ou não executado.
 - `caddd-3`: pendente ou não executado.
 - `caddd-c1`: pendente ou não executado.
-- ... e mais 87 casos pendentes.
+- ... e mais 101 casos pendentes.

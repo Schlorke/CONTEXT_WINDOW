@@ -72,7 +72,7 @@ model AuditLog {
   id String @id
   userId String
   action String  // "SENT_MESSAGE", "GENERATED_RESPONSE", etc.
-  modelVersion String  // Claude 3.5 Sonnet 20241022
+  modelVersion String  // provider/model/version from runtime configuration
   systemPromptVersion String  // v2.3
   createdAt DateTime
 }

@@ -31,6 +31,8 @@ Triggered by: clean architecture, SOLID design, DDD, domain models, bounded cont
 
 ## Core Workflow
 
+Before adding architecture, inspect the target repo instructions, current folders, auth/session helpers, Prisma client pattern, and ADR location. Use the repo's existing `src/app`, `src/lib`, service/use-case, and docs conventions before applying generic examples.
+
 ### Phase 1: Understand Domain and Identify Bounded Contexts
 
 1. Interview domain experts and stakeholders
@@ -76,7 +78,7 @@ For a Next.js SaaS, structure as:
 
 **Presentation Layer** (UI concerns)
 
-- Next.js Route Handlers (`app/api/[route]`)
+- Next.js Route Handlers (`src/app/api/[route]` when the repo uses a `src/` root; otherwise follow the existing route root)
 - React Components
 - API endpoint handlers (thin, call use cases)
 
@@ -139,7 +141,7 @@ export function makeCreateUserUseCase(): CreateUserUseCase {
   return new CreateUserUseCase(userRepository);
 }
 
-// In Next.js route handler
+// In Next.js route handler, for example src/app/api/users/route.ts
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const useCase = makeCreateUserUseCase();
@@ -150,7 +152,7 @@ export async function POST(req: NextRequest) {
 
 ### Phase 7: Document with Architectural Decision Records (ADR)
 
-Create `docs/adr/001-chosen-architecture.md`:
+Create an ADR in the repository's established ADR location, for example `docs/decisions/ADR-001-chosen-architecture/ADR-001-chosen-architecture.md` or `docs/adr/001-chosen-architecture.md` if that is the local convention:
 
 ```text
 # 001: Layered Architecture with Domain-Driven Design
@@ -258,8 +260,8 @@ it("should activate a pending user", () => {
 
 1. Extract domain models from anemic services
 2. Move validation into value objects
-3. Create repository interfaces for data access
-4. Wrap Prisma calls in repository implementations
+3. Create repository interfaces for data access only where the domain behavior, test seam, or existing repo pattern justifies it
+4. Wrap Prisma calls in repository implementations when the repo already uses repositories or the use case would otherwise couple complex domain logic to persistence
 5. Build use cases layer around domain models
 
 ## Fallback Clause
@@ -275,12 +277,12 @@ If information is missing:
 
 1. **Anemic Domain Models**: All logic in services, entities just hold data. Violates Domain-Driven Design.
 2. **Service Layer Bloat**: ServiceLocator pattern with God services doing everything. Hard to test and reason about.
-3. **Direct Prisma in Use Cases**: Creates tight coupling to ORM. Use repository interfaces instead.
+3. **Direct Prisma in Complex Use Cases**: Complex domain rules coupled to ORM are hard to test. Use repository interfaces or application services when complexity warrants it.
 4. **No Bounded Contexts**: Treating entire application as one domain. Leads to tangled code and team friction.
 5. **Ignoring Ubiquitous Language**: Inconsistent naming (User vs. Account vs. Member). Confuses team.
 6. **Over-Architecting**: Creating entities, value objects, services for simple CRUD. Use pragmatism.
 7. **Mixing Layers**: Presentation logic in domain, database queries in services. Violates dependency rule.
-8. **No Repository Interfaces**: Coupling application to Prisma directly. Hard to swap implementations.
+8. **Mechanical Repository Interfaces**: Creating repository abstractions for trivial CRUD adds ceremony. Use them when they protect domain logic or match the repo pattern.
 9. **Event Subscribers in Domain**: Domain should not depend on event subscribers. Publish at application layer.
 10. **Ignoring ADRs**: Not documenting why architectural decisions were made. Leads to confusion and rework.
 
@@ -292,7 +294,7 @@ When designing architecture, defining domains, implementing use cases, or applyi
 
 1. Always start with bounded context identification and ubiquitous language
 2. Never allow dependencies to point outward (Domain → nothing, Application → Domain, Infra → Application)
-3. Always extract repository interfaces before implementing with Prisma
+3. Introduce repository interfaces before Prisma only when the domain is non-trivial, needs a stable test boundary, or the repository already follows that pattern
 4. Always test domain models independently of frameworks
 5. Always document architectural decisions in ADRs
 6. Always enforce SOLID by code review, never accept God objects or Service Locators

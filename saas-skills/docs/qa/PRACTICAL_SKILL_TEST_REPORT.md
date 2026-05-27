@@ -4,7 +4,7 @@ Relatório de teste prático manual da biblioteca `saas-skills`.
 
 **Data de referência:** 13 de abril de 2026  
 **Método:** avaliação manual neste ambiente, usando os prompts canônicos de `should_trigger` como teste principal e verificando aderência ao `minimum_output` de cada skill  
-**Escopo:** `17` testes de trigger + `4` spot-checks de fronteira
+**Escopo:** `18` testes de trigger + `4` spot-checks de fronteira
 
 ## O Que Este Relatório Testa
 
@@ -23,7 +23,7 @@ O que foi validado:
 
 ## Resultado Consolidado
 
-- `17/17` testes principais de trigger: `PASS`
+- `18/18` testes principais de trigger: `PASS`
 - `4/4` spot-checks de fronteira: `PASS`
 - `0` falhas práticas encontradas nesta rodada
 - `0` skills bloqueadas por falta de estrutura
@@ -43,6 +43,7 @@ O que foi validado:
 | `ai-interface-design`          | `aid-1`   | PASS      | `3/3`            | O foco em streaming, fontes visíveis e confiança ativa a skill correta de AI UX.                     |
 | `context-window-optimization`  | `cwo-1`   | PASS      | `3/3`            | O prompt pede budget, camadas de contexto e critérios de retrieval, exatamente o centro da skill.    |
 | `multi-agent-skill-installer`  | `masi-1`  | PASS      | `3/3`            | A skill orienta instalação multi-runtime, sandbox validation e verificação sem tocar no app.         |
+| `saas-ai-agent-engineer`       | `sae-1`   | PASS      | `3/3`            | A skill cobre agente SaaS multi-tenant, tools, memória, auditoria e evals.                           |
 | `ai-context-diagrams`          | `acd-1`   | PASS      | `3/3`            | A skill cobre escolha de diagrama, Mermaid/C4 e localização do artefato na documentação.             |
 | `intelligent-project-docs`     | `ipd-1`   | PASS      | `3/3`            | README, AGENTS.md, ADRs e memória para agentes estão bem delimitados na skill.                       |
 | `technical-research-writing`   | `trw-1`   | PASS      | `3/3`            | A skill exige pergunta bem definida, metodologia de fontes e síntese com incerteza explícita.        |
@@ -75,7 +76,7 @@ Ele não prova:
 
 - que Claude Code, Cursor e Copilot terão exatamente a mesma sensibilidade de trigger
 - que toda resposta real ficará boa sem contexto adicional do projeto
-- que os `112` casos da matriz inteira já foram executados manualmente
+- que os `126` casos da matriz inteira já foram executados manualmente
 
 O que ele prova é isto:
 

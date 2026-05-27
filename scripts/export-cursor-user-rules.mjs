@@ -45,7 +45,7 @@ Este diretório contém o bootstrap global recomendado para o Cursor.
 - gera um texto curto para colar em \`Cursor Settings > Rules\`
 - preserva a biblioteca canônica fora das \`User Rules\`
 - mantém \`.cursor/rules/*.mdc\` como runtime oficial por projeto
-- evita despejar o corpo completo das \`17\` skills em uma regra global sempre ativa
+- evita despejar o corpo completo das \`18\` skills em uma regra global sempre ativa
 
 ## Como Usar
 

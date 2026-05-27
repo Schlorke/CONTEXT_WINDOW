@@ -1,5 +1,25 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.11.0 — 13 de maio de 2026
+
+### Added in 1.11.0
+
+- Skill gerenciada `saas-ai-agent-engineer`, migrada como guia genérico para agentes IA SaaS com tools, RAG/memória, governança de prompts, permissões, auditoria, evals e observabilidade.
+- Perfil Cursor e matriz de evals para a nova skill, elevando a biblioteca para `18` skills e `54/54/18` casos de trigger, anti-trigger e conflito.
+
+### Changed in 1.11.0
+
+- Skills backend agora priorizam a realidade do repositório-alvo antes dos exemplos: `AGENTS.md`/`CLAUDE.md`, `package.json`, auth helpers, `src/app/api`, `@/lib/prisma`, `auth()`, `can()` e `orgId`/`tenantId` reais vencem padrões genéricos.
+- Skills de frontend/design system foram alinhadas a estruturas com `src/components/features`, `src/components/ui/{primitives,composed}`, Storybook 10, Tailwind v4, registries e comandos `pnpm ai:context`, `pnpm verify:ai` e `pnpm build-storybook`.
+- Skills de teste, refatoração e portabilidade passaram a preferir scripts e package manager do repo, com `pnpm`, Vitest projects, Storybook tests e Playwright em `tests/e2e` quando esse for o padrão local.
+- `intelligent-project-docs` agora permite `AGENTS.md` curto redirecionando para `CLAUDE.md` ou manual operacional equivalente.
+
+### Fixed in 1.11.0
+
+- Removidas orientações que induziam middleware/proxy, headers artificiais, Prisma middleware, repository pattern obrigatório, comandos `npm`/`npx` e caminhos `src/features` como se fossem universais.
+- Context-window guidance deixou de hard-codear limites de modelos e passou a exigir verificação em documentação oficial antes de codificar IDs, limites ou budgets.
+- `package.json` foi elevado para `1.11.0`.
+
 ## 1.10.0 — 13 de abril de 2026
 
 ### Added in 1.10.0

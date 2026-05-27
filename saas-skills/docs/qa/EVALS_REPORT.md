@@ -20,16 +20,16 @@ O foco aqui não é validar estrutura do repositório, e sim responder:
 
 A matriz atual contém:
 
-- `17/17` skills cobertas
-- `51` casos `should_trigger`
-- `51` casos `should_not_trigger`
-- `17` casos de conflito
-- `51` checkpoints de `minimum_output`
+- `18/18` skills cobertas
+- `54` casos `should_trigger`
+- `54` casos `should_not_trigger`
+- `18` casos de conflito
+- `54` checkpoints de `minimum_output`
 
 Total:
 
-- `119` prompts de avaliação
-- `51` critérios mínimos de saída
+- `126` prompts de avaliação
+- `54` critérios mínimos de saída
 
 ## O Que a Suíte Valida
 
@@ -127,7 +127,7 @@ O baseline atual provisionado é esperado como:
 
 - `0` casos aprovados
 - `0` falhos
-- `112` pendentes
+- `126` pendentes
 
 Esse baseline não é falha; ele só indica que o replay ainda não foi executado.
 

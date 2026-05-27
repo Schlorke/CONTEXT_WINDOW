@@ -28,11 +28,13 @@ Do NOT use this skill for: initial component building (see `design-system-implem
 
 ## Core Workflow
 
+Inspect both repositories before copying: package manager and lockfile, `tsconfig.json` aliases, `components.json`, Tailwind version/config, Storybook version, component registry/manifest, and existing UI folder taxonomy. In OK Gas-style targets, prefer `src/components/ui/primitives`, `src/components/ui/composed`, and `src/components/features` over a generic `src/shared/components` destination, and use `pnpm` scripts when `pnpm-lock.yaml` is present.
+
 ### Step 1: Identify Component in Registry
 
 #### Source identification
 
-- Locate the component in the source project (e.g., `src/shared/components/Button`)
+- Locate the component in the source project (e.g., `src/components/ui/primitives/button`, `src/components/ui/composed/dialog`, or the source repo's equivalent shared UI folder)
 - Verify it exists and is mature (not in-progress)
 - Check CHANGELOG or git history for stability
 
@@ -95,7 +97,15 @@ DataTable
 #### Target location (recommended)
 
 ```text
-target-project/src/shared/components/<ComponentName>/
+target-project/<repo-ui-folder>/<component-name>/
+```
+
+For OK Gas-style targets:
+
+```text
+target-project/src/components/ui/primitives/<component-name>/
+target-project/src/components/ui/composed/<component-name>/
+target-project/src/components/features/<feature-name>/
 ```
 
 #### Files to copy (co-located structure)
@@ -112,8 +122,8 @@ Button/
 #### Example copy command
 
 ```bash
-cp -r source-project/src/shared/components/Button \
-      target-project/src/shared/components/
+cp -r source-project/src/components/ui/primitives/button \
+      target-project/src/components/ui/primitives/
 ```
 
 ### Step 4: Rewrite Imports (Alias Adaptation)
@@ -249,7 +259,8 @@ Target project design tokens:
 
 ```bash
 cd target-project
-npx tsc --noEmit
+pnpm exec tsc --noEmit
+# or use the repo script, e.g. pnpm typecheck
 
 # Should show no errors in the copied component
 ```
@@ -279,7 +290,7 @@ import { cn } from '@/shared/lib';
 module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/shared/components/**/*.{js,ts,jsx,tsx}", // ✓ Include shared/components
+    "./src/components/**/*.{js,ts,jsx,tsx}", // Include copied components
   ],
 };
 ```
@@ -287,7 +298,7 @@ module.exports = {
 #### Test in browser
 
 ```bash
-npm run dev
+pnpm dev
 # Navigate to component in Storybook or test page
 # Visual inspection: do classes render correctly?
 ```
@@ -306,7 +317,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 ### Check target project
 
 ```bash
-npm list | grep radix
+pnpm list --depth 0 | rg radix
 # or
 package.json: "@radix-ui/react-dialog": "^1.0.0"
 ```
@@ -314,7 +325,7 @@ package.json: "@radix-ui/react-dialog": "^1.0.0"
 ## If missing, install
 
 ```bash
-npm install @radix-ui/react-dialog
+pnpm add @radix-ui/react-dialog
 ```
 
 ### Common Radix imports to check
@@ -329,10 +340,11 @@ npm install @radix-ui/react-dialog
 
 Record the component in your shared components inventory immediately after the port:
 
-1. Add the component entry to `target/src/shared/components/README.md`.
-2. Add dependency metadata to the shared registry JSON if your project uses one.
-3. Mark optional peer dependencies, known caveats, and dark mode verification status.
-4. Link back to the original source project or package if traceability matters.
+1. Update the repo's component inventory (`COMPONENT_MANIFEST.md`, `.storybook/AI_CONTEXT.md`, generated registry, or `README.md`) instead of inventing a new registry location.
+2. Run the repo's registry command when present, for example `pnpm ai:context`.
+3. Add dependency metadata to the shared registry JSON if your project uses one.
+4. Mark optional peer dependencies, known caveats, and dark mode verification status.
+5. Link back to the original source project or package if traceability matters.
 
 **Reference Document:** See `references/registry-and-advanced-cases.md` for a reusable README template, registry JSON example, optional dependency handling, feature flag replacement, and monorepo package guidance.
 

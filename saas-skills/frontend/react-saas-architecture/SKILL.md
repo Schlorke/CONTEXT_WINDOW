@@ -7,7 +7,7 @@ metadata:
   last_validated: 2026-04-12
   sources:
     - references/folder-structure-patterns.md
-    - Next.js 15.x App Router documentation
+    - Next.js App Router documentation for the version declared in package.json
     - React composition patterns (Kent C. Dodds)
 ---
 
@@ -31,6 +31,8 @@ Do NOT use this skill for: design system specifications (see `design-system-impl
 **Reference Document:** See `references/folder-structure-patterns.md` for small-project and monorepo variants, large-feature route layouts, and package extraction examples.
 
 ### Step 1: Choose Architecture Pattern
+
+Inspect the repository first. `AGENTS.md`/`CLAUDE.md`, `package.json`, `tsconfig.json`, `components.json`, `src/app`, `src/components`, registries, Storybook files, and existing import aliases override the folder examples below. In OK Gas-style repos, use `src/app` for routes, `src/app/api` for route handlers, `src/components/features` for feature UI, and `src/components/ui/{primitives,composed}` for reusable UI instead of creating a new `src/features` root.
 
 Two primary patterns exist; hybrid approach recommended for most SaaS projects.
 
@@ -78,22 +80,18 @@ src/
 
 ```text
 src/
-├── features/            (domain-specific code)
-│   ├── billing/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── lib/
-│   │   ├── types/
-│   │   └── index.ts
-│   ├── auth/
-│   └── dashboard/
-├── shared/              (used by 2+ features or globally)
-│   ├── components/      (Button, Input, DataTable, etc.)
-│   ├── hooks/           (useLocalStorage, useIsMobile, etc.)
-│   ├── lib/             (cn utility, API client, etc.)
-│   └── types/           (GlobalUser, GlobalSettings, etc.)
-├── app/                 (Next.js App Router)
-└── middleware.ts        (auth, redirects, etc.)
+├── app/                         (Next.js App Router and API routes)
+├── components/
+│   ├── features/                (domain-specific UI)
+│   │   ├── billing/
+│   │   ├── auth/
+│   │   └── dashboard/
+│   └── ui/
+│       ├── primitives/          (Button, Input, Badge)
+│       └── composed/            (Dialog, DataTable, Combobox)
+├── hooks/                       (cross-feature hooks)
+├── lib/                         (utilities, auth, Prisma/client helpers)
+└── types/                       (global TypeScript contracts)
 ```
 
 **Recommendation:** Use hybrid. Feature-based for billing, auth, dashboard, etc. Layer-based (shared) for cross-cutting concerns.
@@ -103,12 +101,12 @@ src/
 Store tests, styles, stories, and types **next to** the component, not in separate folders.
 
 ```text
-src/shared/components/Button/
-├── Button.tsx
-├── Button.test.tsx
-├── Button.stories.tsx
-├── Button.module.css   (or .css file if using CSS Modules)
-├── Button.types.ts     (if types are complex)
+src/components/ui/primitives/button/
+├── button.tsx
+├── button.test.tsx
+├── button.stories.tsx
+├── button.module.css   (or .css file if using CSS Modules)
+├── button.types.ts     (if types are complex)
 └── index.ts
 ```
 
@@ -119,7 +117,7 @@ src/shared/components/Button/
 ### Step 3: Configure Next.js App Router Structure
 
 ```text
-app/
+src/app/
 ├── (auth)/                 (route group: shared layout for auth pages)
 │   ├── login/
 │   │   └── page.tsx
@@ -141,15 +139,15 @@ app/
 
 - Use **route groups** `(auth)`, `(dashboard)` to share layouts without affecting URL.
 - Place `layout.tsx` at the level where layout is first needed.
-- Colocate API routes in `app/api/` (e.g., `app/api/invoices/route.ts`).
-- Use `middleware.ts` at root for global auth, redirects.
+- Colocate API routes in `src/app/api/` when the repo uses a `src/` root (e.g., `src/app/api/invoices/route.ts`).
+- Use `middleware.ts` or `proxy.ts` only when the repo already has one for global auth, redirects, or routing policy.
 
 ### Step 4: Set Up Barrel Exports (index.ts)
 
 **Barrel Export Pattern:** Single `index.ts` re-exports all public APIs from a folder.
 
 ```typescript
-// src/shared/components/index.ts
+// src/components/ui/primitives/index.ts
 export { Button } from "./Button";
 export { Input } from "./Input";
 export { DataTable } from "./DataTable";
@@ -159,7 +157,7 @@ export type { ButtonProps, InputProps } from "./types";
 #### Import from barrel
 
 ```typescript
-import { Button, Input, DataTable } from "@/shared/components";
+import { Button, Input, DataTable } from "@/components/ui/primitives";
 ```
 
 **Advantage:** Clean imports, easier refactoring (move files without changing imports).
@@ -179,8 +177,8 @@ export { Button } from "./Button";
 **Folders:** kebab-case
 
 ```text
-src/features/billing/
-src/shared/components/invoice-table/
+src/components/features/billing/
+src/components/ui/composed/invoice-table/
 ```
 
 **Components:** PascalCase
@@ -333,11 +331,11 @@ const PrimaryButton = (props) => <Button variant="primary" {...props} />;
 
 #### Solutions
 
-1. **Move shared code to `shared/`:**
+1. **Move shared code to the repo's shared layer (`src/lib`, `src/types`, `src/hooks`, or `src/components/ui`):**
 
    ```text
-   features/billing/ imports shared/types/Invoice
-   features/dashboard/ imports shared/types/Invoice
+   components/features/billing/ imports types/Invoice
+   components/features/dashboard/ imports types/Invoice
    (no circular dependency)
    ```
 
@@ -378,10 +376,10 @@ Do NOT guess folder structure without understanding project scope.
 
 ```text
 // ❌ BAD
-src/features/billing/pages/components/ui/forms/inputs/
+src/components/features/billing/pages/components/ui/forms/inputs/
 
 // ✅ GOOD
-src/features/billing/components/
+src/components/features/billing/
 ```
 
 #### God Components (>300 lines)
@@ -409,7 +407,7 @@ features/billing imports features/auth
 features/auth imports features/billing
 
 // ✅ GOOD
-Both import from shared/types, shared/hooks
+Both import from src/types, src/hooks, or src/lib
 ```
 
 #### Mixed Named and Default Exports

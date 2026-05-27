@@ -39,21 +39,14 @@ This skill is MANDATORY and must be followed without exception when its trigger 
 
 #### Token counting tool
 
-```python
-from anthropic import Anthropic
-client = Anthropic()
-message = client.messages.count_tokens(
-    model="claude-3-5-sonnet-20241022",
-    messages=[{"role": "user", "content": "Your text here"}]
-)
-print(f"Tokens: {message.input_tokens}")
+```text
+Use the official tokenizer or SDK for the provider/model in package.json or runtime configuration.
+Record: provider, model ID, SDK version, measured input tokens, and output reserve.
 ```
 
 #### Context Window Limits by Model
 
-- Claude 3.5 Sonnet: 200,000 tokens input, 4,096 output.
-- GPT-4: 128,000 tokens input, 4,096 output.
-- Claude 3 Opus: 200,000 tokens input.
+Exact model limits change. Verify current limits in official provider documentation before hard-coding budgets, model IDs, or output caps. Record the date and model version used for any production budget.
 
 **Key Insight:** Longer context ≠ better accuracy. Beyond ~50K tokens, accuracy often degrades due to:
 
@@ -169,22 +162,8 @@ TOTAL                 100K  (100%)
 
 #### Token Auditing Tool
 
-```python
-def audit_context(system_prompt, project_context, files, history, query):
-    import anthropic
-    client = anthropic.Anthropic()
-
-    components = {
-        "system": system_prompt, "context": project_context, "files": files,
-        "history": history, "query": query
-    }
-
-    for name, content in components.items():
-        count = client.messages.count_tokens(
-            model="claude-3-5-sonnet-20241022",
-            messages=[{"role": "user", "content": content}]
-        )
-        print(f"{name}: {count.input_tokens} tokens")
+```text
+For each component (system, project context, files, history, query), call the official token counter for the active model and log the count before deployment.
 ```
 
 ---

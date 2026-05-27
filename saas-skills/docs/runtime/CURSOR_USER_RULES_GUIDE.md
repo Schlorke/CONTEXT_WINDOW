@@ -94,7 +94,7 @@ Eles **não conseguem provar**:
 
 ## Por Que Não Jogar Tudo em User Rules
 
-Não é uma boa ideia colar o corpo completo das `17` skills nas `User Rules` globais do Cursor.
+Não é uma boa ideia colar o corpo completo das `18` skills nas `User Rules` globais do Cursor.
 
 Isso piora:
 

@@ -40,8 +40,8 @@ This skill is MANDATORY and must be followed without exception when its trigger 
 2. **Run dependency analysis**: Use `madge --extensions ts,tsx src/` or `dependency-cruiser` to visualize import graphs. Flag circular dependencies.
 3. **Count files and complexity**: Lines of code per file, number of components per folder. Files >300 lines are candidates for splitting.
 4. **Run static analysis**: ESLint (code quality), TypeScript in strict mode (type safety), Prettier (consistency).
-5. **Measure bundle size**: `npm run build && ls -lh .next/` or use `webpack-bundle-analyzer`. Identify large chunks.
-6. **List untested code**: `vitest --coverage --run` or similar. Export files with 0% coverage.
+5. **Measure bundle size**: use the repo build script, e.g. `pnpm build`, then inspect `.next/` or use `webpack-bundle-analyzer`. Identify large chunks.
+6. **List untested code**: use the repo test script, e.g. `pnpm exec vitest run --coverage` or `pnpm test:run`. Export files with 0% coverage.
 
 **Output**: Audit report with file counts, circular dependencies, coverage gaps, bundle size.
 

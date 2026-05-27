@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "minimum_case_counts": {
     "should_trigger": 3,
     "should_not_trigger": 3,
@@ -642,6 +642,67 @@
         "Correct runtime targets for Codex, Claude, and Cursor",
         "Dry-run or sandbox validation flow before real global install",
         "Explicit verification and smoke-test steps without editing app code"
+      ]
+    },
+    {
+      "skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "should_trigger": [
+        {
+          "id": "sae-1",
+          "prompt": "Design a multi-tenant AI assistant with tool calling, scoped memory, audit logs, and evals.",
+          "expected_primary_skill": "saas-ai-agent-engineer",
+          "reason": "The request is about production AI agent architecture and governance."
+        },
+        {
+          "id": "sae-2",
+          "prompt": "Review our chat agent tools for permission checks, tenant isolation, and prompt injection risks.",
+          "expected_primary_skill": "saas-ai-agent-engineer",
+          "reason": "Security review of an AI agent and its tools belongs here."
+        },
+        {
+          "id": "sae-3",
+          "prompt": "Move hard-coded prompt behavior into versioned runtime configuration and add observability for agent runs.",
+          "expected_primary_skill": "saas-ai-agent-engineer",
+          "reason": "Prompt/version governance, runtime configuration, and agent traces are core triggers."
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "sae-n1",
+          "prompt": "Write a strict JSON prompt template for invoice extraction.",
+          "expected_primary_skill": "prompt-engineering-hybrid",
+          "reason": "Single prompt construction belongs to prompt engineering unless agent architecture is involved."
+        },
+        {
+          "id": "sae-n2",
+          "prompt": "Optimize the context window ordering for a long coding session.",
+          "expected_primary_skill": "context-window-optimization",
+          "reason": "Token budgeting and ordering are context-window work."
+        },
+        {
+          "id": "sae-n3",
+          "prompt": "Create a Mermaid diagram explaining the assistant architecture.",
+          "expected_primary_skill": "ai-context-diagrams",
+          "reason": "Diagram production belongs to the diagram skill."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "sae-c1",
+          "prompt": "Build an AI assistant with RAG, strict prompts, and a chat UI for a SaaS product.",
+          "expected_primary_skill": "saas-ai-agent-engineer",
+          "expected_secondary_skills": [
+            "prompt-engineering-hybrid",
+            "ai-interface-design"
+          ],
+          "resolution": "Lead with agent architecture, permissions, tools, memory, and evals; pull prompt and UI skills for the narrower surfaces."
+        }
+      ],
+      "minimum_output": [
+        "Agent architecture with deterministic auth, tenant scope, and tool boundaries",
+        "Governance for prompts, tools, memory, evals, traces, and audit logs",
+        "Verification plan covering permissions, schema validation, evals, and adversarial behavior"
       ]
     },
     {

@@ -8,7 +8,7 @@ metadata:
   sources:
     - Design Tokens Community Group (DTCG) specification
     - Atomic Design methodology (Brad Frost)
-    - Storybook 8.x documentation
+    - Storybook documentation for the version declared in package.json
     - W3C WCAG 2.2 AA guidelines
 ---
 
@@ -27,6 +27,8 @@ This skill applies when:
 Do NOT use this skill for: concrete UI value specifications (see `saas-ui-specifications`), folder structure decisions (see `react-saas-architecture`), or component implementation details.
 
 ## Core Workflow
+
+Inspect the target repository first. `AGENTS.md`/`CLAUDE.md`, `package.json`, `components.json`, Tailwind version, `.storybook/`, `COMPONENT_MANIFEST.md`, `.storybook/AI_CONTEXT.md`, and existing component registries override generic design-system examples. In OK Gas-style repos, use `src/components/ui/primitives`, `src/components/ui/composed`, `src/components/features`, Storybook 10, Tailwind v4, `pnpm ai:context`, `pnpm verify:ai`, and `pnpm build-storybook` when the touched files require those checks.
 
 ### Step 1: Define Design Token Architecture (3 Layers)
 
@@ -64,33 +66,41 @@ Design tokens form a pyramid:
 
 ### Step 2: Implement Atomic Design Structure
 
-Map Atomic Design layers to Next.js App Router:
+Map Atomic Design intent to the repository's component taxonomy. If the repo already uses OK Gas-style folders, do not introduce `atoms/molecules/organisms`; use:
 
 ```text
 src/components/
-├── atoms/                 (Button, Input, Badge, Icon, Tag)
-├── molecules/            (InputGroup, ButtonGroup, Card, SearchBar)
-├── organisms/            (Header, Footer, Sidebar, DataTable, Modal)
-├── layouts/              (Main layout, Dashboard layout, Auth layout)
-└── pages/                (app/page.tsx, app/dashboard/page.tsx)
+├── ui/
+│   ├── primitives/        (Button, Input, Badge, Icon, Tag)
+│   └── composed/          (Dialog, DataTable, SearchBar, complex reusable UI)
+├── features/              (domain-aware feature components)
+├── layout/                (shells and structural layout)
+├── effects/               (visual/effect components)
+└── auth/                  (auth-specific reusable UI, if present)
 ```
 
-**Atoms:** Single purpose, no internal dependencies. Example: Button accepts `variant` and `size` props.
+**Primitives:** Single purpose, no internal dependencies. Example: Button accepts `variant` and `size` props.
 
-**Molecules:** Combine 2+ atoms. Example: SearchBar = Input + Button + Icon.
+**Composed UI:** Combine 2+ primitives. Example: SearchBar = Input + Button + Icon.
 
-**Organisms:** Complex, domain-aware components. Example: DataTable = header + rows + pagination.
+**Feature components:** Complex, domain-aware UI that should not leak into generic UI layers.
 
-**Layouts:** Next.js `layout.tsx` files that wrap pages.
-
-**Pages:** `page.tsx` files that compose layouts + organisms.
+**Layouts/pages:** Next.js `src/app/**/layout.tsx` and `page.tsx` compose layout, feature, and UI components.
 
 ### Step 3: Configure Storybook (CSF3 Format)
 
-Install and initialize:
+Install and initialize only if the repo does not already have Storybook. Prefer existing scripts and package manager:
 
 ```sh
-npx storybook@latest init --type react
+pnpm storybook
+pnpm build-storybook
+```
+
+For repos with AI component context, regenerate and inspect the registry after component or story changes:
+
+```sh
+pnpm ai:context
+pnpm verify:ai
 ```
 
 #### Mandatory stories per component
@@ -105,7 +115,7 @@ npx storybook@latest init --type react
 
 ```typescript
 export default {
-  title: "atoms/Button",
+  title: "ui/primitives/Button",
   component: Button,
   parameters: { layout: "centered" },
 };
@@ -331,6 +341,6 @@ When implementing a design system or defining design tokens:
 
 - **DTCG Specification:** Design Tokens Community Group specification (latest)
 - **Atomic Design:** Brad Frost, "Atomic Design" methodology
-- **Storybook Docs:** Storybook 8.x official documentation, CSF3 format
+- **Storybook Docs:** Storybook official documentation for the installed version, CSF3 format
 - **WCAG 2.2:** W3C Web Content Accessibility Guidelines 2.2, Level AA conformance
 - **Design Tokens in Design Systems:** Token taxonomy and organization patterns

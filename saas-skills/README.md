@@ -10,7 +10,7 @@ Esta pasta é a fonte de verdade da biblioteca. O runtime final por plataforma n
 
 Na prática, ela entrega:
 
-- `17` skills organizadas em `5` coleções
+- `18` skills organizadas em `5` coleções
 - referências locais por skill quando necessário
 - adapters de runtime para Codex, Claude e Cursor
 - tooling para instalar em projetos-alvo sem tocar no código da aplicação
@@ -21,13 +21,13 @@ Na prática, ela entrega:
 
 ## Coleções
 
-| Coleção          | Skills | Finalidade                                                                              |
-| ---------------- | -----: | --------------------------------------------------------------------------------------- |
-| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes |
-| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                             |
-| `ai-integration` |      4 | Prompt engineering, AI UX, contexto e diagramas para agentes                            |
-| `documentation`  |      2 | Documentação persistente e escrita técnica                                              |
-| `engineering`    |      3 | Refatoração, análise de sistemas e estratégia de testes                                 |
+| Coleção          | Skills | Finalidade                                                                               |
+| ---------------- | -----: | ---------------------------------------------------------------------------------------- |
+| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes  |
+| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                              |
+| `ai-integration` |      6 | Prompt engineering, AI UX, agentes SaaS, contexto, instalação multi-IA e diagramas       |
+| `documentation`  |      2 | Documentação persistente e escrita técnica                                               |
+| `engineering`    |      3 | Refatoração, análise de sistemas e estratégia de testes                                  |
 
 ## Catálogo
 
@@ -50,6 +50,7 @@ Na prática, ela entrega:
 - `ai-interface-design`
 - `context-window-optimization`
 - `multi-agent-skill-installer`
+- `saas-ai-agent-engineer`
 - `ai-context-diagrams`
 
 ### documentation
@@ -478,10 +479,10 @@ Quando `globs` não existem, a rule funciona como `Agent Requested`.
 
 A biblioteca mantém:
 
-- `17` skills auditadas
-- `51` casos `should_trigger`
-- `51` casos `should_not_trigger`
-- `17` conflitos
+- `18` skills auditadas
+- `54` casos `should_trigger`
+- `54` casos `should_not_trigger`
+- `18` conflitos
 
 Documentos relacionados:
 

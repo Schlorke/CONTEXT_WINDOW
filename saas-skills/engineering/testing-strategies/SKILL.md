@@ -29,6 +29,8 @@ Trigger this skill when:
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
 
+Before proposing folders or commands, inspect the repo first: `package.json` scripts, lockfile/package manager, `vitest.config.*`, `playwright.config.*`, Storybook config, existing test locations, and CI. In OK Gas-style repos, prefer `pnpm`, Vitest projects such as `unit` and `storybook`, Playwright tests under `tests/e2e`, and existing scripts like `pnpm test:run`, `pnpm test:run:storybook`, `pnpm test:run:all`, and `pnpm test:e2e`.
+
 ## Testing Pyramid
 
 The testing pyramid illustrates optimal test distribution:
@@ -288,9 +290,9 @@ Test full user journeys in a real browser.
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  webServer: { command: "npm run dev", port: 3000 },
+  webServer: { command: "pnpm dev", port: 3000 },
   use: { baseURL: "http://localhost:3000" },
-  testDir: "./e2e",
+  testDir: "./tests/e2e",
   retries: 1,
 });
 ```
@@ -408,7 +410,7 @@ src/
     useAuth.test.ts
 ```
 
-**Alternative** (`__tests__/` folder):
+**Alternative** (`__tests__/` folder, only when the repo already uses this convention):
 
 ```text
 src/
@@ -422,6 +424,8 @@ __tests__/
 ```
 
 Choose one pattern; be consistent across project.
+
+When `vitest.config.*` defines named projects, run the project-specific scripts instead of inventing a new command. Example: unit tests through `pnpm test:run`, Storybook/component tests through `pnpm test:run:storybook`, all configured projects through `pnpm test:run:all`.
 
 ## CI Integration
 

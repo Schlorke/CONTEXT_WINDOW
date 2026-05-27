@@ -33,6 +33,7 @@ Triggered by: API design, REST endpoint, route handler, authentication, authoriz
 
 ### Phase 1: Define Resource Model and Operations
 
+0. Inspect the target repo first: `AGENTS.md`/`CLAUDE.md`, `package.json`, `tsconfig.json`, existing route handlers, auth helpers, permission helpers, and Prisma/client imports override generic examples.
 1. Identify resources (User, Order, Invoice)
 2. Define operations: Create (POST), Read (GET), Update (PUT/PATCH), Delete (DELETE), List (GET)
 3. Design URL structure:
@@ -52,52 +53,42 @@ Never return raw arrays or objects. Always use consistent wrapper:
 // Error: { error: { code, message, details? }, meta }
 ```
 
-### Phase 3: Implement Authentication Middleware
+### Phase 3: Resolve Authentication and Authorization Context
 
-#### JWT (stateless, recommended for APIs)
+Prefer the repository's existing server-side auth path. In a Next.js App Router repo, route handlers commonly live in `src/app/api/**/route.ts`; if the repo already uses a different root, follow it.
 
-```typescript
-// middleware.ts - verify token and attach user context
-export async function middleware(request: NextRequest) {
-  const token = request.headers.get("Authorization")?.replace("Bearer ", "");
-  if (!token)
-    return NextResponse.json(
-      { error: { code: "UNAUTHORIZED" } },
-      { status: 401 },
-    );
-
-  try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET!);
-    const headers = new Headers(request.headers);
-    headers.set("x-user-id", payload.sub as string);
-    headers.set("x-tenant-id", payload.tid as string);
-    return NextResponse.next({ request: { headers } });
-  } catch (e) {
-    return NextResponse.json(
-      { error: { code: "INVALID_TOKEN" } },
-      { status: 401 },
-    );
-  }
-}
-
-export const config = { matcher: ["/api/protected/:path*"] };
-```
-
-#### Extract auth context in handlers
+#### Session/auth helper pattern
 
 ```typescript
+// src/app/api/invoices/route.ts
+import { auth } from "@/auth";
+import { can } from "@/lib/auth/permissions";
+import { prisma } from "@/lib/prisma";
+
 export async function POST(req: NextRequest) {
-  const userId = req.headers.get("x-user-id");
-  const tenantId = req.headers.get("x-tenant-id");
-  if (!userId || !tenantId) {
+  const session = await auth();
+  const userId = session?.user?.id;
+  const orgId = session?.user?.orgId;
+
+  if (!userId || !orgId) {
     return NextResponse.json(
       { error: { code: "UNAUTHORIZED" } },
       { status: 401 },
     );
   }
-  // Handler logic has auth context available
+
+  if (!can(session.user, "invoice:create")) {
+    return NextResponse.json(
+      { error: { code: "FORBIDDEN" } },
+      { status: 403 },
+    );
+  }
+
+  // Handler logic uses orgId from trusted session context.
 }
 ```
+
+Use middleware or proxy only when the repo already has `middleware.ts`, `proxy.ts`, or documented edge auth conventions. Do not invent request headers such as `x-user-id` or `x-tenant-id` unless the repo already uses that contract.
 
 ### Phase 4: Add Input Validation with Zod
 
@@ -198,7 +189,7 @@ const ratelimit = new Ratelimit({
 
 export async function POST(req: NextRequest) {
   const { success, reset } = await ratelimit.limit(
-    req.headers.get("x-user-id")!,
+    userId,
   );
   if (!success) {
     return NextResponse.json(
@@ -251,20 +242,17 @@ export async function POST(req: NextRequest) {
 
 ### Phase 9: Configure Multi-Tenancy
 
-Middleware ensures tenant isolation:
+Derive tenant or organization scope from trusted server context, then include it in every query. In OK Gas-style repos this is usually `orgId` from `auth()` plus `can()` checks and a shared Prisma client from `@/lib/prisma`.
 
 ```typescript
-// middleware.ts - verify user belongs to tenant
-export async function middleware(request: NextRequest) {
-  const tenantId = request.headers.get("x-tenant-id");
-  const userId = request.headers.get("x-user-id")!;
-  const user = await prisma.user.findUnique({ where: { id: userId } });
-  if (user?.tenantId !== tenantId) {
-    return NextResponse.json({ error: { code: "FORBIDDEN" } }, { status: 403 });
-  }
-  return NextResponse.next();
-}
+const invoices = await prisma.invoice.findMany({
+  where: { orgId, deletedAt: null },
+  orderBy: { createdAt: "desc" },
+  take: limit + 1,
+});
 ```
+
+If the target repo has database RLS, Prisma middleware, or repository helpers, use that existing mechanism. Otherwise keep tenant filters explicit and near the query so reviewers can verify isolation.
 
 ## Advanced Cases
 
@@ -304,10 +292,10 @@ export async function PATCH(req: NextRequest) {
     );
   }
 
-  const updated = await prisma.user.updateMany({
+const updated = await prisma.user.updateMany({
     where: {
       id: { in: validation.data.ids },
-      tenantId: req.headers.get("x-tenant-id")!,
+      orgId,
     },
     data: { status: validation.data.status },
   });
@@ -332,7 +320,7 @@ If information is missing:
 4. **Direct HTTP errors from database**: Exposing "unique constraint violation" to client. Map to friendly error codes.
 5. **No rate limiting**: APIs open to brute force and DoS attacks.
 6. **Offset-based pagination**: Doesn't scale with data growth. Use cursor-based.
-7. **Mixing auth contexts**: Not verifying tenant ownership. Use middleware to enforce isolation.
+7. **Mixing auth contexts**: Not verifying tenant ownership. Resolve tenant scope from trusted server auth and enforce it in permission checks and queries.
 8. **No webhook signature verification**: Accepting unsigned webhooks. Always verify HMAC.
 9. **Blocking handlers**: Awaiting all operations sequentially. Use Promise.all for parallel work.
 10. **No error context in logs**: Swallowing error details. Log full error with request ID for debugging.
@@ -345,11 +333,11 @@ When designing or implementing APIs:
 
 1. Always use standard response envelope with { data, meta } or { error, meta }
 2. Always validate all inputs with Zod before processing
-3. Always authenticate and authorize requests via middleware
+3. Always authenticate and authorize requests using the repo's existing auth/session and permission helpers; use middleware/proxy only when the repo already does
 4. Always map domain errors to standard HTTP status codes
 5. Always paginate list endpoints with cursor-based pagination
 6. Always verify webhook signatures with HMAC-SHA256
-7. Always isolate tenants in queries with automatic filtering
+7. Always isolate tenants in queries through explicit `tenantId`/`orgId` filters, existing RLS, or existing repository/middleware helpers
 8. Never return raw errors to clients; wrap in error envelope
 9. Never expose database error messages; map to error codes
 10. Never skip rate limiting for public or sensitive endpoints
@@ -368,7 +356,7 @@ When designing or implementing APIs:
 #### Next.js Implementation
 
 - Next.js Official Docs - Route Handlers - <https://nextjs.org/docs/app/building-your-application/routing/route-handlers>
-- Next.js Middleware - <https://nextjs.org/docs/app/building-your-application/routing/middleware>
+- Next.js Middleware/Proxy - use only when it matches the target repo's current auth architecture
 
 #### Input Validation
 

@@ -37,7 +37,7 @@ Documentation operates at three layers:
 **Global Layer** (Project-wide)
 
 - README.md — project purpose, quick start, contribution guidelines
-- AGENTS.md — AI agent entry point (under 500 lines)
+- AGENTS.md — AI agent entry point, or a short redirect to a richer manual such as CLAUDE.md when the repo has a separate operational source of truth
 - CONTRIBUTING.md — contributor workflow
 - LICENSE — legal framework
 
@@ -53,9 +53,9 @@ Documentation operates at three layers:
 - JSDoc/docstrings — function signatures and intent
 - Inline explanations — complex logic
 
-### 2. Create AGENTS.md as Primary AI Entry Point
+### 2. Create AGENTS.md as AI Entry Point
 
-AGENTS.md is the first document an AI agent reads. It must answer:
+AGENTS.md is often the first document an AI agent reads. It must either answer these questions directly or point clearly to the canonical manual that does:
 
 - What is this project and why does it exist?
 - What is the technology stack?
@@ -63,7 +63,7 @@ AGENTS.md is the first document an AI agent reads. It must answer:
 - What are the key conventions?
 - Where do I find deeper information?
 
-Keep AGENTS.md under 500 lines. Update it whenever architecture changes materially. Use the provided template in assets/agents-md-template.md.
+Keep AGENTS.md concise. A practical default is under 500 lines, but a repository may intentionally keep AGENTS.md very short and delegate operational detail to `CLAUDE.md`, `docs/ai/boot/agent-preflight.md`, or another documented manual. In that pattern, update both the redirect and the canonical manual whenever architecture changes materially. Use the provided template in assets/agents-md-template.md only when the repo has no stronger local convention.
 
 #### Required sections
 
@@ -219,9 +219,9 @@ If critical information is missing from the documentation:
 
 Documentation in a wiki that's never updated with code changes. Result: stale, untrustworthy docs. Instead: docs live in repo, versioned with code.
 
-#### Anti-Pattern 2: No AGENTS.md
+#### Anti-Pattern 2: No AGENTS.md or stale redirect
 
-AI agents must spend cycles inferring project structure. Result: inconsistent navigation, missed dependencies. Solution: provide AGENTS.md.
+AI agents must spend cycles inferring project structure or follow a pointer to an obsolete manual. Result: inconsistent navigation, missed dependencies. Solution: provide AGENTS.md and keep any redirect to CLAUDE.md or equivalent current.
 
 #### Anti-Pattern 3: ADRs Without Context
 
@@ -247,8 +247,8 @@ No publication date on docs. Result: reader can't assess freshness. Solution: in
 
 This skill is MANDATORY and must be followed without exception when its trigger fires. Specifically:
 
-- AGENTS.md must exist at project root before any AI agent onboarding
-- AGENTS.md must be reviewed and updated in every PR that materially changes architecture
+- AGENTS.md must exist at project root before any AI agent onboarding, even if it is a short pointer to the canonical manual
+- AGENTS.md and the canonical manual it points to must be reviewed and updated in every PR that materially changes architecture
 - ADRs must be created for decisions with long-term implications (database choice, API design, auth strategy)
 - Every documentation layer (Global/System/Local) must follow the principles outlined in Section 3
 - Documentation updates must be part of the code review process (not a separate, optional step)

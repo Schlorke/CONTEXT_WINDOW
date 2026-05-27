@@ -31,6 +31,8 @@ Triggered by: Prisma schema, database design, PostgreSQL, migration, query optim
 
 ## Core Workflow
 
+Before changing schema or queries, inspect the target repo first: `AGENTS.md`/`CLAUDE.md`, `package.json` scripts, `prisma/schema.prisma`, generated client path, Prisma version, database adapter, and existing Prisma client singleton. Repository scripts and documented conventions override generic commands.
+
 ### Phase 1: Design Data Model (Entity-Relationship)
 
 1. Identify entities (User, Order, Product, Invoice)
@@ -78,13 +80,14 @@ enum OrderStatus { PENDING; SHIPPED; DELIVERED }
 
 ```bash
 # After editing schema.prisma
-npx prisma migrate dev --name create_initial_schema
+pnpm prisma migrate dev --name create_initial_schema
+# or use the repo script, e.g. pnpm prisma:migrate
 
 # Review generated SQL before committing
 # File: prisma/migrations/[timestamp]_create_initial_schema/migration.sql
 
 # In production, use deploy
-npx prisma migrate deploy
+pnpm prisma migrate deploy
 ```
 
 **Never edit generated migration SQL unless absolutely critical.** Always create new migrations for changes.
@@ -189,29 +192,24 @@ model User {
 }
 ```
 
-#### Automatic filtering with Prisma middleware
+#### Tenant-safe query pattern
 
 ```typescript
-// lib/prisma.ts - auto-filter by tenantId
-const prisma = new PrismaClient();
-
-prisma.$use(async (params, next) => {
-  const tenanted = ["User", "Order", "Product"].includes(params.model);
-  if (tenanted) {
-    const tenantId = getCurrentTenantId();
-    params.args.where = { ...params.args.where, tenantId };
-  }
-  return next(params);
+// Resolve tenant/org scope from trusted auth code, never from model output.
+const orders = await prisma.order.findMany({
+  where: { orgId, deletedAt: null },
+  orderBy: { createdAt: "desc" },
+  take: limit + 1,
 });
-
-export default prisma;
 ```
+
+Use Prisma middleware, RLS, or a repository abstraction only if the target repo already uses that pattern. In Prisma 7 projects, preserve the existing generated client and driver adapter setup (for example `@prisma/adapter-pg` through a shared `@/lib/prisma` singleton) instead of constructing a new `PrismaClient` ad hoc.
 
 ### Phase 7: Write Seed Script
 
 ```typescript
 // prisma/seed.ts - create deterministic test data
-const prisma = new PrismaClient();
+import { prisma } from "../src/lib/prisma";
 
 async function main() {
   const tenantId = "tenant-1";
@@ -240,18 +238,16 @@ main()
 #### Run seed
 
 ```bash
-npx prisma db seed
+pnpm prisma db seed
+# or use the repo script, e.g. pnpm db:seed
 ```
 
 ### Phase 8: Implement Soft Deletes
 
 ```typescript
-// Hide soft-deleted records
-prisma.$use(async (params, next) => {
-  if (["findUnique", "findMany"].includes(params.action)) {
-    params.args.where = { ...params.args.where, deletedAt: null };
-  }
-  return next(params);
+// Hide soft-deleted records explicitly unless the repo already has a helper.
+await prisma.order.findMany({
+  where: { orgId, deletedAt: null },
 });
 ```
 
@@ -343,7 +339,7 @@ When designing or modifying database schemas:
 4. Always create new migrations, never edit generated SQL
 5. Always add indexes on fields used in WHERE, ORDER BY, JOIN
 6. Always normalize to 3NF before denormalizing
-7. Always use repository pattern with Prisma middleware for tenant isolation
+7. Always follow the repo's tenant isolation pattern: explicit `tenantId`/`orgId` filters, existing RLS, or existing repository/middleware helpers
 8. Always use cursor-based pagination for large result sets
 9. Always write seed scripts for deterministic test data
 10. Always review EXPLAIN ANALYZE output before deploying queries
@@ -353,7 +349,7 @@ When designing or modifying database schemas:
 ### Prisma
 
 - Prisma schema design, migrations, and tenant-safe data access
-- Query planning with indexes, pagination, and explain plans
+- Query planning with indexes, pagination, explain plans, Prisma 7 client generation, and driver adapters when present
 - Prisma Official Documentation - <https://www.prisma.io/docs/>
 - Prisma Schema Reference - <https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference>
 - Prisma Client API - <https://www.prisma.io/docs/reference/api-reference/prisma-client-reference>

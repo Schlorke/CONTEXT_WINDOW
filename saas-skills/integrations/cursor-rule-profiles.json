@@ -77,6 +77,18 @@
       "description": "Multi-agent install workflow for Codex, Claude, and Cursor runtimes, including global vs project scope, sandbox validation, and non-invasive verification."
     },
     {
+      "skill": "saas-ai-agent-engineer",
+      "file": "skill-saas-ai-agent-engineer.mdc",
+      "description": "AI agent engineering guidance for SaaS products: tool calling, RAG, memory, prompt/version governance, permissions, evals, and observability.",
+      "globs": [
+        "**/*agent*/**/*.{ts,tsx,js,jsx,md}",
+        "**/*assistant*/**/*.{ts,tsx,js,jsx,md}",
+        "**/*ai*/**/*.{ts,tsx,js,jsx,md}",
+        "**/*rag*/**/*.{ts,tsx,js,jsx,md}",
+        "**/*prompt*/**/*.{ts,tsx,js,jsx,md}"
+      ]
+    },
+    {
       "skill": "ai-context-diagrams",
       "file": "skill-ai-context-diagrams.mdc",
       "description": "Mermaid and C4 diagram guidance for architecture communication, agent comprehension, and doc placement.",

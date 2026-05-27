@@ -6,6 +6,7 @@ Reference file for `testing-strategies`.
 
 ```text
 import { GET } from "@/app/api/users/route";
+// If the repo uses a src root, this resolves to src/app/api/users/route.ts.
 
 describe("GET /api/users", () => {
   it("should return users list", async () => {
@@ -42,8 +43,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with: { node-version: "18" }
-      - run: npm install
-      - run: npm run test:unit
-      - run: npm run test:integration
-      - run: npm run test:coverage
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:run
+      - run: pnpm test:run:storybook
+      - run: pnpm test:e2e
 ```

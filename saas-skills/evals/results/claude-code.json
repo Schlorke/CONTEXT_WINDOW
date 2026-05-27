@@ -1,15 +1,21 @@
 {
-  "matrix_version": "1.3.0",
-  "generated_at": "2026-04-12T23:47:48.214Z",
+  "matrix_version": "1.8.0",
+  "generated_at": "2026-05-13T13:07:58.380Z",
   "environment": "claude-code",
   "summary": {
-    "total_cases": 112,
-    "should_trigger": 48,
-    "should_not_trigger": 48,
-    "conflicts": 16
+    "total_cases": 126,
+    "should_trigger": 54,
+    "should_not_trigger": 54,
+    "conflicts": 18
   },
   "instructions": {
-    "status_values": ["pending", "passed", "failed", "partial", "not-run"],
+    "status_values": [
+      "pending",
+      "passed",
+      "failed",
+      "partial",
+      "not-run"
+    ],
     "minimum_output_rule": "Mark each covered expected_minimum_output item verbatim in result.minimum_output_covered.",
     "transcript_rule": "Use result.transcript_ref to point to the log, screenshot, or thread that recorded the replay."
   },
@@ -94,7 +100,9 @@
       "prompt": "Create an AGENTS.md section with architecture visuals and choose the best C4/Mermaid diagrams for agent onboarding.",
       "reason": null,
       "expected_primary_skill": "ai-context-diagrams",
-      "expected_secondary_skills": ["intelligent-project-docs"],
+      "expected_secondary_skills": [
+        "intelligent-project-docs"
+      ],
       "expected_minimum_output": [
         "Chosen diagram type with scope justification",
         "A Mermaid or C4 representation with clear boundaries and relations",
@@ -262,7 +270,9 @@
       "prompt": "Build a billing backend with paginated invoice endpoints and a tenant-aware persistence model.",
       "reason": null,
       "expected_primary_skill": "api-design-patterns",
-      "expected_secondary_skills": ["prisma-database-design"],
+      "expected_secondary_skills": [
+        "prisma-database-design"
+      ],
       "expected_minimum_output": [
         "Resource model and route contract",
         "Auth, validation, and error handling rules",
@@ -430,7 +440,9 @@
       "prompt": "Design an AI assistant experience for account managers and also define the prompt contract used behind the UI.",
       "reason": null,
       "expected_primary_skill": "ai-interface-design",
-      "expected_secondary_skills": ["prompt-engineering-hybrid"],
+      "expected_secondary_skills": [
+        "prompt-engineering-hybrid"
+      ],
       "expected_minimum_output": [
         "Coverage of the main trust and control pillars",
         "Streaming, memory, and tool-integration architecture choices",
@@ -598,7 +610,9 @@
       "prompt": "Design a multi-tenant billing module including bounded contexts, use cases, and its public API surface.",
       "reason": null,
       "expected_primary_skill": "clean-architecture-ddd",
-      "expected_secondary_skills": ["api-design-patterns"],
+      "expected_secondary_skills": [
+        "api-design-patterns"
+      ],
       "expected_minimum_output": [
         "Layer boundaries and responsibilities",
         "Core domain model or bounded context decisions",
@@ -766,7 +780,9 @@
       "prompt": "Extract common components into a shared library while also reorganizing the repo into feature and shared layers.",
       "reason": null,
       "expected_primary_skill": "component-reuse-portability",
-      "expected_secondary_skills": ["react-saas-architecture"],
+      "expected_secondary_skills": [
+        "react-saas-architecture"
+      ],
       "expected_minimum_output": [
         "Dependency resolution plan",
         "Import and token adaptation steps",
@@ -934,7 +950,9 @@
       "prompt": "Rework our docs so agents get the right context with fewer tokens, including better document structure and selective retrieval.",
       "reason": null,
       "expected_primary_skill": "context-window-optimization",
-      "expected_secondary_skills": ["intelligent-project-docs"],
+      "expected_secondary_skills": [
+        "intelligent-project-docs"
+      ],
       "expected_minimum_output": [
         "Explicit token budget or context allocation model",
         "Ordering, compression, or reminder strategy to reduce drift",
@@ -1102,7 +1120,9 @@
       "prompt": "Set up a new design system and also define the initial color, spacing, and typography tokens for the product.",
       "reason": null,
       "expected_primary_skill": "design-system-implementation",
-      "expected_secondary_skills": ["saas-ui-specifications"],
+      "expected_secondary_skills": [
+        "saas-ui-specifications"
+      ],
       "expected_minimum_output": [
         "Token taxonomy and naming conventions",
         "Storybook or documentation workflow",
@@ -1270,7 +1290,9 @@
       "prompt": "Create a full documentation system for the repo and include an architecture diagram strategy for AGENTS.md and module docs.",
       "reason": null,
       "expected_primary_skill": "intelligent-project-docs",
-      "expected_secondary_skills": ["ai-context-diagrams"],
+      "expected_secondary_skills": [
+        "ai-context-diagrams"
+      ],
       "expected_minimum_output": [
         "Recommended documentation hierarchy with ownership",
         "AGENTS.md minimum sections and layer boundaries",
@@ -1438,7 +1460,9 @@
       "prompt": "Stabilize a legacy checkout module by adding tests and then refactor duplicated logic and prop drilling.",
       "reason": null,
       "expected_primary_skill": "legacy-code-refactoring",
-      "expected_secondary_skills": ["testing-strategies"],
+      "expected_secondary_skills": [
+        "testing-strategies"
+      ],
       "expected_minimum_output": [
         "Audit of hotspots, smells, or dependency risks",
         "Characterization or safety-test plan before structural change",
@@ -1515,6 +1539,176 @@
         "Layer boundaries and responsibilities",
         "Core domain model or bounded context decisions",
         "Rules for separating framework code from business logic"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-1",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Install this skills library globally for Codex, Claude, and Cursor, then verify every runtime without touching the app code.",
+      "reason": "This is the exact multi-runtime install workflow.",
+      "expected_primary_skill": "multi-agent-skill-installer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Correct runtime targets for Codex, Claude, and Cursor",
+        "Dry-run or sandbox validation flow before real global install",
+        "Explicit verification and smoke-test steps without editing app code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-2",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Set up project-local Claude and Cursor runtimes plus the global Codex runtime for this repo, starting with a dry-run sandbox.",
+      "reason": "The request is about choosing correct targets and validating install safely.",
+      "expected_primary_skill": "multi-agent-skill-installer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Correct runtime targets for Codex, Claude, and Cursor",
+        "Dry-run or sandbox validation flow before real global install",
+        "Explicit verification and smoke-test steps without editing app code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-3",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Create a copyable AGENTS.md workflow so any agent can install and smoke-test these skills for Codex, Claude, and Cursor.",
+      "reason": "The deliverable is an operator workflow for multi-IA installation.",
+      "expected_primary_skill": "multi-agent-skill-installer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Correct runtime targets for Codex, Claude, and Cursor",
+        "Dry-run or sandbox validation flow before real global install",
+        "Explicit verification and smoke-test steps without editing app code"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-c1",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Install the skills globally for Codex, Claude, and Cursor, and also create the AGENTS.md entry point that explains the workflow.",
+      "reason": null,
+      "expected_primary_skill": "multi-agent-skill-installer",
+      "expected_secondary_skills": [
+        "intelligent-project-docs"
+      ],
+      "expected_minimum_output": [
+        "Correct runtime targets for Codex, Claude, and Cursor",
+        "Dry-run or sandbox validation flow before real global install",
+        "Explicit verification and smoke-test steps without editing app code"
+      ],
+      "resolution": "Execute and verify the runtime installation first; once the install contract is correct, document it for operators and agents.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-n1",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Reorganize our README, AGENTS.md, and ADR structure so humans and agents can find the right docs faster.",
+      "reason": "That is documentation architecture without runtime installation.",
+      "expected_primary_skill": "intelligent-project-docs",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Recommended documentation hierarchy with ownership",
+        "AGENTS.md minimum sections and layer boundaries",
+        "Governance rules for updates, ADRs, and single source of truth"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-n2",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Reduce token usage by deciding what belongs in retrieval, memory, and prompt layers for our coding agent.",
+      "reason": "That is context strategy, not installer orchestration.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "masi-n3",
+      "source_skill": "multi-agent-skill-installer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Write a strict prompt template that any installer agent should follow, with JSON output and fallback clauses.",
+      "reason": "That is prompt contract design, not runtime installation.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
       ],
       "resolution": null,
       "result": {
@@ -1606,7 +1800,9 @@
       "prompt": "Design the invoice schema, repository queries, and the API contract for fetching tenant data.",
       "reason": null,
       "expected_primary_skill": "prisma-database-design",
-      "expected_secondary_skills": ["api-design-patterns"],
+      "expected_secondary_skills": [
+        "api-design-patterns"
+      ],
       "expected_minimum_output": [
         "Schema or relation design guidance",
         "Migration and indexing strategy",
@@ -1774,7 +1970,9 @@
       "prompt": "Design a support copilot prompt and also decide how much retrieval context to send on each request.",
       "reason": null,
       "expected_primary_skill": "prompt-engineering-hybrid",
-      "expected_secondary_skills": ["context-window-optimization"],
+      "expected_secondary_skills": [
+        "context-window-optimization"
+      ],
       "expected_minimum_output": [
         "Prompt structure with required components",
         "Explicit output contract or schema",
@@ -1942,7 +2140,9 @@
       "prompt": "Reorganize the repo into shared and feature folders while extracting common components into a reusable package.",
       "reason": null,
       "expected_primary_skill": "react-saas-architecture",
-      "expected_secondary_skills": ["component-reuse-portability"],
+      "expected_secondary_skills": [
+        "component-reuse-portability"
+      ],
       "expected_minimum_output": [
         "Recommended folder pattern with justification",
         "Clear rules for co-location and exports",
@@ -2019,6 +2219,177 @@
         "Audit of hotspots, smells, or dependency risks",
         "Characterization or safety-test plan before structural change",
         "Incremental refactoring sequence that separates behavior change from cleanup"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-1",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Design a multi-tenant AI assistant with tool calling, scoped memory, audit logs, and evals.",
+      "reason": "The request is about production AI agent architecture and governance.",
+      "expected_primary_skill": "saas-ai-agent-engineer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Agent architecture with deterministic auth, tenant scope, and tool boundaries",
+        "Governance for prompts, tools, memory, evals, traces, and audit logs",
+        "Verification plan covering permissions, schema validation, evals, and adversarial behavior"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-2",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Review our chat agent tools for permission checks, tenant isolation, and prompt injection risks.",
+      "reason": "Security review of an AI agent and its tools belongs here.",
+      "expected_primary_skill": "saas-ai-agent-engineer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Agent architecture with deterministic auth, tenant scope, and tool boundaries",
+        "Governance for prompts, tools, memory, evals, traces, and audit logs",
+        "Verification plan covering permissions, schema validation, evals, and adversarial behavior"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-3",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_trigger",
+      "prompt": "Move hard-coded prompt behavior into versioned runtime configuration and add observability for agent runs.",
+      "reason": "Prompt/version governance, runtime configuration, and agent traces are core triggers.",
+      "expected_primary_skill": "saas-ai-agent-engineer",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Agent architecture with deterministic auth, tenant scope, and tool boundaries",
+        "Governance for prompts, tools, memory, evals, traces, and audit logs",
+        "Verification plan covering permissions, schema validation, evals, and adversarial behavior"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-c1",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "conflict",
+      "prompt": "Build an AI assistant with RAG, strict prompts, and a chat UI for a SaaS product.",
+      "reason": null,
+      "expected_primary_skill": "saas-ai-agent-engineer",
+      "expected_secondary_skills": [
+        "prompt-engineering-hybrid",
+        "ai-interface-design"
+      ],
+      "expected_minimum_output": [
+        "Agent architecture with deterministic auth, tenant scope, and tool boundaries",
+        "Governance for prompts, tools, memory, evals, traces, and audit logs",
+        "Verification plan covering permissions, schema validation, evals, and adversarial behavior"
+      ],
+      "resolution": "Lead with agent architecture, permissions, tools, memory, and evals; pull prompt and UI skills for the narrower surfaces.",
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-n1",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Write a strict JSON prompt template for invoice extraction.",
+      "reason": "Single prompt construction belongs to prompt engineering unless agent architecture is involved.",
+      "expected_primary_skill": "prompt-engineering-hybrid",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Prompt structure with required components",
+        "Explicit output contract or schema",
+        "Fallback or uncertainty handling instructions"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-n2",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Optimize the context window ordering for a long coding session.",
+      "reason": "Token budgeting and ordering are context-window work.",
+      "expected_primary_skill": "context-window-optimization",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Explicit token budget or context allocation model",
+        "Ordering, compression, or reminder strategy to reduce drift",
+        "Decision criteria for retrieval, memory, and caching"
+      ],
+      "resolution": null,
+      "result": {
+        "status": "pending",
+        "observed_primary_skill": null,
+        "observed_secondary_skills": [],
+        "minimum_output_covered": [],
+        "notes": "",
+        "transcript_ref": ""
+      }
+    },
+    {
+      "id": "sae-n3",
+      "source_skill": "saas-ai-agent-engineer",
+      "collection": "ai-integration",
+      "case_type": "should_not_trigger",
+      "prompt": "Create a Mermaid diagram explaining the assistant architecture.",
+      "reason": "Diagram production belongs to the diagram skill.",
+      "expected_primary_skill": "ai-context-diagrams",
+      "expected_secondary_skills": [],
+      "expected_minimum_output": [
+        "Chosen diagram type with scope justification",
+        "A Mermaid or C4 representation with clear boundaries and relations",
+        "Guidance on where the diagram should live in project documentation"
       ],
       "resolution": null,
       "result": {
@@ -2110,7 +2481,9 @@
       "prompt": "Define SaaS requirements and MVP scope for billing, then map the domain into use cases and bounded contexts.",
       "reason": null,
       "expected_primary_skill": "systems-analysis-saas",
-      "expected_secondary_skills": ["clean-architecture-ddd"],
+      "expected_secondary_skills": [
+        "clean-architecture-ddd"
+      ],
       "expected_minimum_output": [
         "Functional and non-functional requirements set",
         "MVP scope or prioritization model",
@@ -2278,7 +2651,9 @@
       "prompt": "Our design system exists already, but we need exact color, typography, and spacing values for a new admin panel.",
       "reason": null,
       "expected_primary_skill": "saas-ui-specifications",
-      "expected_secondary_skills": ["design-system-implementation"],
+      "expected_secondary_skills": [
+        "design-system-implementation"
+      ],
       "expected_minimum_output": [
         "Typography, color, and spacing decisions",
         "Responsive and dark mode rules",
@@ -2446,7 +2821,9 @@
       "prompt": "Produce a report that recommends the MVP architecture for a new SaaS, with external evidence and stakeholder-ready justification.",
       "reason": null,
       "expected_primary_skill": "technical-research-writing",
-      "expected_secondary_skills": ["systems-analysis-saas"],
+      "expected_secondary_skills": [
+        "systems-analysis-saas"
+      ],
       "expected_minimum_output": [
         "Well-scoped research question or hypothesis",
         "Source evaluation and citation methodology",
@@ -2614,7 +2991,9 @@
       "prompt": "Rescue a fragile legacy module by defining the right automated tests and then cleaning up the implementation.",
       "reason": null,
       "expected_primary_skill": "testing-strategies",
-      "expected_secondary_skills": ["legacy-code-refactoring"],
+      "expected_secondary_skills": [
+        "legacy-code-refactoring"
+      ],
       "expected_minimum_output": [
         "Test pyramid or distribution guidance by test type",
         "Concrete tooling and organization recommendations",

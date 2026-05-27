@@ -337,7 +337,7 @@ Para agentes trabalhando dentro deste próprio repositório, o ponto de entrada 
 
 A biblioteca canônica contém:
 
-- `17` skills organizadas em `5` coleções
+- `18` skills organizadas em `5` coleções
 - `references/` e `assets/` por skill quando necessário
 - matriz de evals
 - perfis de adapter para Cursor em [cursor-rule-profiles.json](saas-skills/integrations/cursor-rule-profiles.json)
@@ -359,10 +359,10 @@ Os principais artefatos de qualidade são:
 
 Hoje a biblioteca mantém:
 
-- `17` skills auditadas
-- `51` casos `should_trigger`
-- `51` casos `should_not_trigger`
-- `17` conflitos
+- `18` skills auditadas
+- `54` casos `should_trigger`
+- `54` casos `should_not_trigger`
+- `18` conflitos
 
 ## Arquivos Mais Importantes
 
