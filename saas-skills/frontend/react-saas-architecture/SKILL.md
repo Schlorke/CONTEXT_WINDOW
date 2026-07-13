@@ -42,16 +42,19 @@ Two primary patterns exist; hybrid approach recommended for most SaaS projects.
 src/
 ├── features/
 │   ├── billing/
-│   │   ├── components/
-│   │   │   ├── BillingOverview.tsx
-│   │   │   └── InvoiceTable.tsx
-│   │   ├── hooks/
-│   │   │   └── useBillingData.ts
-│   │   ├── lib/
-│   │   │   └── calculateTax.ts
-│   │   ├── types/
-│   │   │   └── invoice.ts
-│   │   └── index.ts
+│   │   ├── modules/
+│   │   │   ├── invoices/
+│   │   │   │   ├── components/InvoiceTable.tsx
+│   │   │   │   ├── hooks/useInvoices.ts
+│   │   │   │   └── index.ts
+│   │   │   └── overview/
+│   │   │       ├── components/BillingOverview.tsx
+│   │   │       └── index.ts
+│   │   ├── shared/
+│   │   │   ├── lib/calculateTax.ts
+│   │   │   └── types/invoice.ts
+│   │   ├── index.ts
+│   │   └── README.md
 │   ├── auth/
 │   └── dashboard/
 ├── app/
@@ -60,6 +63,47 @@ src/
 
 **Advantages:** Clear feature boundaries, easy to understand "what belongs to billing", simpler to extract or reuse features.
 **Disadvantages:** Repeated patterns across features (e.g., each feature has its own hooks folder).
+
+## Internal Feature Structure (MANDATORY)
+
+Feature-first does not stop at `src/features/`. Inside EVERY feature, the root
+contains ONLY two top groups plus its public barrel and docs:
+
+```text
+src/features/<feature>/
+├── modules/            # functional capabilities of the domain
+│   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
+│       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
+│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ server/ jobs/
+│       └── index.ts    # curated public barrel of the module
+├── shared/             # ONLY what 2+ modules of THIS feature consume
+│   └── components/ hooks/ schemas/ services/ domain/ config/ ...
+├── index.ts            # feature public API
+└── README.md
+```
+
+Non-negotiable rules:
+
+1. NO loose `components/`, `hooks/`, `schemas/`, `services/`, `domain/`, `data/`
+   at the feature root — every artifact belongs to a module or to the feature's
+   `shared/`. Create folders only when they hold real files.
+2. Ownership decides placement: consumed by 1 module → `modules/<m>/...`;
+   by 2+ modules of the feature → `<feature>/shared/...`; by 2+ features and
+   domain-neutral → `src/shared/...`; global technical mechanism →
+   `src/infrastructure/...`.
+3. Ownership beats visual type: never organize primarily by
+   `dialogs/ cards/ forms/ tables/` — first the owning module, then (optionally,
+   with real volume) visual grouping inside it
+   (`modules/categories/components/dialogs/{create,edit,delete}`).
+4. Module names express capability: `workspace` (full operational area:
+   actions, filters, state, flows), `overview` (summary view: KPIs, cards,
+   previews), `tracking`, `workflow`, `categories`, `planning`... Avoid `hub`
+   as a permanent name and avoid `dashboard` when it collides with a Dashboard
+   feature.
+5. Cross-feature imports go through public entrypoints only: the feature root
+   barrel or `features/<f>/modules/<m>` (plus its `server`/`contracts`).
+   Never deep-import another feature's internals.
+
 
 #### Pattern B: Layer-Based (Type-Based)
 
