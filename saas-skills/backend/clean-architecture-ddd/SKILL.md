@@ -54,6 +54,11 @@ Non-negotiable rules:
 5. Cross-feature imports go through public entrypoints only: the feature root
    barrel or `features/<f>/modules/<m>` (plus its `server`/`contracts`).
    Never deep-import another feature's internals.
+6. Naming inside modules is responsibility-first: never a generic `root/`
+   folder; never repeat the parent's name without need; use the shortest
+   precise semantic name for the responsibility. Homonym file/folder
+   (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
+   obligation — `shell/frame.tsx` is correct when the file is only the frame.
 
 
 Use this skill when you need to:

@@ -6,10 +6,10 @@ metadata:
   version: 1.2
   last_validated: 2026-04-13
   sources:
-    - ../../README.md
-    - ../../../README.md
-    - ../../docs/runtime/IDE_RUNTIME_GUIDE.md
-    - ../../docs/runtime/TARGET_REPO_AGENT_GUIDE.md
+    - "Source repo (C:/Projetos/Context_Window): saas-skills/README.md"
+    - "Source repo: README.md"
+    - "Source repo: saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md"
+    - "Source repo: saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md"
     - Codex skill-installer behavior
 ---
 
@@ -58,6 +58,27 @@ Choose one of these scopes before writing anything:
 If the user says "for all my projects," prefer the global flow.
 If the user says "only in this repo," prefer the project flow.
 If the user says "only for Codex", "only for Claude", or "only for Cursor", prefer the single-runtime flow.
+
+**Claude scope rule (avoid duplication):** the generic library must live in ONE
+Claude scope only. Recommended default: GLOBAL (`~/.claude/skills`), mirroring
+Codex; reserve project `.claude/skills/` for project-specific skills. Installing
+both scopes doubles the skill listing the model sees, the listing budget
+truncates descriptions, and automatic triggering degrades. The installer and
+`verify` print a warning when they detect the library in both scopes — treat
+that warning as an action item, not noise.
+
+**Recommended per-machine + per-project flow:**
+
+```bash
+pnpm install:global-runtimes            # once per machine (Codex + Claude global + Cursor global)
+pnpm install:cursor -- <target-dir>     # per project (Cursor rules are per-project)
+pnpm install:claude-hook -- <target-dir> # per project (deterministic Claude routing hook, no skill duplication)
+```
+
+The `install:claude-hook` alias writes `.claude/hooks/skill-router.mjs`,
+generates `.claude/skill-routing.json` from the runtime profiles, and merges the
+hook registration into `.claude/settings.json` (idempotent; never clobbers
+custom files — it skips non-managed hook/routing files with a warning).
 
 ### Step 2: Use the Repository Installer, Not Ad Hoc Copying
 
@@ -247,9 +268,13 @@ State clearly that manual fallback is lower-confidence than the repository scrip
 
 ## Source References
 
-- Repository runtime guide: `../../docs/runtime/IDE_RUNTIME_GUIDE.md`
-- Repository operator playbook: `../../docs/runtime/TARGET_REPO_AGENT_GUIDE.md`
-- Runtime matrix: `../../docs/runtime/PORTABILITY_MATRIX.md`
-- Root operator overview: `../../../README.md`
-- Library overview: `../../README.md`
+All paths below are inside the SOURCE repository (`C:/Projetos/Context_Window`),
+not the target project — installed copies of this skill cannot resolve them
+relatively:
+
+- Repository runtime guide: `saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md`
+- Repository operator playbook: `saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md`
+- Runtime matrix: `saas-skills/docs/runtime/PORTABILITY_MATRIX.md`
+- Root operator overview: `README.md`
+- Library overview: `saas-skills/README.md`
 - Codex native installer behavior: `C:/Users/harry/.codex/skills/.system/skill-installer/SKILL.md`

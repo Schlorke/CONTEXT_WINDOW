@@ -1,10 +1,19 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "$comment": "Per-skill runtime profiles. `globs` drive Cursor auto-attach. `claudePaths` drive the Claude `paths:` frontmatter (file-scoped visibility); an explicit empty array opts a skill OUT of the globs fallback so it stays always-on via description (use for broad skills or globs with brace patterns, which Claude paths may not expand). `promptTriggers` feed the optional Claude skill-router hook; keep them SPECIFIC (multiword or domain terms) to avoid noisy suggestions, and write them unaccented (the router strips diacritics on both sides).",
   "rules": [
     {
       "skill": "design-system-implementation",
       "file": "skill-design-system-implementation.mdc",
-      "description": "Design system guidance for semantic tokens, Storybook, component governance, and shared UI contracts in frontend codebases."
+      "description": "Design system guidance for semantic tokens, Storybook, component governance, and shared UI contracts in frontend codebases.",
+      "promptTriggers": [
+        "design system",
+        "design token",
+        "storybook",
+        "component library",
+        "biblioteca de componentes",
+        "atomic design"
+      ]
     },
     {
       "skill": "react-saas-architecture",
@@ -15,6 +24,15 @@
         "app/**/*.{ts,tsx,js,jsx}",
         "src/**/*.{ts,tsx,js,jsx}",
         "components/**/*.{ts,tsx,js,jsx}"
+      ],
+      "claudePaths": [],
+      "promptTriggers": [
+        "estrutura de pastas",
+        "folder structure",
+        "app router",
+        "barrel export",
+        "organizacao de codigo",
+        "feature-based"
       ]
     },
     {
@@ -26,17 +44,46 @@
         "app/**/*.{tsx,jsx,css,scss,mdx}",
         "src/**/*.{tsx,jsx,css,scss,mdx}",
         "components/**/*.{tsx,jsx,css,scss,mdx}"
+      ],
+      "claudePaths": [],
+      "promptTriggers": [
+        "tipografia",
+        "typography scale",
+        "paleta de cores",
+        "color palette",
+        "espacamento",
+        "dark mode",
+        "acessibilidade",
+        "wcag",
+        "responsivo"
       ]
     },
     {
       "skill": "component-reuse-portability",
       "file": "skill-component-reuse-portability.mdc",
-      "description": "Cross-project component porting workflow for dependency resolution, import rewriting, token adaptation, and registry maintenance."
+      "description": "Cross-project component porting workflow for dependency resolution, import rewriting, token adaptation, and registry maintenance.",
+      "promptTriggers": [
+        "portar componente",
+        "port component",
+        "reaproveitar componente",
+        "reuse component",
+        "component registry",
+        "entre projetos"
+      ]
     },
     {
       "skill": "clean-architecture-ddd",
       "file": "skill-clean-architecture-ddd.mdc",
-      "description": "Domain-driven and clean architecture guidance for bounded contexts, use cases, entities, repositories, and layer separation."
+      "description": "Domain-driven and clean architecture guidance for bounded contexts, use cases, entities, repositories, and layer separation.",
+      "promptTriggers": [
+        "clean architecture",
+        "bounded context",
+        "domain-driven",
+        "\\bddd\\b",
+        "value object",
+        "camada de dominio",
+        "caso de uso"
+      ]
     },
     {
       "skill": "api-design-patterns",
@@ -48,72 +95,177 @@
         "app/api/**/*.{ts,tsx,js,jsx}",
         "src/app/api/**/*.{ts,tsx,js,jsx}",
         "pages/api/**/*.{ts,tsx,js,jsx}"
+      ],
+      "claudePaths": [
+        "**/api/**",
+        "**/route.ts",
+        "**/route.tsx",
+        "app/api/**",
+        "src/app/api/**",
+        "pages/api/**"
+      ],
+      "promptTriggers": [
+        "rota de api",
+        "route handler",
+        "rest api",
+        "endpoint",
+        "webhook",
+        "paginacao",
+        "rate limit"
       ]
     },
     {
       "skill": "prisma-database-design",
       "file": "skill-prisma-database-design.mdc",
       "description": "Prisma and PostgreSQL design guidance for schema modeling, indexes, migrations, query behavior, and multi-tenancy.",
-      "globs": ["**/*.prisma", "prisma/**/*", "**/migrations/**/*"]
+      "globs": ["**/*.prisma", "prisma/**/*", "**/migrations/**/*"],
+      "promptTriggers": [
+        "prisma",
+        "migracao",
+        "migration",
+        "schema do banco",
+        "database schema",
+        "indice no banco",
+        "postgres"
+      ]
     },
     {
       "skill": "prompt-engineering-hybrid",
       "file": "skill-prompt-engineering-hybrid.mdc",
-      "description": "Prompt engineering guidance for structured output, schema contracts, fallback clauses, and output-format decisions."
+      "description": "Prompt engineering guidance for structured output, schema contracts, fallback clauses, and output-format decisions.",
+      "promptTriggers": [
+        "engenharia de prompt",
+        "prompt engineering",
+        "few-shot",
+        "output estruturado",
+        "structured output",
+        "reduzir alucinac"
+      ]
     },
     {
       "skill": "ai-interface-design",
       "file": "skill-ai-interface-design.mdc",
-      "description": "AI product interface guidance for streaming, trust signals, memory, transparency, and recovery UX."
+      "description": "AI product interface guidance for streaming, trust signals, memory, transparency, and recovery UX.",
+      "promptTriggers": [
+        "interface de ia",
+        "chat ui",
+        "streaming de resposta",
+        "ux do assistente",
+        "ai chat interface"
+      ]
     },
     {
       "skill": "context-window-optimization",
       "file": "skill-context-window-optimization.mdc",
-      "description": "Context-window optimization for token budgeting, ordering, compression, retrieval boundaries, and drift prevention."
+      "description": "Context-window optimization for token budgeting, ordering, compression, retrieval boundaries, and drift prevention.",
+      "promptTriggers": [
+        "context window",
+        "janela de contexto",
+        "orcamento de tokens",
+        "token budget",
+        "compressao de contexto",
+        "context drift"
+      ]
     },
     {
       "skill": "multi-agent-skill-installer",
       "file": "skill-multi-agent-skill-installer.mdc",
-      "description": "Multi-agent install workflow for Codex, Claude, and Cursor runtimes, including global vs project scope, sandbox validation, and non-invasive verification."
+      "description": "Multi-agent install workflow for Codex, Claude, and Cursor runtimes, including global vs project scope, sandbox validation, and non-invasive verification.",
+      "promptTriggers": [
+        "instalar skills",
+        "instalar habilidades",
+        "sincronizar skills",
+        "sync skills",
+        "skill library",
+        "biblioteca de skills"
+      ]
     },
     {
       "skill": "saas-ai-agent-engineer",
       "file": "skill-saas-ai-agent-engineer.mdc",
       "description": "AI agent engineering guidance for SaaS products: tool calling, RAG, memory, prompt/version governance, permissions, evals, and observability.",
       "globs": [
-        "**/*agent*/**/*.{ts,tsx,js,jsx,md}",
+        "**/agent*/**/*.{ts,tsx,js,jsx,md}",
         "**/*assistant*/**/*.{ts,tsx,js,jsx,md}",
-        "**/*ai*/**/*.{ts,tsx,js,jsx,md}",
-        "**/*rag*/**/*.{ts,tsx,js,jsx,md}",
+        "**/ai/**/*.{ts,tsx,js,jsx,md}",
+        "**/rag/**/*.{ts,tsx,js,jsx,md}",
         "**/*prompt*/**/*.{ts,tsx,js,jsx,md}"
+      ],
+      "claudePaths": [],
+      "promptTriggers": [
+        "agente de ia",
+        "ai agent",
+        "tool calling",
+        "\\brag\\b",
+        "memoria do agente",
+        "evals",
+        "system prompt"
       ]
     },
     {
       "skill": "ai-context-diagrams",
       "file": "skill-ai-context-diagrams.mdc",
       "description": "Mermaid and C4 diagram guidance for architecture communication, agent comprehension, and doc placement.",
-      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"]
+      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"],
+      "claudePaths": [],
+      "promptTriggers": [
+        "mermaid",
+        "\\bc4\\b",
+        "diagrama de arquitetura",
+        "architecture diagram",
+        "fluxograma"
+      ]
     },
     {
       "skill": "intelligent-project-docs",
       "file": "skill-intelligent-project-docs.mdc",
       "description": "Project documentation governance for README, AGENTS.md, ADRs, module docs, ownership, and single source of truth.",
-      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"]
+      "globs": ["AGENTS.md", "README.md", "**/*.md", "docs/**/*.md"],
+      "claudePaths": ["AGENTS.md", "README.md", "docs/**"],
+      "promptTriggers": [
+        "agents.md",
+        "documentacao do projeto",
+        "project docs",
+        "\\badr\\b",
+        "estruturar docs"
+      ]
     },
     {
       "skill": "technical-research-writing",
       "file": "skill-technical-research-writing.mdc",
-      "description": "Technical research and report-writing guidance for scoping, source evaluation, citation quality, synthesis, and uncertainty handling."
+      "description": "Technical research and report-writing guidance for scoping, source evaluation, citation quality, synthesis, and uncertainty handling.",
+      "promptTriggers": [
+        "pesquisa tecnica",
+        "relatorio tecnico",
+        "research report",
+        "avaliar fontes",
+        "citacoes"
+      ]
     },
     {
       "skill": "legacy-code-refactoring",
       "file": "skill-legacy-code-refactoring.mdc",
-      "description": "Legacy refactoring workflow focused on hotspots, characterization tests, dependency risks, and incremental cleanup."
+      "description": "Legacy refactoring workflow focused on hotspots, characterization tests, dependency risks, and incremental cleanup.",
+      "promptTriggers": [
+        "refatorar",
+        "refactor legacy",
+        "codigo legado",
+        "legacy code",
+        "code smell",
+        "caracterizacao"
+      ]
     },
     {
       "skill": "systems-analysis-saas",
       "file": "skill-systems-analysis-saas.mdc",
-      "description": "SaaS systems analysis guidance for requirements, MVP scope, business rules, models, and stakeholder validation."
+      "description": "SaaS systems analysis guidance for requirements, MVP scope, business rules, models, and stakeholder validation.",
+      "promptTriggers": [
+        "levantamento de requisitos",
+        "requirements elicitation",
+        "definir mvp",
+        "regras de negocio",
+        "analise de sistemas"
+      ]
     },
     {
       "skill": "testing-strategies",
@@ -125,6 +277,27 @@
         "playwright.config.*",
         "vitest.config.*",
         "jest.config.*"
+      ],
+      "claudePaths": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "**/__tests__/**",
+        "tests/**",
+        "playwright.config.*",
+        "vitest.config.*",
+        "jest.config.*"
+      ],
+      "promptTriggers": [
+        "teste unitario",
+        "unit test",
+        "vitest",
+        "playwright",
+        "\\btdd\\b",
+        "cobertura de teste",
+        "test coverage",
+        "estrategia de testes"
       ]
     }
   ]

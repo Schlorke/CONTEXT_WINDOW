@@ -65,8 +65,24 @@ Pontos importantes:
 
 - as skills precisam ficar como diretórios imediatos dentro de `.claude/skills/`
 - copiar a árvore canônica inteira com coleções (`frontend/`, `backend/`) para dentro de `.claude/skills/` não é o modo recomendado de runtime
+- **escolha UM escopo para a biblioteca genérica** — recomendado: global
+  (`~/.claude/skills`), reservando `.claude/skills/` do projeto para skills
+  específicas do projeto. Instalar nos dois escopos dobra a lista de skills que
+  o modelo vê, encurta as descriptions pelo orçamento de listagem e degrada o
+  disparo automático. O instalador e o `verify` avisam quando detectam
+  duplicação.
+- o disparo automático do Claude é julgamento do modelo sobre
+  `description`/`when_to_use` (não há `globs` determinístico nativo); o campo
+  `paths:` no frontmatter apenas **restringe a visibilidade** da skill a
+  sessões que tocam arquivos casando o glob — bom para skills de nicho, ruim
+  para skills obrigatórias (ficam invisíveis no momento do prompt)
+- para uma camada determinística equivalente ao `alwaysApply`/`globs` do
+  Cursor, instale o hook de roteamento: `pnpm install:claude-hook -- <dir>`
+  (gera `.claude/hooks/skill-router.mjs` + `.claude/skill-routing.json` a
+  partir dos profiles e registra os hooks em `.claude/settings.json`)
 
-Por isso, para Claude, o caminho mais seguro é usar o bundle achatado ou o instalador do repositório.
+Por isso, para Claude, o caminho mais seguro é usar o instalador do repositório
+(global para a biblioteca + hook por projeto).
 
 ## Cursor
 
