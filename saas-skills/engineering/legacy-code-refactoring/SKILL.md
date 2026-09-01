@@ -3,7 +3,7 @@ name: legacy-code-refactoring
 description: Operational manual for safely refactoring and reorganizing legacy code in Next.js/React/TypeScript SaaS projects, covering initial audit, code smell identification, characterization tests, SOLID application, hotspot analysis (git-based metrics), safe refactoring workflow (Red-Green-Refactor), and tooling automation. Use when inheriting a legacy codebase, planning a refactoring sprint, identifying code smells, writing characterization tests for untested code, analyzing git hotspots, or reorganizing a messy project structure.
 metadata:
   author: Engineering Standards Team
-  version: "1.0"
+  version: "1.1"
   last_validated: "2026-04-12"
   sources:
     - Michael Feathers, "Working Effectively with Legacy Code"
@@ -26,7 +26,7 @@ src/features/<feature>/
 ├── modules/            # functional capabilities of the domain
 │   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
 │       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
-│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ server/ jobs/
+│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ client/ server/ jobs/
 │       └── index.ts    # curated public barrel of the module
 ├── shared/             # ONLY what 2+ modules of THIS feature consume
 │   └── components/ hooks/ schemas/ services/ domain/ config/ ...
@@ -53,14 +53,14 @@ Non-negotiable rules:
    as a permanent name and avoid `dashboard` when it collides with a Dashboard
    feature.
 5. Cross-feature imports go through public entrypoints only: the feature root
-   barrel or `features/<f>/modules/<m>` (plus its `server`/`contracts`).
+   barrel or `features/<f>/modules/<m>` (plus its
+   `client`/`server`/`contracts`).
    Never deep-import another feature's internals.
 6. Naming inside modules is responsibility-first: never a generic `root/`
    folder; never repeat the parent's name without need; use the shortest
    precise semantic name for the responsibility. Homonym file/folder
    (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
    obligation — `shell/frame.tsx` is correct when the file is only the frame.
-
 
 Trigger this skill when:
 
@@ -82,14 +82,25 @@ This skill is MANDATORY and must be followed without exception when its trigger 
 
 ### Phase 1: Initial Audit (1–2 days)
 
-1. **Map folder structure**: Run `tree -L 3 -I node_modules` or similar. Identify: core features, shared utilities, API routes, hooks, components.
-2. **Run dependency analysis**: Use `madge --extensions ts,tsx src/` or `dependency-cruiser` to visualize import graphs. Flag circular dependencies.
+1. **Map folder structure and ownership**: Inspect the real tree, Git state,
+   consumers, domain vocabulary, route/API boundaries, tenant/RBAC scope and
+   existing public entrypoints. Documentation and a green gate are supporting
+   evidence, not proof of semantic ownership.
+2. **Run dependency and runtime analysis**: Use the repository's graph tooling
+   to flag cycles, upward imports, deep imports and browser code that reaches a
+   server barrel. Distinguish public `client`, `server` and `contracts`
+   surfaces when the module spans runtimes.
 3. **Count files and complexity**: Lines of code per file, number of components per folder. Files >300 lines are candidates for splitting.
 4. **Run static analysis**: ESLint (code quality), TypeScript in strict mode (type safety), Prettier (consistency).
 5. **Measure bundle size**: use the repo build script, e.g. `pnpm build`, then inspect `.next/` or use `webpack-bundle-analyzer`. Identify large chunks.
 6. **List untested code**: use the repo test script, e.g. `pnpm exec vitest run --coverage` or `pnpm test:run`. Export files with 0% coverage.
 
 **Output**: Audit report with file counts, circular dependencies, coverage gaps, bundle size.
+
+For structural-only work, record the invariants before editing: behavior,
+markup, styles, animations, URLs, APIs, authorization, tenant filtering and
+database effects. A move is complete only after old aliases are absent and the
+new public entrypoints are exercised by real consumers.
 
 ### Phase 2: Hotspot Analysis (git-based metrics, 1 day)
 
@@ -177,6 +188,24 @@ Common React/TypeScript code smells:
 
 ### Phase 7: Tooling Automation
 
+#### Validation cadence for large refactors
+
+Keep feedback proportional while files are still moving:
+
+1. During iteration, run only the smallest check that can inform the next edit
+   (focused tests, type check for the touched boundary, or a narrow static
+   search).
+2. Finish code, imports, tests, docs, changelog and generated context before the
+   expensive repository-wide gate.
+3. Run the comprehensive gate once at the stable closeout point. If it fails,
+   fix the specific cause and resume from the smallest relevant stage; do not
+   repeatedly restart unchanged expensive suites.
+4. Limit verbose command output and retain concise summaries with exit status,
+   test counts and the first actionable failure. Tool logs consume agent context
+   and user budget just like source files.
+5. If the user restricts commands, cost or timing, that instruction overrides
+   the default verification cadence immediately.
+
 - **ESLint**: Rules for code quality. Run `eslint src/ --fix` to auto-fix.
 - **Prettier**: Auto-format code. Integrate into editor and CI.
 - **TypeScript strict**: `tsconfig.json`: `strict: true`. Catches type errors early.
@@ -189,7 +218,11 @@ Common React/TypeScript code smells:
 
 **Circular dependency resolution**: When A ↔ B circularly import, extract shared types/utilities to module C. Update A and B to import from C.
 
-**Large migration**: Refactoring >50 files? Use feature flags. Migrate incrementally. Keep old code alongside new code until confident. Remove old code in separate PR after validation.
+**Large migration**: Refactoring >50 files? Preserve behavior through stable
+public entrypoints, adapters and characterization tests. Migrate by semantic
+owner, search removed aliases globally, and reserve the full quality gate for
+the completed migration. Use feature flags only when runtime behavior changes;
+purely structural moves do not need parallel implementations by default.
 
 **Type-safe refactoring**: Use TypeScript `as const` assertions, conditional types, and generics to enforce correctness during refactoring.
 
@@ -213,6 +246,9 @@ If the following information is missing, output `[INFORMATION NEEDED: X]` instea
 - **Perfectionism**: Aim for "good enough," not perfect. Stop when code is testable and maintainable.
 - **No stakeholder communication**: Refactoring takes time. Align with product team on timeline.
 - **Bundle size regression**: Refactoring may increase bundle. Monitor and optimize imports (tree-shaking, lazy loading).
+- **Full-gate thrashing**: Re-running the complete lint/test/build pipeline
+  while imports and docs are still changing wastes time, tokens and attention.
+  Use targeted feedback during edits and one comprehensive closeout.
 
 ## Enforcement
 

@@ -61,6 +61,8 @@ Escolha o escopo certo antes de instalar:
 - somente Codex: `node scripts/install-agent-runtimes.mjs . --codex-only`
 - somente Claude do projeto: `node scripts/install-agent-runtimes.mjs . --claude-only`
 - somente Cursor do projeto: `node scripts/install-agent-runtimes.mjs . --cursor-only`
+- Cursor do projeto com skills globais já instaladas e orçamento de contexto:
+  `node scripts/install-agent-runtimes.mjs . --cursor-only --cursor-project-stubs`
 - projeto completo: `node scripts/install-agent-runtimes.mjs . --project-only`
 - projeto + globais: `node scripts/install-agent-runtimes.mjs . --global-all`
 
@@ -94,7 +96,7 @@ Confirme que os artefatos planejados estão limitados a:
 Se a prévia estiver limpa, execute:
 
 ```bash
-node scripts/install-agent-runtimes.mjs . --global-all --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
+node scripts/install-agent-runtimes.mjs . --global-all --cursor-project-stubs --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
 ```
 
 ### Etapa 3: Verificação estrutural da sandbox
@@ -102,7 +104,7 @@ node scripts/install-agent-runtimes.mjs . --global-all --codex-home .agent-runti
 Execute:
 
 ```bash
-node scripts/verify-agent-runtimes.mjs . --global-all --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
+node scripts/verify-agent-runtimes.mjs . --global-all --cursor-project-stubs --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
 ```
 
 Considere falha se:

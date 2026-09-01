@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.3.0",
   "$comment": "Per-skill runtime profiles. `globs` drive Cursor auto-attach. `claudePaths` drive the Claude `paths:` frontmatter (file-scoped visibility); an explicit empty array opts a skill OUT of the globs fallback so it stays always-on via description (use for broad skills or globs with brace patterns, which Claude paths may not expand). `promptTriggers` feed the optional Claude skill-router hook; keep them SPECIFIC (multiword or domain terms) to avoid noisy suggestions, and write them unaccented (the router strips diacritics on both sides).",
   "rules": [
     {
@@ -18,7 +18,7 @@
     {
       "skill": "react-saas-architecture",
       "file": "skill-react-saas-architecture.mdc",
-      "description": "React and Next.js App Router architecture for feature boundaries, shared layers, co-location, and export discipline.",
+      "description": "React and Next.js App Router architecture for feature boundaries, runtime-specific client/server/contracts entrypoints, shared layers, co-location, and export discipline.",
       "globs": [
         "**/*.{ts,tsx,js,jsx}",
         "app/**/*.{ts,tsx,js,jsx}",
@@ -31,6 +31,7 @@
         "folder structure",
         "app router",
         "barrel export",
+        "client server barrel",
         "organizacao de codigo",
         "feature-based"
       ]
@@ -157,14 +158,16 @@
     {
       "skill": "context-window-optimization",
       "file": "skill-context-window-optimization.mdc",
-      "description": "Context-window optimization for token budgeting, ordering, compression, retrieval boundaries, and drift prevention.",
+      "description": "Context-window optimization for token and tool-output budgeting, validation scheduling, ordering, compression, retrieval boundaries, and drift prevention.",
       "promptTriggers": [
         "context window",
         "janela de contexto",
         "orcamento de tokens",
         "token budget",
         "compressao de contexto",
-        "context drift"
+        "context drift",
+        "tool output budget",
+        "logs gastando tokens"
       ]
     },
     {
@@ -178,6 +181,20 @@
         "sync skills",
         "skill library",
         "biblioteca de skills"
+      ]
+    },
+    {
+      "skill": "multi-agent-skill-creator",
+      "file": "skill-multi-agent-skill-creator.mdc",
+      "description": "Create and maintain one canonical Agent Skill with trigger evals and safe Codex, Claude, and Cursor adapters.",
+      "promptTriggers": [
+        "criar uma skill",
+        "criar uma habilidade",
+        "create a skill",
+        "atualizar skill.md",
+        "skill creator",
+        "skill trigger matrix",
+        "agents/openai.yaml"
       ]
     },
     {
@@ -270,7 +287,7 @@
     {
       "skill": "testing-strategies",
       "file": "skill-testing-strategies.mdc",
-      "description": "Testing strategy guidance for Vitest, Testing Library, Playwright, test pyramid design, CI gates, and coverage boundaries.",
+      "description": "Testing strategy guidance for Vitest, Testing Library, Playwright, focused-to-full validation cadence, incremental CI gates, and all-source coverage boundaries.",
       "globs": [
         "**/*.{test,spec}.{ts,tsx,js,jsx}",
         "**/__tests__/**/*.{ts,tsx,js,jsx}",
@@ -298,6 +315,35 @@
         "cobertura de teste",
         "test coverage",
         "estrategia de testes"
+      ]
+    },
+    {
+      "skill": "multiplatform-platform-architecture",
+      "file": "skill-multiplatform-platform-architecture.mdc",
+      "description": "Platform-level architecture for multiplatform SaaS: pnpm monorepo (apps clients/services/workers + packages + products), FSD on every frontend surface, modular API with boundary laws and 12-factor, Expo mobile, dual cookie+Bearer auth, contracts-first /api/v1.",
+      "globs": [
+        "pnpm-workspace.yaml",
+        "turbo.json",
+        "apps/**/*",
+        "packages/**/*",
+        "products/**/*"
+      ],
+      "claudePaths": [],
+      "promptTriggers": [
+        "novo projeto saas",
+        "new saas project",
+        "bootstrap do projeto",
+        "monorepo",
+        "multiplataforma",
+        "multiplatform",
+        "feature-sliced",
+        "fsd",
+        "apps e packages",
+        "extrair api",
+        "extract backend",
+        "plataforma saas",
+        "mobile expo",
+        "workspace pnpm"
       ]
     }
   ]

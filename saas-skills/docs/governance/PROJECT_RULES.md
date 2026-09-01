@@ -38,6 +38,7 @@
 - ALWAYS use Tailwind CSS for styling. Do not use CSS Modules, styled-components, or inline style objects unless integrating with a third-party library that requires it.
 - ALWAYS use the project's design tokens (via CSS custom properties or Tailwind config) instead of hardcoded color/spacing values.
 - NEVER use arbitrary Tailwind values (`w-[347px]`) when a token exists. If no token fits, add one to the design system first.
+- **ABSOLUTELY FORBIDDEN — NO EXCEPTIONS BY DEFAULT: `!important` in CSS and the `!` important modifier in Tailwind (e.g. `!mt-0`, `!hidden`).** This is an inadmissible anti-coding practice: it hides the real cascade/specificity problem, poisons every future override and spreads virally once introduced. No new project ships with a single occurrence, and no generated code may introduce one. Resolve style conflicts by (1) better scope/selector, (2) cascade/order, (3) a dedicated class or variant, (4) fixing the component architecture. If a third-party constraint makes an exception truly unavoidable, it requires an explicit human-approved ADR documenting root cause and removal plan — silent use is prohibited. Enforce mechanically in CI: stylelint `declaration-no-important` + a lint/grep gate for the Tailwind `!` prefix, both failing the build.
 
 ## Data & Validation
 
@@ -103,7 +104,7 @@ As regras acima refletem a stack e as boas práticas identificadas no repositór
 
 ### Relação com as Skills
 
-Estas rules são complementares às 16 skills da biblioteca `saas-skills/`. As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
+Estas rules são complementares às 20 skills da biblioteca `saas-skills/`. As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
 
 Exemplo: a rule diz "ALWAYS add createdAt/updatedAt to every model". A skill `prisma-database-design` ensina o workflow completo de schema design, migrations e otimização de queries.
 

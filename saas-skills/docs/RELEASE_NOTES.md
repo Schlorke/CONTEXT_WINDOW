@@ -1,5 +1,67 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.16.0 — 28 de julho de 2026
+
+### Added in 1.16.0
+
+- `engineering/multiplatform-platform-architecture` v1.0.0: skill de
+  arquitetura de plataforma multiplataforma (monorepo apps/packages/products,
+  FSD nos clients, API modular com leis de fronteira e 12-factor, Expo mobile,
+  auth dupla, contratos-first). Origem: consenso arquitetural do projeto OkGas
+  (ADR-061, 2026-07-28), generalizado como molde para novos projetos.
+- Registros: +1 profile em `integrations/cursor-rule-profiles.json` (v1.3.0),
+  +9 casos em `evals/skill-trigger-matrix.json` (v1.11.0; totais 65/61/20),
+  contagens do catálogo atualizadas (20 skills).
+- Regra reforçada em anti-patterns e enforcement: `!important` (CSS) e
+  modificador `!` (Tailwind) são proibidos em qualquer projeto novo; exceção
+  só com ADR aprovado por humano; stylelint/lint em CI deve falhar o build.
+
+## 1.14.0 — 22 de julho de 2026
+
+### Changed in 1.14.0
+
+- Skills de arquitetura/refatoração ganharam entrypoints explícitos
+  `client`/`server`/`contracts`, incluindo proteção contra dependências de
+  Prisma/`node:*` no browser e contra barrels amplos que criem chunks cíclicos.
+- A estratégia de testes agora diferencia cobertura de arquivos importados de
+  cobertura de toda a produção e recomenda baseline incremental para projetos
+  legados.
+- A otimização de contexto passou a orçar tool output e a programar validação:
+  checks focados durante o trabalho, gate completo uma vez no fechamento e
+  interrupção imediata quando o usuário restringir comandos ou custo.
+- Package elevado para `1.14.0`; profiles Cursor/Claude e matriz de evals foram
+  atualizados para `61/57/19` casos.
+
+## 1.13.1 — 21 de julho de 2026
+
+### Changed in 1.13.1
+
+- A taxonomia portátil passou a usar `layouts` e `widgets`, com direção
+  `app -> layouts -> widgets -> features -> shared`.
+- A documentação diferencia o mecanismo `app/**/layout.tsx` da camada
+  `src/layouts/**` e preserva `*Shell` como nome válido para componentes
+  persistentes que também coordenam comportamento e integrações.
+- Package elevado para `1.13.1`; skills, referências e evals foram alinhados
+  para Codex, Claude e Cursor.
+- O novo modo `--cursor-project-stubs` separa regras completas globais de
+  gatilhos curtos por projeto e é verificado na sandbox multi-runtime.
+
+## 1.13.0 — 21 de julho de 2026
+
+### Added in 1.13.0
+
+- Skill portátil `multi-agent-skill-creator` para criar e atualizar uma única fonte
+  canônica e materializá-la com segurança em Codex, Claude e Cursor.
+- Scaffold fallback, contrato de runtimes, profile de roteamento e matriz de
+  evals para autoria de skills.
+
+### Changed in 1.13.0
+
+- `react-saas-architecture` e `clean-architecture-ddd` passaram a reconhecer
+  uma camada persistente e widgets pertencentes ao seu owner como camadas
+  formais de apresentação; a nomenclatura foi refinada em `1.13.1`.
+- Biblioteca elevada para `19` skills e package `1.13.0`.
+
 ## 1.11.0 — 13 de maio de 2026
 
 ### Added in 1.11.0

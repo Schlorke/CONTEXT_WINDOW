@@ -1,9 +1,9 @@
 ---
 name: context-window-optimization
-description: Procedural guide for structuring and optimizing LLM context windows in SaaS development, covering token budgeting, positional bias mitigation (Lost in the Middle), context drift prevention, smart compression strategies, progressive disclosure, and RAG integration. Trigger when optimizing context for agents, managing token limits, structuring long prompts, preventing context drift, choosing between RAG and in-context approaches, or compressing documentation for LLM consumption.
+description: Procedural guide for structuring and optimizing LLM context windows in SaaS development, covering token and tool-output budgeting, positional bias mitigation, context drift prevention, validation scheduling, smart compression, progressive disclosure, and RAG integration. Trigger when optimizing context for agents, managing token or command-log costs, structuring long prompts, preventing context drift, choosing between RAG and in-context approaches, or compressing documentation for LLM consumption.
 metadata:
   author: Claude Agent, SaaS Skills
-  version: 1.0
+  version: 1.1
   last_validated: 2026-04-12
   sources:
     - references/compression-strategies.md
@@ -24,6 +24,8 @@ Activate this skill whenever:
 - Debugging why an LLM is "hallucinating" or forgetting constraints.
 - Planning memory/caching strategies for multi-turn conversations.
 - Building agents that query large knowledge bases.
+- Reducing context consumed by verbose tool output, repeated builds, test logs,
+  or validation commands in long-running coding tasks.
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
 
@@ -143,10 +145,11 @@ The structured format and visual prominence help the model remember.
 ```text
 System Prompt           5K    (5%)    — Role, instructions, critical rules
 Project Context        15K   (15%)   — Architecture, key decisions
-Relevant Files         40K   (40%)   — Code snippets, config files
-Conversation History   30K   (30%)   — Past turns (summarized)
-User Query             5K    (5%)    — Current request
-Response Buffer        5K    (5%)    — Reserve for output
+Relevant Files         35K   (35%)   — Code snippets, config files
+Conversation History   25K   (25%)   — Past turns (summarized)
+Tool Output            10K   (10%)   — Searches, tests, builds, diagnostics
+User Query              5K    (5%)    — Current request
+Response Buffer         5K    (5%)    — Reserve for output
 ────────────────────────────────
 TOTAL                 100K  (100%)
 ```
@@ -159,12 +162,37 @@ TOTAL                 100K  (100%)
 4. **Conversation History (20-40%)** — Keep recent turns verbatim. Summarize old turns.
 5. **User Query (3-10%)** — Keep clear and complete. Don't skimp.
 6. **Response Buffer (5-10%)** — Reserve for output. Prevents "context full" cutoffs.
+7. **Tool Output (5-15%)** — Budget searches, diagnostics and validation logs;
+   retain summaries and actionable failures instead of unbounded success logs.
 
 #### Token Auditing Tool
 
 ```text
 For each component (system, project context, files, history, query), call the official token counter for the active model and log the count before deployment.
 ```
+
+---
+
+### Step 4.1: Budget Agentic Tool Output
+
+For coding agents, terminal and tool results are part of the context window.
+Treat command scheduling as a context decision:
+
+1. Finish the current edit batch before running a repository-wide quality gate,
+   unless that gate is needed to decide the next edit.
+2. During iteration, prefer narrow searches, type checks or focused tests whose
+   result can change the next action.
+3. At closeout, run the comprehensive gate once. On failure, isolate and rerun
+   only the failed stage until the fix is stable.
+4. Cap output, suppress repetitive success lines and preserve exit status, test
+   counts and the first actionable error.
+5. Reuse still-valid evidence: a documentation-only fix does not justify
+   rerunning an unchanged browser suite. Reverify only surfaces affected by the
+   latest change.
+6. Explicit user constraints about commands, time, paid providers or token cost
+   override the default validation plan immediately. Stop an active command when
+   asked; do not reinterpret the restriction as permission for another “final”
+   run.
 
 ---
 
@@ -359,6 +387,12 @@ Retrieved docs irrelevant to query. Wastes tokens, confuses LLM. Verify relevanc
 
 System prompt changes daily. LLM behavior unpredictable. Version everything. Track changes.
 
+#### Anti-Pattern 7: Full-Gate Thrashing
+
+Running lint, all tests and all builds after every small edit repeatedly injects
+mostly duplicate logs into context. Use targeted feedback while editing and one
+comprehensive closeout after the change is stable.
+
 ---
 
 ## Enforcement
@@ -373,6 +407,7 @@ For all context windows > 10K tokens:
 4. [ ] Drift prevention mechanism in place (re-injection or anchors).
 5. [ ] Compression strategy applied.
 6. [ ] Fallback clause implemented.
+7. [ ] Tool-output budget and validation cadence defined.
 
 Code review:
 

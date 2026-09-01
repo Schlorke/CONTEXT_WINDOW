@@ -59,7 +59,6 @@ Non-negotiable rules:
    (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
    obligation — `shell/frame.tsx` is correct when the file is only the frame.
 
-
 This skill applies when:
 
 - Extracting a component from one project to reuse in another

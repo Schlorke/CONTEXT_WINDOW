@@ -2,9 +2,11 @@
 
 Relatório de qualidade estrutural da biblioteca `saas-skills`.
 
-**Data de referência:** 13 de abril de 2026  
-**Escopo auditado:** `18` skills, `20` reference files, `1` asset file  
-**Status:** aprovado no estado atual do repositório
+**Data de referência:** 22 de julho de 2026
+
+**Escopo auditado:** `19` skills, `22` reference files, `1` asset file
+
+**Status:** versão `1.14.0` aprovada pela revalidação automatizada isolada
 
 ## Objetivo
 
@@ -21,14 +23,15 @@ Ele responde a estas perguntas:
 
 No estado atual da árvore:
 
-- `18/18` skills usam frontmatter YAML válido
-- `18/18` skills estão abaixo de `500` linhas
-- `18/18` skills mantêm fallback clause, anti-patterns e enforcement
-- `18/18` skills possuem cobertura de evals com `54` triggers, `54` anti-triggers e `18` conflitos
-- `20/20` referências e `1/1` asset citados pelas skills existem no caminho esperado
-- `pnpm audit:skills` passou
-- `pnpm lint:md` passou
-- `pnpm export:flat-skills` gerou bundle achatado com `18` skills
+- `19/19` skills usam frontmatter YAML válido
+- `19/19` skills estão abaixo de `500` linhas
+- `19/19` skills mantêm fallback clause, anti-patterns e enforcement
+- `19/19` skills possuem cobertura de evals com `61` triggers, `57` anti-triggers e `19` conflitos
+- `22` referências e `1` asset existem; todas as referências citadas pelas skills resolvem no caminho esperado
+- Na versão `1.14.0`, `audit:skills`, `lint:md` e `qa:skills` passaram e
+  verificaram `19` skills nos runtimes isolados de Codex, Claude e Cursor.
+- A instalação de fumaça ficou restrita a `dist/agent-runtime-smoke-test`; os
+  diretórios globais reais do usuário não foram sincronizados.
 
 ## O Que Foi Endurecido Nesta Biblioteca
 
@@ -61,23 +64,24 @@ As melhorias principais desta passagem foram:
 | Collection       | Skill                          | Linhas | Status |
 | ---------------- | ------------------------------ | -----: | ------ |
 | `frontend`       | `design-system-implementation` |    346 | ✅     |
-| `frontend`       | `react-saas-architecture`      |    452 | ✅     |
+| `frontend`       | `react-saas-architecture`      |    494 | ✅     |
 | `frontend`       | `saas-ui-specifications`       |    406 | ✅     |
-| `frontend`       | `component-reuse-portability`  |    435 | ✅     |
-| `backend`        | `clean-architecture-ddd`       |    323 | ✅     |
+| `frontend`       | `component-reuse-portability`  |    480 | ✅     |
+| `backend`        | `clean-architecture-ddd`       |    426 | ✅     |
 | `backend`        | `api-design-patterns`          |    375 | ✅     |
 | `backend`        | `prisma-database-design`       |    372 | ✅     |
 | `ai-integration` | `prompt-engineering-hybrid`    |    319 | ✅     |
 | `ai-integration` | `ai-interface-design`          |    346 | ✅     |
-| `ai-integration` | `context-window-optimization`  |    399 | ✅     |
-| `ai-integration` | `multi-agent-skill-installer`  |    255 | ✅     |
+| `ai-integration` | `context-window-optimization`  |    434 | ✅     |
+| `ai-integration` | `multi-agent-skill-creator`    |    177 | ✅     |
+| `ai-integration` | `multi-agent-skill-installer`  |    284 | ✅     |
 | `ai-integration` | `saas-ai-agent-engineer`       |    173 | ✅     |
 | `ai-integration` | `ai-context-diagrams`          |    441 | ✅     |
 | `documentation`  | `intelligent-project-docs`     |    264 | ✅     |
 | `documentation`  | `technical-research-writing`   |    392 | ✅     |
-| `engineering`    | `legacy-code-refactoring`      |    182 | ✅     |
+| `engineering`    | `legacy-code-refactoring`      |    264 | ✅     |
 | `engineering`    | `systems-analysis-saas`        |    295 | ✅     |
-| `engineering`    | `testing-strategies`           |    476 | ✅     |
+| `engineering`    | `testing-strategies`           |    491 | ✅     |
 
 ## Metodologia
 

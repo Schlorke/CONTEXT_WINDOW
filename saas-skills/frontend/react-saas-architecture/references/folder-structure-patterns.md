@@ -88,6 +88,72 @@ When a feature becomes reusable across projects:
 3. Version the package independently.
 4. Keep app-specific route wiring outside the package.
 
+## Pattern 7: Composed UI — Flat Widgets, or Layouts + Widgets
+
+Composed product UI sits between routes and features. Choose the shape by
+counting **shells** (persistent structures spanning many routes).
+
+### 7a. Single shell (default)
+
+```text
+src/
+├── app/                         # routes and final composition
+├── widgets/
+│   ├── panel-shell/             # DESIGNATED SHELL: frame, header, navigation
+│   ├── account-menu/            # leaf integration
+│   └── notification-center/     # leaf integration
+├── features/                    # independent product capabilities
+├── shared/                      # domain-neutral UI and contracts
+├── infrastructure/              # technical adapters
+└── generated/                   # generated artifacts
+```
+
+Direction: `app -> widgets -> features -> shared`.
+
+### 7b. Two or more shells
+
+Only when a second persistent structure genuinely exists (for example an
+authenticated app plus a public marketing site):
+
+```text
+src/
+├── app/
+├── layouts/
+│   ├── panel/                   # persistent frame per shell
+│   └── marketing/
+├── widgets/
+│   ├── panel/
+│   │   └── account-menu/
+│   └── marketing/
+│       └── pricing-table/
+└── ...
+```
+
+Direction: `app -> layouts -> widgets -> features -> shared`.
+
+### Choosing and enforcing
+
+Do not adopt 7b speculatively. A layer with one occupant — or a scope segment
+whose value is always the same word — costs vocabulary and returns nothing.
+Going 7a → 7b later is a mechanical move.
+
+Both shapes must preserve the same invariant: **a leaf widget never imports a
+sibling widget.** Someone has to compose siblings:
+
+- 7a: the designated shell, allowed **by name** in the gate, never by a
+  "looks like a shell" heuristic.
+- 7b: the owning layout, one layer above.
+
+Admit a widget only when it is composed product UI with no central business
+rule. Component size, internal complexity, and reuse count are not admission
+criteria. Keep business rules in features and generic primitives/compositions
+in shared.
+
+For Next.js repositories, distinguish route files from the presentation layer:
+`app/**/layout.tsx` controls route hierarchy, while the shell module contains
+the persistent implementation. Such components may still use names like
+`PanelShell` when they provide shell-like behavior and integrations.
+
 ### Import aliases (tsconfig.json)
 
 ```json
@@ -405,3 +471,102 @@ import { BillingLayout } from "@/shared/components";
 6. **Avoid circular dependencies:** Feature A should not import from Feature B. Both should import from `shared/`.
 
 7. **Scale incrementally:** Start with Pattern 1 (flat), move to Pattern 2 (hybrid) as the project grows, then to Pattern 3 (monorepo) if needed.
+
+## Runtime-Specific Public Entrypoints
+
+Do not solve browser/server reuse by making one barrel export everything. For a
+module with mixed runtimes, prefer:
+
+```text
+modules/<module>/
+├── index.ts            # UI or runtime-neutral public API
+├── client/index.ts     # fetch adapters, browser services and client hooks
+├── server/index.ts     # database, filesystem, secrets and server orchestration
+└── contracts/index.ts  # DTOs, schemas and explicit framework-neutral types
+```
+
+- Client components, stories and presentation helpers import `/client`, never
+  a bare `/server` barrel.
+- Server Actions use a narrow `/server/actions/<action>` entrypoint.
+- Types needed by browser or pure layers live in `/contracts`; `import type`
+  does not make server ownership appropriate.
+- Keep each surface curated. A large capability registry beside a small fetch
+  service can force unrelated modules into the browser graph, weaken
+  tree-shaking, create circular chunks and make bundlers fail even when
+  TypeScript passes.
+- Add an executable dependency gate for the runtime boundaries.
+
+## Pattern B and Pattern C reference trees (moved from SKILL.md v1.3.0)
+
+Pattern B — layer-based:
+
+```text
+src/
+├── components/       (all UI components)
+├── hooks/            (all custom hooks)
+├── lib/              (all utilities)
+├── types/            (all TypeScript types)
+├── constants/
+└── app/              (Next.js routes)
+```
+
+Pattern C — hybrid (recommended):
+
+```text
+src/
+├── app/                         (Next.js App Router and API routes)
+├── components/
+│   ├── features/                (domain-specific UI: billing/, auth/, dashboard/)
+│   └── ui/
+│       ├── primitives/          (Button, Input, Badge)
+│       └── composed/            (Dialog, DataTable, Combobox)
+├── hooks/                       (cross-feature hooks)
+├── lib/                         (utilities, auth, Prisma/client helpers)
+└── types/                       (global TypeScript contracts)
+```
+
+## Naming convention examples (moved from SKILL.md v1.3.0)
+
+```typescript
+// Components: PascalCase
+export const BillingOverview = () => {
+  /* ... */
+};
+// Hooks: camelCase with use prefix
+export const useBillingData = () => {
+  /* ... */
+};
+// Utilities: camelCase
+export const calculateTax = (amount: number) => {
+  /* ... */
+};
+// Types: PascalCase
+export type Invoice = { id: string; amount: number };
+// Constants: UPPER_SNAKE_CASE
+export const MAX_INVOICE_SIZE = 100;
+```
+
+## Circular-dependency solutions in detail (moved from SKILL.md v1.3.0)
+
+1. Move shared code to the shared layer:
+
+   ```text
+   components/features/billing/  imports types/Invoice
+   components/features/dashboard/ imports types/Invoice
+   (no circular dependency)
+   ```
+
+2. Dependency injection — Feature A does not import Feature B; it receives the
+   behavior via props/context:
+
+   ```typescript
+   <FeatureA handler={(invoice) => featureBLogic(invoice)} />
+   ```
+
+3. Public vs internal surfaces inside the feature:
+
+   ```text
+   features/billing/
+   ├── public/         (what billing exports)
+   └── internal/       (never imported by other features)
+   ```

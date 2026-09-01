@@ -54,6 +54,18 @@ pnpm install:cursor -- .
 pnpm verify:cursor -- .
 ```
 
+Se as skills completas já estiverem instaladas globalmente em Claude/Codex e o
+projeto limitar o contexto do Cursor, prefira stubs curtos:
+
+```bash
+pnpm install:cursor -- . --cursor-project-stubs
+pnpm verify:cursor -- . --cursor-project-stubs
+```
+
+Sem a flag, o projeto recebe rules completas. Com a flag, cada rule serve como
+gatilho e aponta para a skill global, preservando as regras locais como fonte de
+verdade e evitando que dezenas de corpos genéricos entrem no contexto do repo.
+
 ### Global com compatibilidade + bootstrap oficial
 
 Quando você quer preparar o Cursor para todos os projetos:
@@ -94,7 +106,7 @@ Eles **não conseguem provar**:
 
 ## Por Que Não Jogar Tudo em User Rules
 
-Não é uma boa ideia colar o corpo completo das `18` skills nas `User Rules` globais do Cursor.
+Não é uma boa ideia colar o corpo completo das `19` skills nas `User Rules` globais do Cursor.
 
 Isso piora:
 

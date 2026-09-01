@@ -3,7 +3,7 @@ name: testing-strategies
 description: Procedural guide for implementing testing strategies in Next.js/React/TypeScript SaaS projects, covering the testing pyramid, TDD workflow (Red-Green-Refactor), unit tests (Vitest), integration tests, E2E tests (Playwright), React component testing (Testing Library), API route testing, and test organization patterns. Use when setting up a testing framework, writing unit tests, implementing TDD, testing React components, creating E2E test suites, testing API routes, or defining a testing strategy for a new project.
 metadata:
   author: Engineering Standards Team
-  version: "1.0"
+  version: "1.1"
   last_validated: "2026-04-12"
   sources:
     - references/test-examples.md
@@ -427,12 +427,22 @@ Choose one pattern; be consistent across project.
 
 When `vitest.config.*` defines named projects, run the project-specific scripts instead of inventing a new command. Example: unit tests through `pnpm test:run`, Storybook/component tests through `pnpm test:run:storybook`, all configured projects through `pnpm test:run:all`.
 
+## Coverage and Validation Gates
+
+Measure the intended production surface with an explicit coverage `include`,
+not only files imported by tests. Baseline established code before enforcing
+non-regression; use risk-appropriate targets for new code. During edits, run
+focused checks and reserve one comprehensive gate for closeout. Keep paid or
+external-service E2E separate and respect explicit command/output limits. See
+`references/test-examples.md` for the full policy and CI example.
+
 ## CI Integration
 
 1. **Run unit + integration tests** on every PR. Fail PR if coverage drops.
 2. **Run E2E tests** on main branch merges or nightly (optional for PRs if too slow).
 3. **Generate coverage reports** and track trends.
-4. **Set coverage thresholds**: Aim 80% overall (diminishing returns above this).
+4. **Set coverage thresholds**: use a measured non-regression baseline for
+   legacy code; use a risk-appropriate target such as 80% for new codebases.
 
 Use `references/test-examples.md` for a baseline GitHub Actions workflow. Keep the canonical skill focused on deciding what to test and when to gate merges.
 
@@ -463,6 +473,11 @@ If the following information is missing, output `[INFORMATION NEEDED: X]` instea
 - **100% coverage goal**: Diminishing returns after 80%. Focus on behavior, not line count.
 - **Ignoring flaky tests**: Tests that pass 90% of the time are worse than useless. Fix root cause (async issues, timing).
 - **E2E for everything**: E2E tests are expensive and slow. Use unit/integration tests for edge cases.
+- **Imported-files-only coverage**: a high percentage over only the modules
+  touched by tests can hide most production code. Define the production include
+  surface explicitly.
+- **Repeated full-suite execution during edits**: expensive suites should close
+  a stable change, not run after every mechanical import or formatting fix.
 
 ## Enforcement
 

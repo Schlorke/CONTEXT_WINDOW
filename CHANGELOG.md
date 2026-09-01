@@ -11,9 +11,157 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
-## [Unreleased]
+## [1.16.0] - 2026-07-28
 
-Sem mudanças não lançadas no momento.
+### Added in 1.16.0
+
+- Nova skill `multiplatform-platform-architecture` (coleção `engineering`):
+  arquitetura de plataforma para SaaS multiplataforma — monorepo pnpm com apps
+  agrupados por natureza de execução (`clients/services/workers`), packages pela
+  regra de 2+ consumidores, camada `products/`, FSD em todas as superfícies
+  frontend, API modular com 3 leis de fronteira + 12-factor, mobile Expo/React
+  Native, auth dupla cookie+Bearer e contratos `/api/v1` com OpenAPI gerado de
+  Zod. Inclui 3 references (árvore canônica, taxonomia FSD, anatomia da API) e
+  proibição enfática de `!important`/modificador `!` do Tailwind como
+  anti-pattern com enforcement em CI.
+- Profile Cursor e casos de eval (4 positivos, 4 negativos, 1 conflito com
+  `react-saas-architecture`) para a skill nova.
+
+## [1.15.0] - 2026-07-25
+
+### Changed in 1.15.0
+
+- `react-saas-architecture`: a composição de UI deixou de prescrever a camada
+  `layouts` como padrão. O SKILL e
+  `references/folder-structure-patterns.md` passam a apresentar **duas formas**
+  e o critério objetivo para escolher entre elas — contar **shells**
+  (estruturas persistentes que atravessam muitas rotas):
+  - **Forma A (padrão, um shell):** raiz `widgets` plana com um **shell
+    designado** (`app -> widgets -> features -> shared`);
+  - **Forma B (dois ou mais shells):** `layouts` + `widgets/<layout>`
+    (`app -> layouts -> widgets -> features -> shared`).
+- O invariante que as duas formas preservam ficou explícito: **widget folha
+  nunca importa widget irmão**; quem compõe irmãos é o shell designado
+  (permitido **por nome** no gate, nunca por heurística "parece um shell") ou o
+  layout dono, uma camada acima.
+- Aviso adicionado contra adotar a Forma B especulativamente: camada com um
+  único ocupante — ou segmento de caminho cujo valor é sempre a mesma palavra —
+  custa vocabulário e não devolve nada; migrar A → B depois é mecânico.
+
+## [1.14.0] - 2026-07-22
+
+### Changed in 1.14.0
+
+- `clean-architecture-ddd`, `react-saas-architecture` e
+  `legacy-code-refactoring` agora separam superfícies públicas
+  `client`/`server`/`contracts`, mantêm tipos neutros fora de barrels server e
+  alertam contra grafos client amplos que prejudiquem tree-shaking ou chunks.
+- `testing-strategies` passou a exigir cobertura sobre toda a superfície de
+  produção, baseline inicial medido e thresholds incrementais em vez de metas
+  arbitrárias para código legado.
+- `context-window-optimization` agora trata logs e comandos como parte do
+  orçamento: checks focados durante as edições, gate completo somente no
+  fechamento estável e obediência imediata a limites explícitos do usuário.
+- Profiles e evals receberam casos para runtime boundaries, all-source coverage
+  e orçamento de tool output. A matriz passa a `61/57/19` casos e o package a
+  `1.14.0`.
+
+## [1.13.1] - 2026-07-21
+
+### Changed in 1.13.1
+
+- A camada formal de composição passou a se chamar `layouts`, mantendo
+  `widgets` agrupados pelo layout owner e a direção
+  `app -> layouts -> widgets -> features -> shared`.
+- `react-saas-architecture` agora distingue `app/**/layout.tsx` (hierarquia de
+  rotas) de `src/layouts/**` (estrutura persistente) e permite nomes de
+  componente como `PanelShell` quando há comportamento além da disposição
+  visual. `clean-architecture-ddd` e os evals receberam a mesma taxonomia.
+- O adapter do Cursor ganhou `--cursor-project-stubs`: projetos que já usam as
+  skills globais podem manter `.cursor/rules` pequenas, sem globs amplos e sem
+  duplicar os 19 corpos completos no contexto. A QA valida stub no projeto e
+  adapter completo no runtime global.
+
+## [1.13.0] - 2026-07-21
+
+### Added in 1.13.0
+
+- Nova skill canônica `multi-agent-skill-creator`, inicializada pelo scaffold oficial, com
+  fluxo source-first, fallback portátil, `agents/openai.yaml`, referência de
+  contratos de runtime, profile Cursor/Claude e cobertura de evals.
+
+### Changed in 1.13.0
+
+- `react-saas-architecture` e `clean-architecture-ddd` passaram a reconhecer
+  uma camada formal de composição persistente com widgets agrupados pelo owner;
+  a nomenclatura foi refinada em `1.13.1`.
+- A biblioteca passa a ter `19` skills e versão `1.13.0`; adapters e instaladores
+  continuam gerando os runtimes de Codex, Claude e Cursor a partir da mesma
+  fonte canônica.
+
+## [1.12.1] - 2026-07-21
+
+### Changed in 1.12.1
+
+- `react-saas-architecture` agora exige admissão explícita para novas raízes de
+  feature: a IA deve inspecionar a taxonomia dos irmãos, manter mecanismos
+  técnicos sob `modules/` do owner e parar quando não houver owner de produto.
+  Reuso, volume de arquivos, contratos e testes deixaram de ser critérios
+  suficientes. O novo caso `rsa-4` protege esse comportamento na matriz de
+  triggers para Codex, Claude e Cursor.
+
+## [1.12.0] - 2026-07-08
+
+### Added in 1.12.0
+
+- **Hook determinístico de roteamento para o Claude Code** (equivalente ao
+  `alwaysApply`/`globs` do Cursor): novo template
+  `scripts/templates/claude-skill-router.mjs` com normalização de acentos
+  (triggers sem acento agora casam "segurança", "migração" etc.), máximo de 3
+  sugestões por evento (anti alarm-fatigue), skills `mandatory` sempre primeiro,
+  dedup por sessão e caminho do `SKILL.md` incluído no lembrete (fallback para
+  skills gateadas por `paths:`). Globs ancorados no fim (`$`).
+- Flags `--claude-hook` e `--hook-only` no `install-agent-runtimes.mjs` + alias
+  `pnpm install:claude-hook -- <dir>`: instala o hook, gera
+  `.claude/skill-routing.json` a partir dos profiles (novos `promptTriggers`;
+  `pathGlobs` com expansão de chaves `{a,b}`) e registra os hooks em
+  `.claude/settings.json` via merge idempotente. Arquivos personalizados do
+  projeto (hook/tabela não gerenciados) são preservados com aviso.
+- `buildClaudeSkillRouting()`, `expandGlobBraces()` e
+  `detectDuplicateClaudeInstall()` em `scripts/runtime-adapter-utils.mjs`.
+- Aviso de **duplicação de escopo do Claude** no instalador e no
+  `verify-agent-runtimes.mjs`: biblioteca detectada em projeto E global ao mesmo
+  tempo gera warning com instrução de correção (não fatal — o smoke de QA instala
+  os dois escopos em sandbox de propósito).
+
+### Changed in 1.12.0
+
+- **Política oficial de escopo do Claude**: biblioteca genérica em UM escopo só
+  (recomendado: global `~/.claude/skills`, espelhando o Codex); `.claude/skills/`
+  de projeto fica reservado a skills específicas do projeto. Documentado no
+  README (nova seção "Política de Escopo"), no `IDE_RUNTIME_GUIDE.md` e na skill
+  `multi-agent-skill-installer` (novo fluxo recomendado por máquina/projeto).
+- `cursor-rule-profiles.json` (v1.1.0): novos campos `claudePaths` (controle
+  explícito do `paths:` do Claude — listas vazias fazem opt-out do fallback de
+  `globs` para skills amplas: `react-saas-architecture`, `saas-ui-specifications`,
+  `saas-ai-agent-engineer`, `ai-context-diagrams`) e `promptTriggers` (gatilhos
+  específicos, sem acento, para o hook). Globs do `saas-ai-agent-engineer`
+  corrigidos: `**/*ai*/**` casava pastas como `email/` e `detail/`; agora usa
+  segmentos precisos (`**/ai/**`, `**/agent*/**`).
+- `multi-agent-skill-installer`: `metadata.sources` e "Source References"
+  deixaram de usar caminhos relativos que quebravam nas cópias instaladas;
+  agora referenciam o repositório-fonte explicitamente.
+
+### Incluído em 1.12.0 (vinha de "Unreleased")
+
+- Instalador do runtime Claude (`scripts/install-agent-runtimes.mjs`) deixou de
+  copiar o `SKILL.md` de forma literal e passou a reemitir o frontmatter com os
+  campos nativos de auto-detecção da Claude via `buildClaudeSkillContent()`:
+  skills com `globs`/`claudePaths` recebem o campo oficial `paths:` (equivalente
+  nativo dos `globs` do Cursor) e `when_to_use:` opcional, sem sobrescrever
+  campos já presentes na fonte. Arquivos anexos e corpo preservados.
+- Aviso (não fatal) na instalação quando um `name` de skill não está em
+  `kebab-case` minúsculo, alinhando ao requisito de `name` do Agent Skills spec.
 
 ## [1.10.0] - 2026-04-13
 

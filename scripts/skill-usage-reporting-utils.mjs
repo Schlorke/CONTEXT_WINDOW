@@ -1,9 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export const usagePolicyBlockStart = "<!-- BEGIN: SAAS_SKILLS_USAGE_REPORTING -->";
+export const usagePolicyBlockStart =
+  "<!-- BEGIN: SAAS_SKILLS_USAGE_REPORTING -->";
 export const usagePolicyBlockEnd = "<!-- END: SAAS_SKILLS_USAGE_REPORTING -->";
-export const cursorUsageRulePath = path.join(".cursor", "rules", "skill-usage-reporting.mdc");
+export const cursorUsageRulePath = path.join(
+  ".cursor",
+  "rules",
+  "skill-usage-reporting.mdc",
+);
 
 export function buildUsagePolicyBlock() {
   return [
@@ -63,7 +68,9 @@ export function buildCursorUsageRule() {
 }
 
 export function upsertManagedBlock(filePath, block) {
-  const existing = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
+  const existing = fs.existsSync(filePath)
+    ? fs.readFileSync(filePath, "utf8")
+    : "";
   const start = usagePolicyBlockStart;
   const end = usagePolicyBlockEnd;
 
@@ -90,7 +97,9 @@ export function hasManagedBlock(filePath) {
   }
 
   const raw = fs.readFileSync(filePath, "utf8");
-  return raw.includes(usagePolicyBlockStart) && raw.includes(usagePolicyBlockEnd);
+  return (
+    raw.includes(usagePolicyBlockStart) && raw.includes(usagePolicyBlockEnd)
+  );
 }
 
 function escapeForRegExp(value) {

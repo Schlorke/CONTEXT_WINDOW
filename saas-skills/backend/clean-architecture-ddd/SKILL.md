@@ -3,7 +3,7 @@ name: clean-architecture-ddd
 description: Apply Clean Architecture layers, SOLID principles, and Domain-Driven Design patterns to TypeScript/Next.js/Prisma SaaS. Use when architecting application layers, defining domain boundaries, implementing use cases, applying SOLID to React/Node, choosing DDD patterns, or writing Architectural Decision Records. Triggers on clean architecture, SOLID, DDD, domain layer, use cases, bounded context, aggregate, entity, value object, architectural decision, ADR.
 metadata:
   author: SaaS Skills Collection
-  version: "1.0"
+  version: "1.1"
   last_validated: "2026-04-12"
   sources:
     - references/ddd-tactical-patterns.md
@@ -15,6 +15,11 @@ metadata:
 
 # When to Use This Skill
 
+**Platform scope:** monorepo topology (apps/packages/products), modular-API
+module anatomy and extraction playbooks belong to
+`multiplatform-platform-architecture`; this skill governs domain modeling and
+layering INSIDE a module or feature that the platform structure has placed.
+
 ## Internal Feature Structure (MANDATORY)
 
 Feature-first does not stop at `src/features/`. Inside EVERY feature, the root
@@ -25,7 +30,7 @@ src/features/<feature>/
 ├── modules/            # functional capabilities of the domain
 │   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
 │       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
-│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ server/ jobs/
+│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ client/ server/ jobs/
 │       └── index.ts    # curated public barrel of the module
 ├── shared/             # ONLY what 2+ modules of THIS feature consume
 │   └── components/ hooks/ schemas/ services/ domain/ config/ ...
@@ -52,7 +57,8 @@ Non-negotiable rules:
    as a permanent name and avoid `dashboard` when it collides with a Dashboard
    feature.
 5. Cross-feature imports go through public entrypoints only: the feature root
-   barrel or `features/<f>/modules/<m>` (plus its `server`/`contracts`).
+   barrel or `features/<f>/modules/<m>` (plus its
+   `client`/`server`/`contracts`).
    Never deep-import another feature's internals.
 6. Naming inside modules is responsibility-first: never a generic `root/`
    folder; never repeat the parent's name without need; use the shortest
@@ -60,6 +66,55 @@ Non-negotiable rules:
    (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
    obligation — `shell/frame.tsx` is correct when the file is only the frame.
 
+### Presentation Composition Layers
+
+Clean Architecture's presentation layer may be split further when the target
+repository formalizes UI ownership:
+
+```text
+app -> layouts -> widgets -> features -> shared
+```
+
+- `app` owns routes and final composition;
+- `layouts` own persistent frames and structural navigation;
+- `widgets` own layout-specific visual integrations and may compose features;
+- `features` own product capabilities and business workflows;
+- `shared` remains domain-neutral.
+
+This is a presentation taxonomy, not a replacement for Domain/Application/
+Infrastructure boundaries. A widget must not become the owner of business
+rules, and a feature must not import its layout or layout-owned widgets. Group
+widgets by layout owner when the repository chooses that convention, for example
+`widgets/panel/notification-center`.
+
+### Runtime-Specific Public Surfaces
+
+When a module serves both browser and server consumers, curate explicit public
+surfaces instead of mixing runtimes in one barrel:
+
+```text
+modules/<module>/
+├── index.ts            # runtime-neutral or presentation API
+├── client/index.ts     # browser adapters, fetch services and client hooks
+├── server/index.ts     # database, filesystem, secrets and server orchestration
+└── contracts/index.ts  # neutral DTOs, schemas and explicit types
+```
+
+- Mark the client boundary according to the framework and keep it free of
+  Prisma, `node:*`, secrets and server-only transitive imports.
+- Mark the server boundary with the repository's server-only guard. Server
+  Actions use a narrow action entrypoint rather than exposing the whole server
+  barrel to the browser graph.
+- Put types shared by pure/browser code in `contracts`; a type-only import from
+  `server` is still an ownership leak.
+- Keep broad capability registries out of client service entrypoints. A barrel
+  that is semantically valid but too broad can defeat tree-shaking, create
+  cycles or trigger bundler chunking failures.
+- Pure `domain`, `application`, `ports`, `contracts` and `schemas` segments do
+  not depend on React/Next, icon or state libraries, DOM/browser/environment
+  globals, generated clients, infrastructure or server modules.
+- Presentation never accesses the database directly, and server segments do
+  not depend on shared presentation surfaces.
 
 Use this skill when you need to:
 
@@ -127,6 +182,8 @@ For a Next.js SaaS, structure as:
 - Next.js Route Handlers (`src/app/api/[route]` when the repo uses a `src/` root; otherwise follow the existing route root)
 - React Components
 - API endpoint handlers (thin, call use cases)
+- Formal layouts/widgets when the repository uses them; these compose feature
+  APIs but do not own domain rules
 
 ### Phase 4: Implement Domain Models
 
@@ -345,6 +402,11 @@ When designing architecture, defining domains, implementing use cases, or applyi
 5. Always document architectural decisions in ADRs
 6. Always enforce SOLID by code review, never accept God objects or Service Locators
 7. Never put business logic outside the domain layer
+8. When formal presentation layers exist, enforce downward imports and prohibit
+   `features -> widgets`, `features -> layouts`, and `widgets -> layouts`
+9. Separate browser, server and neutral contracts through curated
+   `client`/`server`/`contracts` entrypoints and enforce the split in dependency
+   gates
 
 ## Source References
 

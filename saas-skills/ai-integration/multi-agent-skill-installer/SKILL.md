@@ -3,8 +3,8 @@ name: multi-agent-skill-installer
 description: Install and verify this skills library across Codex, Claude, and Cursor using the correct runtime targets for each platform. Trigger when the user wants global installation, project-local installation, sync across all three AI tools, safe sandbox validation, or a copyable workflow that lets any agent install the library without touching application code.
 metadata:
   author: Codex Agent, SaaS Skills
-  version: 1.2
-  last_validated: 2026-04-13
+  version: 1.3
+  last_validated: 2026-07-21
   sources:
     - "Source repo (C:/Projetos/Context_Window): saas-skills/README.md"
     - "Source repo: README.md"
@@ -28,6 +28,10 @@ Activate this skill whenever:
 - Verifying that skills landed in the correct runtime directories
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+If the request creates or materially changes a canonical skill, use
+`multi-agent-skill-creator` first; this installer owns only sandbox distribution,
+synchronization, manifests, and runtime verification after source validation.
 
 ## Core Workflow
 
@@ -71,7 +75,7 @@ that warning as an action item, not noise.
 
 ```bash
 pnpm install:global-runtimes            # once per machine (Codex + Claude global + Cursor global)
-pnpm install:cursor -- <target-dir>     # per project (Cursor rules are per-project)
+pnpm install:cursor -- <target-dir> --cursor-project-stubs # when global skills exist
 pnpm install:claude-hook -- <target-dir> # per project (deterministic Claude routing hook, no skill duplication)
 ```
 
@@ -107,6 +111,18 @@ pnpm verify:claude -- <target-dir>
 pnpm install:cursor -- <target-dir>
 pnpm verify:cursor -- <target-dir>
 ```
+
+When Codex/Claude global skills are already installed and the target repository
+enforces a small agent-context budget, install short Cursor trigger stubs:
+
+```bash
+pnpm install:cursor -- <target-dir> --cursor-project-stubs
+pnpm verify:cursor -- <target-dir> --cursor-project-stubs
+```
+
+Without this flag, project Cursor rules contain the full generated skill body.
+With it, each `.mdc` keeps only description-based discovery and points to the
+global Claude/Codex `SKILL.md`; project rules and gates remain authoritative.
 
 Skill usage disclosure policy:
 
@@ -149,8 +165,8 @@ Run a dry-run and then a sandbox install using isolated homes:
 
 ```bash
 pnpm install:agent-runtimes -- <target-dir> --global-all --dry-run --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
-pnpm install:agent-runtimes -- <target-dir> --global-all --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
-pnpm verify:agent-runtimes -- <target-dir> --global-all --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
+pnpm install:agent-runtimes -- <target-dir> --global-all --cursor-project-stubs --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
+pnpm verify:agent-runtimes -- <target-dir> --global-all --cursor-project-stubs --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
 ```
 
 Use sandbox validation to prove:

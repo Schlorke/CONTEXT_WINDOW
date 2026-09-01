@@ -44,7 +44,10 @@ type ToolContract<Input, Output> = {
   inputSchema: unknown;
   risk: "read" | "reversible-write" | "high-impact";
   policy: ToolPolicy;
-  execute: (input: Input, ctx: TrustedExecutionContext) => Promise<ToolResult<Output>>;
+  execute: (
+    input: Input,
+    ctx: TrustedExecutionContext,
+  ) => Promise<ToolResult<Output>>;
 };
 
 type ToolResult<T> =
@@ -138,7 +141,8 @@ Expected failures should be explainable to the LLM:
 return {
   ok: false,
   code: "MISSING_REQUIRED_FIELD",
-  reason: "The entity schema requires visitDate before this record can be created.",
+  reason:
+    "The entity schema requires visitDate before this record can be created.",
   details: { field: "visitDate" },
 };
 ```

@@ -121,7 +121,61 @@ Isso valida:
 | `pnpm evals:score -- <arquivo-ou-diretorio>`         | Consolida replay e gera relatórios                                                        | Só para benchmark/QA avançado                                 |
 | `pnpm qa:skills`                                     | Executa auditoria, lint, export, instalação smoke-test multi-IA, verificação e status     | Validação final da biblioteca                                 |
 
+Acrescente `--cursor-project-stubs` aos comandos de instalação/verificação do
+Cursor quando as skills completas já estiverem globais e o projeto exigir rules
+curtas, sem globs amplos e sem duplicação de contexto.
+
+## Política de Escopo para o Claude (evitar duplicação)
+
+> **Regra de ouro:** a biblioteca genérica (19 skills) deve existir em **UM único
+> escopo** do Claude — recomendado: **global** (`~/.claude/skills`), como no Codex.
+> O escopo de projeto (`<projeto>/.claude/skills/`) fica reservado para skills
+> **específicas do projeto** (ex.: `okgas-*`).
+>
+> Motivo: o Claude Code lista name+description de TODAS as skills visíveis no
+> system prompt. Instalar a biblioteca nos dois escopos dobra a lista (~36+
+> entradas), o orçamento de listagem encurta as descriptions e o disparo
+> automático degrada (sintoma documentado pela Anthropic: "Skill not
+> triggering"). O instalador e o `verify` agora **avisam** quando detectam a
+> biblioteca nos dois escopos ao mesmo tempo.
+>
+> Fluxo recomendado por máquina/projeto:
+>
+> 1. Uma vez por máquina: `pnpm install:global-runtimes` (Codex + Claude global + Cursor global).
+> 2. Por projeto: `pnpm install:cursor -- <dir>` (rules do Cursor são por projeto).
+> 3. Por projeto (opcional, recomendado): `pnpm install:claude-hook -- <dir>` — instala
+>    só o **hook determinístico de roteamento** do Claude (ver seção abaixo), sem
+>    duplicar as skills.
+
+## Hook Determinístico de Roteamento (Claude)
+
+O Claude Code não tem equivalente nativo ao `alwaysApply`/`globs` do Cursor: o
+disparo automático de skill é julgamento do modelo sobre as descriptions. Para
+dar ao Claude uma camada determinística, o instalador oferece:
+
+```bash
+pnpm install:claude-hook -- C:\caminho\do\projeto
+```
+
+Isso escreve no projeto-alvo:
+
+- `.claude/hooks/skill-router.mjs` — hook (template em `scripts/templates/`),
+  com normalização de acentos, no máximo 3 sugestões por evento, skills
+  `mandatory` sempre primeiro, dedup por sessão e caminho do SKILL.md no lembrete
+- `.claude/skill-routing.json` — tabela gerada a partir de
+  `saas-skills/integrations/cursor-rule-profiles.json` (`promptTriggers` +
+  `pathGlobs` com expansão de chaves `{a,b}`)
+- `.claude/settings.json` — registro dos hooks `UserPromptSubmit` e `PreToolUse`
+  (merge idempotente; nunca sobrescreve configurações existentes)
+
+Arquivos de hook/tabela **não gerenciados** pelo Context Window (personalizados
+pelo projeto) são preservados com aviso — nunca sobrescritos.
+
 ## Instalação Unificada por Projeto
+
+> Atenção: este fluxo instala o Claude em escopo de **projeto**. Se a biblioteca
+> já estiver global no Claude, prefira o fluxo da seção "Política de Escopo"
+> acima para não duplicar.
 
 Esse é o fluxo mais próximo de um "executável único" para qualquer agente:
 
@@ -210,13 +264,15 @@ pnpm export:cursor-user-rules
 
 Use esta regra rápida:
 
-- quer usar só neste repo: `pnpm install:agent-runtimes -- . --project-only`
+- **fluxo recomendado (evita duplicação no Claude)**: `pnpm install:global-runtimes` uma vez por máquina; por projeto, `pnpm install:cursor -- <dir>` + `pnpm install:claude-hook -- <dir>`
+- quer usar só neste repo: `pnpm install:agent-runtimes -- . --project-only` (Claude em escopo de projeto — não combine com biblioteca global no Claude)
 - quer usar só na Codex: `pnpm install:codex -- .`
-- quer usar só no Claude do projeto: `pnpm install:claude -- .`
+- quer usar só no Claude do projeto: `pnpm install:claude -- .` (idem: não combine com global)
+- quer só o hook determinístico do Claude no projeto: `pnpm install:claude-hook -- <dir>`
 - quer usar só no Cursor do projeto: `pnpm install:cursor -- .`
 - quer usar no Cursor global com o caminho oficial: `pnpm install:cursor-global` e depois `pnpm export:cursor-user-rules`
 - quer usar em todos os seus projetos: `pnpm install:global-runtimes` e, para o Cursor, também `pnpm export:cursor-user-rules`
-- quer projeto atual + global ao mesmo tempo: `pnpm install:agent-runtimes -- . --global-all`
+- quer projeto atual + global ao mesmo tempo: `pnpm install:agent-runtimes -- . --global-all` (gera aviso de duplicação no Claude — use consciente)
 - quer provar que não vai tocar nos runtimes reais: adicione `--codex-home`, `--claude-home` e `--cursor-home`
 
 ## Como Atualizar sem Criar Drift
@@ -337,7 +393,7 @@ Para agentes trabalhando dentro deste próprio repositório, o ponto de entrada 
 
 A biblioteca canônica contém:
 
-- `18` skills organizadas em `5` coleções
+- `19` skills organizadas em `5` coleções
 - `references/` e `assets/` por skill quando necessário
 - matriz de evals
 - perfis de adapter para Cursor em [cursor-rule-profiles.json](saas-skills/integrations/cursor-rule-profiles.json)
@@ -359,10 +415,10 @@ Os principais artefatos de qualidade são:
 
 Hoje a biblioteca mantém:
 
-- `18` skills auditadas
-- `54` casos `should_trigger`
-- `54` casos `should_not_trigger`
-- `18` conflitos
+- `19` skills auditadas
+- `61` casos `should_trigger`
+- `57` casos `should_not_trigger`
+- `19` conflitos
 
 ## Arquivos Mais Importantes
 

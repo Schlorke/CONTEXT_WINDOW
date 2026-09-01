@@ -41,7 +41,9 @@ if (!fs.existsSync(cursorRuleFile)) {
   const expected = buildCursorUsageRule();
   const actual = fs.readFileSync(cursorRuleFile, "utf8");
   if (actual !== expected) {
-    issues.push(`Unexpected Cursor skill usage rule contents: ${cursorRuleFile}`);
+    issues.push(
+      `Unexpected Cursor skill usage rule contents: ${cursorRuleFile}`,
+    );
   }
 }
 

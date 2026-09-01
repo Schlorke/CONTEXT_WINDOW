@@ -29,6 +29,12 @@ Use this skill when you need to:
 
 Triggered by: API design, REST endpoint, route handler, authentication, authorization, middleware, input validation, pagination, rate limiting, webhook, multi-tenant, error handling.
 
+**Platform scope:** repository topology, backend extraction, module boundary
+laws and the dual cookie+Bearer auth architecture belong to
+`multiplatform-platform-architecture`; this skill designs the endpoints inside
+whatever host that skill (or the repo) has established, with contracts sourced
+from a shared Zod package (`/api/v1` + OpenAPI generated from Zod) when one exists.
+
 ## Core Workflow
 
 ### Phase 1: Define Resource Model and Operations
@@ -78,10 +84,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!can(session.user, "invoice:create")) {
-    return NextResponse.json(
-      { error: { code: "FORBIDDEN" } },
-      { status: 403 },
-    );
+    return NextResponse.json({ error: { code: "FORBIDDEN" } }, { status: 403 });
   }
 
   // Handler logic uses orgId from trusted session context.
@@ -188,9 +191,7 @@ const ratelimit = new Ratelimit({
 });
 
 export async function POST(req: NextRequest) {
-  const { success, reset } = await ratelimit.limit(
-    userId,
-  );
+  const { success, reset } = await ratelimit.limit(userId);
   if (!success) {
     return NextResponse.json(
       { error: { code: "RATE_LIMITED" } },
@@ -292,7 +293,7 @@ export async function PATCH(req: NextRequest) {
     );
   }
 
-const updated = await prisma.user.updateMany({
+  const updated = await prisma.user.updateMany({
     where: {
       id: { in: validation.data.ids },
       orgId,

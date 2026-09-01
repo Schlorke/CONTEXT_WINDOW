@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi-Agent Skill Creator"
+  short_description: "Crie skills portateis para Codex, Claude e Cursor"
+  default_prompt: "Use $multi-agent-skill-creator para criar ou atualizar uma skill canonica compativel com Codex, Claude e Cursor."

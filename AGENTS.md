@@ -126,12 +126,20 @@ pnpm verify:agent-runtimes -- . --global-all --codex-home .agent-runtime-smoke/c
 
 ## Como Escolher o Fluxo
 
-- Se o usuário disse "só neste repositório", use `install:agent-runtimes -- . --project-only`
+- **Regra de escopo do Claude (sempre):** a biblioteca genérica deve existir em
+  UM escopo só do Claude — recomendado GLOBAL (`~/.claude/skills`), como no
+  Codex. Escopo de projeto fica para skills específicas do projeto. Duplicar
+  dobra a lista de skills que o modelo vê e degrada o disparo automático (o
+  instalador e o `verify` avisam quando detectam os dois escopos).
+- **Fluxo recomendado:** `install:global-runtimes` uma vez por máquina; por
+  projeto, `install:cursor -- <dir>` + `install:claude-hook -- <dir>` (hook
+  determinístico de roteamento, sem duplicar skills).
+- Se o usuário disse "só neste repositório", use `install:agent-runtimes -- . --project-only` (e garanta que o Claude global não tenha a biblioteca)
 - Se o usuário disse "só na Codex", use `install:codex -- .`
-- Se o usuário disse "só no Claude", use `install:claude -- .` ou `install:claude-global`
+- Se o usuário disse "só no Claude", use `install:claude-global` (preferido) ou `install:claude -- .` (apenas se não houver cópia global)
 - Se o usuário disse "só no Cursor", use `install:cursor -- .` ou `install:cursor-global`
 - Se o usuário disse "em todos os meus projetos", use `install:global-runtimes` e gere também `export:cursor-user-rules`
-- Se o usuário quer os dois, use `install:agent-runtimes -- . --global-all`
+- Se o usuário quer os dois, `install:agent-runtimes -- . --global-all` gera aviso de duplicação no Claude — só use com motivo explícito
 - Se o usuário pediu update de uma skill já instalada, edite a fonte canônica e rode `sync`, não patch na cópia instalada
 - Se houver qualquer dúvida sobre impacto, comece com sandbox
 
@@ -153,17 +161,21 @@ Não pode:
 - rodar migration
 - subir dev server só para validar a biblioteca
 
-## Skill Recomendada
+## Skills Recomendadas
 
 Se a biblioteca já estiver instalada, prefira a skill:
 
 - [multi-agent-skill-installer](C:/Projetos/Context_Window/saas-skills/ai-integration/multi-agent-skill-installer/SKILL.md:1)
+- [multi-agent-skill-creator](C:/Projetos/Context_Window/saas-skills/ai-integration/multi-agent-skill-creator/SKILL.md:1)
 
 Exemplo de uso:
 
 ```text
 $multi-agent-skill-installer
 Instale esta biblioteca globalmente para Codex, Claude e Cursor e valide em sandbox antes de tocar nos runtimes reais.
+
+$multi-agent-skill-creator
+Crie uma skill canônica, adicione os adapters e evals e valide Codex, Claude e Cursor.
 ```
 
 ## Ordem de Leitura Recomendada

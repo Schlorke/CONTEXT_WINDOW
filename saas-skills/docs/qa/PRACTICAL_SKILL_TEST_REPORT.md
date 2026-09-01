@@ -6,6 +6,11 @@ Relatório de teste prático manual da biblioteca `saas-skills`.
 **Método:** avaliação manual neste ambiente, usando os prompts canônicos de `should_trigger` como teste principal e verificando aderência ao `minimum_output` de cada skill  
 **Escopo:** `18` testes de trigger + `4` spot-checks de fronteira
 
+> Este é o baseline manual histórico de 13 de abril de 2026. A versão `1.14.0`
+> foi revalidada estruturalmente e em sandbox multi-runtime em 22 de julho de
+> 2026; esta rodada manual não foi repetida. Consulte `EVALS_REPORT.md` para a
+> cobertura canônica atual de `19` skills.
+
 ## O Que Este Relatório Testa
 
 Este relatório responde à pergunta prática:

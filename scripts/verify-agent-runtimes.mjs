@@ -1,6 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import {
+  buildCursorProjectStub,
+  buildCursorRule,
+  detectDuplicateClaudeInstall,
   findSkillDirs,
   getLibraryVersion,
   getCursorArtifactNames,
@@ -18,6 +21,7 @@ import {
 } from "./runtime-adapter-utils.mjs";
 
 const cli = parseRuntimeCliArgs(process.argv.slice(2));
+const expectCursorProjectStubs = cli.flags.has("--cursor-project-stubs");
 const modeFlags = [
   "--project-only",
   "--codex-only",
@@ -227,6 +231,16 @@ for (const skill of skills) {
         issues.push(
           `Missing Cursor rule install for ${skill.name}: ${cursorRuleFile}`,
         );
+      } else {
+        const expectedContent = expectCursorProjectStubs
+          ? buildCursorProjectStub(skill, profile)
+          : buildCursorRule(skill, profile);
+        const actualContent = fs.readFileSync(cursorRuleFile, "utf8");
+        if (actualContent !== expectedContent) {
+          issues.push(
+            `Unexpected Cursor project rule mode/content for ${skill.name}: ${cursorRuleFile}`,
+          );
+        }
       }
     }
   }
@@ -271,6 +285,17 @@ for (const skill of skills) {
   }
 }
 
+// Non-fatal: a dual project+global Claude install doubles the skill list the
+// model sees and degrades automatic triggering. Warn loudly, but do not fail —
+// the QA smoke test intentionally installs both scopes into sandbox homes.
+const duplicateWarning = detectDuplicateClaudeInstall(
+  path.join(targetRoot, ".claude", "skills"),
+  claudeSkillsDir,
+);
+if (duplicateWarning) {
+  console.warn(`WARNING: ${duplicateWarning}`);
+}
+
 if (issues.length > 0) {
   console.error("AGENT RUNTIME VERIFICATION FAILED");
   for (const issue of issues) {
@@ -290,6 +315,9 @@ if (verifyClaude) {
 }
 if (verifyCursor) {
   console.log(`- Cursor rules installed: ${skills.length}`);
+  console.log(
+    `- Cursor project rule mode: ${expectCursorProjectStubs ? "stub" : "full"}`,
+  );
 }
 if (verifyClaudeGlobal) {
   console.log(`- Global Claude skills installed: ${skills.length}`);

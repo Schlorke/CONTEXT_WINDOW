@@ -1,10 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   buildRuntimeManifest,
+  buildClaudeSkillContent,
+  buildClaudeSkillRouting,
+  buildCursorProjectStub,
   buildCursorRule,
   buildCursorUserRulesBootstrap,
   cursorUserRulesBootstrapFileName,
+  detectDuplicateClaudeInstall,
   ensureDir,
   findSkillDirs,
   getCursorArtifactNames,
@@ -21,7 +26,16 @@ import {
   resolveCursorRulesDir,
 } from "./runtime-adapter-utils.mjs";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const claudeRouterTemplatePath = path.join(
+  __dirname,
+  "templates",
+  "claude-skill-router.mjs",
+);
+const claudeRouterMarker = "Context Window — Claude Code Skill Router Hook";
+
 const cli = parseRuntimeCliArgs(process.argv.slice(2));
+const useCursorProjectStubs = cli.flags.has("--cursor-project-stubs");
 const modeFlags = [
   "--project-only",
   "--codex-only",
@@ -100,12 +114,24 @@ if (cli.flags.has("--skip-cursor-global")) {
   installCursorGlobal = false;
 }
 
+// --hook-only: install just the Claude skill-router hook into the target
+// project (used when the generic library lives at GLOBAL scope and the
+// project only needs the deterministic routing layer).
+if (cli.flags.has("--hook-only")) {
+  installClaude = false;
+  installCursor = false;
+  installCodex = false;
+  installClaudeGlobal = false;
+  installCursorGlobal = false;
+}
+
 if (
   !installClaude &&
   !installCursor &&
   !installCodex &&
   !installClaudeGlobal &&
-  !installCursorGlobal
+  !installCursorGlobal &&
+  !cli.flags.has("--claude-hook")
 ) {
   console.error(
     "No runtime selected. Remove skip flags or choose a specific mode.",
@@ -124,6 +150,16 @@ const profiles = loadCursorProfiles();
 const skillDirs = findSkillDirs();
 const skills = skillDirs.map((skillDir) => parseSkill(skillDir));
 const sourceVersion = getLibraryVersion();
+
+// Claude/Agent Skills spec: `name` must be lowercase [a-z0-9-] and match the
+// directory. Warn (non-fatal) so malformed names surface during sync.
+for (const skill of skills) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(skill.name)) {
+    console.warn(
+      `Warning: skill name "${skill.name}" is not lowercase kebab-case ([a-z0-9-]); Claude may not register it correctly.`,
+    );
+  }
+}
 const plannedWrites = [];
 const cleanupSummary = [];
 
@@ -149,6 +185,13 @@ if (installClaude) {
 
     fs.rmSync(targetDir, { recursive: true, force: true });
     fs.cpSync(skill.skillDir, targetDir, { recursive: true });
+    // Re-emit SKILL.md with Claude-native auto-detection fields (paths /
+    // when_to_use). Bundled files (references/, scripts/) stay from the copy.
+    fs.writeFileSync(
+      path.join(targetDir, "SKILL.md"),
+      buildClaudeSkillContent(skill, profiles.get(skill.name)),
+      "utf8",
+    );
   }
 
   plannedWrites.push(
@@ -191,7 +234,10 @@ if (installCursor) {
 
     if (cli.dryRun) continue;
 
-    fs.writeFileSync(targetFile, buildCursorRule(skill, profile), "utf8");
+    const cursorRule = useCursorProjectStubs
+      ? buildCursorProjectStub(skill, profile)
+      : buildCursorRule(skill, profile);
+    fs.writeFileSync(targetFile, cursorRule, "utf8");
   }
 
   plannedWrites.push(
@@ -227,6 +273,12 @@ if (installClaudeGlobal) {
 
     fs.rmSync(targetDir, { recursive: true, force: true });
     fs.cpSync(skill.skillDir, targetDir, { recursive: true });
+    // Same Claude-native frontmatter enrichment as the project install above.
+    fs.writeFileSync(
+      path.join(targetDir, "SKILL.md"),
+      buildClaudeSkillContent(skill, profiles.get(skill.name)),
+      "utf8",
+    );
   }
 
   plannedWrites.push(path.join(claudeSkillsDir, ".saas-skills-manifest.json"));
@@ -292,6 +344,10 @@ if (installCursorGlobal) {
   }
 }
 
+if (cli.flags.has("--claude-hook")) {
+  installClaudeSkillRouterHook();
+}
+
 if (installCodex) {
   ensureDirIfNeeded(codexSkillsDir);
   const artifactNames = skills.map((skill) => skill.name);
@@ -330,6 +386,11 @@ console.log(`Codex skills dir: ${codexSkillsDir}`);
 console.log(`Cursor global rules dir: ${cursorRulesDirGlobal}`);
 console.log(`Claude runtime: ${installClaude ? "enabled" : "skipped"}`);
 console.log(`Cursor runtime: ${installCursor ? "enabled" : "skipped"}`);
+if (installCursor) {
+  console.log(
+    `Cursor project rule mode: ${useCursorProjectStubs ? "stub" : "full"}`,
+  );
+}
 console.log(`Codex runtime: ${installCodex ? "enabled" : "skipped"}`);
 console.log(
   `Claude global runtime: ${installClaudeGlobal ? "enabled" : "skipped"}`,
@@ -356,9 +417,168 @@ for (const item of plannedWrites) {
   console.log(`- ${item}`);
 }
 
+const duplicateWarning = detectDuplicateClaudeInstall(
+  path.join(targetRoot, ".claude", "skills"),
+  claudeSkillsDir,
+);
+if (duplicateWarning) {
+  console.warn(`\nWARNING: ${duplicateWarning}`);
+}
+
 function ensureDirIfNeeded(dir) {
   if (!cli.dryRun) {
     ensureDir(dir);
+  }
+}
+
+/**
+ * Installs the deterministic Claude skill-router hook into the target project:
+ *   - .claude/hooks/skill-router.mjs   (copied from scripts/templates/)
+ *   - .claude/skill-routing.json      (generated from the runtime profiles)
+ *   - .claude/settings.json           (hooks merged in, never clobbered)
+ * Existing user-authored files are preserved: a routing table or hook script
+ * not generated by Context Window is left untouched (warning printed).
+ */
+function installClaudeSkillRouterHook() {
+  const claudeDir = path.join(targetRoot, ".claude");
+  const hooksDir = path.join(claudeDir, "hooks");
+  const hookPath = path.join(hooksDir, "skill-router.mjs");
+  const routingPath = path.join(claudeDir, "skill-routing.json");
+  const settingsPath = path.join(claudeDir, "settings.json");
+  // When the generic library is installed at project scope the hint should
+  // point there; otherwise point at the global skills dir.
+  const skillsBaseLabel = installClaude ? ".claude/skills" : "~/.claude/skills";
+
+  plannedWrites.push(
+    path.relative(targetRoot, hookPath).replaceAll("\\", "/"),
+    path.relative(targetRoot, routingPath).replaceAll("\\", "/"),
+    path.relative(targetRoot, settingsPath).replaceAll("\\", "/"),
+  );
+
+  if (cli.dryRun) return;
+
+  ensureDir(hooksDir);
+
+  const templateContent = fs.readFileSync(claudeRouterTemplatePath, "utf8");
+  if (fs.existsSync(hookPath)) {
+    const existing = fs.readFileSync(hookPath, "utf8");
+    if (existing.includes(claudeRouterMarker)) {
+      fs.writeFileSync(hookPath, templateContent, "utf8");
+    } else {
+      console.warn(
+        `Skipping hook script (custom file already present, not Context Window-managed): ${hookPath}`,
+      );
+    }
+  } else {
+    fs.writeFileSync(hookPath, templateContent, "utf8");
+  }
+
+  const routing = buildClaudeSkillRouting(skills, profiles, {
+    skillsBaseLabel,
+  });
+  if (fs.existsSync(routingPath)) {
+    let existingRouting = null;
+    try {
+      existingRouting = JSON.parse(fs.readFileSync(routingPath, "utf8"));
+    } catch {
+      existingRouting = null;
+    }
+    const generatedByUs =
+      typeof existingRouting?.$comment === "string" &&
+      existingRouting.$comment.includes("Generated by Context Window");
+    if (generatedByUs) {
+      fs.writeFileSync(
+        routingPath,
+        `${JSON.stringify(routing, null, 2)}\n`,
+        "utf8",
+      );
+    } else {
+      console.warn(
+        `Skipping skill-routing.json (custom table already present, not Context Window-managed): ${routingPath}`,
+      );
+    }
+  } else {
+    fs.writeFileSync(
+      routingPath,
+      `${JSON.stringify(routing, null, 2)}\n`,
+      "utf8",
+    );
+  }
+
+  mergeClaudeHookSettings(settingsPath);
+}
+
+/**
+ * Merges the skill-router hook registration into .claude/settings.json,
+ * preserving all existing settings and hooks. Idempotent: entries whose
+ * command already references skill-router.mjs are not duplicated.
+ * @param {string} settingsPath
+ */
+function mergeClaudeHookSettings(settingsPath) {
+  let settings = {};
+  if (fs.existsSync(settingsPath)) {
+    try {
+      settings = JSON.parse(fs.readFileSync(settingsPath, "utf8"));
+    } catch {
+      console.warn(
+        `Skipping settings merge (could not parse existing file): ${settingsPath}`,
+      );
+      return;
+    }
+  }
+
+  settings.hooks = settings.hooks ?? {};
+
+  const wanted = [
+    {
+      event: "UserPromptSubmit",
+      entry: {
+        hooks: [
+          {
+            type: "command",
+            command: "node .claude/hooks/skill-router.mjs UserPromptSubmit",
+            timeout: 15,
+          },
+        ],
+      },
+    },
+    {
+      event: "PreToolUse",
+      entry: {
+        matcher: "Edit|Write|MultiEdit",
+        hooks: [
+          {
+            type: "command",
+            command: "node .claude/hooks/skill-router.mjs PreToolUse",
+            timeout: 15,
+          },
+        ],
+      },
+    },
+  ];
+
+  let changed = false;
+  for (const { event, entry } of wanted) {
+    const existing = Array.isArray(settings.hooks[event])
+      ? settings.hooks[event]
+      : [];
+    const alreadyRegistered = existing.some((candidate) =>
+      (candidate?.hooks || []).some((hook) =>
+        String(hook?.command || "").includes("skill-router.mjs"),
+      ),
+    );
+    if (!alreadyRegistered) {
+      settings.hooks[event] = [...existing, entry];
+      changed = true;
+    }
+  }
+
+  if (changed) {
+    fs.writeFileSync(
+      settingsPath,
+      `${JSON.stringify(settings, null, 2)}\n`,
+      "utf8",
+    );
   }
 }
 

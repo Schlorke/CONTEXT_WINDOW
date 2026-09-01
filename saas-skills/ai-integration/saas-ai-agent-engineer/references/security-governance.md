@@ -61,7 +61,10 @@ type ToolPolicy = {
   action: string;
   roles: Role[];
   risk: "read" | "reversible-write" | "high-impact";
-  scopeCheck: (ctx: UserContext, args: unknown) => Promise<{ allowed: boolean; reason?: string }>;
+  scopeCheck: (
+    ctx: UserContext,
+    args: unknown,
+  ) => Promise<{ allowed: boolean; reason?: string }>;
   approval?: { reason: string; approverRoles: Role[] };
 };
 ```

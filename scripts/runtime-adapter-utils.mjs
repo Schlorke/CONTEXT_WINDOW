@@ -61,6 +61,7 @@ export function parseSkill(skillDir) {
     skillFile,
     name,
     description,
+    frontmatter,
     collection,
     body,
     sourceRelativePath: path
@@ -102,6 +103,169 @@ export function buildCursorRule(skill, profile) {
   lines.push(skill.body.trimEnd(), "");
 
   return `${lines.join("\n")}`;
+}
+
+export function buildCursorProjectStub(skill, profile) {
+  const lines = [
+    "---",
+    `description: ${yamlQuote(profile.description || skill.description)}`,
+    "alwaysApply: false",
+    "globs: []",
+    "---",
+    "",
+    `# ${skill.name} - Cursor Stub`,
+    "",
+    "This file is intentionally short so generic guidance does not dilute",
+    "project rules or consume unrelated Cursor context.",
+    "",
+    "Use it only as a trigger:",
+    "",
+    "- Read the repository entrypoint, current code, tests, and local rules first.",
+    "- Load the full skill only when the task needs it:",
+    `  \`~/.claude/skills/${skill.name}/SKILL.md\` (fallback:`,
+    `  \`~/.codex/skills/${skill.name}/SKILL.md\`).`,
+    "- Project-local rules and automated gates take precedence.",
+    "- Keep changes scoped, testable, and documented.",
+    "",
+    `<!-- Generated from ${skill.sourceRelativePath} -->`,
+    "",
+  ];
+
+  return lines.join("\n");
+}
+
+/**
+ * Builds the SKILL.md content for the Claude runtime.
+ *
+ * Claude auto-detects a skill from `description` + `when_to_use`, and file-based
+ * auto-load comes from the official `paths:` frontmatter field (the native
+ * equivalent of Cursor's `globs`). The installer used to copy SKILL.md verbatim,
+ * so Claude never received those signals while Cursor did. This re-emits the
+ * source frontmatter and ADDS, when missing:
+ *   - `when_to_use:` from `profile.whenToUse` (optional, purely additive).
+ *   - `paths:`       from `profile.claudePaths` (falls back to the same
+ *                    `profile.globs` Cursor already uses), so file-scoped skills
+ *                    get the same auto-attach the Cursor rule has.
+ *
+ * Existing `paths:`/`when_to_use:` in the source frontmatter are preserved as-is
+ * (never overwritten). Skills with no globs/claudePaths stay always-on via their
+ * description, which is the correct behavior for topic-oriented skills.
+ */
+export function buildClaudeSkillContent(skill, profile) {
+  const frontmatter = skill.frontmatter.replace(/\s+$/, "");
+  const additions = [];
+
+  const whenToUse = profile?.whenToUse;
+  if (whenToUse && !/^when_to_use\s*:/m.test(frontmatter)) {
+    additions.push(`when_to_use: ${yamlQuote(whenToUse)}`);
+  }
+
+  const claudePaths = profile?.claudePaths ?? profile?.globs;
+  if (
+    Array.isArray(claudePaths) &&
+    claudePaths.length > 0 &&
+    !/^paths\s*:/m.test(frontmatter)
+  ) {
+    additions.push(`paths: ${yamlQuote(claudePaths.join(", "))}`);
+  }
+
+  const mergedFrontmatter = additions.length
+    ? `${frontmatter}\n${additions.join("\n")}`
+    : frontmatter;
+
+  return `---\n${mergedFrontmatter}\n---\n\n${skill.body.trimEnd()}\n`;
+}
+
+/**
+ * Expands one level of `{a,b}` brace alternation in a glob into plain globs
+ * (the Claude skill-router hook and `paths:` matching do not support braces).
+ * `**\/*.{ts,tsx}` -> [`**\/*.ts`, `**\/*.tsx`]. Globs without braces pass through.
+ * @param {string} glob
+ * @returns {string[]}
+ */
+export function expandGlobBraces(glob) {
+  const match = String(glob).match(/^(.*)\{([^}]+)\}(.*)$/);
+  if (!match) return [glob];
+  const [, prefix, alternatives, suffix] = match;
+  return alternatives
+    .split(",")
+    .flatMap((alt) => expandGlobBraces(`${prefix}${alt.trim()}${suffix}`));
+}
+
+/**
+ * Builds the `.claude/skill-routing.json` payload consumed by the generic
+ * skill-router hook (scripts/templates/claude-skill-router.mjs). Only skills
+ * with `promptTriggers` and/or file globs get an entry. `skillPath` points to
+ * where the SKILL.md will live so the hint works even when the skill is gated
+ * by `paths:` frontmatter and invisible to the Skill tool at prompt time.
+ * @param {Array<ReturnType<typeof parseSkill>>} skills
+ * @param {Map<string, any>} profiles
+ * @param {{skillsBaseLabel?: string}} [options] e.g. ".claude/skills" or "~/.claude/skills"
+ */
+export function buildClaudeSkillRouting(skills, profiles, options = {}) {
+  const skillsBaseLabel = options.skillsBaseLabel ?? "~/.claude/skills";
+  const entries = [];
+
+  for (const skill of skills) {
+    const profile = profiles.get(skill.name);
+    if (!profile) continue;
+
+    const promptTriggers = Array.isArray(profile.promptTriggers)
+      ? profile.promptTriggers
+      : [];
+    const rawGlobs = Array.isArray(profile.claudePaths)
+      ? profile.claudePaths
+      : Array.isArray(profile.globs)
+        ? profile.globs
+        : [];
+    const pathGlobs = rawGlobs.flatMap((glob) => expandGlobBraces(glob));
+
+    if (!promptTriggers.length && !pathGlobs.length) continue;
+
+    const entry = {
+      skill: skill.name,
+      hint: profile.description || skill.description,
+      skillPath: `${skillsBaseLabel}/${skill.name}/SKILL.md`,
+    };
+    if (promptTriggers.length) entry.promptTriggers = promptTriggers;
+    if (pathGlobs.length) entry.pathGlobs = pathGlobs;
+    entries.push(entry);
+  }
+
+  return {
+    $comment:
+      "Generated by Context Window (scripts/install-agent-runtimes.mjs --claude-hook) from saas-skills/integrations/cursor-rule-profiles.json. Consumed by .claude/hooks/skill-router.mjs. Project-specific skills may be appended manually; regeneration preserves only generated entries listed in the runtime manifest.",
+    skills: entries,
+  };
+}
+
+/**
+ * Detects a duplicate Claude install of this library (project AND global at
+ * the same time), which doubles the skill listing shown to the model and
+ * degrades automatic skill triggering. Returns a warning string or null.
+ * @param {string} projectClaudeSkillsDir
+ * @param {string} globalClaudeSkillsDir
+ * @returns {string | null}
+ */
+export function detectDuplicateClaudeInstall(
+  projectClaudeSkillsDir,
+  globalClaudeSkillsDir,
+) {
+  const projectManifest = readRuntimeManifest(projectClaudeSkillsDir);
+  const globalManifest = readRuntimeManifest(globalClaudeSkillsDir);
+  if (
+    projectManifest?.library === managedLibraryId &&
+    globalManifest?.library === managedLibraryId
+  ) {
+    return (
+      "Duplicate Claude install detected: the library is installed BOTH at " +
+      `project scope (${projectClaudeSkillsDir}) and global scope (${globalClaudeSkillsDir}). ` +
+      "This doubles the skill list Claude sees and degrades automatic triggering. " +
+      "Recommended: keep the generic library GLOBAL-only and reserve project scope for project-specific skills. " +
+      "Remove one of the copies (delete the project .claude/skills library folders or the global ones) and re-run verify."
+    );
+  }
+  return null;
 }
 
 export function getCursorArtifactNames(skills, profiles, options = {}) {

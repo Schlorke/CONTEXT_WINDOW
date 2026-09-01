@@ -1,5 +1,5 @@
 {
-  "version": "1.8.0",
+  "version": "1.11.0",
   "minimum_case_counts": {
     "should_trigger": 3,
     "should_not_trigger": 3,
@@ -85,6 +85,18 @@
           "prompt": "Choose between feature-based and layer-based organization for a medium-sized React SaaS with reusable shared modules.",
           "expected_primary_skill": "react-saas-architecture",
           "reason": "Pattern choice for project organization is the core trigger."
+        },
+        {
+          "id": "rsa-4",
+          "prompt": "Our feature root contains product areas like CRM, fleet, and billing. Should a reusable rich-text composer become another top-level feature, and can you reorganize it safely?",
+          "expected_primary_skill": "react-saas-architecture",
+          "reason": "This requires top-level feature admission and ownership analysis before moving code."
+        },
+        {
+          "id": "rsa-5",
+          "prompt": "Our client components import a broad server barrel that pulls Prisma and node:crypto into Storybook. Split the public APIs without deep imports or circular chunks.",
+          "expected_primary_skill": "react-saas-architecture",
+          "reason": "This requires explicit client, server, and contracts entrypoints plus browser dependency governance."
         }
       ],
       "should_not_trigger": [
@@ -119,7 +131,8 @@
       "minimum_output": [
         "Recommended folder pattern with justification",
         "Clear rules for co-location and exports",
-        "Boundaries between feature code and shared code"
+        "Boundaries between feature code and shared code",
+        "Runtime-specific client, server, and contracts surfaces when relevant"
       ]
     },
     {
@@ -293,7 +306,8 @@
       "minimum_output": [
         "Layer boundaries and responsibilities",
         "Core domain model or bounded context decisions",
-        "Rules for separating framework code from business logic"
+        "Rules for separating framework code from business logic",
+        "Curated client, server, and neutral contract boundaries for mixed runtimes"
       ]
     },
     {
@@ -549,6 +563,12 @@
           "prompt": "Choose between RAG, in-context compression, and periodic reminder injection for a large documentation corpus.",
           "expected_primary_skill": "context-window-optimization",
           "reason": "The choice between retrieval and compression belongs here."
+        },
+        {
+          "id": "cwo-4",
+          "prompt": "My coding agent keeps rerunning full lint, tests, and builds while editing, flooding the context and wasting tokens. Define a cheaper validation and log-output budget.",
+          "expected_primary_skill": "context-window-optimization",
+          "reason": "Tool-output budgeting and validation scheduling are context-window concerns."
         }
       ],
       "should_not_trigger": [
@@ -583,7 +603,8 @@
       "minimum_output": [
         "Explicit token budget or context allocation model",
         "Ordering, compression, or reminder strategy to reduce drift",
-        "Decision criteria for retrieval, memory, and caching"
+        "Decision criteria for retrieval, memory, and caching",
+        "Tool-output budget and validation cadence for agentic commands when applicable"
       ]
     },
     {
@@ -642,6 +663,64 @@
         "Correct runtime targets for Codex, Claude, and Cursor",
         "Dry-run or sandbox validation flow before real global install",
         "Explicit verification and smoke-test steps without editing app code"
+      ]
+    },
+    {
+      "skill": "multi-agent-skill-creator",
+      "collection": "ai-integration",
+      "should_trigger": [
+        {
+          "id": "sc-1",
+          "prompt": "Create a new portable Agent Skill for reviewing webhook security and make it work in Codex, Claude, and Cursor.",
+          "expected_primary_skill": "multi-agent-skill-creator",
+          "reason": "The request is to author and adapt a new multi-runtime skill."
+        },
+        {
+          "id": "sc-2",
+          "prompt": "Update this existing SKILL.md to use progressive disclosure, add agents/openai.yaml, and improve its trigger and conflict evals.",
+          "expected_primary_skill": "multi-agent-skill-creator",
+          "reason": "The request changes the canonical skill contract, metadata, and evaluations."
+        },
+        {
+          "id": "sc-3",
+          "prompt": "Scaffold a canonical skill in Context Window, register its Cursor profile and Claude routing triggers, then validate the generated adapters.",
+          "expected_primary_skill": "multi-agent-skill-creator",
+          "reason": "This is the complete Context Window skill-authoring workflow."
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "sc-n1",
+          "prompt": "Install the existing skills library globally for Codex, Claude, and Cursor and verify all manifests.",
+          "expected_primary_skill": "multi-agent-skill-installer",
+          "reason": "The skills already exist; this is installation and runtime verification only."
+        },
+        {
+          "id": "sc-n2",
+          "prompt": "Write a hybrid prompt that returns a validated JSON object for invoice extraction.",
+          "expected_primary_skill": "prompt-engineering-hybrid",
+          "reason": "This asks for a product prompt, not an Agent Skill package."
+        },
+        {
+          "id": "sc-n3",
+          "prompt": "Reorganize a Next.js SaaS into feature-first folders with formal layouts and widgets.",
+          "expected_primary_skill": "react-saas-architecture",
+          "reason": "Application folder architecture belongs to the React architecture skill."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "sc-c1",
+          "prompt": "Create a new skill, add its evals and runtime profiles, then install it globally in Codex, Claude, and Cursor.",
+          "expected_primary_skill": "multi-agent-skill-creator",
+          "expected_secondary_skills": ["multi-agent-skill-installer"],
+          "resolution": "Author and validate the canonical skill first, then use the installer workflow for sandbox and real runtime synchronization."
+        }
+      ],
+      "minimum_output": [
+        "Canonical skill source and approved scaffold workflow",
+        "Trigger profile, negative cases, and conflict evaluation",
+        "Sandbox validation and explicit runtime synchronization scope"
       ]
     },
     {
@@ -934,7 +1013,8 @@
       "minimum_output": [
         "Audit of hotspots, smells, or dependency risks",
         "Characterization or safety-test plan before structural change",
-        "Incremental refactoring sequence that separates behavior change from cleanup"
+        "Incremental refactoring sequence that separates behavior change from cleanup",
+        "Proportional validation cadence with one stable comprehensive closeout"
       ]
     },
     {
@@ -1016,6 +1096,12 @@
           "prompt": "Review our coverage gaps and propose test cases for React components, hooks, and route handlers.",
           "expected_primary_skill": "testing-strategies",
           "reason": "Coverage planning and test selection belong here."
+        },
+        {
+          "id": "ts-4",
+          "prompt": "Our legacy Vitest suite reports high coverage only for imported files. Establish an all-production-source baseline and a CI threshold that ratchets upward.",
+          "expected_primary_skill": "testing-strategies",
+          "reason": "Coverage scope, measured baselines, and incremental CI gates belong to testing strategy."
         }
       ],
       "should_not_trigger": [
@@ -1050,7 +1136,80 @@
       "minimum_output": [
         "Test pyramid or distribution guidance by test type",
         "Concrete tooling and organization recommendations",
-        "Representative test cases or CI quality gates"
+        "Representative test cases or CI quality gates",
+        "All-production-source coverage baseline and incremental threshold strategy when applicable"
+      ]
+    },
+    {
+      "skill": "multiplatform-platform-architecture",
+      "collection": "engineering",
+      "should_trigger": [
+        {
+          "id": "mpa-1",
+          "prompt": "Bootstrap a new multiplatform SaaS: web panel, mobile field app with GPS and push, shared backend. How do I structure the repository?",
+          "expected_primary_skill": "multiplatform-platform-architecture",
+          "reason": "Platform-level bootstrap across surfaces is the core trigger."
+        },
+        {
+          "id": "mpa-2",
+          "prompt": "Convert our single Next.js app into a pnpm monorepo with apps and packages so a mobile app can share contracts.",
+          "expected_primary_skill": "multiplatform-platform-architecture",
+          "reason": "Workspace conversion and app/package admission are platform decisions."
+        },
+        {
+          "id": "mpa-3",
+          "prompt": "We need to extract our backend from Next.js into its own API service and deploy it as a container. Plan the module boundaries.",
+          "expected_primary_skill": "multiplatform-platform-architecture",
+          "reason": "API extraction, boundary laws and deploy mapping belong to this skill."
+        },
+        {
+          "id": "mpa-4",
+          "prompt": "Should our React Native app reuse the web components? Define what is shared between web and mobile.",
+          "expected_primary_skill": "multiplatform-platform-architecture",
+          "reason": "Cross-surface sharing policy is platform architecture."
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "mpa-n1",
+          "prompt": "Reorganize the component folders of our existing single Next.js app using feature-based organization and barrel exports.",
+          "expected_primary_skill": "react-saas-architecture",
+          "reason": "Single-app folder organization belongs to react-saas-architecture."
+        },
+        {
+          "id": "mpa-n2",
+          "prompt": "Design the REST endpoints with Zod validation, cursor pagination and rate limiting for the clients resource.",
+          "expected_primary_skill": "api-design-patterns",
+          "reason": "Endpoint-level API design, not platform topology."
+        },
+        {
+          "id": "mpa-n3",
+          "prompt": "Model the bounded contexts and aggregates for our billing domain with DDD tactical patterns.",
+          "expected_primary_skill": "clean-architecture-ddd",
+          "reason": "Domain modeling, not repository/platform structure."
+        },
+        {
+          "id": "mpa-n4",
+          "prompt": "Set up design tokens and Storybook governance for the component library.",
+          "expected_primary_skill": "design-system-implementation",
+          "reason": "Design system work, not platform topology."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "mpa-c1",
+          "prompt": "Start a new SaaS platform as a monorepo and organize the web frontend folders inside it.",
+          "expected_primary_skill": "multiplatform-platform-architecture",
+          "expected_secondary_skills": ["react-saas-architecture"],
+          "resolution": "Platform skill decides the monorepo/apps/packages topology and FSD adoption; react-saas-architecture governs single-app internals only where the repo already uses feature-first."
+        }
+      ],
+      "minimum_output": [
+        "Monorepo tree with apps grouped by execution nature and packages admitted by the two-consumer rule",
+        "Explicit dependency rules between apps, packages and products",
+        "Sharing policy: contracts/tokens/logic shared, UI duplicated per surface",
+        "Sequencing: contracts and token auth before any backend extraction or second surface",
+        "Prohibition of !important/Tailwind ! with enforcement in CI"
       ]
     }
   ]

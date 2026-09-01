@@ -10,7 +10,7 @@ Esta pasta é a fonte de verdade da biblioteca. O runtime final por plataforma n
 
 Na prática, ela entrega:
 
-- `18` skills organizadas em `5` coleções
+- `19` skills organizadas em `5` coleções
 - referências locais por skill quando necessário
 - adapters de runtime para Codex, Claude e Cursor
 - tooling para instalar em projetos-alvo sem tocar no código da aplicação
@@ -21,13 +21,13 @@ Na prática, ela entrega:
 
 ## Coleções
 
-| Coleção          | Skills | Finalidade                                                                               |
-| ---------------- | -----: | ---------------------------------------------------------------------------------------- |
-| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes  |
-| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                              |
-| `ai-integration` |      6 | Prompt engineering, AI UX, agentes SaaS, contexto, instalação multi-IA e diagramas       |
-| `documentation`  |      2 | Documentação persistente e escrita técnica                                               |
-| `engineering`    |      3 | Refatoração, análise de sistemas e estratégia de testes                                  |
+| Coleção          | Skills | Finalidade                                                                                 |
+| ---------------- | -----: | ------------------------------------------------------------------------------------------ |
+| `frontend`       |      4 | Design system, arquitetura React, especificações visuais e portabilidade de componentes    |
+| `backend`        |      3 | Clean Architecture, APIs REST e modelagem Prisma/PostgreSQL                                |
+| `ai-integration` |      7 | Prompt engineering, AI UX, agentes SaaS, contexto, criação/instalação multi-IA e diagramas |
+| `documentation`  |      2 | Documentação persistente e escrita técnica                                                 |
+| `engineering`    |      4 | Refatoração, análise de sistemas, estratégia de testes e arquitetura de plataforma         |
 
 ## Catálogo
 
@@ -50,6 +50,7 @@ Na prática, ela entrega:
 - `ai-interface-design`
 - `context-window-optimization`
 - `multi-agent-skill-installer`
+- `multi-agent-skill-creator`
 - `saas-ai-agent-engineer`
 - `ai-context-diagrams`
 
@@ -63,6 +64,7 @@ Na prática, ela entrega:
 - `legacy-code-refactoring`
 - `systems-analysis-saas`
 - `testing-strategies`
+- `multiplatform-platform-architecture`
 
 ## Fonte de Verdade vs Runtime
 
@@ -184,6 +186,10 @@ Eles não são o runtime recomendado desta biblioteca.
 | `pnpm install:global-runtimes`                       | Instala Codex e Claude globalmente e prepara o export global do Cursor                 | Para disponibilizar a biblioteca em todos os projetos        |
 | `pnpm verify:global-runtimes`                        | Verifica a instalação global                                                           | Depois da instalação global                                  |
 | `pnpm qa:skills`                                     | Executa QA completo, incluindo smoke install multi-IA, verificação e status em `dist/` | Antes de release                                             |
+
+Use `--cursor-project-stubs` na instalação e verificação do Cursor de projeto
+quando a biblioteca completa já estiver disponível globalmente e o repositório
+proteger o orçamento de contexto.
 
 ## Instalação por Ambiente
 
@@ -479,10 +485,10 @@ Quando `globs` não existem, a rule funciona como `Agent Requested`.
 
 A biblioteca mantém:
 
-- `18` skills auditadas
-- `54` casos `should_trigger`
-- `54` casos `should_not_trigger`
-- `18` conflitos
+- `20` skills auditadas
+- `65` casos `should_trigger`
+- `61` casos `should_not_trigger`
+- `20` conflitos
 
 Documentos relacionados:
 
