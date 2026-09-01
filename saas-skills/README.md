@@ -10,7 +10,7 @@ Esta pasta é a fonte de verdade da biblioteca. O runtime final por plataforma n
 
 Na prática, ela entrega:
 
-- `19` skills organizadas em `5` coleções
+- `21` skills organizadas em `5` coleções
 - referências locais por skill quando necessário
 - adapters de runtime para Codex, Claude e Cursor
 - tooling para instalar em projetos-alvo sem tocar no código da aplicação

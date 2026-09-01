@@ -1,5 +1,22 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 1.17.0 — 31 de agosto de 2026
+
+### Added in 1.17.0
+
+- `ai-integration/multi-perspective-council` v1.0: conselho multi-perspectiva
+  (LLM Council) para pressure test de planos e grandes mudanças. Cinco estilos
+  de raciocínio com elenco dinâmico por projeto, peer review anônimo, advogado
+  do diabo, chairman com veredito forçado e fechamento em linguagem de leigo;
+  modos FULL/FAST com degradação declarada por runtime. Origem: dor real do
+  projeto OkGas (mudanças implementadas sem antecipação de riscos de segunda
+  ordem), generalizada como skill de processo para qualquer projeto.
+- Registros: profile em `integrations/cursor-rule-profiles.json` v1.4.0 (sem
+  globs — skill de processo, sempre-visível), entrada em
+  `evals/skill-trigger-matrix.json` v1.12.0 (3 positivos, 3 negativos contra
+  prompt-engineering-hybrid / saas-ai-agent-engineer / systems-analysis-saas,
+  1 conflito, 4 minimum_output). Catálogo: 21 skills.
+
 ## 1.16.0 — 28 de julho de 2026
 
 ### Added in 1.16.0

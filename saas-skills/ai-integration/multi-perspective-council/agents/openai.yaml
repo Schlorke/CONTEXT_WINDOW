@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi-Perspective Council"
+  short_description: "Convene a multi-perspective expert council for big changes"
+  default_prompt: "Use $multi-perspective-council para convocar o conselho, fazer pressure test do plano com cinco perspectivas independentes e entregar veredito com recomendacao em linguagem simples."

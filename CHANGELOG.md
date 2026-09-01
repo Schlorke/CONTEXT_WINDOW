@@ -11,6 +11,26 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [1.17.0] - 2026-08-31
+
+### Added in 1.17.0
+
+- Nova skill `ai-integration/multi-perspective-council` v1.0: conselho
+  consultivo multi-perspectiva (estilo LLM Council de Karpathy) que faz
+  pressure test de planos e grandes mudanças ANTES do código — cinco estilos
+  de raciocínio fixos (Contrarian, First Principles, Expansionist, Outsider,
+  Executor) encarnados com o contexto do projeto aberto, análises
+  independentes, peer review anônimo com ranking forçado, advogado do diabo e
+  síntese do chairman com veredito, dissidência preservada, riscos de segunda
+  ordem (desktop vs mobile vs offline, IA embarcada) e fechamento opinativo em
+  linguagem de leigo. Dois modos (FULL/FAST) com degradação declarada por
+  runtime (subagentes paralelos no Claude Code; protocolo sequencial em
+  Codex/Cursor). Inclui 3 references (prompts dos conselheiros, degradação por
+  runtime, templates de saída).
+- Registros: +1 profile em `integrations/cursor-rule-profiles.json` (v1.4.0),
+  +8 casos em `evals/skill-trigger-matrix.json` (v1.12.0), contagens do
+  catálogo atualizadas (21 skills).
+
 ## [1.16.0] - 2026-07-28
 
 ### Added in 1.16.0

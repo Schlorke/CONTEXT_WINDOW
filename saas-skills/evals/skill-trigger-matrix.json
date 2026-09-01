@@ -1,5 +1,5 @@
 {
-  "version": "1.11.0",
+  "version": "1.12.0",
   "minimum_case_counts": {
     "should_trigger": 3,
     "should_not_trigger": 3,
@@ -840,6 +840,65 @@
         "Chosen diagram type with scope justification",
         "A Mermaid or C4 representation with clear boundaries and relations",
         "Guidance on where the diagram should live in project documentation"
+      ]
+    },
+    {
+      "skill": "multi-perspective-council",
+      "collection": "ai-integration",
+      "should_trigger": [
+        {
+          "id": "mpc-1",
+          "prompt": "Convoca o conselho para avaliar este plano de migracao de schema antes de eu mandar implementar.",
+          "expected_primary_skill": "multi-perspective-council",
+          "reason": "Explicit council convocation on a large irreversible change."
+        },
+        {
+          "id": "mpc-2",
+          "prompt": "I want a second opinion with multiple perspectives and a devil's advocate on this refactoring plan before writing any code.",
+          "expected_primary_skill": "multi-perspective-council",
+          "reason": "Second opinion, multiple perspectives, and devil's advocate are core manual triggers."
+        },
+        {
+          "id": "mpc-3",
+          "prompt": "Pressure test this implementation plan for second-order risks on desktop, mobile, and offline before we build it.",
+          "expected_primary_skill": "multi-perspective-council",
+          "reason": "Pressure-testing a plan for second-order and platform risks is exactly the council's job."
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "mpc-n1",
+          "prompt": "Write a strict JSON prompt template with few-shot examples for invoice extraction.",
+          "expected_primary_skill": "prompt-engineering-hybrid",
+          "reason": "Isolated prompt construction is prompt engineering, not a decision council."
+        },
+        {
+          "id": "mpc-n2",
+          "prompt": "Design a multi-tenant AI assistant with tool calling, scoped memory, and audit logs for our product.",
+          "expected_primary_skill": "saas-ai-agent-engineer",
+          "reason": "Building product AI agents belongs to the agent engineering skill."
+        },
+        {
+          "id": "mpc-n3",
+          "prompt": "Gather the functional requirements and model the ER diagram for the new billing module.",
+          "expected_primary_skill": "systems-analysis-saas",
+          "reason": "Requirements elicitation and system modeling are systems analysis, not plan pressure-testing."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "mpc-c1",
+          "prompt": "Before we lock the MVP scope, pressure test the plan with multiple perspectives and then write up the requirements document.",
+          "expected_primary_skill": "multi-perspective-council",
+          "expected_secondary_skills": ["systems-analysis-saas"],
+          "resolution": "Convene the council first to validate the plan and surface second-order risks; hand the surviving scope to systems analysis for formal requirements."
+        }
+      ],
+      "minimum_output": [
+        "Declared mode (FULL or FAST) and runtime variant with a one-line justification",
+        "Five reasoning-style analyses, each with at least three risks anchored to named files, flows, screens, or scenarios",
+        "Chairman verdict (forced choice) with consensus risk table, preserved dissent, and desktop/mobile/offline plus embedded-AI impact",
+        "Closing recommendation in plain, opinionated, jargon-free language for a non-technical decision maker"
       ]
     },
     {

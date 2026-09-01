@@ -104,7 +104,7 @@ As regras acima refletem a stack e as boas práticas identificadas no repositór
 
 ### Relação com as Skills
 
-Estas rules são complementares às 20 skills da biblioteca `saas-skills/`. As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
+Estas rules são complementares às 21 skills da biblioteca `saas-skills/`. As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
 
 Exemplo: a rule diz "ALWAYS add createdAt/updatedAt to every model". A skill `prisma-database-design` ensina o workflow completo de schema design, migrations e otimização de queries.
 

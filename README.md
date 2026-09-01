@@ -127,7 +127,7 @@ curtas, sem globs amplos e sem duplicação de contexto.
 
 ## Política de Escopo para o Claude (evitar duplicação)
 
-> **Regra de ouro:** a biblioteca genérica (19 skills) deve existir em **UM único
+> **Regra de ouro:** a biblioteca genérica (21 skills) deve existir em **UM único
 > escopo** do Claude — recomendado: **global** (`~/.claude/skills`), como no Codex.
 > O escopo de projeto (`<projeto>/.claude/skills/`) fica reservado para skills
 > **específicas do projeto** (ex.: `okgas-*`).

@@ -1,6 +1,6 @@
 {
   "name": "context-window",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "private": true,
   "description": "Portable SaaS skills library with QA, evals, and export tooling.",
   "scripts": {
