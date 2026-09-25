@@ -399,8 +399,6 @@ body {
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 When establishing UI specifications:
 
 1. Use a modular typographic scale (1.25 ratio or similar).

@@ -27,8 +27,6 @@ Activate this skill whenever:
 - Reducing context consumed by verbose tool output, repeated builds, test logs,
   or validation commands in long-running coding tasks.
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 ## Operational Contract
 
 | Field | Contract |
@@ -411,8 +409,6 @@ comprehensive closeout after the change is stable.
 ---
 
 ## Enforcement
-
-This skill is MANDATORY and must be followed without exception when its trigger fires.
 
 For all context windows > 10K tokens:
 

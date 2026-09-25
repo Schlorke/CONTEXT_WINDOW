@@ -26,8 +26,6 @@ Activate this skill whenever:
 - Helping AI agents understand "who talks to whom" in a system.
 - Replacing verbose ASCII art with machine-parseable diagrams.
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 ## Operational Contract
 
 | Field | Contract |
@@ -415,8 +413,6 @@ One diagram shows deployment (AWS), services, message flow, AND database schema.
 ---
 
 ## Enforcement
-
-This skill is MANDATORY and must be followed without exception when its trigger fires.
 
 For all SaaS architecture documentation:
 

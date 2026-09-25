@@ -135,6 +135,8 @@ export function inspectSkill(repoRoot, entry, evalEntries) {
     const lines = raw.split(/\r?\n/).length;
     if (lines > 500) issues.push(`SKILL.md has ${lines} lines (max 500)`);
     const section = operationalSection(fm.body);
+    if (/must be followed without exception/i.test(fm.body))
+      issues.push("unconditional obedience clause overrides Do not use when");
     if (!section) issues.push('missing "## Operational Contract" section');
     else {
       for (const key of OPERATIONAL_KEYS) {

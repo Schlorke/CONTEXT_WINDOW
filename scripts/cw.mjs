@@ -62,7 +62,7 @@ import {
   discoveryDirs,
   legacyLocations,
   resolveHomes,
-  sinkDir,
+  sinksFor,
 } from "./lib/targets.mjs";
 
 const repoRoot = path.resolve(
@@ -182,24 +182,6 @@ function resolveContext(values, { requireProfile = false } = {}) {
   if (ctx.claudeHook && !ctx.clients.includes("claude"))
     throw new UsageError("--with-claude-hook requires the claude client");
   return ctx;
-}
-
-/** Sinks for the selected clients. Cursor is served by .claude/skills (compat) or .agents/skills (native). */
-function sinksFor(ctx) {
-  const wanted = new Set();
-  if (ctx.clients.includes("claude")) wanted.add("claude");
-  if (ctx.clients.includes("codex")) wanted.add("agents");
-  if (ctx.clients.includes("cursor")) {
-    const claudeVisibleToCursor =
-      ctx.scope === "project" ||
-      path.resolve(ctx.homes.claudeConfigDir) ===
-        path.join(ctx.homes.home, ".claude");
-    if (!(wanted.has("claude") && claudeVisibleToCursor)) wanted.add("agents");
-  }
-  return [...wanted].map((sink) => ({
-    sink,
-    dir: sinkDir(sink, ctx.scope, ctx),
-  }));
 }
 
 function desiredPackages(catalog, ctx, libraryVersion) {

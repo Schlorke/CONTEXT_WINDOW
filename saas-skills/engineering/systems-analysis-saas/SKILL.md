@@ -25,8 +25,6 @@ Trigger this skill when:
 - You validate architecture decisions with technical and business stakeholders.
 - You plan product roadmaps across multiple releases.
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 ## Operational Contract
 
 | Field | Contract |
@@ -299,7 +297,7 @@ If the following information is missing, output `[INFORMATION NEEDED: X]` instea
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires. Skipping system modeling, MVP definition, or stakeholder validation will result in misalignment, scope creep, and project delays.
+Known failure: skipping system modeling, MVP definition, or stakeholder validation leaves scope and rules unverified.
 
 ## Source References
 

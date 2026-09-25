@@ -293,8 +293,6 @@ export const Button = () => (
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 When implementing a design system or defining design tokens:
 
 1. Use the 3-layer token architecture (primitive → semantic → component).

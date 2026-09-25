@@ -385,7 +385,7 @@ Readers can't tell how sources were selected or how evidence was evaluated.
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires. Specifically:
+When this skill applies:
 
 - Every research report must include an explicit, documented research question before source collection begins
 - Every source used must pass the CRAAP Test (documented scoring provided in appendix if space permits)

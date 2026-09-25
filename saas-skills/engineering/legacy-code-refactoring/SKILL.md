@@ -250,7 +250,7 @@ If the following information is missing, output `[INFORMATION NEEDED: X]` instea
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires. Skipping characterization tests or hotspot analysis will result in regressions and wasted effort.
+Known failure: skipping characterization tests or hotspot analysis hides the behavior the refactor must keep.
 
 ## Source References
 

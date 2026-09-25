@@ -25,9 +25,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "cdf41638193cdfdbf89ea27c55c8f5e599631cb68e085296f755ff8a4dfd88ab",
+      "packageHash": "94d44eeb981f8bf6701b065717c82327d99a68ce2ef10c94029b332a833fedba",
       "files": {
-        "SKILL.md": "674720a3640c21fb104c07c98210ff31b5c73094dcbec9951c78b9bca364d050",
+        "SKILL.md": "80e54d6da54bf650495ab09b190030657eb5a436dd72fdee416d3c2fbda9ccf6",
         "references/c4-model-patterns.md": "9aaae119efacf480d524512d114fdff7da2aa287320875d4fe103456b0c57fef",
         "references/mermaid-examples.md": "0a6b03dff87c6b66664746223a5fc8d1a0fa156b6d5e1ab10e6e22d234de5cfd"
       },
@@ -47,9 +47,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "25c177a99db8fdbc9430be48e1c20cd406935fbedb82b840e237200283a6d543",
+      "packageHash": "d653390cdce3eda3295fa2bf85a81e652ef3902bc495984ce895410e21a81d7e",
       "files": {
-        "SKILL.md": "8661c7c45eafabad3343a702141ee2dfb36da1e35a153f1b874b1c0c1c3d8b79",
+        "SKILL.md": "08379dd7492f654ade333d9388aeb139c336496560087075f60669cf44d69a76",
         "references/compliance-checklist.md": "35dda37fe726baaa230651e71adcfdce84284a015d12fc3f4fb11f7cd87ae97a",
         "references/implementation-roadmap.md": "5edef20305fb5b5440db4efc4e9de630bbb3f93b4e0b3d38db21ac7b5433ca42"
       },
@@ -69,9 +69,9 @@
       ],
       "invocation": "auto",
       "version": "1.1",
-      "packageHash": "f84e651a52738ac81da186de50cab8c19e9f81ee09de00abf6accfc00450b14b",
+      "packageHash": "e93376625496cd7967bd14b2de0347657c9febf408734274ed5bc4bb7765120f",
       "files": {
-        "SKILL.md": "db975d1cff51aa3834da1b18b7d250457d0918eb5adde747c6cbdcfcd0415947",
+        "SKILL.md": "46bc86c96c59ca262f210bb96d6d54398796770079af6e4893a7e00ba53c1177",
         "references/compression-strategies.md": "ed4cd7d4597b7ef095df3b5d6a8906b61d00a08130fc49ecef2542ec103ab562",
         "references/rag-decision-guide.md": "8bf5e4916ea3214d82dbf2de8d68fc3d470a3e7cfa9971c979c6e58572a1cbd3"
       },
@@ -158,9 +158,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "a1897b3206af9d3f030973bc2faf6ad3c9630301e8f05daf2a456989aee151bb",
+      "packageHash": "42175b9e29df6fad0012126e802a95ad51e40e4d07a08d89dfa70332ece8f90a",
       "files": {
-        "SKILL.md": "1251d22eb5dcf7e3a45962a53c56968fc98b4ca3dd965956ece4aac690974767",
+        "SKILL.md": "6a4a3bac0627cff6a041523ace07300faf5715e39d7c3d296d47d902635f14a2",
         "references/format-selection-guide.md": "6aa8b2a82828e11e00a0bc4bff6a8eef78fedda52fb48be6c185f6b95c042815"
       },
       "issues": []
@@ -205,9 +205,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "6ef9060af4c894b40dbc3f62c293b95bab672efb763f09694b529dc5065f9439",
+      "packageHash": "b20f16de43cce086abb0aafd3f6b24e5bb9b16da0bb6c3cef992ffc8274b4a3e",
       "files": {
-        "SKILL.md": "741d1e8d864d4a2d7d0d62ba2d8270de6bf25d2c87de0bf0aaa3e0d66ab07e5a"
+        "SKILL.md": "2cf10f824e6cb8a80d986159febcd5246d30e727eed23da899b24bec6d26a65d"
       },
       "issues": []
     },
@@ -225,9 +225,9 @@
       ],
       "invocation": "auto",
       "version": "1.1",
-      "packageHash": "37d4b320afbba4fa43178809a2ddf1737f127bddd611a97953fd0890569baeae",
+      "packageHash": "731f53399c412ccd91873907083195ec74264014f1fd1d31f9928170b41e8f6d",
       "files": {
-        "SKILL.md": "0e5d4c762dd747245dd2ad6a4ab366986df9481016abc983031ddce33dd73fb7",
+        "SKILL.md": "f2895f6963218c2383beb73f6588f1e98db76b8731738441dc3bf0251efb8302",
         "references/ddd-tactical-patterns.md": "bec63f6fe1d53380a7e0caadaef437dc81530f5d4b0d706d1106932d1481e6b3"
       },
       "issues": []
@@ -246,9 +246,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "bfa17257e4bb716fad50e462488ceba67b90fe4bcb3a29042108a646794836b2",
+      "packageHash": "ef18b28c48dad237b7cca3d7f5fa1e18751b5805025a10cb81a35854549bb62d",
       "files": {
-        "SKILL.md": "17b5d9fee2b0d08238c4a0c757b692d1aaea71deb9034719afbe6c8097d99033"
+        "SKILL.md": "f3c93c78860e4ccb30138c56d3d187db73198230a5abc9f98c019c1de8849071"
       },
       "issues": []
     },
@@ -266,9 +266,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "04c04ce5e44dff4f93034536fbcab40c93808a0505f637a9b01d9f08edcdbda9",
+      "packageHash": "f8a2e7bc665a14946bbbaf10240488a44be347e608989be291563cd8759ac57c",
       "files": {
-        "SKILL.md": "b8f73152f8b0aae5ebec894296a46ee94c7aba823d63e331b4520da6aebca4c0",
+        "SKILL.md": "d0db132d82660dfaf5c78b11c07f3014648c35266d271cfcc39d50efd7e99e2c",
         "assets/agents-md-template.md": "d2326a912dbc6218df897122d3f70f73754e863e776763822b0f04b274e856fc"
       },
       "issues": []
@@ -287,9 +287,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "65175a87bd5756805f9fdc9bb47ef0e9ac4f8be922e1d7f93c2bb7837d35424c",
+      "packageHash": "8e8e2389b08a2b42b3535f6f7ea2429021088642082eccfae44b275cde81c1b9",
       "files": {
-        "SKILL.md": "5af7e6dccd600324887ffcef144da55b2abc75273e41e83341b74622386390ed"
+        "SKILL.md": "09f5c9c160718a62c8867c940c502a4029e184efae75aca55f115136bc24bb25"
       },
       "issues": []
     },
@@ -307,9 +307,9 @@
       ],
       "invocation": "auto",
       "version": "1.1",
-      "packageHash": "9c71c8b548f05106d568fb2e67d60d3c1a18a0c68c22d698cc8463f23c9a1539",
+      "packageHash": "e64f87360e13708034ac29e075d60c135b92036bf36a693f7fb0ff2641af16c2",
       "files": {
-        "SKILL.md": "b8dc64c78c0f8518bf7b43282a0ee36c9a236d1fbdac46471f84f781c4cbbee4",
+        "SKILL.md": "c9de01a649605b645f6b31ddc2327a6c87990aacde46f8af3905f389e155299d",
         "scripts/legacy-inventory.mjs": "aae1431ac406a40f0787e7336d146ce40835251935294c8fd2dba2388547773d"
       },
       "issues": []
@@ -423,9 +423,9 @@
       ],
       "invocation": "auto",
       "version": "1.0",
-      "packageHash": "64be5146b9b7b8937affe50de6f35dc9bfc4c742c38f573bf9d9a8c75764d56c",
+      "packageHash": "ba521a534e03873024a22ddb3621b3c2a23d1120dca76534bdd5a06955536a20",
       "files": {
-        "SKILL.md": "48757c58c5e463d15c3a419a1f05c78ad67e421c042b56201679a25af7a889c2"
+        "SKILL.md": "c787c0a7143fa9555b24e827eed9fe1e0ffd0034cf02dbef79523d19ebf3e578"
       },
       "issues": []
     },
@@ -443,9 +443,9 @@
       ],
       "invocation": "auto",
       "version": "1.1",
-      "packageHash": "9a22c7533123202e19e7a0052c41323f05104a5cf69dbc72c4d5273bc47ed75a",
+      "packageHash": "19bff0c3e2e58e7be710589ea7ddf49a5e0f3d32d8406b389d95af6efe1f13e8",
       "files": {
-        "SKILL.md": "6f087d0cfae26811e0478087d4e0178650d49c2c5f5ccacde7735d06407992c5",
+        "SKILL.md": "99f88d50ee4c71acd918c018a2bf5c54f8a7366a66646591b25eb059e332c44e",
         "references/test-examples.md": "674ba57dbf2f37dc8da923b24c1425540d0a8eae7b6e6a2a6dd3c643998ff100"
       },
       "issues": []
@@ -464,9 +464,9 @@
       ],
       "invocation": "auto",
       "version": "1.0.0",
-      "packageHash": "40b4d328e46c30117e3926e31b617ba9929834614bf7a879b29eada01ca54e73",
+      "packageHash": "cbcba61157f3f55dedfeef561904ea8715a325d352e19c7e4d7c9690540896f1",
       "files": {
-        "SKILL.md": "42558389b49ccda7100d4db3f2029682680f8cd1a43b3684f47854353357d91a",
+        "SKILL.md": "c9dfd939c2c896b34d73bc364e009ced6f3ae9ec5b2d6e1b2453d38a3705351e",
         "references/registry-and-advanced-cases.md": "73b212f707521aa263c867919c5c522a576e435a19fc245d7ba14ece24d89b88"
       },
       "issues": []
@@ -485,9 +485,9 @@
       ],
       "invocation": "auto",
       "version": "1.0.0",
-      "packageHash": "18467227398104edf20bdc72ac14180f5cfdd5c94bcd0d468408b0bbd3ddb224",
+      "packageHash": "baf66fb1e5b2cfd57f6a98fa1dcd47057f90cacaa3ff3d098fe71e389c0ce30f",
       "files": {
-        "SKILL.md": "95923e9b47fb34811f7a536227b3040d577c2ced625e445a753ce198ce7a9aa9"
+        "SKILL.md": "2f79e0a061b8286c8d3ab79bd47ad59c3c559a4538ead26968d898e22b677c75"
       },
       "issues": []
     },
@@ -527,9 +527,9 @@
       ],
       "invocation": "auto",
       "version": "1.0.0",
-      "packageHash": "ddb9e6b82fb446cf1afb98524cc8a12c4dca500250a58f2c0ae9358e7c644408",
+      "packageHash": "c5608f701c6366fd383867b60be45be46b66b2a01a86c49c3c6415020682fbdb",
       "files": {
-        "SKILL.md": "f6847078191a5bb134cf2f0bd4c09689a077690fc456b8be2209304cff4d7ba7",
+        "SKILL.md": "3917c61e17080850af1380757c8a6cdab0a69a22eff9cbbb8fae476ccbe090e9",
         "references/color-system.md": "c572ea4622ebc77ffc2b4e31079a78574b6babca53ce33cbe13f1e49c6ef1cf0",
         "references/spacing-grid.md": "4053dc0c61a413de05c4ac2e6bb098f69bbd1b246daefbcc67bb0d71bd3ac4ec",
         "references/typography-scale.md": "25109a4cd057039f03f186202e9b37a131911f5153ef869869e85681d4fc2624"

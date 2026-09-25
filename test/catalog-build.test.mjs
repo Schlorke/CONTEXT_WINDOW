@@ -184,6 +184,22 @@ describe("catalog gate", () => {
     );
   });
 
+  test("an unconditional obedience clause fails the catalog", () => {
+    const w = world("obedience", {
+      skills: [
+        {
+          id: "alpha-skill",
+          skillMd: skillMd("alpha-skill", {
+            body: "This skill is MANDATORY and must be followed without exception when its trigger fires.",
+          }),
+        },
+      ],
+    });
+    const r = cw(w.lib, ["catalog", "--check"]);
+    assert.equal(r.code, 1);
+    assert.match(r.all, /unconditional obedience clause/);
+  });
+
   test("relative paths that contain home/ or Users/ are not machine paths", () => {
     const w = world("relpath", {
       skills: [

@@ -344,8 +344,6 @@ If information is missing:
 
 ## Enforcement
 
-### This skill is MANDATORY and must be followed without exception when its trigger fires
-
 When designing architecture, defining domains, implementing use cases, or applying SOLID:
 
 1. Always start with bounded context identification and ubiquitous language

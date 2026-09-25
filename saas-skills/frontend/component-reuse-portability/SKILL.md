@@ -445,8 +445,6 @@ const [data, setData] = useState<MyType[]>([]);
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 When reusing or porting a component:
 
 1. Always resolve dependencies recursively (utilities first, then primitives, then composed).

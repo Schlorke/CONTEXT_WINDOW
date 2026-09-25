@@ -63,7 +63,11 @@ export function triggerMatches(trigger, normalizedPrompt) {
       return false;
     }
   }
-  const words = normalize(t).trim().split(/\s+/).map(escapeRegExp).join("\\s+");
+  const words = normalize(t)
+    .trim()
+    .split(/\s+/)
+    .map((word) => `${escapeRegExp(word)}s?`)
+    .join("\\s+");
   return new RegExp(`(?<![a-z0-9])${words}(?![a-z0-9])`).test(normalizedPrompt);
 }
 

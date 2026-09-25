@@ -346,8 +346,6 @@ If information is missing:
 
 ## Enforcement
 
-### This skill is MANDATORY and must be followed without exception when its trigger fires
-
 When designing or modifying database schemas:
 
 1. Always add tenantId and multi-tenancy index for SaaS

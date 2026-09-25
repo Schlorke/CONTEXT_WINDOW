@@ -36,13 +36,28 @@ export function resolveHomes(opts = {}) {
   return { home, claudeConfigDir, codexHome };
 }
 
-/** Sinks needed for the selected clients. Cursor reads .agents/skills natively, so it shares that sink. */
-export function sinksFor(clients) {
-  const sinks = [];
-  if (clients.includes("claude")) sinks.push("claude");
-  if (clients.includes("codex") || clients.includes("cursor"))
-    sinks.push("agents");
-  return sinks;
+/**
+ * Physical sinks for one install context.
+ * Cursor reads project `.claude/skills` and, at user scope, `~/.claude/skills`
+ * when that directory is the Claude config dir. In those cases one copy serves
+ * both clients. Codex always needs `.agents/skills`. Cursor alone, or Cursor
+ * with a Claude config dir outside `~/.claude`, gets `.agents/skills`.
+ */
+export function sinksFor(ctx) {
+  const wanted = new Set();
+  if (ctx.clients.includes("claude")) wanted.add("claude");
+  if (ctx.clients.includes("codex")) wanted.add("agents");
+  if (ctx.clients.includes("cursor")) {
+    const claudeVisibleToCursor =
+      ctx.scope === "project" ||
+      path.resolve(ctx.homes.claudeConfigDir) ===
+        path.join(ctx.homes.home, ".claude");
+    if (!(wanted.has("claude") && claudeVisibleToCursor)) wanted.add("agents");
+  }
+  return [...wanted].map((sink) => ({
+    sink,
+    dir: sinkDir(sink, ctx.scope, ctx),
+  }));
 }
 
 export function sinkDir(sink, scope, { target, homes }) {

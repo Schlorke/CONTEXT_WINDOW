@@ -23,8 +23,6 @@ Activate this skill whenever:
 - Structuring multi-step reasoning tasks
 - Building internal prompt libraries for your SaaS
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 ## Operational Contract
 
 | Field | Contract |
@@ -303,8 +301,6 @@ Copy another prompt verbatim without understanding its structure. This breaks wh
 Lavish prompts with 10 examples + chain-of-thought + full codebase context = 50K tokens before response. At scale (1000s of requests), this explodes costs. Measure token usage early. Set budget from day 1.
 
 ## Enforcement
-
-This skill is MANDATORY and must be followed without exception when its trigger fires.
 
 When writing any production prompt:
 

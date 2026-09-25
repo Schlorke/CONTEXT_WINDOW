@@ -27,8 +27,6 @@ Trigger this skill when:
 - You need to define a testing strategy for your team.
 - You review code and assess test coverage.
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 Before proposing folders or commands, inspect the repo first: `package.json` scripts, lockfile/package manager, `vitest.config.*`, `playwright.config.*`, Storybook config, existing test locations, and CI. Use the scripts the repository already defines instead of inventing commands.
 
 ## Operational Contract
@@ -420,7 +418,7 @@ If the following information is missing, output `[INFORMATION NEEDED: X]` instea
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires. Skipping tests or ignoring test failures will result in regressions, production bugs, and team friction.
+Known failure: skipping tests or ignoring test failures produces regressions that the suite can no longer see.
 
 ## Source References
 

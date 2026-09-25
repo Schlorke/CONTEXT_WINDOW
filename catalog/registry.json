@@ -33,7 +33,8 @@
         "re:\\bc4\\b",
         "diagrama de arquitetura",
         "architecture diagram",
-        "fluxograma"
+        "fluxograma",
+        "ASCII architecture"
       ],
       "review": {
         "status": "reviewed",
@@ -59,7 +60,10 @@
         "streaming de resposta",
         "ux do assistente",
         "ai chat interface",
-        "interface de chat"
+        "interface de chat",
+        "streaming responses",
+        "stop/regenerate",
+        "MCP tools"
       ],
       "review": {
         "status": "reviewed",
@@ -86,7 +90,9 @@
         "token budget",
         "compressao de contexto",
         "context drift",
-        "tool output budget"
+        "tool output budget",
+        "in-context compression",
+        "wasting tokens"
       ],
       "review": {
         "status": "reviewed",
@@ -112,7 +118,10 @@
         "create a skill",
         "atualizar skill.md",
         "skill creator",
-        "skill trigger matrix"
+        "skill trigger matrix",
+        "portable Agent Skill",
+        "progressive disclosure",
+        "canonical skill"
       ],
       "review": {
         "status": "reviewed",
@@ -138,7 +147,9 @@
         "sincronizar skills",
         "sync skills",
         "biblioteca de skills",
-        "atualizar skills instaladas"
+        "atualizar skills instaladas",
+        "skills library",
+        "smoke-test these skills"
       ],
       "review": {
         "status": "reviewed",
@@ -167,7 +178,9 @@
         "segunda opiniao",
         "multiplas perspectivas",
         "advogado do diabo",
-        "pressure test"
+        "pressure test",
+        "second opinion",
+        "devil's advocate"
       ],
       "review": {
         "status": "reviewed",
@@ -193,7 +206,9 @@
         "few-shot",
         "output estruturado",
         "structured output",
-        "reduzir alucinacao"
+        "reduzir alucinacao",
+        "hallucinating optional fields",
+        "markdown, or XML"
       ],
       "review": {
         "status": "reviewed",
@@ -222,7 +237,9 @@
         "evals de agente",
         "evals do agente",
         "agent evals",
-        "system prompt"
+        "system prompt",
+        "prompt injection",
+        "runtime configuration"
       ],
       "review": {
         "status": "reviewed",
@@ -252,7 +269,9 @@
         "api endpoint",
         "webhook",
         "paginacao da api",
-        "rate limit"
+        "rate limit",
+        "error envelopes",
+        "status codes"
       ],
       "review": {
         "status": "reviewed",
@@ -287,7 +306,8 @@
         "monolito modular",
         "modular monolith",
         "arquitetura do backend",
-        "backend architecture"
+        "backend architecture",
+        "infrastructure adapters"
       ],
       "review": {
         "status": "reviewed",
@@ -342,7 +362,8 @@
         "project docs",
         "re:\\badr\\b",
         "estruturar docs",
-        "readme do projeto"
+        "readme do projeto",
+        "Diataxis"
       ],
       "review": {
         "status": "reviewed",
@@ -367,7 +388,10 @@
         "relatorio tecnico",
         "research report",
         "avaliar fontes",
-        "citacoes"
+        "citacoes",
+        "evidence grading",
+        "CRAAP",
+        "research question"
       ],
       "review": {
         "status": "reviewed",
@@ -397,7 +421,11 @@
         "characterization test",
         "migrar para fsd",
         "modernizar o projeto",
-        "adotar o contrato"
+        "adotar o contrato",
+        "hotspots",
+        "god component",
+        "technical debt",
+        "without changing behavior"
       ],
       "review": {
         "status": "reviewed",
@@ -430,7 +458,10 @@
         "cliente mobile",
         "mobile expo",
         "workspace pnpm",
-        "extrair api"
+        "extrair api",
+        "module boundaries",
+        "between web and mobile",
+        "Expo mobile"
       ],
       "review": {
         "status": "reviewed",
@@ -455,7 +486,10 @@
         "requirements elicitation",
         "definir mvp",
         "regras de negocio",
-        "analise de sistemas"
+        "analise de sistemas",
+        "define the MVP",
+        "BPMN",
+        "stakeholder interviews"
       ],
       "review": {
         "status": "reviewed",
@@ -485,7 +519,8 @@
         "cobertura de teste",
         "test coverage",
         "estrategia de testes",
-        "teste de arquitetura"
+        "teste de arquitetura",
+        "coverage gaps"
       ],
       "review": {
         "status": "reviewed",
@@ -511,7 +546,10 @@
         "reaproveitar componente",
         "reuse component",
         "component registry",
-        "componente entre projetos"
+        "componente entre projetos",
+        "from one SaaS project to another",
+        "between repos",
+        "shared chart card"
       ],
       "review": {
         "status": "reviewed",
@@ -539,7 +577,8 @@
         "component library",
         "biblioteca de componentes",
         "atomic design",
-        "packages/ui"
+        "packages/ui",
+        "shared components"
       ],
       "review": {
         "status": "reviewed",
@@ -568,7 +607,9 @@
         "public api do slice",
         "organizacao do frontend",
         "arquitetura do frontend",
-        "frontend architecture"
+        "frontend architecture",
+        "import its internals",
+        "client bundles"
       ],
       "review": {
         "status": "reviewed",
@@ -599,7 +640,8 @@
         "modo escuro",
         "wcag",
         "contraste de cor",
-        "acessibilidade web"
+        "acessibilidade web",
+        "density spec"
       ],
       "review": {
         "status": "reviewed",
@@ -625,7 +667,9 @@
         "editar video",
         "legenda de video",
         "reel vertical",
-        "exportar video"
+        "exportar video",
+        "voiceover",
+        "ingest bins"
       ],
       "review": {
         "status": "reviewed",
@@ -676,7 +720,8 @@
         "splinecode",
         "cena spline",
         "hero 3d",
-        "embed spline"
+        "embed spline",
+        "Spline product"
       ],
       "review": {
         "status": "reviewed",

@@ -9,5 +9,6 @@ Applies to every product repository that has, or will have, a frontend. Backend-
 5. Gate: run `pnpm arch` (tools/arch-check.mjs) before finishing frontend work; any violation blocks completion.
 6. Legacy repositories: when the task authorizes adoption or modernization, follow `legacy-code-refactoring` (inventory → characterization tests → incremental moves → gate → retire replaced structure). Installing or updating skills never rewrites a project.
 7. Backend: choose modular monolith or ports-and-adapters with `clean-architecture-ddd`; FSD is not applied to backend code. Shared contracts live apart from server implementations.
+8. Fidelity: do not invent paths, APIs, tokens, colors or a second copy of a screen. The web/mobile mirror is one product UI in `packages/frontend`, rendered by the thin hosts. If the repository disagrees with this contract, the repository wins and the disagreement is reported. Load a skill only inside its Operational Contract; leave the others unloaded.
 
 Skills: `multiplatform-platform-architecture` (bootstrap, topology, Next/Expo), `react-saas-architecture` (FSD rules), `design-system-implementation`, `legacy-code-refactoring`, `clean-architecture-ddd`, `testing-strategies`.

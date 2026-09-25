@@ -27,8 +27,6 @@ Activate this skill whenever:
 - Planning a phased rollout of AI features.
 - Handling errors or edge cases in AI interactions.
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
-
 ## Operational Contract
 
 | Field | Contract |
@@ -317,8 +315,6 @@ System prompt changes daily. User gets different behavior. Lock it. Version it. 
 ---
 
 ## Enforcement
-
-This skill is MANDATORY and must be followed without exception when its trigger fires.
 
 All 6 pillars must be implemented before any AI interface goes to production:
 

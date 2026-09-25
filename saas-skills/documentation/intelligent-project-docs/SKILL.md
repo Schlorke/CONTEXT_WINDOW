@@ -260,7 +260,7 @@ No publication date on docs. Result: reader can't assess freshness. Solution: in
 
 ## Enforcement
 
-This skill is MANDATORY and must be followed without exception when its trigger fires. Specifically:
+When this skill applies:
 
 - AGENTS.md must exist at project root before any AI agent onboarding, even if it is a short pointer to the canonical manual
 - AGENTS.md and the canonical manual it points to must be reviewed and updated in every PR that materially changes architecture

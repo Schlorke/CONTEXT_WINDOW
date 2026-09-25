@@ -343,8 +343,6 @@ If information is missing:
 
 ## Enforcement
 
-### This skill is MANDATORY and must be followed without exception when its trigger fires
-
 When designing or implementing APIs:
 
 1. Always use standard response envelope with { data, meta } or { error, meta }
