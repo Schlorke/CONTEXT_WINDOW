@@ -1,5 +1,10 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 2.0.3 - 25 de setembro de 2026
+
+Hotfix: install concorrente no Node 24 — holder vivo sem journal → busy (3),
+não conflito falso (2); journal interrompido também sai 3 (ACH-010/CR-017).
+
 ## 2.0.2 - 25 de setembro de 2026
 
 Hotfix: testes de path portáveis (win32/posix) e EOL canônico LF

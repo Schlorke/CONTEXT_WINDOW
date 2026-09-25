@@ -1,6 +1,6 @@
 {
   "name": "context-window",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": true,
   "type": "module",
   "description": "Canonical SaaS skill library for Claude Code, Codex and Cursor, with a safe installer, catalog gates, an architecture gate and a web + mobile product template.",

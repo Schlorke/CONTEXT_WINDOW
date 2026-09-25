@@ -571,8 +571,8 @@ describe("failures, interruption and concurrency", () => {
       const again = install(w);
       assert.equal(
         again.code,
-        2,
-        "a new install must refuse while a journal exists",
+        3,
+        "a new install must refuse as busy/interrupted while a journal exists",
       );
       assert.equal(
         cw(w.lib, ["recover", "--target", w.proj, "--home", w.home]).code,
@@ -617,6 +617,43 @@ describe("failures, interruption and concurrency", () => {
       cw(w.lib, ["verify", "--target", w.proj, "--home", w.home]).code,
       0,
     );
+  });
+
+  test("a live lock without journal yields busy, not a false conflict [ACH-010/CR-017]", () => {
+    // Reproduces the unlock→conflict race: another holder still owns the lock after its
+    // journal was removed, while disk looks "locally-modified". Mutating install must
+    // return 3 (busy), never 2 (conflict) from that unlocked observation.
+    const w = world("lock-no-journal", {
+      skills: [{ id: "alpha-skill" }, { id: "beta-skill" }],
+    });
+    assert.equal(install(w, ["--clients", "claude"]).code, 0);
+    const sink = path.join(w.proj, ".claude", "skills");
+    fs.appendFileSync(
+      path.join(sink, "alpha-skill", "SKILL.md"),
+      "\nlocal drift\n",
+    );
+    const lockFile = path.join(controlDir(sink), "lock");
+    fs.mkdirSync(path.dirname(lockFile), { recursive: true });
+    fs.writeFileSync(
+      lockFile,
+      JSON.stringify({
+        pid: process.pid,
+        host: os.hostname(),
+        startedAt: new Date().toISOString(),
+        command: "install",
+      }),
+    );
+    try {
+      const r = install(w, ["--clients", "claude"]);
+      assert.equal(r.code, 3, r.all);
+      assert.match(r.all, /locked|being updated/i);
+    } finally {
+      try {
+        fs.unlinkSync(lockFile);
+      } catch {
+        /* released */
+      }
+    }
   });
 
   test("concurrent installs never produce a misleading success [ACH-010/CR-017]", async () => {

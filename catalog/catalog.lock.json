@@ -1,7 +1,7 @@
 {
   "schema": "context-window/catalog-lock@1",
   "library": "context-window/saas-skills",
-  "libraryVersion": "2.0.2",
+  "libraryVersion": "2.0.3",
   "counts": {
     "imported:imported-unreviewed": 83,
     "canonical:active": 21

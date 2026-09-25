@@ -11,6 +11,19 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [2.0.3] - 2026-09-25
+
+Hotfix de CI: install concorrente no Node 24 não reporta mais conflito falso (exit 2).
+
+### Fixed in 2.0.3
+
+- Holder vivo do lock é tratado como ocupado mesmo sem journal (janela
+  unlink→release), evitando conflito falso (exit 2) sob concorrência
+  (ACH-010/CR-017); perdedores retornam 3.
+- Journal interrompido sem holder vivo passa pelo caminho de lock e sai 3
+  (`InterruptedError`), alinhado ao contrato de exit codes — não mais 2.
+- Regressão determinística: lock vivo sem journal + drift local → exit 3.
+
 ## [2.0.2] - 2026-09-25
 
 Hotfix de CI: QA portável entre Windows e Linux.

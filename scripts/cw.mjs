@@ -395,10 +395,12 @@ function computePlan(catalog, ctx, values, identity) {
     ...sinks.map((s) => s.plan.sinkDir),
     ...legacy.map((l) => l.plan.sinkDir),
   ]) {
-    const journal = journalState(dir);
-    if (!journal) continue;
+    // Lock may outlive the journal briefly (unlink journal → release). Treat a live holder
+    // as busy even without a journal so concurrent installors never see a false conflict.
     if (lockHolderAlive(dir))
       throw new BusyError(`${dir} is being updated by another process`);
+    const journal = journalState(dir);
+    if (!journal) continue;
     conflicts.push({
       where: dir,
       id: "*",
@@ -493,9 +495,10 @@ function cmdInstall(argv, { dryRunCommand = false } = {}) {
     };
   };
   const preview = dryRunCommand || values["dry-run"];
-  // First pass without locks: conflicts are reported without writing anything. While another
-  // process is mutating the same sinks this pass may observe a transient state; in that case
-  // the authoritative plan below (computed under the locks) decides.
+  // First pass without locks. A live lock holder already throws BusyError inside computePlan
+  // (including the journal-unlinked window). Quiescent content conflicts may return 2 without
+  // creating control dirs. Interrupted journals must not look like ordinary conflicts: they
+  // fall through so acquireLock raises InterruptedError → exit 3 (ACH-010/CR-017).
   let result = null;
   try {
     result = computePlan(catalog, ctx, values, identity);
@@ -504,7 +507,7 @@ function cmdInstall(argv, { dryRunCommand = false } = {}) {
       throw error;
   }
   if (result) report(result);
-  if (result && (result.conflicts.length || preview)) {
+  if (result && preview) {
     printPlan(result);
     if (result.conflicts.length) {
       say(`\n${result.conflicts.length} conflict(s). Nothing was written.`);
@@ -512,6 +515,15 @@ function cmdInstall(argv, { dryRunCommand = false } = {}) {
     }
     say("\nDry run: nothing was written.");
     return 0;
+  }
+  if (
+    result &&
+    result.conflicts.length &&
+    !result.conflicts.some((c) => c.type === "interrupted")
+  ) {
+    printPlan(result);
+    say(`\n${result.conflicts.length} conflict(s). Nothing was written.`);
+    return 2;
   }
   // Re-plan while holding every lock, so a concurrent run can never apply a stale plan.
   const releases = [];
