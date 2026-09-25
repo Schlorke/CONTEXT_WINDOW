@@ -12,8 +12,27 @@ export function sha256(data) {
   return crypto.createHash("sha256").update(data).digest("hex");
 }
 
+/**
+ * Canonical bytes for content-addressed skill hashing.
+ * UTF-8 text: CRLF/CR → LF so catalog locks match across checkouts with
+ * core.autocrlf (Windows) vs LF-native (Linux). Buffers with NUL or invalid
+ * UTF-8 are left unchanged (treated as binary).
+ */
+export function canonicalBytes(data) {
+  const buf = Buffer.isBuffer(data) ? data : Buffer.from(data);
+  if (buf.includes(0)) return buf;
+  const text = buf.toString("utf8");
+  if (!Buffer.from(text, "utf8").equals(buf)) return buf;
+  if (!text.includes("\r")) return buf;
+  return Buffer.from(text.replace(/\r\n/g, "\n").replace(/\r/g, "\n"), "utf8");
+}
+
+export function sha256Canonical(data) {
+  return sha256(canonicalBytes(data));
+}
+
 export function sha256File(file) {
-  return sha256(fs.readFileSync(file));
+  return sha256Canonical(fs.readFileSync(file));
 }
 
 export function toPosix(p) {

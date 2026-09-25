@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import yaml from "./vendor/js-yaml.mjs";
 import { parseFrontmatter } from "./catalog.mjs";
-import { packageHash, sha256 } from "./fsx.mjs";
+import { packageHash, sha256Canonical } from "./fsx.mjs";
 
 const SPEC_FIELDS = ["license", "compatibility", "allowed-tools"];
 
@@ -63,6 +63,7 @@ export function renderSkill(repoRoot, skill, libraryVersion) {
     );
   }
   const hashes = {};
-  for (const [rel, buf] of Object.entries(files)) hashes[rel] = sha256(buf);
+  for (const [rel, buf] of Object.entries(files))
+    hashes[rel] = sha256Canonical(buf);
   return { id: skill.id, files, hashes, packageHash: packageHash(hashes) };
 }

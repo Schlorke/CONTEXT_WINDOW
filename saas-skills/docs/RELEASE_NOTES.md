@@ -1,5 +1,10 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 2.0.1 - 25 de setembro de 2026
+
+Hotfix: hashes do catálogo normalizam EOL (CRLF→LF) para `catalog.lock.json` ser
+byte-estável entre Windows (`autocrlf`) e Linux; CI `library` volta a passar o gate.
+
 ## 2.0.0 - 24 de setembro de 2026
 
 Resumo operacional (detalhes em `CHANGELOG.md` e em `acceptance/`):

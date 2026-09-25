@@ -11,6 +11,16 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [2.0.1] - 2026-09-25
+
+Hotfix de CI: `catalog --check` falhava em checkouts limpos (Windows e Linux).
+
+### Fixed in 2.0.1
+
+- Hashes do catálogo/instalação passam a usar bytes canônicos (UTF-8 com CRLF/CR → LF),
+  para o lock ser estável sob `core.autocrlf` e checkouts LF-nativos; `catalog.lock.json`
+  regenerado.
+
 ## [2.0.0] - 2026-09-24
 
 Versão de ruptura. Responde à auditoria independente de 2026-09-24 (parecer REPROVADO, nota 3,7) e

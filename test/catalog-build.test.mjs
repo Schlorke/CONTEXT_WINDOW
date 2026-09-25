@@ -244,6 +244,44 @@ describe("catalog gate", () => {
     assert.equal(r.code, 1);
     assert.match(r.all, /stale/);
   });
+
+  test("catalog hashes are EOL-stable across CRLF and LF working trees", async () => {
+    const { canonicalBytes, hashTree, packageHash, sha256Canonical } =
+      await import("../scripts/lib/fsx.mjs");
+    const lf = Buffer.from("# Title\n\nBody line\n", "utf8");
+    const crlf = Buffer.from("# Title\r\n\r\nBody line\r\n", "utf8");
+    assert.equal(sha256Canonical(lf), sha256Canonical(crlf));
+    assert.deepEqual(canonicalBytes(crlf), lf);
+
+    const w = world("eol-lock", { skills: [{ id: "eol-skill" }] });
+    const skillDir = path.join(
+      w.lib,
+      "saas-skills",
+      "engineering",
+      "eol-skill",
+    );
+    const skillFile = path.join(skillDir, "SKILL.md");
+    assert.equal(cw(w.lib, ["catalog", "--write-lock"]).code, 0);
+    const lockLf = fs.readFileSync(
+      path.join(w.lib, "catalog", "catalog.lock.json"),
+    );
+    assert.equal(cw(w.lib, ["catalog", "--write-lock"]).code, 0);
+    assert.deepEqual(
+      fs.readFileSync(path.join(w.lib, "catalog", "catalog.lock.json")),
+      lockLf,
+    );
+
+    const lfText = fs
+      .readFileSync(skillFile, "utf8")
+      .replace(/\r\n/g, "\n")
+      .replace(/\r/g, "\n");
+    fs.writeFileSync(skillFile, lfText);
+    const hashLf = packageHash(hashTree(skillDir).hashes);
+    fs.writeFileSync(skillFile, lfText.replace(/\n/g, "\r\n"));
+    assert.match(fs.readFileSync(skillFile, "utf8"), /\r\n/);
+    assert.equal(packageHash(hashTree(skillDir).hashes), hashLf);
+    assert.equal(cw(w.lib, ["catalog", "--check"]).code, 0);
+  });
 });
 
 describe("managed contract blocks", () => {

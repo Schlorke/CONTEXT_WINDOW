@@ -7,7 +7,7 @@ import {
   packageHash,
   readJsonOrNull,
   scanTree,
-  sha256,
+  sha256Canonical,
   toPosix,
 } from "./fsx.mjs";
 import { findSecrets, isPrivateFile } from "./secrets.mjs";
@@ -178,7 +178,13 @@ export function inspectSkill(repoRoot, entry, evalEntries) {
         issues.push("fewer than 3 minimum_output expectations");
     }
   }
-  return { issues, warnings, files: hashes, meta, skillHash: sha256(raw) };
+  return {
+    issues,
+    warnings,
+    files: hashes,
+    meta,
+    skillHash: sha256Canonical(raw),
+  };
 }
 
 /**

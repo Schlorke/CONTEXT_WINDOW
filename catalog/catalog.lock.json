@@ -1,7 +1,7 @@
 {
   "schema": "context-window/catalog-lock@1",
   "library": "context-window/saas-skills",
-  "libraryVersion": "2.0.0",
+  "libraryVersion": "2.0.1",
   "counts": {
     "imported:imported-unreviewed": 83,
     "canonical:active": 21
@@ -27,9 +27,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "7c09f3a18a2cb9716ef12679a894977a4991d2826ca7d52ec6cd8ddf64249c9d",
+      "packageHash": "2d18eb9f7f9230c16480400abea7361ffce713da14a0fe99676855008d759ce8",
       "files": {
-        "SKILL.md": "443ad89fc13e8bf0ea8b5cd6f7604491f9b5484b19f9e7c2762833f12c0ecc0e"
+        "SKILL.md": "f6f47c984c4a0872d6e95a7cb5c0e993c5756b4051d872c581af13773300ace7"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -50,9 +50,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "2098dc15568cc0e89845cab70b6023121bd2554410b4f84a429cc1d2c22483ed",
+      "packageHash": "dcfccd8b491b01e268b2425cc551b6a376fd8d9989308231263a9bac807c9c6d",
       "files": {
-        "SKILL.md": "1cb8ebc8390f5379be9b7ff57773d5deb1dd6b825995e5ec2323f9e24c833e04"
+        "SKILL.md": "8e6b8026daa589b9f79a1b26f7643c6c0953c35e5ca476580a84501302d69161"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -73,9 +73,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "3ecb74d4fc13baadc18049f84b0ceadab3790abee2213f1f9721145ab913caab",
+      "packageHash": "eb8c6cf48b96e19e90a2f35207d7c75810ffbeaa5931dec8852ce6ce7ad525c3",
       "files": {
-        "SKILL.md": "54da9c654762e0d28a72e9e5c6317375130f01e151671f1b9db8fe97ea71baef"
+        "SKILL.md": "e4779b67fd3e673d1929593844857a0272fb04dec5eb71d09a97bc54027e1d8e"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -96,9 +96,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "35074934af25e75d1992713a23b6b92244e90d09a10da114690a9e236c75a16c",
+      "packageHash": "5a0a02f10e09758720e0e8b81fe3a33824f4112f46ca59c55b143791bb52af9a",
       "files": {
-        "SKILL.md": "f6f054c102e435207fddc61c9eb16c7a65b8d36f99e25d60b279920e6773d3f1"
+        "SKILL.md": "7c9fc44679622c4dccddc2f02d5d1a117ebc32f2fd9c1231c10315be26e1922e"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -119,9 +119,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "878e4feca4025d603bdee527fd656c5b1c3120cd840b0a29723ef9c742e91608",
+      "packageHash": "64f84321581daea48bc2fcde49658863317839f38b019ce30a50b416efe3ff84",
       "files": {
-        "SKILL.md": "49474c804b7bcc9dbf92d801640c8e315bd7cd3ec0ff680b889614f1a2699114"
+        "SKILL.md": "c2881edaeb08cd5e236b45320c3d0de54b3a395f1a0cece0b572ddf71c93f957"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -142,9 +142,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "701178c86d263139c85902a3e548af424294cedf5aa93e12a7696e20802e16c6",
+      "packageHash": "314e2d82f35b1af6c800a5dd89de2b51fc9088db9b7bd34a43a832409b58cf14",
       "files": {
-        "SKILL.md": "e101d1c00e0f3756bbd65538b5892232a9834b138847351b912ff9a706791e35"
+        "SKILL.md": "f15ae3c57feb66a05d80a268897958d5ba19805644be80cd403a7d38da849c68"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -165,9 +165,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "766a61e6452fd65d4c30647c463fccb3b7d5862febf4fb237f51ce0bccf786ce",
+      "packageHash": "97d1f7f08cbb6a034ec6b189b31305f83dbe0284cbaf3373c4acf44724ae7645",
       "files": {
-        "SKILL.md": "bff60fec88534da84a82bd2569de6d382daa4955470c5bbc70d475129912caae"
+        "SKILL.md": "b596ebb7ae5b55b2ea1eae6ddd7736d280659901106c8b66f57eee26c8dff7bf"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -188,9 +188,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "fc2ab0fb36752aaf95b08f96a6b23855d77f54ebd62e8fc4338a90e726cd736a",
+      "packageHash": "9cb67ed54ac017d3c834d1201d61c042d8b5f29a42f9ffb3894c5fae55af6ba9",
       "files": {
-        "SKILL.md": "3ceb5773eec39a550d9b7a381fbd456e62537a8fde915ab591cb302de4aa20a8"
+        "SKILL.md": "031d31d1bd5b757ab3c2663e7c6a4c390006a5945b025a8b5bc047862aacbd93"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -211,9 +211,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "7ea2bb347d7caa3fd0beb7db590b92c6725da4b190591106ff6c1d9788352838",
+      "packageHash": "baed7828925674423e5d74928e7add06235621b96e07b9050363c80e9363d146",
       "files": {
-        "SKILL.md": "1efa67f70285042199ab29a42330a2b9f66cf600af162e7b0ebeb49faa732f1f"
+        "SKILL.md": "e9bf33a57f8471dc266aebfd1005e5e694ebc826393adb9bfa46f62292579c22"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -234,9 +234,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "09c39d5f46985300da7e6ac63a4dc0ba0637f98a50299bb293c49b61ebc6b491",
+      "packageHash": "608203124eef3d960803632a1bc04d850843ff3dd885835a653e7f05d190b183",
       "files": {
-        "SKILL.md": "64b05b7e40cfcda5816c1b50577543d64a89922482594a48299d8c685688bae4"
+        "SKILL.md": "1f5960a17eeebcf9d20f4780cdf1a79904c86bee691371195ca22c33e8222252"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -257,9 +257,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "e44567346c1f77143b203b90c024ac2c2605d0849e4462df2a3cdd7596f9b268",
+      "packageHash": "ed9cf7716f2fde590d9eef558af80ea3ffa7bd8626684bb3382db04d4f6d020e",
       "files": {
-        "SKILL.md": "eed9ee5973986a9b647f3cc8f019f2288f138796b5f7f96db7ca3b4ef22c827c"
+        "SKILL.md": "c29860de9250aba058c5a6c32f73bdc9d6b70e0e4609701dd8910de797da148c"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -280,9 +280,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "de7f27ace004af1a3ee4d04beaa9e25218fea3f1a1cfa68a28d7ad02d2198542",
+      "packageHash": "b143ee73125f77e5e0a5895a288814ab73bfe968a75dbcc1beef000a44a5f9e2",
       "files": {
-        "SKILL.md": "d07c1976267f1cafb40816b7893937192f2848ebaa4c4c0eb34d9313bec78310"
+        "SKILL.md": "b2d47832e900001094240b57b9c170812c3cce27c2147e46884d0c76615eba8f"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -303,9 +303,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "b553bd7e1d9e9c29b4e83397d611889de3f80ad4e991888246c113faf6ab81ec",
+      "packageHash": "e9c0663bbc126eb007e2a3cd89039d801de946d7352f3d2b6bb30c1459fc0e77",
       "files": {
-        "SKILL.md": "bf08710bc9fd161e33ca320fd8731afba3d0657dfe842663adbb90aa42fe3074"
+        "SKILL.md": "51e86bd1de4e494bd9bb6622a2c352b1e583aca1a8920060e8b73d955fd2072c"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -326,9 +326,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a587a045275eb32fdab7d97925aca01f33a5c5f3390376b8d63d451f09f2425c",
+      "packageHash": "ef2d73003c360285fda2309589baabdc196fd0e70cf4559ad0369d54b4f02624",
       "files": {
-        "SKILL.md": "f3cd27c53f183b7fede94adefcdaf4f52ceb744b713b6cdba7411d49d51b1082"
+        "SKILL.md": "83a1ec4c693d3d731aeb6f01c56528e0d8da596c46a96010ab4c447137ebc99a"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -349,9 +349,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "bced2c5045e7e11892add91b8ec2d96dd6c49eee6aebec8bcb9146e850c0ec02",
+      "packageHash": "d4d734548e3f7ac839b12c8235459b976934098918eb7929e8e20e39e19febb5",
       "files": {
-        "SKILL.md": "9cc2aa2f5922e150dc77ab2e6f3269beda6aed80f9cfde27c35ae67fce0cf12c"
+        "SKILL.md": "9ca3f54bace9a84501a2bd1a6fe4defbf030627c5590c8368b769617f4c787e1"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -372,9 +372,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a6cb53998a67cc7078ef4fc2a9df6537ceab469e8b7e027d7a32e76df8f37a97",
+      "packageHash": "74f24a5b59c011efbf6e683bcbd8ed1bb8b0b780b4e7c65e79f8f778b9cffe4b",
       "files": {
-        "SKILL.md": "44c5f7c80ed1a2f8dad3e2f63c1341baaac121cb1b1613f3aaf6456e4a937297"
+        "SKILL.md": "6f1b6e5fc4f7155222195cee38120427f5f374efbbc36f056b1f4e9243893b16"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -395,9 +395,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "1df15b5079d3f2fb05e2e843b2ce01e095541288e80d00430455ea6441b8cec4",
+      "packageHash": "22f78d169f53af745efd233c203be22d5924cdf897c799afa7192c14b959d4b1",
       "files": {
-        "SKILL.md": "20c6d2daeca80ea6370f48a643be9224b738ac7c23464f28d0bdc0d4f94be92f"
+        "SKILL.md": "602aaf74a491b57aabf6fab1a93584d1f5122db7f9e319aa6fa9ce72bbd9bc72"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -418,9 +418,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "480613e9952f65c07ed9e8f4304e5746a3200f234d4a25a0d56c30d9d2760051",
+      "packageHash": "6e6b77d219b792cde80df712a0f01e25f5b60fb937209279d41b7d97c2caff93",
       "files": {
-        "SKILL.md": "c46f4e17da7866055d47c21a431b88d76964fc8519c5421eff7d14e923c96d3d"
+        "SKILL.md": "0bdb962a81d96af0b15e4039cb038d89515d7ff31310f19e5cc38dabe1c032a1"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -441,9 +441,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "3d6c1fd578bc82846bb1215670114c290e80ad45c37d121028f733a9710a4fd4",
+      "packageHash": "00523417886a28a7e4d49a9572a8d1e10eb8f00869bd13dd2746950413b21cee",
       "files": {
-        "SKILL.md": "0931a27598e4133543d87d47705c4df8b3df69886dae438cfad9640b9fdef4c2"
+        "SKILL.md": "572345d7f6f95df901e01a21ed50d8f60fd9854f3d2fe75c25a702efedb26fc8"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -464,9 +464,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a7eab65e9e9d0baf5cf8d92e4ac1722601c1425034770aeea7675a9910a5b72f",
+      "packageHash": "4dc21ba18fedc4dda53c8ed16085bc4b5aa89806dbe0297dcbdd7d73fb68197f",
       "files": {
-        "SKILL.md": "77a321c7cea29a9767b47af73da814f008b0bb7987a809aca869151a7ad2672e"
+        "SKILL.md": "0aca80611c0087be6ea6cae81fdda215025037df7b1067bc103eef425b51f00d"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -487,9 +487,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "08dc3791c3bc335abfcab98d9c83a408a91a3cf7a3b986bdcb5099bce3f026bb",
+      "packageHash": "11dd0b4b45fbe26212feab72458b19d45b7438991d58d353fc983476f6c66fd5",
       "files": {
-        "SKILL.md": "2ffcaa72637c5eb91585e310cd9c1e4c17a44e0ea9fa9b29bb8fd39e86becec6"
+        "SKILL.md": "719a834c67041306bd174a675c9629c09b33b00612ba644e442f71adcc6914f4"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -510,9 +510,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a41a17b769f5b2c4204cff0435dd23275e6d2a6fc194430a22e949edc860ccb8",
+      "packageHash": "f793459f768316181031b88e66094038540c30bd6ee676d074a1a638ee8dac63",
       "files": {
-        "SKILL.md": "2400bdca489177840fe907397ea460304bda7fd0edf6391088e7ee00f40e9a28"
+        "SKILL.md": "ae73f23bb208a6fa550816fde4b410d652539e4f412de471d10105ccd3320a46"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -533,9 +533,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "4837db6c6de0de04b4d98437e21b96cf48d19618020fa2373119527e0704147e",
+      "packageHash": "0a8757adc85e92a8f2a91a6e4469bfc2dc3c8c8c95e5d0fe75293356fdb7c0e4",
       "files": {
-        "SKILL.md": "10ebd85ef0c05c24f0cbe0318a0bbc3e0450a10d42c9f64fa8fe6c0dad1b23d1"
+        "SKILL.md": "0fd14b3d625b476387dc6e7196338304cfe595076ea496593ce382951f809a82"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -556,146 +556,146 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "47814f26eda23f2b0fea1d61cb95fc8b8fefb3afb1127b55876f592f7baefcb4",
+      "packageHash": "5237caba4afa9a538a5e3930786244bcf2e32bc9b75b75220ae85a01cbddc7aa",
       "files": {
-        "SKILL.md": "bcca263d4b7a8a2cbcc773cc4d2f1c3bf882dd59767683e96b773432cfe2b6f8",
-        "agents/openai.yaml": "a4b00acf16604d87da4cd6de6f8e8e1c31a4ed291d1424e7ded3ca1df0a66936",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-captions/REFERENCE.md": "8ee80dae4c67fb7421df78d7145442cc3bc10eb0cacfb73d3672954f895d96d0",
-        "remotion-captions/agents/openai.yaml": "1746691f26d8d5cffb536ec986fc065e530b64d2a574c62c95e1e5d0d25a0271",
-        "remotion-captions/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-captions/display-captions.md": "bd4a0ab7f1ae563544ade645473750156680911f350578dbd716739e3ab07f7d",
-        "remotion-captions/import-srt-captions.md": "d87f42376221d4802b84ad2f81906a568b9ebb81525ccd1698dc434cea3eaa5c",
-        "remotion-captions/transcribe-captions.md": "c28bc6bb42ea61e8021019839df8f9eabaab91da85950f098c9bf3f2f4b65505",
-        "remotion-create/REFERENCE.md": "c9b4c93f7a3ffa6582ec422a254054fd54d471673f51836f57e13b50c5a39ad1",
-        "remotion-create/agents/openai.yaml": "6b668b11a26aa4d70fe6a08cc6432ab023a9b596ca95fd29af3c15ec3d8bb2c6",
-        "remotion-create/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-create/tailwind.md": "227275d9eb773b4f6767c7a4c0c309ede2eab144a7eb7827de8ecb486df05c63",
-        "remotion-create/video-layout.md": "201aa71c368999290047fffc292d0263dbe1260081528da726830ea64b4d011c",
-        "remotion-docs/REFERENCE.md": "5a5a3e319d39177a19147cd6491c6cb0d10f7974597b2745ed3ad5f7e6ab26d1",
-        "remotion-docs/agents/openai.yaml": "2474ce13adf4c123de8b52b95046ee4762a199ceb4227380c106e64c5e17488b",
-        "remotion-docs/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-interactivity/REFERENCE.md": "bfcc56e960d809fb004c690e3c93cc95ca70cfa50900ed5c3505d66a5cb9264b",
-        "remotion-interactivity/agents/openai.yaml": "343a80b8fa5e11492f7bf5e086ec843a834d58117af65f9a53a5c66f073a8021",
-        "remotion-interactivity/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
-        "remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
-        "remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
-        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
-        "remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
-        "remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
-        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
-        "remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
-        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
-        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
-        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
-        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
-        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
-        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
-        "remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
-        "remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
-        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
-        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
-        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
-        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
-        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
-        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
-        "remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
-        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
-        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
-        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
-        "remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
-        "remotion-maps/techniques/static-map/TECHNIQUE.md": "b5ac70a52106fca049d551fa39188f2239a31392f10ca843a146de0add1df26b",
-        "remotion-markup/3d.md": "22c36e087eefd6cfef597bda54f72ae1f39099f9cf33ec38079dd53c4b08e651",
-        "remotion-markup/REFERENCE.md": "07092b4f2564ae37458b22a10c9aa897b23532454a1a0b490b2914c6274fd931",
-        "remotion-markup/agents/openai.yaml": "c6d7963294b460e5585c7fedde8b5640f2853ec01ffa8ff63be3bd5c5efb96bc",
-        "remotion-markup/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-markup/audio-visualization.md": "ddb4440fdd236484a06fb39c81b532c48caa4365505b3b12438224832cb2857f",
-        "remotion-markup/audio.md": "9188fac3a960aeba742f8aa2413967ac0b7395d1f40918c4946ee17c6f180e5b",
-        "remotion-markup/calculate-metadata.md": "047b544808442f146b9bc62589a899369567ed8ea739c920113899063b8fbcb8",
-        "remotion-markup/compositions.md": "43fb2e244a7287658bb2309fd8954666583aa6c91d6474ea0b42bb3df359e5d6",
-        "remotion-markup/connected-compositions.md": "941b5b4eeaa021b6367597adb4b6b5ef5addd2f1828ca3d5ddc3330a51c5d669",
-        "remotion-markup/cropping.md": "d8eda6dcff713b50e149633b63f4a6bdb104d35dd3a35994699ad55acd3403c2",
-        "remotion-markup/effects.md": "630b28f25dc4787e757ee77c136ead3dba191ab42545fad6193e0d4832d4b458",
-        "remotion-markup/embedding-videos.md": "aa57b3b59ed1d9898d63ffd738a11f19f6895fb487e586e2a6c2fd95250fa42d",
-        "remotion-markup/ffmpeg.md": "60f34e4aca7976774872fa1b0cfda4a049c44bc1e8838d5b35bdb7270aa2cf6c",
-        "remotion-markup/gifs.md": "ed6a4a3952d4c04d744aa8289477b162939940c5bae4239494731c8a66da7a51",
-        "remotion-markup/google-fonts.md": "7fe5ea475a51383016c0acf8052febb46ac8ad5a943217acf8083787addc6cc8",
-        "remotion-markup/html-in-canvas.md": "164cc88f39234729e27611be8f212763c982e177ad2fa534e824aa41538f479f",
-        "remotion-markup/images.md": "815ff21943ce1bfb1efb82d0fd01b94874f4f1fb21af4bbc076cb64948b2df35",
-        "remotion-markup/light-leaks.md": "877b38fc29da2164c6024ab4a8061827b66c55892375e53cff8d8008af10dc6d",
-        "remotion-markup/local-fonts.md": "281ab53eecbbd18f6977c4eb26707a009d762de13987f67524688430e4f55c76",
-        "remotion-markup/lottie.md": "2f93ee403d4b03bf4616b19d0cf1eb4f71c52858ad1c15f1bc7e7186f8d3b790",
-        "remotion-markup/measuring-dom-nodes.md": "e093812aa55935fe9487462c8044ac09338ca5256643f4340faeff8c1e810df6",
-        "remotion-markup/measuring-text.md": "fa36a45e193b1ffc5930dac6b5e7cb8f0e858da5352127a340f0258f05842777",
-        "remotion-markup/multi-scene-video.md": "44bc4b41460364625d41eddd07dd7981fd0e521efd407edfc3c28f7ca6dc1f79",
-        "remotion-markup/parameters.md": "5955b1e509c8527372f7210911aab8c550c0ce38ecdbd1eeb85565ea25165b7a",
-        "remotion-markup/remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
-        "remotion-markup/remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
-        "remotion-markup/remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-markup/remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
-        "remotion-markup/remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
-        "remotion-markup/remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
-        "remotion-markup/remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
-        "remotion-markup/remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
-        "remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
-        "remotion-markup/remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
-        "remotion-markup/remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-markup/remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
-        "remotion-markup/remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-markup/remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
-        "remotion-markup/remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
-        "remotion-markup/remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
-        "remotion-markup/remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
-        "remotion-markup/remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
-        "remotion-markup/remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-markup/remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
-        "remotion-markup/remotion-maps/techniques/static-map/TECHNIQUE.md": "4f31e832694f9bfb04a84b2b8569d075b4eabaec8681b0645fbb0b1894549cf1",
-        "remotion-markup/sequencing.md": "d8bf2eee00436703ace5c57c184da8587ca9599c44275be7d4ed9e24e99df6e3",
-        "remotion-markup/sfx.md": "f1da32a162c72a275ebe93c3345d617ca67d94082196929d9c7b7881fc06bade",
-        "remotion-markup/silence-detection.md": "d772d5f2e1e4030da52b7b8f258219ba3523d9fcf2d3cc0968e09fa9dce88c4f",
-        "remotion-markup/text-highlights.md": "e95c45db85aec639b8b9014d405eb4b9cc60e2100aed55a78544fbee925191d0",
-        "remotion-markup/timing.md": "67b19b7c8f628030fd3e6ff4967f55c2134557f5e3710c30a14fe5a8d598b053",
-        "remotion-markup/transitions.md": "2af74184c2bde1be094f1154c5d43561e1f9daae6242b2067f20e110c231a1c5",
-        "remotion-markup/video-editing.md": "50ed471194a5027a997085c419f79a7b41be0392989e15ae041ba07dd14fde34",
-        "remotion-markup/voiceover.md": "abbd9b20ca6ede9d928a187bb53e9aad6b4a65290f3901731e43d6c115512a2c",
-        "remotion-multimedia/REFERENCE.md": "bb32fee29bdcac88cd77ee63248c01e8f52ad2f74eb0ae27a9ebf6c2152ff0b3",
-        "remotion-multimedia/agents/openai.yaml": "5ddbc1064d068dd3547ff93cadd32a37b21c46bbd937e9c77753f14a1df66f55",
-        "remotion-multimedia/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-multimedia/get-audio-duration.md": "1a23e9f38e42d7d7ff9a48a1b7899f7e303aa89dc4022114633b82f15d388a0d",
-        "remotion-multimedia/get-video-dimensions.md": "ae2de992a4890912d56635b8c1e30af2933a7d53848d2e68a652f117fd92b73d",
-        "remotion-multimedia/get-video-duration.md": "d31a1716f9ba15c10cb90df87c078f3ad5dc0b4e6afd029c2c59467dfbc38e15",
-        "remotion-render/REFERENCE.md": "8d7a859696d63dfa8d20e2a4382dbe71e845968c956d3393d9b8c6205050c81a",
-        "remotion-render/agents/openai.yaml": "c3a468df5ca291e7e3a49172f779f505200cef39ca9539723656ea5dea7a8a75",
-        "remotion-render/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-render/transparent-videos.md": "605d2e7ec91d17eec7ccdc9630edd0cae694b11494e6ecdddc9bec6ab3ae841a",
-        "remotion-saas/REFERENCE.md": "ea5c6b853f6faef99e95e44489761d64306ab6d8861a349f468d671974ab17bd",
-        "remotion-saas/agents/openai.yaml": "57038c01a252fccf2154450f117052f036969f1f8e760fc6d1e2f0cd190e791b",
-        "remotion-saas/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-saas/framework.md": "cd7c98c657fc4e2b11771bd1f046ebad4173387105e73e2922397688027eb791",
-        "remotion-saas/player.md": "44e4bd7612b509e0a1324448abf82a86e4346340722574cada6e77e7e712d1fb",
-        "remotion-saas/rendering.md": "d47147f29dca95875aa26b6bbd48af7a000fe916497d706bbb7cc7de95066c3e",
-        "remotion-studio/REFERENCE.md": "a1dc43f5dca4227e6c520a57e7090bc6a630ee7e75fdaf97bbd67880109dd92b",
-        "remotion-studio/agents/openai.yaml": "f579ab3ace78b8d797753cb5371cf7a4523bb8cca4bc6ad43a8aef8d851b4ad7",
-        "remotion-studio/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-upgrade/REFERENCE.md": "89e0e02495ed7e597e4750a49cdac328bcfb24662012065cc52e480da609c4db",
-        "remotion-upgrade/agents/openai.yaml": "d65928d0a1731c8883dfa64bfdf70a63fe41feb07dbcbc562cec2188b01ac054",
-        "remotion-upgrade/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+        "SKILL.md": "118050408d8adc9437cc3abe84a5e7f17d4eddb550fc032077daecb42a39fc2d",
+        "agents/openai.yaml": "752b402c013ba6f02bd827a7cc56d19e8facb159b52e2e3cecaf2d0229fdefb3",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-captions/REFERENCE.md": "65f9219648f2304817c893a9c1503a0eb0bad114c077ca47bed1681d5c572a07",
+        "remotion-captions/agents/openai.yaml": "3b39a48bd00251cf124e80090fe1b792b73020bee858c5d48b5629256cc5f045",
+        "remotion-captions/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-captions/display-captions.md": "32fabb20c5251c3bec5ca706312dd8668dd9e4e0dd42a1bcfd2f927b90b0c72e",
+        "remotion-captions/import-srt-captions.md": "cf5988aad6cba8192a81e5a030955ebf09e97473e0b5ce209e18973bf1a60633",
+        "remotion-captions/transcribe-captions.md": "ad1a62af35fe176b37ac4d98f796451ca66bcc9983207a9710ec3eca6e847738",
+        "remotion-create/REFERENCE.md": "11c4ef7963e31f1a397b2d4d43a8265cf9b208ac7ab830f76b6bfc64a304e867",
+        "remotion-create/agents/openai.yaml": "ff3b357b492da1791c672e18ae401a23c31bd1e6f1fa6f98c5efabbb3124bd9c",
+        "remotion-create/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-create/tailwind.md": "3ef07d3225d212af6a5076e62797a04d22d394434dcdbe2c050dab0d92806f36",
+        "remotion-create/video-layout.md": "7ad94c22e3ad87671292ebb9b22f234c544d6c7fed13f8cb112b84b0f7077d4c",
+        "remotion-docs/REFERENCE.md": "033bfea9e6b0550169868cb197af003cf1b0d2ac0bbc591bd9a58f2578724850",
+        "remotion-docs/agents/openai.yaml": "ab02cb3008e6fc0702d7a601bfdd2f332e1224fda3c37de0265c24311c00d456",
+        "remotion-docs/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-interactivity/REFERENCE.md": "74a493e1df1ee0fa9bed02418e3078e37fafbf7d722b5e9d48e1e73685dcfeae",
+        "remotion-interactivity/agents/openai.yaml": "84cd86b0b10e1f8b5be97bbd46677d5f618304303d922f1016ce0ea6a015d4b9",
+        "remotion-interactivity/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-maps/REFERENCE.md": "7aba59fad33fc451b7ca8b92b57a67f1151b3b06f18a8c6085ecfd193773f47a",
+        "remotion-maps/agents/openai.yaml": "9c6c75daec6eabd78cf6fbc7169be3f7dde934df1316e41df6658052056b29ee",
+        "remotion-maps/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-maps/techniques/cesium/TECHNIQUE.md": "09057e77b67dcda23eed8ddbf1b5bd44541a952f380913a00b3bfddaa39ab675",
+        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "4d4a90e373176e840ae76ae91533fcd9dc445407693b17091c376bb597dbcb10",
+        "remotion-maps/techniques/cesium/assets/cesium-path.json": "329621928df19d115f93c472a0b7ddbd2463cad502a10722d3c23579a7441d44",
+        "remotion-maps/techniques/cesium/assets/city-path.json": "3bb420736d196f726b856420b319e21a8d7fc24bca7e626d67e8b00b0544e630",
+        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "51c2df109015adc992b66b62f1ffc9801ad13f3dc47e4290de40cbe1b8e7809e",
+        "remotion-maps/techniques/cesium/assets/flight-path.ts": "fab65d2d9cc0c4ca56f8a1422494d178c0e57f92a048a4720358d236ced980f0",
+        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "2c9f6dd35ac4aed56580078046941235ed7e1a5d432a6549dbf7fea4e8d1e9be",
+        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "23ac1acc576d49d599b33c812dc697b264ebe28849088c04e9827cb47b95275f",
+        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "09e1891cec991a246eec60dbcf76c4ea84c52e0bee14321471197703395d0a91",
+        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "c803fe443f5bab1a50408f1f6aa6aded7913577eaefcb586b320c5a96c391bf2",
+        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "6dbb4d1ae3f5fef9f3f6eb23e2a6d58622750714bb847b088ff58a3533839463",
+        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "921ef62afc1057e66423a9fae11d3f849d4b3dcfbfa7e9970a281e0d12f37c22",
+        "remotion-maps/techniques/mapbox/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "66b3573b7188a0c9f7df6b12f0c3b84f07b3684ae78c67863e97c3aa50cda3a1",
+        "remotion-maps/techniques/maplibre/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "72896873e63d675caaab765941dbb8d668f2790090a63b94e165f254b77ef887",
+        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "6be8c7d5b3435c8d933f05394ce5e807da5fc9fe0565db94ccaee6ac049df137",
+        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "c8137792824323b9db997a88c3b923e8072cf2886cd90c38d84fdbbaad8258ed",
+        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "c3091e23dfd80178788d05c0bc43b17aee12aa4236d658f1a97c5acfb29a0f92",
+        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "e53677a7a207e37cbc04693eca8ccbab5f5f040efdc67a8b5c030c3913895e83",
+        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "470a76cc5a45e58e7e1702cd80f74fcacf9d6e8b1ef7b05011f69853a999ba7b",
+        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "73a99e77a2ce31cb3ac39be8fe4775d53ecf127a56137b587fca090067dfbb96",
+        "remotion-maps/techniques/maptiler/assets/tokens.ts": "29ae05eedb4988b5b8f2eb44d241b9c472533fb6ed05d4b33df3e71e0eabc71c",
+        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b99680cbda8e7d70dc2cb1a8823f66247a21fc59d10c6dae0dd9ba24d2f15b80",
+        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "e09de8a4d00ea9a82b992918ec4d0302ee18979b73e6c777d584a9743092344f",
+        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "a97b1913f06195601889d4e090ad056db2fffb7b83918924c8cd92847b3829ef",
+        "remotion-maps/techniques/maptiler/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "8265f56bd7c27a7d1a5fa528a77bbe1b29c6acc0e6730233583ca53e2632d490",
+        "remotion-maps/techniques/static-map/TECHNIQUE.md": "1d2b15f2e09cbb2b2ba0d5a6ec54ecf619b6696acced0b7bec7e010fbe1f1f03",
+        "remotion-markup/3d.md": "42cef6d68fb4a266ab495d35df0c60e03672b0d85c043f9b567f6aa7ff00dd0d",
+        "remotion-markup/REFERENCE.md": "9397574aefd070767137037536811f5cdf0e37affdebbddb8c772e08f168ef29",
+        "remotion-markup/agents/openai.yaml": "79e440561b613adf930f61b9f2ececc3284dfd92d06c4c282b73b461ffd16cb6",
+        "remotion-markup/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-markup/audio-visualization.md": "0f4043de86639b6390e5ab888eaa66a24a10a8bd540f1443327cb88107eae1e9",
+        "remotion-markup/audio.md": "6659ea94112594e4307b6b40d8c237725691bb8f378e90b0f41123f7936cce45",
+        "remotion-markup/calculate-metadata.md": "711743642a475970dcadddb71805939dd6ee8f348825818cc8897b6a01e1eef0",
+        "remotion-markup/compositions.md": "bd0da9fb807fdaeee9f7b38b21683e068f3e937149a618971523f83ec277ef8e",
+        "remotion-markup/connected-compositions.md": "3718327482077d3ea06022e56983b95c95f7d469a65c5800e96535e1c7eef3d7",
+        "remotion-markup/cropping.md": "66b470cb09d2a93939b08340a3503b6cb7aef6682c62c7ef478ca802994d622d",
+        "remotion-markup/effects.md": "4f8abd99e3a89668aa1b6521d2cbde8a9b3d25aa9cb4ca2b135b96fe4e70fae7",
+        "remotion-markup/embedding-videos.md": "5f9265aa46039a8e6f26f733a6f0bf8070f25c9458e8c657a85bbff432433cdf",
+        "remotion-markup/ffmpeg.md": "930d26b519b744e97f0c080608b55200b97ff15d6c366c6c5361bab56ff0e873",
+        "remotion-markup/gifs.md": "91e17126f7f0d57efdbdbaf34e0c234f874bd6aa66ec7854b80f17b0e32c3b22",
+        "remotion-markup/google-fonts.md": "fff29cf692ccab0cda263cd85255cf634dbb4d1d2d99e8372b01d9fedbd6cbfd",
+        "remotion-markup/html-in-canvas.md": "d674ed1c1c16a657d8b8a58024e6eee625457b93eca0ef83666cc74d4531bba9",
+        "remotion-markup/images.md": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b",
+        "remotion-markup/light-leaks.md": "892c90340921b5aff5499588aadd23cf9fa79758d345f6ea3acf02ae0258ea73",
+        "remotion-markup/local-fonts.md": "fcad2a2e3a05419d4555c59a75454c4891455dbea91ad596c1095e2887d26a11",
+        "remotion-markup/lottie.md": "666268c8151d91042162f9efe3f02fe8c62b4c45053614eb1a9325c169428826",
+        "remotion-markup/measuring-dom-nodes.md": "a677b976eaf1cbc3cdd29cf29a3fd546c557b9a31e6b1fd70e473fde7e828733",
+        "remotion-markup/measuring-text.md": "4bed81d1ea818db3975f878152dc24ecbc17e163117dcab10761dc8690c33f0c",
+        "remotion-markup/multi-scene-video.md": "a00ecb7b961b1cfa702018e05faebc4655245b75e042138c9ab4b39da80e9b12",
+        "remotion-markup/parameters.md": "b002ac9959105b2b91da5786bcb20aa6ff4c6632ed37074b32711f248867dff0",
+        "remotion-markup/remotion-maps/REFERENCE.md": "7aba59fad33fc451b7ca8b92b57a67f1151b3b06f18a8c6085ecfd193773f47a",
+        "remotion-markup/remotion-maps/agents/openai.yaml": "9c6c75daec6eabd78cf6fbc7169be3f7dde934df1316e41df6658052056b29ee",
+        "remotion-markup/remotion-maps/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-markup/remotion-maps/techniques/cesium/TECHNIQUE.md": "09057e77b67dcda23eed8ddbf1b5bd44541a952f380913a00b3bfddaa39ab675",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "4d4a90e373176e840ae76ae91533fcd9dc445407693b17091c376bb597dbcb10",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/cesium-path.json": "329621928df19d115f93c472a0b7ddbd2463cad502a10722d3c23579a7441d44",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/city-path.json": "3bb420736d196f726b856420b319e21a8d7fc24bca7e626d67e8b00b0544e630",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/example-Root.tsx": "51c2df109015adc992b66b62f1ffc9801ad13f3dc47e4290de40cbe1b8e7809e",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/flight-path.ts": "fab65d2d9cc0c4ca56f8a1422494d178c0e57f92a048a4720358d236ced980f0",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/sample-river.geojson": "2c9f6dd35ac4aed56580078046941235ed7e1a5d432a6549dbf7fea4e8d1e9be",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-data-sources.md": "23ac1acc576d49d599b33c812dc697b264ebe28849088c04e9827cb47b95275f",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "09e1891cec991a246eec60dbcf76c4ea84c52e0bee14321471197703395d0a91",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "c803fe443f5bab1a50408f1f6aa6aded7913577eaefcb586b320c5a96c391bf2",
+        "remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "6dbb4d1ae3f5fef9f3f6eb23e2a6d58622750714bb847b088ff58a3533839463",
+        "remotion-markup/remotion-maps/techniques/mapbox/TECHNIQUE.md": "921ef62afc1057e66423a9fae11d3f849d4b3dcfbfa7e9970a281e0d12f37c22",
+        "remotion-markup/remotion-maps/techniques/mapbox/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-markup/remotion-maps/techniques/maplibre/TECHNIQUE.md": "66b3573b7188a0c9f7df6b12f0c3b84f07b3684ae78c67863e97c3aa50cda3a1",
+        "remotion-markup/remotion-maps/techniques/maplibre/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-markup/remotion-maps/techniques/maptiler/TECHNIQUE.md": "72896873e63d675caaab765941dbb8d668f2790090a63b94e165f254b77ef887",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "6be8c7d5b3435c8d933f05394ce5e807da5fc9fe0565db94ccaee6ac049df137",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "c8137792824323b9db997a88c3b923e8072cf2886cd90c38d84fdbbaad8258ed",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "c3091e23dfd80178788d05c0bc43b17aee12aa4236d658f1a97c5acfb29a0f92",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/example-Root.tsx": "e53677a7a207e37cbc04693eca8ccbab5f5f040efdc67a8b5c030c3913895e83",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "470a76cc5a45e58e7e1702cd80f74fcacf9d6e8b1ef7b05011f69853a999ba7b",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "73a99e77a2ce31cb3ac39be8fe4775d53ecf127a56137b587fca090067dfbb96",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/tokens.ts": "29ae05eedb4988b5b8f2eb44d241b9c472533fb6ed05d4b33df3e71e0eabc71c",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-data-sources.md": "b99680cbda8e7d70dc2cb1a8823f66247a21fc59d10c6dae0dd9ba24d2f15b80",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "e09de8a4d00ea9a82b992918ec4d0302ee18979b73e6c777d584a9743092344f",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-geo-prep.md": "a97b1913f06195601889d4e090ad056db2fffb7b83918924c8cd92847b3829ef",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-markup/remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "8265f56bd7c27a7d1a5fa528a77bbe1b29c6acc0e6730233583ca53e2632d490",
+        "remotion-markup/remotion-maps/techniques/static-map/TECHNIQUE.md": "6fcb61a66084f4037a2fa0deb988500dd18e4ae7fa3c6923fb1142c1e521e9be",
+        "remotion-markup/sequencing.md": "64784498f40db7b32c032dc648282caf5a02082d4d7a6667d8b7a1465f341dc4",
+        "remotion-markup/sfx.md": "5397a44c2d7678bf642d746b7edbf4f51e10c31ac99c8054da4a4a7d70365dcd",
+        "remotion-markup/silence-detection.md": "ed95d46d078f3749b87ec3c6e25c1c5b0c8485fdcb41156d649266369748fdc2",
+        "remotion-markup/text-highlights.md": "70773952286e1aec2ba02f2f54d2d776dad7799d87744df03b0c75637ebfb21f",
+        "remotion-markup/timing.md": "48047e758b96aea519916479ede62b832bf51f982924978e091c37f569ab4bac",
+        "remotion-markup/transitions.md": "41d69d0b5c862bcada825a68413064837fd4fcd55f81ad59492931db982a08ad",
+        "remotion-markup/video-editing.md": "c43e1b419b0ea32c07b14ff6a17fb3bccb6acea7317de4051827ef0316f4262a",
+        "remotion-markup/voiceover.md": "28350a793939b6170c535a219b2c4702378346ea8485540f980da5ccc5fa19fc",
+        "remotion-multimedia/REFERENCE.md": "865b491e56dec79b1e1ad034de5cc56ae5215d82acab9f06c44ed73a489a37fc",
+        "remotion-multimedia/agents/openai.yaml": "74e07a383bbf02808320ede199873d00a5fc976cb99d407056456b9abdfb0cb7",
+        "remotion-multimedia/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-multimedia/get-audio-duration.md": "f4ec12e356144697b802a2d93240612aa09b60a76342154983a2cf41316f0bba",
+        "remotion-multimedia/get-video-dimensions.md": "d330e701e4a494fdac7502be52f206f6dee11c43314d1b2f731e4120eed72dc5",
+        "remotion-multimedia/get-video-duration.md": "6e3bec1b3f62e3ab1f16ad41cca7b14e6e3db5046e8282cd2389e05cff42c743",
+        "remotion-render/REFERENCE.md": "dd013ab8e0db274d209c49183750fae94218424210833e1e1512f5cd18e4575a",
+        "remotion-render/agents/openai.yaml": "386699c32fdc63840ce7ff7412953831095dc4cdf60368648378c32895281290",
+        "remotion-render/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-render/transparent-videos.md": "394ccda476e084522d544471fee92d7c65672e2cbaf2201a785c3dd5c74f31a4",
+        "remotion-saas/REFERENCE.md": "b5c279b300ae08be6dc5ec16022ae66f51f2dd9e7603b72b830396ba46805655",
+        "remotion-saas/agents/openai.yaml": "66be5403b3d10194c99e886372bbc1f4bdb2994fe560278bc7a39b4fbe7753a2",
+        "remotion-saas/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-saas/framework.md": "5e35ca3306ac15ad1df189789642cefbc62c59f4929372ffc10a67165d7b04b5",
+        "remotion-saas/player.md": "cc2f2944f1158d6ff1ddfc421a6a790f99ae86f54bbe0f0b18ef8bc7485e1b05",
+        "remotion-saas/rendering.md": "b2f30b53e0191ef9e7f2da7360b36c0c5448ab5bdcf55575e1f7e55c5bbd257f",
+        "remotion-studio/REFERENCE.md": "cf34d9705b140caac62af184321839e380daf436a947e96dacf155154724bddf",
+        "remotion-studio/agents/openai.yaml": "43afba3c8088614ece62949e33a7c8350092e76436bad87ad41e1a1ccaebea5d",
+        "remotion-studio/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-upgrade/REFERENCE.md": "71e40216f86cbddd3e7527c85f85669abdc4d1592a31bc780f08b6a44ed87817",
+        "remotion-upgrade/agents/openai.yaml": "3f3bc995d3531cfb5a714fd8f951954e118909b749217cc8418a235326d003cb",
+        "remotion-upgrade/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -716,14 +716,14 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a0bf1762b2098f2203df9998587725387fad7ac61c0f982948b5a5eb1161221d",
+      "packageHash": "b9f31c8528ecaba1baf35480d83acb64e1d90aaa8fd569bda306976b2322e7f0",
       "files": {
-        "SKILL.md": "8ee80dae4c67fb7421df78d7145442cc3bc10eb0cacfb73d3672954f895d96d0",
-        "agents/openai.yaml": "1746691f26d8d5cffb536ec986fc065e530b64d2a574c62c95e1e5d0d25a0271",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "display-captions.md": "bd4a0ab7f1ae563544ade645473750156680911f350578dbd716739e3ab07f7d",
-        "import-srt-captions.md": "d87f42376221d4802b84ad2f81906a568b9ebb81525ccd1698dc434cea3eaa5c",
-        "transcribe-captions.md": "c28bc6bb42ea61e8021019839df8f9eabaab91da85950f098c9bf3f2f4b65505"
+        "SKILL.md": "65f9219648f2304817c893a9c1503a0eb0bad114c077ca47bed1681d5c572a07",
+        "agents/openai.yaml": "3b39a48bd00251cf124e80090fe1b792b73020bee858c5d48b5629256cc5f045",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "display-captions.md": "32fabb20c5251c3bec5ca706312dd8668dd9e4e0dd42a1bcfd2f927b90b0c72e",
+        "import-srt-captions.md": "cf5988aad6cba8192a81e5a030955ebf09e97473e0b5ce209e18973bf1a60633",
+        "transcribe-captions.md": "ad1a62af35fe176b37ac4d98f796451ca66bcc9983207a9710ec3eca6e847738"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -744,11 +744,11 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "f01f9a156c2f8814f13a3c9da48649e21a7696997dff86a429ac62e463d67d87",
+      "packageHash": "d3a1c88121c3f1943188d194649cf6f5a0d16a4884c79738d56a3eceaef121a7",
       "files": {
-        "SKILL.md": "3ecb8c086c25e8d279f810a28c0a1dada6cb5aef451ce7acf7c46be210a8903a",
-        "agents/openai.yaml": "2474ce13adf4c123de8b52b95046ee4762a199ceb4227380c106e64c5e17488b",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+        "SKILL.md": "74be8c4382225f6bf05549b10468a96f2156c63a136a8171f79c8a87b03dab29",
+        "agents/openai.yaml": "ab02cb3008e6fc0702d7a601bfdd2f332e1224fda3c37de0265c24311c00d456",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -769,72 +769,72 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a9f3d64fbb401914c934af957d94c52ffad88c534bc705213a51fee1e498ee2b",
+      "packageHash": "34af25dc9a313a30a0440d0b4a347fce1336d9598ae9df47575779b5bc2e7345",
       "files": {
-        "3d.md": "22c36e087eefd6cfef597bda54f72ae1f39099f9cf33ec38079dd53c4b08e651",
-        "SKILL.md": "80ed53d4a40f558d8343ab71e7e4094a043f251667975a3f2cc05329071aee37",
-        "agents/openai.yaml": "c6d7963294b460e5585c7fedde8b5640f2853ec01ffa8ff63be3bd5c5efb96bc",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "audio-visualization.md": "ddb4440fdd236484a06fb39c81b532c48caa4365505b3b12438224832cb2857f",
-        "audio.md": "9188fac3a960aeba742f8aa2413967ac0b7395d1f40918c4946ee17c6f180e5b",
-        "calculate-metadata.md": "38e3f8e5d621b01b3ae837118e43be249d27999722a6c514e788d3dec0d06d31",
-        "compositions.md": "43fb2e244a7287658bb2309fd8954666583aa6c91d6474ea0b42bb3df359e5d6",
-        "connected-compositions.md": "941b5b4eeaa021b6367597adb4b6b5ef5addd2f1828ca3d5ddc3330a51c5d669",
-        "cropping.md": "c57667d0b99194097f4d825cae39b177c4c83b2f2410c9838733248929e3b65d",
-        "effects.md": "630b28f25dc4787e757ee77c136ead3dba191ab42545fad6193e0d4832d4b458",
-        "embedding-videos.md": "aa57b3b59ed1d9898d63ffd738a11f19f6895fb487e586e2a6c2fd95250fa42d",
-        "ffmpeg.md": "60f34e4aca7976774872fa1b0cfda4a049c44bc1e8838d5b35bdb7270aa2cf6c",
-        "gifs.md": "ed6a4a3952d4c04d744aa8289477b162939940c5bae4239494731c8a66da7a51",
-        "google-fonts.md": "7fe5ea475a51383016c0acf8052febb46ac8ad5a943217acf8083787addc6cc8",
-        "html-in-canvas.md": "164cc88f39234729e27611be8f212763c982e177ad2fa534e824aa41538f479f",
-        "images.md": "815ff21943ce1bfb1efb82d0fd01b94874f4f1fb21af4bbc076cb64948b2df35",
-        "light-leaks.md": "877b38fc29da2164c6024ab4a8061827b66c55892375e53cff8d8008af10dc6d",
-        "local-fonts.md": "281ab53eecbbd18f6977c4eb26707a009d762de13987f67524688430e4f55c76",
-        "lottie.md": "2f93ee403d4b03bf4616b19d0cf1eb4f71c52858ad1c15f1bc7e7186f8d3b790",
-        "measuring-dom-nodes.md": "e093812aa55935fe9487462c8044ac09338ca5256643f4340faeff8c1e810df6",
-        "measuring-text.md": "fa36a45e193b1ffc5930dac6b5e7cb8f0e858da5352127a340f0258f05842777",
-        "multi-scene-video.md": "44bc4b41460364625d41eddd07dd7981fd0e521efd407edfc3c28f7ca6dc1f79",
-        "parameters.md": "5955b1e509c8527372f7210911aab8c550c0ce38ecdbd1eeb85565ea25165b7a",
-        "remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
-        "remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
-        "remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
-        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
-        "remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
-        "remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
-        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
-        "remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
-        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
-        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
-        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
-        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
-        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
-        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
-        "remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
-        "remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
-        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
-        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
-        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
-        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
-        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
-        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
-        "remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
-        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
-        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
-        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
-        "remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
-        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
-        "remotion-maps/techniques/static-map/TECHNIQUE.md": "8040e172945eaa585758816a4e361885b102bb9a33371f221851f61b444fb9cd",
-        "sequencing.md": "d8bf2eee00436703ace5c57c184da8587ca9599c44275be7d4ed9e24e99df6e3",
-        "sfx.md": "f1da32a162c72a275ebe93c3345d617ca67d94082196929d9c7b7881fc06bade",
-        "silence-detection.md": "d772d5f2e1e4030da52b7b8f258219ba3523d9fcf2d3cc0968e09fa9dce88c4f",
-        "text-highlights.md": "a007b55728bf3ef2a041fdfb73bbbf7bfe1050611fb924100abdc3af83186e1f",
-        "timing.md": "67b19b7c8f628030fd3e6ff4967f55c2134557f5e3710c30a14fe5a8d598b053",
-        "transitions.md": "2af74184c2bde1be094f1154c5d43561e1f9daae6242b2067f20e110c231a1c5",
-        "video-editing.md": "50ed471194a5027a997085c419f79a7b41be0392989e15ae041ba07dd14fde34",
-        "voiceover.md": "47634d2446de8eade6bb867ce3195876d9a1604289f8a080e56b97204f31852a"
+        "3d.md": "42cef6d68fb4a266ab495d35df0c60e03672b0d85c043f9b567f6aa7ff00dd0d",
+        "SKILL.md": "e2d8677bc1f472bbdb64dc06203087d22da93e9343e1fb3a5fd2101675014867",
+        "agents/openai.yaml": "79e440561b613adf930f61b9f2ececc3284dfd92d06c4c282b73b461ffd16cb6",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "audio-visualization.md": "0f4043de86639b6390e5ab888eaa66a24a10a8bd540f1443327cb88107eae1e9",
+        "audio.md": "6659ea94112594e4307b6b40d8c237725691bb8f378e90b0f41123f7936cce45",
+        "calculate-metadata.md": "ca904cd19d65bd926a1fb07519eb769cc55deeffe74f7c3282d5e3fd16a0dcba",
+        "compositions.md": "bd0da9fb807fdaeee9f7b38b21683e068f3e937149a618971523f83ec277ef8e",
+        "connected-compositions.md": "3718327482077d3ea06022e56983b95c95f7d469a65c5800e96535e1c7eef3d7",
+        "cropping.md": "98edcc2767e7087ba097b54f96f6b2f4a175f7374c5f47a383951950961598aa",
+        "effects.md": "4f8abd99e3a89668aa1b6521d2cbde8a9b3d25aa9cb4ca2b135b96fe4e70fae7",
+        "embedding-videos.md": "5f9265aa46039a8e6f26f733a6f0bf8070f25c9458e8c657a85bbff432433cdf",
+        "ffmpeg.md": "930d26b519b744e97f0c080608b55200b97ff15d6c366c6c5361bab56ff0e873",
+        "gifs.md": "91e17126f7f0d57efdbdbaf34e0c234f874bd6aa66ec7854b80f17b0e32c3b22",
+        "google-fonts.md": "fff29cf692ccab0cda263cd85255cf634dbb4d1d2d99e8372b01d9fedbd6cbfd",
+        "html-in-canvas.md": "d674ed1c1c16a657d8b8a58024e6eee625457b93eca0ef83666cc74d4531bba9",
+        "images.md": "3a82065698ad8d4818164882212215dfe4dc78f00145c87f47513a691550b72b",
+        "light-leaks.md": "892c90340921b5aff5499588aadd23cf9fa79758d345f6ea3acf02ae0258ea73",
+        "local-fonts.md": "fcad2a2e3a05419d4555c59a75454c4891455dbea91ad596c1095e2887d26a11",
+        "lottie.md": "666268c8151d91042162f9efe3f02fe8c62b4c45053614eb1a9325c169428826",
+        "measuring-dom-nodes.md": "a677b976eaf1cbc3cdd29cf29a3fd546c557b9a31e6b1fd70e473fde7e828733",
+        "measuring-text.md": "4bed81d1ea818db3975f878152dc24ecbc17e163117dcab10761dc8690c33f0c",
+        "multi-scene-video.md": "a00ecb7b961b1cfa702018e05faebc4655245b75e042138c9ab4b39da80e9b12",
+        "parameters.md": "b002ac9959105b2b91da5786bcb20aa6ff4c6632ed37074b32711f248867dff0",
+        "remotion-maps/REFERENCE.md": "7aba59fad33fc451b7ca8b92b57a67f1151b3b06f18a8c6085ecfd193773f47a",
+        "remotion-maps/agents/openai.yaml": "9c6c75daec6eabd78cf6fbc7169be3f7dde934df1316e41df6658052056b29ee",
+        "remotion-maps/assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "remotion-maps/techniques/cesium/TECHNIQUE.md": "09057e77b67dcda23eed8ddbf1b5bd44541a952f380913a00b3bfddaa39ab675",
+        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "4d4a90e373176e840ae76ae91533fcd9dc445407693b17091c376bb597dbcb10",
+        "remotion-maps/techniques/cesium/assets/cesium-path.json": "329621928df19d115f93c472a0b7ddbd2463cad502a10722d3c23579a7441d44",
+        "remotion-maps/techniques/cesium/assets/city-path.json": "3bb420736d196f726b856420b319e21a8d7fc24bca7e626d67e8b00b0544e630",
+        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "51c2df109015adc992b66b62f1ffc9801ad13f3dc47e4290de40cbe1b8e7809e",
+        "remotion-maps/techniques/cesium/assets/flight-path.ts": "fab65d2d9cc0c4ca56f8a1422494d178c0e57f92a048a4720358d236ced980f0",
+        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "2c9f6dd35ac4aed56580078046941235ed7e1a5d432a6549dbf7fea4e8d1e9be",
+        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "23ac1acc576d49d599b33c812dc697b264ebe28849088c04e9827cb47b95275f",
+        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "09e1891cec991a246eec60dbcf76c4ea84c52e0bee14321471197703395d0a91",
+        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "c803fe443f5bab1a50408f1f6aa6aded7913577eaefcb586b320c5a96c391bf2",
+        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "6dbb4d1ae3f5fef9f3f6eb23e2a6d58622750714bb847b088ff58a3533839463",
+        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "921ef62afc1057e66423a9fae11d3f849d4b3dcfbfa7e9970a281e0d12f37c22",
+        "remotion-maps/techniques/mapbox/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "66b3573b7188a0c9f7df6b12f0c3b84f07b3684ae78c67863e97c3aa50cda3a1",
+        "remotion-maps/techniques/maplibre/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "72896873e63d675caaab765941dbb8d668f2790090a63b94e165f254b77ef887",
+        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "6be8c7d5b3435c8d933f05394ce5e807da5fc9fe0565db94ccaee6ac049df137",
+        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "c8137792824323b9db997a88c3b923e8072cf2886cd90c38d84fdbbaad8258ed",
+        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "c3091e23dfd80178788d05c0bc43b17aee12aa4236d658f1a97c5acfb29a0f92",
+        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "e53677a7a207e37cbc04693eca8ccbab5f5f040efdc67a8b5c030c3913895e83",
+        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "470a76cc5a45e58e7e1702cd80f74fcacf9d6e8b1ef7b05011f69853a999ba7b",
+        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "73a99e77a2ce31cb3ac39be8fe4775d53ecf127a56137b587fca090067dfbb96",
+        "remotion-maps/techniques/maptiler/assets/tokens.ts": "29ae05eedb4988b5b8f2eb44d241b9c472533fb6ed05d4b33df3e71e0eabc71c",
+        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b99680cbda8e7d70dc2cb1a8823f66247a21fc59d10c6dae0dd9ba24d2f15b80",
+        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "e09de8a4d00ea9a82b992918ec4d0302ee18979b73e6c777d584a9743092344f",
+        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "a97b1913f06195601889d4e090ad056db2fffb7b83918924c8cd92847b3829ef",
+        "remotion-maps/techniques/maptiler/references/render-stability.md": "96650329df3a870743b6255123e93dba866a37eb1ab1d07c8275efff0d4dead9",
+        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "8265f56bd7c27a7d1a5fa528a77bbe1b29c6acc0e6730233583ca53e2632d490",
+        "remotion-maps/techniques/static-map/TECHNIQUE.md": "28fe6e300d249cf85493132a23f6e5392bb5933ac99011b3ac4a3868f5f2cae9",
+        "sequencing.md": "64784498f40db7b32c032dc648282caf5a02082d4d7a6667d8b7a1465f341dc4",
+        "sfx.md": "5397a44c2d7678bf642d746b7edbf4f51e10c31ac99c8054da4a4a7d70365dcd",
+        "silence-detection.md": "ed95d46d078f3749b87ec3c6e25c1c5b0c8485fdcb41156d649266369748fdc2",
+        "text-highlights.md": "6a3b7629b947e8657c42b73b1f53c91d9b1535af1bfed57e054981c51bb951cc",
+        "timing.md": "48047e758b96aea519916479ede62b832bf51f982924978e091c37f569ab4bac",
+        "transitions.md": "41d69d0b5c862bcada825a68413064837fd4fcd55f81ad59492931db982a08ad",
+        "video-editing.md": "c43e1b419b0ea32c07b14ff6a17fb3bccb6acea7317de4051827ef0316f4262a",
+        "voiceover.md": "c5689cf3a106e115fc2e7e36c94ca0a193a8a1592a0817c6ee5b3e5b13ac55dc"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -855,14 +855,14 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "5e99ff92ca0c23a62d18d12d30d0558297df69ba535bd7089ead8b8b0ad193d1",
+      "packageHash": "ab7b8069c990cfc8d1e5351fc4515ab41f29298a8d2752608c0c36bff7235c7f",
       "files": {
-        "SKILL.md": "bb32fee29bdcac88cd77ee63248c01e8f52ad2f74eb0ae27a9ebf6c2152ff0b3",
-        "agents/openai.yaml": "5ddbc1064d068dd3547ff93cadd32a37b21c46bbd937e9c77753f14a1df66f55",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "get-audio-duration.md": "1a23e9f38e42d7d7ff9a48a1b7899f7e303aa89dc4022114633b82f15d388a0d",
-        "get-video-dimensions.md": "ae2de992a4890912d56635b8c1e30af2933a7d53848d2e68a652f117fd92b73d",
-        "get-video-duration.md": "d31a1716f9ba15c10cb90df87c078f3ad5dc0b4e6afd029c2c59467dfbc38e15"
+        "SKILL.md": "865b491e56dec79b1e1ad034de5cc56ae5215d82acab9f06c44ed73a489a37fc",
+        "agents/openai.yaml": "74e07a383bbf02808320ede199873d00a5fc976cb99d407056456b9abdfb0cb7",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "get-audio-duration.md": "f4ec12e356144697b802a2d93240612aa09b60a76342154983a2cf41316f0bba",
+        "get-video-dimensions.md": "d330e701e4a494fdac7502be52f206f6dee11c43314d1b2f731e4120eed72dc5",
+        "get-video-duration.md": "6e3bec1b3f62e3ab1f16ad41cca7b14e6e3db5046e8282cd2389e05cff42c743"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -883,12 +883,12 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a714fccf3dc80ce24d533cffda072a03495f6c40701cd4f843371cde8136d89c",
+      "packageHash": "0a49c785dde17e31b28537b7e8e1ed2c31eae6b183e7a987e0c2e6a99925ebd7",
       "files": {
-        "SKILL.md": "8d7a859696d63dfa8d20e2a4382dbe71e845968c956d3393d9b8c6205050c81a",
-        "agents/openai.yaml": "c3a468df5ca291e7e3a49172f779f505200cef39ca9539723656ea5dea7a8a75",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
-        "transparent-videos.md": "605d2e7ec91d17eec7ccdc9630edd0cae694b11494e6ecdddc9bec6ab3ae841a"
+        "SKILL.md": "dd013ab8e0db274d209c49183750fae94218424210833e1e1512f5cd18e4575a",
+        "agents/openai.yaml": "386699c32fdc63840ce7ff7412953831095dc4cdf60368648378c32895281290",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58",
+        "transparent-videos.md": "394ccda476e084522d544471fee92d7c65672e2cbaf2201a785c3dd5c74f31a4"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -909,11 +909,11 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "ffa9ccd86dd3686c1d935c80c88543711b202d4c5622f8773f154939b8f30897",
+      "packageHash": "9656f101f9b16de590563295aee968e463277f7924c2db3171848ee538bd89d4",
       "files": {
-        "SKILL.md": "a1dc43f5dca4227e6c520a57e7090bc6a630ee7e75fdaf97bbd67880109dd92b",
-        "agents/openai.yaml": "f579ab3ace78b8d797753cb5371cf7a4523bb8cca4bc6ad43a8aef8d851b4ad7",
-        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+        "SKILL.md": "cf34d9705b140caac62af184321839e380daf436a947e96dacf155154724bddf",
+        "agents/openai.yaml": "43afba3c8088614ece62949e33a7c8350092e76436bad87ad41e1a1ccaebea5d",
+        "assets/remotion-icon.svg": "5007669bd0555b0f4565b4e7176fa191310ab0039b2ed09d867a9270f5b0ce58"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -934,9 +934,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "319ed4a4193cb4b5b2f8e7c005cadc0c863c1f781ed5c1e7cb7c759ee8010fa7",
+      "packageHash": "5ee4c7ad40d0dccf5ea8fcf928efc554d93d3b1b6fa8926c222f96779bc219e0",
       "files": {
-        "SKILL.md": "556b7f2ea931c553b5493185be27deb0e72f02d8f448f6df2039319da6feb4c3"
+        "SKILL.md": "2a4e291b70cb16d973b73b255ef78660f2b8f0dca33b2517bee2c3ba08e26647"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -957,9 +957,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "88c10333e406ebf4ff3dd8534d1244d14fc55d50477c3361d59b9ad20e6e0fcf",
+      "packageHash": "2bcbaae0df76e64271877e56e15d96b3ae67912e33380a0dd8c836b9faedee53",
       "files": {
-        "SKILL.md": "c46c3cabea182ac341a4df11134cf8663d08594c05eebb5d79c07eb262e16dbd"
+        "SKILL.md": "6ac4a332a521d4fc02a70422ae845111a7d2225f9ddeab3c5af35136e7431872"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -980,9 +980,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "e962fac5646fee0ca92f3968fe8cdcecee58c3bfd7713bcdccb235f20443b7aa",
+      "packageHash": "e03969c1b61f38858d87bcda39cd21baa5c8f3f518d4c52fb8b2c616a68eab2c",
       "files": {
-        "SKILL.md": "e6271497fd31275662d98232234db3f0a21a8a1faeb3a6256a69b5945f2b6118"
+        "SKILL.md": "0098a3c9307db3cafc2ddbd21aac627e26488efc6e4f2e8534b66fb24c667012"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1003,9 +1003,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "156821e95f453ac29cd18655a1a5c86301dc0fffcc014a58dae45c40ac00a88e",
+      "packageHash": "d763266177ac6422f7d5c19265fd327442262f6b822b0e5720923a33a2ef62d6",
       "files": {
-        "SKILL.md": "def0c7508254e3b30b75428bf11d9ad7534dc14d8b665bc97a4e38d69edb1577"
+        "SKILL.md": "e6c0792d5ae282a81d3f200d420cb558a502397190e404d78e5681ef244bcd4c"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1026,9 +1026,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "2f4e73374c659e85391f7665e2155c7e5b65ff25913bc773d7037e8ab4841624",
+      "packageHash": "4b93a8cfde6bd3d1f0b854ba90d80599ca671f3c15ab4798b3bb7032f7213a2e",
       "files": {
-        "SKILL.md": "b514ff9dd1db9db74fafc3386afaa65667a74ab458f945728f76c519d14fa258"
+        "SKILL.md": "aed74beda3bdf7555c931168f7802fbd3b4ecefa3173c9677462c6ef316b5758"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1049,9 +1049,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "2e379ae02a07e9217b1cbcb73957f1e6555788514b7f15ac3778cc9750a2c4d8",
+      "packageHash": "0e3e0d00079197be3724ba67350793e782c1602a8e9bef57a30515280bb9f336",
       "files": {
-        "SKILL.md": "5676467cad903fccba38c9cd7991a51a9d396ee02a1e271907c05e65f19b6f6d"
+        "SKILL.md": "8bbbc778b38e19b7a89a5f337d6bcb291d6370c53090ec469f386fdd1306faae"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1072,9 +1072,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "f10309181d92c3ab5649e4b8910c3b5fecdd1d075edbf4b937e1495243d70d44",
+      "packageHash": "12bc2a98328e9e6d0c7b06b5f870f80e33835d5d037c0abb48ec50330e875128",
       "files": {
-        "SKILL.md": "01a54aef8aa0c8db38f6a59fbec45ce7ee6ea7aa85527bc6621a4e0ad6639683"
+        "SKILL.md": "eade0aa0357e9699330dbe30056b2ed515e84f265f45595ae9112ab17a414b20"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1095,9 +1095,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a7ce17a7d3decb3d607f5bcf94c3084ad12f908952a282cc2588fa9b02fe84dd",
+      "packageHash": "0612757269fa919c0c35d37610dcdec50dd723ab165200c05df920a5e1d9da3b",
       "files": {
-        "SKILL.md": "369d0879a3f80e93db15355699dfb75bcba9e0c1fe12aa0cbd599dee90d13266"
+        "SKILL.md": "f50278bbbf0d85108e30836672d74c19cf3873e3e9c6f180c98807ef9e4dc19c"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1118,9 +1118,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "ee41a37f3cce3a436fc75ee974dc5db0c293687f3cadbd1691158a54aeed9926",
+      "packageHash": "571be3f9dd9236e9d72cf3ea0081e49c03bd823671ff0e51e5460dbcc862e06e",
       "files": {
-        "SKILL.md": "98c6345978c17bdd2e8d9c983418736b927c3409a74981ef8a1238620279c4a9"
+        "SKILL.md": "bdef1c1d5c2b82bd7ce50b18f37b2046f56331a3292ed211904d3d70d852c872"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1141,9 +1141,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "c227e93514fff4ae166b684e1c7623eea6015d88501cd7a13e7fd27f38e963f2",
+      "packageHash": "e8c84c69a124830a77bb7839fe5bcf2f95bc53a53844ed4d632e5e117c9b6eec",
       "files": {
-        "SKILL.md": "14152bc559c9750924db921bad3ca008968f9ca8db9e41e1a06e37d88320cd2b"
+        "SKILL.md": "71762554497838e60f531def082d6e179dfb0ab68ae045db94c721c7c76fbe5d"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1164,9 +1164,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "021aa25b0fc914a832e14377cfa6e14ecf750746c21dab940b0f75c8eefdd8bb",
+      "packageHash": "7d32aff2e5790b114a0b4432d32a3c3a33752542d592d26097a2c0925d6d73f2",
       "files": {
-        "SKILL.md": "aeb17c1b5602b90424b6dd349354bc51655de9ed5c0a36979323d50193dfac1e"
+        "SKILL.md": "c12f35e3f4e5aaacf467730fd4fa9971aaf88c17f48ef5cdf926f6ebda9b843a"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1187,9 +1187,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a2977193948455cfaa6beb2bf799d009f2ffa71036e1bee44b86dd86016bc6de",
+      "packageHash": "b3313b58825b00819e8684fb07ef4243f309936578ee2c9917217d0a9e40673a",
       "files": {
-        "SKILL.md": "88e2f43fc7d756632b176f61645e67e1381c0a06318aed1b5d8208fb39a09812"
+        "SKILL.md": "fc463f8ff0790b932a555c87053421b56c95de06e92d52bef5a7431efdc18841"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1210,9 +1210,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "d143afb00edf0c2ee4998eab3b7648e1df7152795fe795ac9887d2f6c91ef579",
+      "packageHash": "851fdd01d1a9267e5f878ebbe1d91ffa825ac5ea1441153bb798b6d503dad908",
       "files": {
-        "SKILL.md": "62fa82eb9a7b91a1b183471fa4dbc8c4de3bab7b1088ed8dae3636d3867555d7"
+        "SKILL.md": "eab105b10c18cf8b6953069ca359e25e4e1cb822c06ffe73c518b7a90bb8b05b"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1858,9 +1858,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "0b759f13827c246f25b5f0f85de888774217d628bf521cbaad68079be6ae2c82",
+      "packageHash": "f669ef3dd4d57dfeb7d810d9a3228362f5da68c412dd578af53e9c9bd9441515",
       "files": {
-        "SKILL.md": "f4a2e12481f7e5828eeaf38c4bdd5f0f2d1b74247509bda4f32cda01be479b77"
+        "SKILL.md": "54c2df705cdec178e7729717c8224aa24654c6da6063694c97dd4e496485d5b7"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1881,9 +1881,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "82f01f1c0eb9fe87c1f370540e34df2cb7690d61b5047c9eda0dad00385b41a1",
+      "packageHash": "39b040db987f06c1a15077b0a6e0e8b8354a079567600d55ca5ce7fdb45a7283",
       "files": {
-        "SKILL.md": "5b6fdacb8fb768067a395680e4bc4f0a057cc1755d26630659daf372a0a49a0e"
+        "SKILL.md": "eed045a1cd63b393008006695587557440c1e57878778b282599796406962d80"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1904,9 +1904,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "b444a2e3d3c54601d7b58d713060f07d5f259b233c5a0e10789a67ea934b3147",
+      "packageHash": "baf5fff432678d73e0b1b833813f941a5a44b2d531a0178d51dc09ee8685f453",
       "files": {
-        "SKILL.md": "2626e8786d2b5919b22ab1f23a22d5c8756b5fe4eb2d4783064fed210bb8a39c"
+        "SKILL.md": "690624866ac75c70e54fbe2f17abdbf054b6580d2ad766d03af193d33ec3244e"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1927,9 +1927,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "5ae802187ab1d25cd32486c9bacac65125553f1b1adfc57b16de688a1ebeebeb",
+      "packageHash": "95d3beb4948508be9a90c5ac9667b2c7bf03573cb2ca8f1d313a3faebbb5fc06",
       "files": {
-        "SKILL.md": "e06eb525b4728562c36e8bf3794f385a7a954399c3c93c8ffea95c9986f0697e"
+        "SKILL.md": "0de907244c08a1f9efabf543ec361596ddc3411bf89fea57b9d5f77b0abbb24f"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1950,9 +1950,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "faa2357ee4ed19488981bf1c053035e094b47dd83073b601c5b63a6b212e4437",
+      "packageHash": "ff57015d039f91b0825c49d9b435caa7ee99f478361e6d39e437eb766daf6070",
       "files": {
-        "SKILL.md": "b5c8e4a7862df8f0f9b8a1d55c56ac5de52d1e446be37c4979339bb5b002b717"
+        "SKILL.md": "3c8252265821ca3cbeaeb97ae3833c7f6bd0b7948e920da2cd7ee9499814d756"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1973,9 +1973,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "57429b73382199d5f2e8135e00da2a1f3d55d1c960f6549df1828f06a6bb99ef",
+      "packageHash": "bdb9f00ef16983db6d5e2b40e9a48ffe5c60ba2a8fd0c470a5903e6d82cf40bc",
       "files": {
-        "SKILL.md": "5f4d0b691e5c9cc69c747e3bd90ee95fbfa7871d7db6a14061d4a3f897831d77"
+        "SKILL.md": "5d1a1f0cd2a5722b726e8b5471da5cf6143275339bc2b11968462f7288820ef8"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -1996,9 +1996,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "4345a9f96538e39257a8ec363b6f267a1958a0cdf5789ea7026acb2bd3de931c",
+      "packageHash": "3a4ceb071fc1a51f582433ee36a35b5a56913983f1855e93b606f1ced35d4c38",
       "files": {
-        "SKILL.md": "3ec29f4ca69b8be3260707ed8887b0586575a89c8451ba0e8f1803e965c91207"
+        "SKILL.md": "4100a6cc823eb13b4d942a97dfaa0746b635d1ddc6a3f7a7418f43b6eae3a9cd"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2019,9 +2019,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "fc74a366fd724224c105a3230bf1fbbc8a03e74d2a71f57ef6abd1f0bb4ae61f",
+      "packageHash": "529991fdc33d288f76df3c33adfacda3954d113bfe6c0029d9e10be66ec2db93",
       "files": {
-        "SKILL.md": "85c011b68fbde2c918b470e7f24159256b1f3a85df3773c68452e3f67153f1ee"
+        "SKILL.md": "41ae8432d386020323bf62a0e27e12446d2a1456051cf0b54936274618f08138"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2042,9 +2042,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "7465fa9afd89eb65fb8622e1ac17fb126b7fba2fb4161d446772cded09ab08b3",
+      "packageHash": "2b5d33532e4cd00b2b34ed69d5d67871f9778e6d865b140a3acc17d969c440c1",
       "files": {
-        "SKILL.md": "ed7e7c057e3c4cd0e482351db5a3aff28fcf0e61a8bd01843576a09033b7d76f"
+        "SKILL.md": "7e29f3fa8181afecce9bcf04a4cfcda86e1245e9954a9079f478f1174350d2e2"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2065,9 +2065,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "cce5b095a1b4950edde05fbd49b3b3cae17b8b083b7c8f94964224c8e8d6ad7e",
+      "packageHash": "33da0ba655013c7be56f6db5c86de07aec35e2277ab8fff7cf62720ec354b3d6",
       "files": {
-        "SKILL.md": "08e5947f59742a628f6aa357657e78d1c29cd55c25ba7696121375a04a782bc0"
+        "SKILL.md": "d0d72e4447e1b0bb903f886a4afba9ff376d322a0a1e5693addc78eda3679927"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2088,9 +2088,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "f63a54a65060f4a387986796b4c096d0a624df5aa11e470561aaa4438cfbab31",
+      "packageHash": "e26e51c370c41e2fa3fd2a6a4277b0b5389cd7582731a0a7b300ffa706ea0fd3",
       "files": {
-        "SKILL.md": "955123ae56b3a4081c125883bd3bc3af73040a4df7ef07c1096455bbdf40b666"
+        "SKILL.md": "acda338d98c677ed6593310685014375f686c3fb90bfea6263ee6e1ab8ac0269"
       },
       "issues": [
         "missing \"## Operational Contract\" section",
@@ -2112,9 +2112,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "c7b29bcb152f8b7f91638e2d28527f23be4b416fd2363b1039c73c0465b851af",
+      "packageHash": "8b5808497ebeeb5c163276c00b32e44eb5ce62e0e70c4d8a7e554452f6976674",
       "files": {
-        "SKILL.md": "80d57d72b895d2f325bd7a25c2a9dcf81f06986f33434ca4f44a1fc65b6ebd7f"
+        "SKILL.md": "00bf13376c2e40066c6d66e46a907afe5e1ae2538a7e2ebdd5cd96007ab69708"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2135,9 +2135,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": null,
-      "packageHash": "a4f671242de1a78bc6027149f2750abc771a1730d44cf52d9958b210c848849a",
+      "packageHash": "1d294506b10c83a44081cb666a5c78ffc38b540eae48060414395a4e63bd3703",
       "files": {
-        "SKILL.md": "a1415e848e84464d32f417643f6d5c7a78bdd80a933905ec1ef37135eed449c0"
+        "SKILL.md": "a7c0283f24adca7648cc912d8efc2ba4505ca8285bf80fdfb8438e593cc9169f"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2158,17 +2158,17 @@
       "profiles": [],
       "invocation": "auto",
       "version": "7.9.1",
-      "packageHash": "ed91b7464f81a11aafda2b136ebb40b2d03886e1047bbf796c92217ea37bbb2e",
+      "packageHash": "490a0820ba4d2afe3f21441de1822c46ce3fe08f410d6e258e83e90060921032",
       "files": {
-        "SKILL.md": "b7c6aeb7a807274a098b406e84d0b97c038f9b1e50d4d6d66a4dd78aaa99d388",
-        "references/client-methods.md": "019069afdde63d42c8a8e99b4d75bfbc461615786714da243e447f75cc28771f",
-        "references/constructor.md": "049d1e22c81f4230c28640be638e0d758207d1452712029367340c7a47b6724f",
-        "references/filters.md": "93e61792bb1b8780113b2914677fe12dc13597f194eaa8a82777cee9908e0a05",
-        "references/model-queries.md": "3d231c52bdf3a32b4fb2440f5f6af72fb51a5c8995ee2fcade5075fe1dac1b43",
-        "references/query-options.md": "8f3c1c3628f8cf45fcb6f59e62492afad83d6964f1068a1ed58b2657e012818c",
-        "references/raw-queries.md": "8e90f245cbb161f74450284accda431c7df6ee4dc94e19d9e159b680b1aa9d16",
-        "references/relations.md": "befb05bc267b919786e1457e99c1f3293fabbf961d9c55575f41668c45dfe3b8",
-        "references/transactions.md": "8bd66b8f772abac2cc18d378ffd2070e86d81446a37699ff3f1d3e0fa39eb85c"
+        "SKILL.md": "58f1cb3e7fb5e59745cd6bd8512ba13efa921b19b8065dfbd4b859a4286c5c3a",
+        "references/client-methods.md": "30184329c8f1524c7fcd18918d4d603e391c37e8ba5caa7cf7a76f0b4fc84a0b",
+        "references/constructor.md": "01e2da9efa7ce78b7d86c5ecb0a4834fb1dd1c00566daf2d4687aafb4e55089a",
+        "references/filters.md": "65d9011860ad45a2fbc69ba7cb89d89f38a3a11a4b55a11260c9ea14579d30e8",
+        "references/model-queries.md": "48bd4d057b3078e95c6e7b89b109d207f6a865272a25d2b34ec208f60494899a",
+        "references/query-options.md": "3448a08d5ef245e8e85fc44861c5b719c825ac64ea37893f8f5a3f02f812ca53",
+        "references/raw-queries.md": "c73c80e381ba44ddc04103c3c0b7b867eae0ee5732e7346876c7ba01edd2b36f",
+        "references/relations.md": "5507fc2bd0558d8d2aa96881318ff83572f6abf78ef8cd9b5e33e71a404f6da9",
+        "references/transactions.md": "6ec55bc1e46fb3371488fbb3156d860cf81d367d7f1900cd86170f0ec1fc0060"
       },
       "issues": [
         "missing \"## Operational Contract\" section"
@@ -2189,9 +2189,9 @@
       "profiles": [],
       "invocation": "auto",
       "version": "1.0.0",
-      "packageHash": "771d4f5d9267cb59caafc6fbb888872e14b3f401c93d1cd867e4384ad5165fa3",
+      "packageHash": "e630cf1fba385c32be8d68ec93054c3cc6dbeec596d6e4b5e425787750c7183f",
       "files": {
-        "SKILL.md": "c3f86dcbac634a8621f211cf1531efb4d89fc946cb81fc5fe16daf81378d077f"
+        "SKILL.md": "3a26599b5dc87963b484127ff9890cf351765b4f8f2bbe14dab157d29f4711a8"
       },
       "issues": [
         "missing \"## Operational Contract\" section",
