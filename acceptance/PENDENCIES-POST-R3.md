@@ -5,9 +5,11 @@ Data: 2026-09-25. Preserva as conclusões da revalidação independente: defeito
 autorizações; D7 desabilitado nas instalações do Pedido 10; confinamento **não** aprovado;
 notas históricas intactas (R1 `RUBRIC.md` 8,69; R3 `contract-r3` 8,56).
 
-**Estado confirmado agora:** HEAD `66194b0…`; ~87 entradas no working tree; Node 25.2.1;
-pnpm 12.5.1; `auth.json` ausente em `dist/.../codex-home`; incidente home ainda com
-`storeDir` no store temporário da auditoria.
+**Release 2.0:** **ENCERRADA** — estável em `v2.0.3` (`0f3dcb618bd4bc097f57ac4cb4bc7756357c6952`);
+P-EVAL-1 15/15; CI 5/5. Pendências abertas abaixo = **2.1+** (não executar sem auth futura).
+
+**Nota histórica de preparação:** trechos abaixo podem citar HEAD `66194b0…` / working tree
+pré-publicação; não substituem o estado final acima.
 
 ## QA vs Pedido 10
 
@@ -57,7 +59,7 @@ Estado: **REPROVADO**. CX-12 cobre revisão **mecânica** 83/83 (origem, evidên
 | P-EVAL-1 | Avaliações comportamentais | CR-041, CR-049, CR-069 | Plano + casos ([EVAL-PLAN-R3.md](EVAL-PLAN-R3.md)); **sem** colar corpo de skills | Autorizar piloto (12) e tetos; login em perfis isolados | Transcrições + `evals:score` |
 | P-IMP-1 | NR-20 leitura / promoção | NR-20, CR-055, NR-15 | Revisão mecânica contínua; fichas de caso; **sem** promoção em lote | Confirmar licenças/autoria; decisão de promoção | Itens `revisado`/`ativo` com justificativa |
 | P-NAT-1 | Execução nativa | NR-07, G07 | Mapear SDK local; não instalar global nem EAS sem auth | Autorizar config `ANDROID_HOME` + run ou EAS | Log do app/versão/fluxo |
-| P-REL-1 | Commit / tag / push / CI | CR-075, CR-066 | Inventário do que entra no versionamento | Autorizar commit/tag/push | Tag `v2.0.0` + CI verde |
+| P-REL-1 | Commit / tag / push / CI | CR-075, CR-066 | — | — | **PASS** — estável em `v2.0.3` (`0f3dcb6…`); CI 5/5 |
 | P-ORF-1 | `cursor-rule-profiles.json` | CR-073 | Mostrar diff vs HEAD | Autorizar apagar | Arquivo removido do tree |
 | P-CONF-1 | Executor confinado | alegação CX-14/15 | **Opcional**; suíte em skip | Só se quiser aprovar confinamento | Escape sintético falha fora do sandbox |
 
@@ -115,10 +117,11 @@ Alternativas para auth: (1) setar `ANDROID_HOME` + `pnpm --filter mobile android
 6. ~~P-EVAL-1~~ — **PASS** 15/15 (EV-R3-eval-pilot-final.md)  
 7. P-IMP-1 confirmações de licença / promoções pontuais *(pós-2.0)*  
 8. P-NAT-1 ANDROID_HOME local e/ou EAS *(pós-2.0; não bloqueia distribuidor)*  
-9. **P-REL-1** commit/tag/push ← **próxima decisão** (release candidate pronto; aguarda auth)  
-10. P-ORF-1 apagar `cursor-rule-profiles.json` *(pós-2.0)*  
-11. P-CONF-1 (opcional) executor confinado  
+9. ~~P-REL-1~~ — **PASS** — release 2.0 **ENCERRADA** em `v2.0.3` (CI 5/5)
+10. P-ORF-1 apagar `cursor-rule-profiles.json` *(2.1+)*
+11. P-CONF-1 (opcional) executor confinado *(2.1+)*
 
-## Estado estável para a próxima verificação direcionada
 
-Quando o dono devolver evidência de **um** item acima, verificar **só** esse item + regressão leve (`pnpm qa` se o tree mudou). Não reabrir auditoria geral nem o guard.
+## Estado estável após encerramento 2.0
+
+Release 2.0 encerrada. Pendências restantes são **2.1+**. Não reabrir auditoria geral, evals, hotfixes 2.0.x nem o guard fora de autorização explícita futura.

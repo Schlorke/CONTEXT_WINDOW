@@ -1,10 +1,60 @@
-# RELEASE READINESS REPORT — Context Window v2.0.0
+# RELEASE STATUS — Context Window 2.0
 
-Data: 2026-09-25. Escopo congelado: sem novos evals, sem reabrir P-SEC-1/A13c/guard/native/imported.
+Data de encerramento: 2026-09-25.
+
+## Estado final
+
+| Campo | Valor |
+| --- | --- |
+| Release 2.0 | **ENCERRADA** |
+| Versão estável atual | **v2.0.3** |
+| Commit | `0f3dcb618bd4bc097f57ac4cb4bc7756357c6952` |
+| Tag | `v2.0.3` |
+| P-EVAL-1 | **15/15 PASS** |
+| CI (`qa.yml`) | **5/5 PASS** (acceptance + library Ubuntu/Windows × Node 22/24) |
+
+Linha de tags 2.0 (intactas):
+
+| Tag | Commit |
+| --- | --- |
+| `v2.0.0` | `3533c4c1687d017a00c532f6c8424ba5ee1a479c` |
+| `v2.0.1` | `4cf2e3e70f9802668f801a91c03ebf3137f06613` |
+| `v2.0.2` | `b10bea5110ec21323ce9225dce88ad01f52bfd89` |
+| `v2.0.3` | `0f3dcb618bd4bc097f57ac4cb4bc7756357c6952` |
+
+## Hotfixes fechados na linha 2.0
+
+- **2.0.1** — catalog lock cross-EOL
+- **2.0.2** — path portability + EOL policy (LF)
+- **2.0.3** — concurrent install busy vs false conflict (ACH-010/CR-017)
+
+## Riscos residuais aceitos (não reabrir na 2.0)
+
+- P-SEC-1 (sessão Codex copiada)
+- Observabilidade parcial de descoberta no piloto
+- Native runtime não verificado
+- 83 `imported-unreviewed` não certificados
+- Confinamento de escrita pnpm não alegado
+
+## Pendências preservadas para 2.1+
+
+Ver [PENDENCIES-POST-R3.md](../../PENDENCIES-POST-R3.md): P-SEC-2, P-IMP-1, P-NAT-1, P-ORF-1, P-CONF-1 (opcional).
+
+## Histórico deste arquivo
+
+Este documento substitui o veredito operacional de *ready to release* do candidato `v2.0.0`. O relatório de preparação original permanece abaixo como arquivo histórico da candidatura; o **status canônico vigente** é a seção acima.
 
 ---
 
-## 1. QA final: **PASS**
+# RELEASE READINESS REPORT — Context Window v2.0.0 (histórico)
+
+Data: 2026-09-25. Escopo congelado: sem novos evals, sem reabrir P-SEC-1/A13c/guard/native/imported.
+
+> **Superseded:** release 2.0 **ENCERRADA** em `v2.0.3` (`0f3dcb6…`). Seções abaixo são o snapshot de prontidão pré-`v2.0.0`, não o estado atual.
+
+---
+
+## 1. QA final: **PASS** (pré-v2.0.0)
 
 ```text
 pnpm qa  → exit 0
@@ -15,8 +65,6 @@ pnpm qa  → exit 0
   prettier --check OK
 ```
 
-Estado testado = working tree atual (candidato a commit). Sem chamadas de modelo.
-
 ## 2. Secret / security check: **PASS**
 
 | Check                              | Resultado                                              |
@@ -26,111 +74,10 @@ Estado testado = working tree atual (candidato a commit). Sem chamadas de modelo
 | Credenciais em publishable         | não detectadas                                         |
 | P-SEC-1                            | risco residual **aceito**; sem revogação nesta release |
 
-## 3. Working tree e escopo do commit
+## 3–11. (Plano de publicação v2.0.0)
 
-**Branch:** `main` @ `66194b0` (1.17.0) → working tree = delta 2.0.0  
-**Diff tracked:** 63 files, +2147 / −7985 (aprox.)  
-**Untracked top-level (incluir na release):** `acceptance/`, `catalog/`, `imported-skills/`, `scripts/cw.mjs`+`lib/`, `test/`, `.github/`, `.editorconfig`, `.prettierrc.json`, `pnpm-workspace.yaml`, assets/scripts FSD, ADRs, etc.
+Ver histórico git deste arquivo na revisão pré-tag `v2.0.0` para o inventário completo de stage/comandos. Não reexecutar.
 
-**Dentro da release (proposto):** todo o delta 2.0 de fonte + acceptance (relatórios/evidências R3 sem segredos) + CI + catalog + imported-unreviewed (status explícito, não distribuído).
+## 12. Decisão (histórico)
 
-**Fora / ignorado:** `dist/`, `node_modules/`, `.env`, `.cursor/`, caches locais; artefatos só em `C:\Temp\cw-r3\` **não** entram no git.
-
-**Atenção:** `.vscode/` untracked — incluir só se for configuração de projeto compartilhada; senão deixar fora do stage. Não descartar outras alterações do proprietário.
-
-**Não relacionado à 2.0:** nada identificado como “pessoal alheio” além de possível `.vscode/`; `cursor-rule-profiles.json` permanece (P-ORF-1 pós-2.0).
-
-## 4. Versão final
-
-| Fonte                               | Valor                                          |
-| ----------------------------------- | ---------------------------------------------- |
-| `package.json`                      | **2.0.0**                                      |
-| `CHANGELOG.md`                      | `[2.0.0] - 2026-09-24` (+ fixes 2026-09-25)    |
-| `saas-skills/docs/RELEASE_NOTES.md` | `2.0.0 - 24 de setembro de 2026`               |
-| Tag local `v2.0.0`                  | **ainda não criada** nesta máquina (após auth) |
-
-## 5. P-EVAL-1
-
-**15/15** células comportamentais válidas · 0 FAIL comportamental  
-Evidência: `acceptance/evidence/r3/evals/EV-R3-eval-pilot-final.md`
-
-## 6. Riscos residuais explicitamente aceitos
-
-- P-SEC-1 (sessão Codex copiada / sem Log out all)
-- Observabilidade parcial de descoberta de skills no piloto
-- Native runtime não verificado
-- 83 imported-unreviewed não certificados
-- Confinamento de escrita pnpm não alegado
-
-## 7. Pendências pós-2.0
-
-P-SEC-2, P-IMP-1, P-NAT-1, P-ORF-1, P-CONF-1 (opcional). Lista: `acceptance/PENDENCIES-POST-R3.md`.
-
-## 8. Commit message proposto
-
-```text
-release: Context Window 2.0.0
-
-Instalador cw.mjs, catálogo com lock, contrato FSD web+mobile, gates,
-acceptance R3 e piloto comportamental 15/15. Remove runtimes 1.x.
-```
-
-## 9. Tag proposta
-
-`v2.0.0` (annotated)
-
-```text
-Context Window v2.0.0
-
-Distribuição segura multi-agente, contrato de arquitetura obrigatório,
-template Next+Expo, QA 155 verdes, P-EVAL-1 15/15.
-```
-
-## 10. Comandos exatos (NÃO executar até autorização)
-
-```powershell
-Set-Location C:\Projetos\Context_Window
-
-# Revisar stage (ajustar se .vscode deve ficar de fora)
-git add -A
-# Se .vscode for pessoal:
-# git reset HEAD -- .vscode
-
-git status
-
-git commit -m @"
-release: Context Window 2.0.0
-
-Instalador cw.mjs, catálogo com lock, contrato FSD web+mobile, gates,
-acceptance R3 e piloto comportamental 15/15. Remove runtimes 1.x.
-"@
-
-git tag -a v2.0.0 -m @"
-Context Window v2.0.0
-
-Distribuição segura multi-agente, contrato de arquitetura obrigatório,
-template Next+Expo, QA 155 verdes, P-EVAL-1 15/15.
-"@
-
-git push origin main
-git push origin v2.0.0
-```
-
-(Windows PowerShell: usar aqui-string como acima, ou equivalente `git commit -m "..."`. Em bash, HEREDOC `$(cat <<'EOF' ... EOF)`.)
-
-## 11. CI disparada pelo push/tag
-
-Workflow: `.github/workflows/qa.yml`
-
-| Trigger              | Jobs                                                                                                                                                                                                                                                                                                                               |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `push` em `main`     | `library` (ubuntu+windows × Node 22/24 → `pnpm qa`); `acceptance` (ubuntu, sandbox `/tmp`, `--skip-qa --without-clients`)                                                                                                                                                                                                          |
-| `pull_request`       | idem                                                                                                                                                                                                                                                                                                                               |
-| Push da tag `v2.0.0` | **não** há `on: tags` dedicado; só dispara se o push da tag também atualiza `main`, ou via regra padrão do GitHub para o commit apontado — o workflow atual escuta **branches main** e **PR**, não `tags:` explicitamente. O `git push origin main` dispara CI; `git push origin v2.0.0` sozinho **pode não** rodar este workflow. |
-
-## 12. Decisão
-
-## READY TO RELEASE v2.0.0: YES
-
-Aguardando autorização final do proprietário para **commit / tag / push**.  
-Nenhum commit/tag/push executado nesta etapa.
+## READY TO RELEASE v2.0.0: YES — **executado**; linha 2.0 encerrada em **v2.0.3**
