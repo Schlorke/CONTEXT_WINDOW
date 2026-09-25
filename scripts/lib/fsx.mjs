@@ -163,9 +163,9 @@ export function writeTree(dir, files) {
   }
 }
 
-export function isInside(parent, child) {
-  const rel = path.relative(parent, child);
-  return rel === "" || (!rel.startsWith("..") && !path.isAbsolute(rel));
+export function isInside(parent, child, pathApi = path) {
+  const rel = pathApi.relative(pathApi.resolve(parent), pathApi.resolve(child));
+  return rel === "" || (!rel.startsWith("..") && !pathApi.isAbsolute(rel));
 }
 
 export function realpathOrSelf(p) {

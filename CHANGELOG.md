@@ -11,6 +11,18 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [2.0.2] - 2026-09-25
+
+Hotfix de CI: QA portável entre Windows e Linux.
+
+### Fixed in 2.0.2
+
+- Testes de autorização/guard deixam de usar literais absolutos Windows; paths
+  sintéticos portáveis + casos `path.win32`/`path.posix` determinísticos.
+- Política EOL explícita: `.gitattributes` (`eol=lf`), Prettier `endOfLine: lf`
+  alinhado ao `.editorconfig`, para `prettier --check` sobreviver a checkouts
+  Windows com `core.autocrlf`.
+
 ## [2.0.1] - 2026-09-25
 
 Hotfix de CI: `catalog --check` falhava em checkouts limpos (Windows e Linux).

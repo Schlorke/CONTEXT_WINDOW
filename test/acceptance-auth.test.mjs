@@ -179,10 +179,12 @@ describe("acceptance auth separation [Pedido 10]", () => {
   });
 
   test("authorizedBy alone is not enough without matching command/scripts/destinations", () => {
+    const allowedRoot = path.join(tmp(), "acceptance");
+    fs.mkdirSync(allowedRoot, { recursive: true });
     const authorize = {
       command: "pnpm run tokens",
       scripts: ["tokens"],
-      destinations: ["C:\\Temp\\cw-r3\\acceptance"],
+      destinations: [allowedRoot],
       risks,
       authorizedBy: owner,
     };
@@ -191,8 +193,8 @@ describe("acceptance auth separation [Pedido 10]", () => {
       command: "pnpm run verify",
       scripts: ["verify"],
       destinations: [
-        "C:\\Temp\\cw-r3\\acceptance\\run-1\\product\\produto",
-        "C:\\Temp\\cw-r3\\acceptance\\run-1\\product",
+        path.join(allowedRoot, "run-1", "product", "produto"),
+        path.join(allowedRoot, "run-1", "product"),
       ],
     });
     assert.match(miss, /does not cover script "verify"/i);
@@ -200,16 +202,18 @@ describe("acceptance auth separation [Pedido 10]", () => {
     const outside = authorizationCoversOperation(authorize, {
       command: "pnpm run tokens",
       scripts: ["tokens"],
-      destinations: ["C:\\Users\\someone\\real-project"],
+      destinations: [path.join(tmp(), "real-project")],
     });
     assert.match(outside, /do not cover path/i);
   });
 
   test("matching grant covers command, script and destination under the authorized root", () => {
+    const allowedRoot = path.join(tmp(), "acceptance");
+    fs.mkdirSync(allowedRoot, { recursive: true });
     const authorize = {
       command: "pnpm run arch",
       scripts: ["arch"],
-      destinations: ["C:\\Temp\\cw-r3\\acceptance"],
+      destinations: [allowedRoot],
       risks,
       authorizedBy: owner,
     };
@@ -218,8 +222,8 @@ describe("acceptance auth separation [Pedido 10]", () => {
         command: "pnpm run arch",
         scripts: ["arch"],
         destinations: [
-          "C:\\Temp\\cw-r3\\acceptance\\run-abc\\product\\produto",
-          "C:\\Temp\\cw-r3\\acceptance\\run-abc\\product",
+          path.join(allowedRoot, "run-abc", "product", "produto"),
+          path.join(allowedRoot, "run-abc", "product"),
         ],
       }),
       null,

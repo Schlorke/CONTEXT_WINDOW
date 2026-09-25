@@ -1,5 +1,10 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 2.0.2 - 25 de setembro de 2026
+
+Hotfix: testes de path portáveis (win32/posix) e EOL canônico LF
+(`.gitattributes` + Prettier) para a CI library passar em Ubuntu e Windows.
+
 ## 2.0.1 - 25 de setembro de 2026
 
 Hotfix: hashes do catálogo normalizam EOL (CRLF→LF) para `catalog.lock.json` ser

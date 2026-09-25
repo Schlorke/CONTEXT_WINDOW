@@ -14,6 +14,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { isInside } from "./fsx.mjs";
 import yaml from "./vendor/js-yaml.mjs";
 
 /** Limits of every guarded run — keep in sync with EV-R3-guard-proof.json. */
@@ -122,9 +123,7 @@ export function authorizationCoversOperation(authorize, operation) {
       if (/possible writes|redirected temp|xdg|unconfined/i.test(text))
         return false;
       try {
-        const root = path.resolve(text);
-        const rel = path.relative(root, dest);
-        return rel === "" || (!rel.startsWith("..") && !path.isAbsolute(rel));
+        return isInside(path.resolve(text), dest);
       } catch {
         return false;
       }

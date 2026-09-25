@@ -120,19 +120,24 @@ describe("pnpm guard — preflight", () => {
   });
 
   test("unreviewed or unsafe build settings are blocked, including the placeholder pnpm writes", () => {
+    const r = root("guard-settings");
+    const outsideStore = path.resolve(r, "..", "outside-pnpm-store");
     for (const [extra, pattern] of [
       ["dangerouslyAllowAllBuilds: true\n", /dangerouslyAllowAllBuilds/],
       ["strictDepBuilds: false\n", /strictDepBuilds is disabled/],
-      ["storeDir: C:/outside/store\n", /storeDir .* outside the sandbox/],
+      [
+        `storeDir: ${JSON.stringify(outsideStore)}\n`,
+        /storeDir .* outside the sandbox/,
+      ],
     ]) {
-      const r = root("guard-settings");
-      clean(path.join(r, "p"), extra);
+      const project = path.join(r, "p");
+      clean(project, extra);
       const text = fs
-        .readFileSync(path.join(r, "p", "pnpm-workspace.yaml"), "utf8")
+        .readFileSync(path.join(project, "pnpm-workspace.yaml"), "utf8")
         .replace("strictDepBuilds: true\n", "");
-      fs.writeFileSync(path.join(r, "p", "pnpm-workspace.yaml"), text);
+      fs.writeFileSync(path.join(project, "pnpm-workspace.yaml"), text);
       const pf = preflight({
-        project: path.join(r, "p"),
+        project,
         sandbox: r,
         home: homeOf(r),
       });
@@ -141,14 +146,14 @@ describe("pnpm guard — preflight", () => {
         `${extra}: ${pf.blockers.join("\n")}`,
       );
     }
-    const r = root("guard-placeholder");
-    clean(path.join(r, "p"));
+    const placeholder = path.join(r, "placeholder");
+    clean(placeholder);
     fs.writeFileSync(
-      path.join(r, "p", "pnpm-workspace.yaml"),
+      path.join(placeholder, "pnpm-workspace.yaml"),
       'packages:\n  - "."\nverifyDepsBeforeRun: error\nallowBuilds:\n  esbuild: set this to true or false\n',
     );
     const pf = preflight({
-      project: path.join(r, "p"),
+      project: placeholder,
       sandbox: r,
       home: homeOf(r),
     });

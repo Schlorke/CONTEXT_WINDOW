@@ -1,0 +1,24 @@
+# Canonical text EOL for every checkout (Windows autocrlf and Linux).
+# Prettier endOfLine=lf and .editorconfig end_of_line=lf must match this policy.
+* text=auto eol=lf
+
+# Binary assets — never convert.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tgz binary
+*.7z binary
+*.exe binary
+*.dll binary
+*.node binary
+*.wasm binary
