@@ -17,9 +17,17 @@ Primeira leva da canonicalização 2.1. `imported-skills/` permanece como proced
 
 ### Added in 2.1.0
 
-- Perfil `creative` deixa de estar vazio: `blender-scene-production`, `spline-web-scenes` e `audiovisual-production` consolidam o conhecimento portátil das famílias Blender, Spline e vídeo.
+- Perfil `creative` deixa de estar vazio: `blender-scene-production`, `spline-web-scenes` e `audiovisual-production` consolidam o conhecimento portátil das famílias Blender, Spline e vídeo. O catálogo fica com 24 skills ativas (21 em `dev`, 3 em `creative`).
 - Referências de domínio (`domains.md`, `routes.md`) guardam os procedimentos de inspeção, rig, curvas, PBR, luz, entrega e QC. Marca, paths de cliente e corpos MIT/Remotion ficam de fora.
-- Matriz de destino em `saas-skills/docs/governance/IMPORTED_CANONICALIZATION_2_1.md`. Pacotes Remotion/Prisma/React de terceiros e regras de cliente não foram promovidos.
+- Matriz de destino em `saas-skills/docs/governance/IMPORTED_CANONICALIZATION_2_1.md`. Pacotes Remotion/Prisma/React de terceiros e regras de cliente não foram promovidos. `imported-skills/` continua no `.gitignore` e não é instalável.
+- Item 8 do contrato de arquitetura: não inventar caminho, API, token, cor nem uma segunda árvore de tela; o repositório vence se discordar do contrato.
+- O roteador de gatilhos casa o plural da frase (`route handler` encontra `route handlers`). A matriz de avaliação passa nos 81 prompts positivos e em nenhum negativo.
+
+### Changed in 2.1.0
+
+- `package.json` passa a `2.1.0`. Era o número que o instalador gravava; o changelog já descrevia esta leva como 2.1.0.
+- A escolha de diretório de instalação fica só em `scripts/lib/targets.mjs`.
+- O gate do catálogo recusa a cláusula que manda seguir a skill sem exceção. Essa frase saiu das skills ativas.
 
 ## [2.0.3] - 2026-09-25
 

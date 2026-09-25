@@ -4,11 +4,12 @@ import test from "node:test";
 import { sinksFor } from "../scripts/lib/targets.mjs";
 
 function ctx(clients, { scope = "project", claudeConfigDir } = {}) {
-  const home = path.join("C:\\sandbox", "home");
+  const base = path.join(path.parse(process.cwd()).root, "cw-sandbox");
+  const home = path.join(base, "home");
   return {
     scope,
     clients,
-    target: path.join("C:\\sandbox", "proj"),
+    target: path.join(base, "proj"),
     homes: {
       home,
       claudeConfigDir: claudeConfigDir ?? path.join(home, ".claude"),
@@ -44,7 +45,11 @@ test("user Cursor shares ~/.claude/skills when that is the Claude config", () =>
 });
 
 test("a custom Claude config dir does not hide Cursor skills from ~/.agents", () => {
-  const custom = path.join("C:\\sandbox", "claude-alt");
+  const custom = path.join(
+    path.parse(process.cwd()).root,
+    "cw-sandbox",
+    "claude-alt",
+  );
   assert.deepEqual(
     names(
       sinksFor(

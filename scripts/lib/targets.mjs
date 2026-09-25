@@ -51,7 +51,7 @@ export function sinksFor(ctx) {
     const claudeVisibleToCursor =
       ctx.scope === "project" ||
       path.resolve(ctx.homes.claudeConfigDir) ===
-        path.join(ctx.homes.home, ".claude");
+        path.resolve(ctx.homes.home, ".claude");
     if (!(wanted.has("claude") && claudeVisibleToCursor)) wanted.add("agents");
   }
   return [...wanted].map((sink) => ({

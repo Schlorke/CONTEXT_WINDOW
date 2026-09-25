@@ -32,6 +32,17 @@ HEAD base histórico de origem 1.x: `66194b0`. Não reabrir escopo 2.0.
 - 83 `imported-unreviewed`: fora do conjunto certificado.
 - Executor confinado: **opcional** (não alegado).
 
+## Árvore de trabalho — 2.1.0
+
+| Campo | Valor |
+| --- | --- |
+| Versão em `package.json` | **2.1.0** (é o número que o instalador grava) |
+| Última tag publicada | `v2.0.3` |
+| Skills ativas | 24 (21 no perfil `dev`, 3 no perfil `creative`) |
+| `imported-skills/` | local, no `.gitignore`, não instalável |
+
+A seção "Release 2.0" acima continua válida para a tag `v2.0.3`. Ela não descreve a 2.1.0.
+
 ## Pós-2.0 / 2.1+ (não executar agora)
 
 Ver [PENDENCIES-POST-R3.md](PENDENCIES-POST-R3.md): P-SEC-2, P-IMP-1, P-NAT-1, P-ORF-1, P-CONF-1 (opcional).

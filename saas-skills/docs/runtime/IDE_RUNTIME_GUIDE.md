@@ -16,6 +16,8 @@ como tal.
 | Só invocação explícita | `disable-model-invocation: true` | `agents/openai.yaml` → `policy.allow_implicit_invocation: false` | segue o frontmatter |
 | Onde o `cw` grava | `.claude/skills` | `.agents/skills` | usa a cópia do Claude quando ele também foi escolhido; senão `.agents/skills` |
 
+O catálogo atual tem 24 skills ativas: 21 no perfil `dev` e 3 no perfil `creative`. A prova abaixo é a de 2026-09-24, feita com o perfil `dev` daquele dia.
+
 ## O que foi comprovado (2026-09-24, Windows 11, Node.js 25.2.1)
 
 | Cliente e versão | Prova | Resultado |

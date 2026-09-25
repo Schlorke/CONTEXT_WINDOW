@@ -55,11 +55,15 @@ mão, instalação 1.x, link simbólico) e não escreve nada.
 
 Onde cada cliente encontra as skills:
 
-| Cliente     | Projeto                                  | Usuário                                               |
-| ----------- | ---------------------------------------- | ----------------------------------------------------- |
-| Claude Code | `.claude/skills/`                        | `~/.claude/skills/` (ou `$CLAUDE_CONFIG_DIR/skills`)  |
-| Codex       | `.agents/skills/`                        | `~/.agents/skills/`                                   |
-| Cursor      | lê `.claude/skills/` e `.agents/skills/` | lê as pastas do usuário; User Rules são coladas à mão |
+| Cliente     | Onde o cw grava                                                    | Onde o cliente lê                                          |
+| ----------- | ------------------------------------------------------------------ | ---------------------------------------------------------- |
+| Claude Code | `.claude/skills/` no projeto ou no usuário                         | esses mesmos diretórios                                    |
+| Codex       | `.agents/skills/` no projeto; `~/.agents/skills/` no usuário       | esses diretórios, mais o legado `$CODEX_HOME/skills`       |
+| Cursor      | a cópia do Claude, se ele também foi escolhido; senão `.agents/`   | `.agents/skills/`, `.cursor/skills/` e a compatibilidade   |
+
+O Cursor também lê `.claude/skills/` e `.codex/skills/`, no projeto e no usuário.
+User Rules continuam coladas à mão. Quando Claude e Cursor são instalados juntos
+no projeto, uma só cópia em `.claude/skills/` serve os dois.
 
 Detalhes, versões testadas e limites: [IDE_RUNTIME_GUIDE.md](saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md).
 

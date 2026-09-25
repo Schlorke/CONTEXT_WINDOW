@@ -3,8 +3,13 @@
 ## 2.1.0 - 25 de setembro de 2026
 
 Perfil `creative` com três skills canônicas (`blender-scene-production`,
-`spline-web-scenes`, `audiovisual-production`). `imported-skills/` não foi
-apagado. Matriz: `docs/governance/IMPORTED_CANONICALIZATION_2_1.md`.
+`spline-web-scenes`, `audiovisual-production`). Catálogo: 24 ativas.
+`imported-skills/` continua local, no `.gitignore`, e não é instalada.
+`package.json` é `2.1.0`, o mesmo número que o instalador grava.
+Contrato de arquitetura ganhou o item 8 (fidelidade do espelho web/mobile).
+O gate recusa "must be followed without exception". O roteador de gatilhos
+aceita plural e cobre a matriz de avaliação sem falso positivo.
+Matriz de canonicalização: `docs/governance/IMPORTED_CANONICALIZATION_2_1.md`.
 
 ## 2.0.3 - 25 de setembro de 2026
 
