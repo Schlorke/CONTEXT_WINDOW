@@ -121,7 +121,6 @@ Alternativas para auth: (1) setar `ANDROID_HOME` + `pnpm --filter mobile android
 10. P-ORF-1 apagar `cursor-rule-profiles.json` *(2.1+)*
 11. P-CONF-1 (opcional) executor confinado *(2.1+)*
 
-
 ## Estado estável após encerramento 2.0
 
 Release 2.0 encerrada. Pendências restantes são **2.1+**. Não reabrir auditoria geral, evals, hotfixes 2.0.x nem o guard fora de autorização explícita futura.
