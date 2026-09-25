@@ -1,8 +1,0 @@
-interface:
-  display_name: "Blender Animation"
-  short_description: "Times Blender motion with F-Curves"
-  default_prompt:
-    "Use $blender-animation to plan timing and spacing before adding Blender
-    keyframes."
-policy:
-  allow_implicit_invocation: true

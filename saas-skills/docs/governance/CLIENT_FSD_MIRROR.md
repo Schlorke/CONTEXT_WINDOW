@@ -57,11 +57,12 @@ Outros pacotes (`contracts`, `api-client`, …) entram só quando têm dois cons
 
 ## Exceção documentada: componentes DOM no Expo
 
-O padrão anterior de alguns produtos (OkGas `packages/panel-dom`, Logical Solution
-`packages/site-dom`) montava a interface web dentro do Expo com componentes DOM (`'use dom'`, uma
-WebView). Isso continua possível para um widget só-web cuja versão nativa não se justifica, desde que
-fique explícito como WebView, isolado atrás de uma variante `.native.tsx` e fora das telas principais
-do produto. Não é o mecanismo padrão do espelhamento e não conta como prova de execução nativa.
+Alguns produtos montavam a interface web dentro do Expo com componentes DOM
+(`'use dom'`, uma WebView) em pacotes dedicados (por exemplo `packages/*-dom`).
+Isso continua possível para um widget só-web cuja versão nativa não se justifica,
+desde que fique explícito como WebView, isolado atrás de uma variante
+`.native.tsx` e fora das telas principais do produto. Não é o mecanismo padrão
+do espelhamento e não conta como prova de execução nativa.
 
 ## Projetos que já existem
 

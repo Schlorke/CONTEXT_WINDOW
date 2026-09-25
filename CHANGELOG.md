@@ -11,6 +11,16 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [2.1.0] - 2026-09-25
+
+Primeira leva da canonicalização 2.1. `imported-skills/` permanece como procedência.
+
+### Added in 2.1.0
+
+- Perfil `creative` deixa de estar vazio: `blender-scene-production`, `spline-web-scenes` e `audiovisual-production` consolidam o conhecimento portátil das famílias Blender, Spline e vídeo.
+- Referências de domínio (`domains.md`, `routes.md`) guardam os procedimentos de inspeção, rig, curvas, PBR, luz, entrega e QC. Marca, paths de cliente e corpos MIT/Remotion ficam de fora.
+- Matriz de destino em `saas-skills/docs/governance/IMPORTED_CANONICALIZATION_2_1.md`. Pacotes Remotion/Prisma/React de terceiros e regras de cliente não foram promovidos.
+
 ## [2.0.3] - 2026-09-25
 
 Hotfix de CI: install concorrente no Node 24 não reporta mais conflito falso (exit 2).

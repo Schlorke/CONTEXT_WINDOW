@@ -228,6 +228,10 @@ export function buildCatalog(repoRoot) {
       path.join(repoRoot, registry.roots[rootKey]),
     )) {
       const rel = toPosix(path.relative(repoRoot, dir));
+      // imported-skills/ is gitignored and not distributed; local copies must not
+      // fail catalog --check for unregistered SKILL.md packages under that tree.
+      if (rel === "imported-skills" || rel.startsWith("imported-skills/"))
+        continue;
       if (!registered.has(rel))
         errors.push(`unregistered SKILL.md package: ${rel}`);
     }

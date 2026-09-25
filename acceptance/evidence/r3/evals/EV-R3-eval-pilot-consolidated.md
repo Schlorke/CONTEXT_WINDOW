@@ -41,7 +41,7 @@ Histórico abaixo: estado **antes** da rodada Claude pós-smoke (mantido como ev
 
 |            |                                                                |
 | ---------- | -------------------------------------------------------------- |
-| Executável | `C:\Users\harry\.local\bin\claude.exe` 2.1.74                  |
+| Executável | `<user-home>\.local\bin\claude.exe` 2.1.74                  |
 | A          | 401 OAuth expired — primeira prova pós-LOGIN-C **ainda falha** |
 | B–E        | Interrompidos                                                  |
 

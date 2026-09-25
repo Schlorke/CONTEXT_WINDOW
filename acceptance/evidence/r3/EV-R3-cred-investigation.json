@@ -97,7 +97,7 @@
  },
  "filesNamedLikeCredentials": [
   {
-   "path": "C:\\Projetos\\Context_Window\\dist\\global-runtime-validation-20260413\\codex-home\\auth.json",
+   "path": "<library-repo>\\dist\\global-runtime-validation-20260413\\codex-home\\auth.json",
    "size": 4360,
    "identicalToCopy": true
   }

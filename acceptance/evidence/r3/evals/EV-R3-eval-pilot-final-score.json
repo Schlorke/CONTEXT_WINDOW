@@ -7,7 +7,7 @@
   "matrix": {
     "cursor": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS" },
     "claude": {
-      "executable": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+      "executable": "<user-home>\\.local\\bin\\claude.exe",
       "version": "2.1.74",
       "model": "claude-opus-4-6",
       "A": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "cost_usd": 0.2510135 },

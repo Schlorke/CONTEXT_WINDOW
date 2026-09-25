@@ -47,16 +47,16 @@ ligar `ignoreScripts: false`.
 **Invocação do aceite (se autorizado o pacote acoplado):**
 
 ```text
-node scripts/acceptance.mjs --sandbox C:\Temp\cw-r3\acceptance --authorize-unconfined <arquivo.json>
+node scripts/acceptance.mjs --sandbox <sandbox>\acceptance --authorize-unconfined <arquivo.json>
 ```
 
 | Papel | Valor |
 | --- | --- |
 | Executável Node | `C:\Program Files\nodejs\node.exe` (`process.execPath`) |
 | Executável pnpm | `pnpm` no PATH (observado: 12.5.1 via npm shim) |
-| CWD do harness | `C:\Projetos\Context_Window` (só para build do pacote / QA opcional) |
-| Sandbox raiz | `C:\Temp\cw-r3\acceptance` (fora do perfil; sem workspace ancestral) |
-| Run | `C:\Temp\cw-r3\acceptance\run-<ISO>\` |
+| CWD do harness | `<library-repo>` (só para build do pacote / QA opcional) |
+| Sandbox raiz | `<sandbox>\acceptance` (fora do perfil; sem workspace ancestral) |
+| Run | `<sandbox>\acceptance\run-<ISO>\` |
 | Produto | `...\run-<ISO>\product\produto` (cwd de A7/A8/A9*) |
 | Sandbox do produto | `...\run-<ISO>\product` |
 | Legado | `...\run-<ISO>\legacy\legacy-shop` (cwd de A10b) |
@@ -183,7 +183,7 @@ Esqueleto (não é autorização; `authorizedBy` propositalmente vazio de aprova
 Uso, **após** autorização explícita e arquivo preenchido pelo proprietário:
 
 ```text
-node scripts/acceptance.mjs --sandbox C:\Temp\cw-r3\acceptance --authorize-unconfined <arquivo.json>
+node scripts/acceptance.mjs --sandbox <sandbox>\acceptance --authorize-unconfined <arquivo.json>
 ```
 
 Se comandos ou escopo mudarem depois da aprovação, a alteração deve ser
@@ -214,5 +214,5 @@ construído um executor próprio neste pedido.
 
 ## Fora de escopo deste pedido
 
-Perfis reais, recuperação `gb-locacoes`, credenciais, avaliações com modelos,
+Perfis reais, recuperação `<host-workspace-project>`, credenciais, avaliações com modelos,
 publicação, builds externos, testes de escape contra projetos reais.

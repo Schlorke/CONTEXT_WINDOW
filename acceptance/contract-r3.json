@@ -278,7 +278,7 @@
     {
       "id": "NR-15",
       "status": "REPROVADO",
-      "evidence": "Criativos area has no active items; review evidence only"
+      "evidence": "Historical R1: Creative area had no active items; post-2.1 creative profile ships 3 canonical skills; local imports are not published"
     },
     {
       "id": "NR-16",
@@ -329,7 +329,7 @@
     ]
   },
   "acceptanceRun": {
-    "command": "node scripts/acceptance.mjs --sandbox C:\\Temp\\cw-r3\\acceptance",
+    "command": "node scripts/acceptance.mjs --sandbox <sandbox>\\acceptance",
     "report": "acceptance/evidence/r3/EV-R3-acceptance-report.json",
     "requiredPassed": 18,
     "requiredTotal": 18,

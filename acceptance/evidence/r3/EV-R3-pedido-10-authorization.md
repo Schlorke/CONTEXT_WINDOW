@@ -9,14 +9,14 @@
 | Autorizado | D1–D6 (após separação do acoplamento) |
 | Negado | D7 (lifecycle de install) |
 | Confinamento | `not approved` |
-| Destino autorizado | `C:\Temp\cw-r3\acceptance` (fixtures `run-*`) |
+| Destino autorizado | `<sandbox>\acceptance` (fixtures `run-*`) |
 | Harness acoplado | não autorizado; corrigido antes da execução |
 
 Separação comprovada em `test/acceptance-auth.test.mjs` antes das execuções não confinadas.
 
 ## Resultados da execução (não confundir autorização com aprovação funcional)
 
-Run: `C:\Temp\cw-r3\acceptance\run-2026-09-25T06-31-31-053Z`  
+Run: `<sandbox>\acceptance\run-2026-09-25T06-31-31-053Z`  
 Relatório: [EV-R3-acceptance-pedido-10.json](EV-R3-acceptance-pedido-10.json)
 
 | Item | Decisão | Resultado | Modo | Confinamento |

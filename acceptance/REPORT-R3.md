@@ -88,7 +88,7 @@ Decisão no código, com testes em `pnpm guard — execution policy [CX-15]`:
 | Árvore de trabalho | hashes de cada arquivo publicável em [evidence/r3/MANIFEST-R3.json](evidence/r3/MANIFEST-R3.json), gerado por último |
 | Pacote avaliado | `.cw-build.json` com SHA-256 `c7ee1fe5574b6fa1e907ce5513231b4070e458b9829623cda9008c647070e6e0` (150 arquivos, 21 skills) |
 | Lockfile do produto gerado | SHA-256 `c9b6d4f06f3b147faee288d787941a662d613f2656d7b6db5bb55e79abb59c1a` |
-| Ambiente | Windows 11 (10.0.26200), Node.js 25.2.1, pnpm 12.5.1 fixado, sandbox `C:\Temp\cw-r3` |
+| Ambiente | Windows 11 (10.0.26200), Node.js 25.2.1, pnpm 12.5.1 fixado, sandbox `<sandbox>` |
 
 ## Separação do trabalho
 
@@ -140,7 +140,7 @@ CR-075).
 | NR-05 | Propagação de token | APROVADO | três níveis e controle negativo |
 | NR-07 | Execução nativa | NÃO VERIFICADO | ambiente / auth |
 | NR-11 | Matriz dos três clientes | APROVADO | A13a/A13b + A13c (descoberta Cursor) |
-| NR-15 | Matriz de testes com Criativos | REPROVADO | nenhum item criativo ativo |
+| NR-15 | Matriz de testes com Creative | REPROVADO (histórico R1) | na época nenhum item creative ativo; pós-2.1 há 3 canônicas |
 | NR-16 | Validador de tokens | APROVADO | CX-03 |
 | NR-17 | Instalação limpa reproduzível | APROVADO | CX-01, CX-02 |
 | NR-18 | Aceitação sobre pacote e produto | APROVADO | CX-13 |
@@ -169,7 +169,7 @@ nenhum critério crítico compensa outro:
 | --- | --- | --- | --- |
 | Superfície | CLI | CLI da extensão ChatGPT do editor | IDE |
 | Versão | 2.1.74 | codex-cli 0.147.0-alpha.1.2 | **3.22.8** (A13c) |
-| Executável | `C:\Users\harry\.local\bin\claude.exe` | `...\.cursor\extensions\openai.chatgpt-26.5730.61309-win32-x64\bin\windows-x86_64\codex.exe` | não aplicável (IDE) |
+| Executável | `<user-home>\.local\bin\claude.exe` | `...\.cursor\extensions\openai.chatgpt-26.5730.61309-win32-x64\bin\windows-x86_64\codex.exe` | não aplicável (IDE) |
 | Perfil | `CLAUDE_CONFIG_DIR` isolado, sem credencial | `CODEX_HOME` isolado, sem `auth.json` | nenhum usado como prova |
 | Diretório-fonte | `<produto>\.claude\skills` | `<produto>\.agents\skills` | `<kit>\produto\.agents\skills` |
 | Identidade | 21 skills do pacote `c7ee1fe5…` (hash por arquivo no manifest) | 20 automáticas do mesmo pacote; a explícita fica fora | sonda `cw-probe-1d78593e` + linha-marcador 2.0 |
@@ -185,8 +185,8 @@ foi copiada para diretórios de cliente além dos destinos escolhidos.
 
 ## Por que a implementação passou e a auditoria falhou
 
-As sandboxes da rodada 1 ficavam em `C:\Users\harry\AuditoriasExternas\...`, abaixo do
-`package.json` do `gb-locacoes` (`packageManager: pnpm@10.27.0`). O Corepack escolhe o
+As sandboxes da rodada 1 ficavam em `<user-home>\<external-sandbox>\...`, abaixo do
+`package.json` do `<host-workspace-project>` (`packageManager: pnpm@10.27.0`). O Corepack escolhe o
 `packageManager` do ancestral mais próximo, então a instalação rodou com pnpm 10.27.0, que não
 exige decisão de build. A auditoria em `C:\Temp` usou o pnpm padrão (12.5.1), que exige.
 
@@ -217,18 +217,18 @@ falha de rede **não** encerra os critérios de workspace ancestral nem de bloqu
 
 Estado lido agora, sem alterar nada:
 
-- `C:\Users\harry\node_modules\.modules.yaml` indica `packageManager: pnpm@10.27.0`,
+- `<user-home>\node_modules\.modules.yaml` indica `packageManager: pnpm@10.27.0`,
   `nodeLinker: isolated` e `storeDir` no store temporário
-  `C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\template-e2e\.pnpm-store\v10`,
+  `<user-home>\<external-sandbox>\sandbox\template-e2e\.pnpm-store\v10`,
   que existe e **não foi apagado**.
 - O store padrão `%LOCALAPPDATA%\pnpm\store\v10` também existe.
 
 Procedimento proposto (não executado; pedido 3):
 
-1. Fechar os processos que usam o projeto `gb-locacoes` (editor, servidor, testes).
-2. Em `C:\Users\harry`, renomear `node_modules` para `node_modules.cw-incident-20260925`. Não
+1. Fechar os processos que usam o projeto `<host-workspace-project>` (editor, servidor, testes).
+2. Em `<user-home>`, renomear `node_modules` para `node_modules.cw-incident-20260925`. Não
    apagar ainda, porque ele permite reverter enquanto o store temporário existir.
-3. Em `C:\Users\harry`, sem variáveis de sandbox, rodar `pnpm install --frozen-lockfile` com o
+3. Em `<user-home>`, sem variáveis de sandbox, rodar `pnpm install --frozen-lockfile` com o
    pnpm do próprio projeto (10.27.0 via Corepack) e o store padrão.
 4. Validar:
    - `storeDir` do novo `.modules.yaml` = `%LOCALAPPDATA%\pnpm\store\v10`;
@@ -245,9 +245,9 @@ A tabela abaixo é o histórico da rodada; não duplicar decisões novas aqui.
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Revogar e rotacionar a sessão do Codex copiada (ação do dono): `codex logout` e `codex login` no perfil real; se restar dúvida, suporte da OpenAI | `%USERPROFILE%\.codex` | invalida o refresh token da sessão atual e cria outra. A cópia tinha refresh token diferente do canônico, então o logout pode não revogar a sessão copiada | reautenticar o Codex nesta máquina | nenhum | `codex login` |
 | 2 | Remover o resto de `dist/global-runtime-validation-20260413/codex-home/` (1.551 arquivos: `installation_id`, `cap_sid`, caches, cópias de plugins e skills; nenhuma credencial) | pasta ignorada pelo git no repositório | tira resíduos de um perfil do Codex da árvore local | baixo; nada disso é distribuído | nenhum | nenhuma, porque não se cria cópia de dado privado; alternativa: manter |
-| 3 | Recuperar o `gb-locacoes` (procedimento acima) e depois apagar o store temporário | `C:\Users\harry\node_modules` e o store temporário | reinstala com o pnpm e o store do próprio projeto | executa os scripts do projeto (husky, `prisma generate`, builds permitidos) e baixa pacotes do registry | rede e disco | renomear de volta enquanto o store temporário existir |
+| 3 | Recuperar o `<host-workspace-project>` (procedimento acima) e depois apagar o store temporário | `<user-home>\node_modules` e o store temporário | reinstala com o pnpm e o store do próprio projeto | executa os scripts do projeto (husky, `prisma generate`, builds permitidos) e baixa pacotes do registry | rede e disco | renomear de volta enquanto o store temporário existir |
 | 4 | Atualizar os perfis reais: `cw install --user --profile dev --migrate-legacy --adopt-all` e colar o texto de `cw contract --format cursor-user-rules --with-usage-policy` nas User Rules do Cursor | `~/.claude/skills`, `~/.agents/skills`, `~/.codex/skills`, `~/.cursor/rules`, `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md` | plano visto em modo leitura, saída 0 e sem conflitos: 21 substituições em `~/.claude/skills`, 21 adoções com backup em `~/.agents/skills`, remoção com backup do 1.x em `~/.codex/skills` e `~/.cursor/rules`, e 2 blocos | muda o comportamento dos agentes em todos os projetos | nenhum | backups em `~/.context-window/backups` + `cw uninstall --user` |
-| 5 | Sessão nova do Cursor no kit de verificação | Cursor (janela nova) | fecha ou refuta CR-025/026/027, NR-11 e G03 | o Cursor grava o estado da janela no próprio perfil | cota do Cursor (2 prompts) | fechar a janela; apagar `C:\Temp\cw-r3\cursor-kit` |
+| 5 | Sessão nova do Cursor no kit de verificação | Cursor (janela nova) | fecha ou refuta CR-025/026/027, NR-11 e G03 | o Cursor grava o estado da janela no próprio perfil | cota do Cursor (2 prompts) | fechar a janela; apagar `<sandbox>\cursor-kit` |
 | 6 | Avaliações comportamentais ([EVAL-PLAN-R3.md](EVAL-PLAN-R3.md)), começando pelo piloto | perfis isolados dos três clientes | mede CR-041, CR-049 e CR-069 | login do dono nos perfis isolados | piloto de 12 execuções (0,2–0,3 M tokens); total previsto de 1.284 execuções (20–36 M tokens de entrada) | parar a qualquer momento; nada é gravado nos projetos |
 | 7 | Apagar `saas-skills/integrations/cursor-rule-profiles.json` (tem edição local do dono) | repositório | fecha CR-073 | perder a edição local, se ela tiver valor | nenhum | o arquivo está versionado: `git checkout` recupera a versão do HEAD, mas não a edição local |
 | 8 | Commit, tag `v2.0.0` e push | repositório remoto | fecha CR-075 e executa a CI (CR-066) | publicação | CI | revert, sem reescrever histórico |
@@ -261,26 +261,26 @@ Requisito ambiental do executor confinado: `CONFINED_EXECUTOR.requirement` em `s
 
 ```text
 node scripts/cw.mjs catalog --write-lock
-pnpm qa                                    (CW_SANDBOX_ROOT=C:\Temp\cw-r3\guard-tests)
+pnpm qa                                    (CW_SANDBOX_ROOT=<sandbox>\guard-tests)
 node --test test/*.test.mjs                (subconjuntos durante as correções)
-node scripts/acceptance.mjs --sandbox C:\Temp\cw-r3\acceptance
+node scripts/acceptance.mjs --sandbox <sandbox>\acceptance
 node scripts/review-imported.mjs --out acceptance/evidence/r3/EV-imported-review.json
-node --permission --allow-fs-read=* --allow-fs-write=C:\Temp\cw-r3\preview --allow-child-process scripts/cw.mjs plan --user --profile dev [--migrate-legacy --adopt-all] --json
+node --permission --allow-fs-read=* --allow-fs-write=<sandbox>\preview --allow-child-process scripts/cw.mjs plan --user --profile dev [--migrate-legacy --adopt-all] --json
 node --permission (idem) scripts/cw.mjs doctor --user --json
-node C:\Temp\cw-r3\harness\clean-copy-qa.mjs C:\Temp\cw-r3\clean-copy-2
-node C:\Temp\cw-r3\harness\mutate.mjs <repo> <arquivo> <de> <para> <teste> [padrão]
+node <sandbox>\harness\clean-copy-qa.mjs <sandbox>\clean-copy-2
+node <sandbox>\harness\mutate.mjs <repo> <arquivo> <de> <para> <teste> [padrão]
 ```
 
 A reprodução pnpm 12.5.1 × 10.27.0 usou o harness `r3-repro.mjs` da pasta de trabalho externa,
-com escrita só em `C:\Temp\cw-r3`. As instalações de produto, legado, migração, cópia limpa e
-testes do guard passaram pela pré-checagem + redirecionamento de env em `C:\Temp\cw-r3`, dentro
+com escrita só em `<sandbox>`. As instalações de produto, legado, migração, cópia limpa e
+testes do guard passaram pela pré-checagem + redirecionamento de env em `<sandbox>`, dentro
 dos limites documentados em `GUARD_LIMITS` (sem confinamento de escrita de subprocessos).
 
 **Exceção:** a adição da devDependency `typescript` ao próprio repositório (instalação no checkout)
 usou o store padrão do usuário, `%LOCALAPPDATA%\pnpm\store\v11`. Foi uma escrita fora do
 repositório, sem mudança de configuração global.
 
-O mtime de `C:\Users\harry\node_modules\.modules.yaml` (2026-09-25T03:47:50Z) foi observado como
+O mtime de `<user-home>\node_modules\.modules.yaml` (2026-09-25T03:47:50Z) foi observado como
 canário incidental; **não** conta como prova de confinamento nem de isolamento do guard.
 
 ## Onde está a evidência
@@ -302,7 +302,7 @@ canário incidental; **não** conta como prova de confinamento nem de isolamento
 | [PENDENCIES-POST-R3.md](PENDENCIES-POST-R3.md) | lista única de pendências e decisões do dono |
 | [evidence/r3/EV-R3-dist-codex-home-residues.md](evidence/r3/EV-R3-dist-codex-home-residues.md) | classificação dos resíduos dist (auth.json ausente) |
 | [evidence/r3/EV-R3-cursor-session.md](evidence/r3/EV-R3-cursor-session.md) | modelo de evidência A13c |
-| [evidence/r3/EV-R3-imported-progress.md](evidence/r3/EV-R3-imported-progress.md) | progresso NR-20 (mecânico + amostra okgas) |
+| [evidence/r3/EV-R3-imported-progress.md](evidence/r3/EV-R3-imported-progress.md) | progresso NR-20 (mecânico; inventário local omitido) |
 
 A política CX-15 e os testes em `test/pnpm-guard.test.mjs` / `test/acceptance-auth.test.mjs`
 fazem parte do estado entregue. Confinamento continua não aprovado. Nota R3 **8,56** (histórica

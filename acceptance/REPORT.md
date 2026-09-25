@@ -12,12 +12,12 @@ Legenda: **IMPLEMENTADO** (código/documento existe), **EXECUTADO** (rodou aqui)
 ## Incidente durante a validação
 
 Uma instalação `pnpm` de teste subiu até o workspace pnpm que existe no diretório pessoal
-(`C:\Users\harry`, projeto `gb-locacoes`) e religou o `node_modules` daquele projeto usando o store da
+(`<user-home>`, projeto `<host-workspace-project>`) e religou o `node_modules` daquele projeto usando o store da
 área de testes; os scripts `prepare` (husky) e `postinstall` do projeto rodaram. Nenhum arquivo de
 código, `package.json` ou `pnpm-lock.yaml` foi alterado (verificado por data e `git status` limitado).
 Causa corrigida (workspace próprio no fixture e na biblioteca, config do Prettier fixada, guarda nos
 roteiros). Detalhes, provas e a ação sugerida (não executada): `evidence/EV-incidente-home-workspace.md`.
-**Não apague** `C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\template-e2e\.pnpm-store`
+**Não apague** `<user-home>\<external-sandbox>\sandbox\template-e2e\.pnpm-store`
 antes de refazer aquele `node_modules`.
 
 ## Preservação do trabalho local
@@ -30,7 +30,7 @@ Comparação por hash com o baseline da auditoria (2.540 arquivos; `evidence/EV-
 - Reescritos a partir das edições locais do dono, mantendo a intenção (espelhamento FSD, hosts finos,
   mobile sem importar o web) e trocando `packages/<produto>-dom` por `packages/frontend`: `README.md`,
   `AGENTS.md`, `CLIENT_FSD_MIRROR.md` e a skill `multiplatform-platform-architecture`. O texto
-  anterior está no snapshot `C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\repo-wt`.
+  anterior está no snapshot `<user-home>\<external-sandbox>\sandbox\repo-wt`.
 - `.vscode/settings.json` apareceu durante a sessão (00:27) sem ter sido criado por este trabalho;
   não foi tocado.
 - Nada foi adicionado ao índice do git; HEAD continua em `66194b0`.
@@ -48,7 +48,7 @@ Comparação por hash com o baseline da auditoria (2.540 arquivos; `evidence/EV-
 | Qualidade | `test/*.test.mjs` (100 testes), `scripts/secret-scan.mjs`, `scripts/fix-markdownlint.mjs`, `.github/workflows/qa.yml` | testes, segredos, lint, CI | APROVADO local / CI NÃO VERIFICADA |
 | Documentação | `README.md`, `AGENTS.md`, `saas-skills/README.md`, `saas-skills/docs/**`, `CHANGELOG.md`, ADR 0002 | operação e decisões | IMPLEMENTADO |
 
-Removidos: 13 scripts 1.x e seus aliases, `PORTABILITY_MATRIX.md`, `.backup-runtimes/gb-locacoes.mdc`.
+Removidos: 13 scripts 1.x e seus aliases, `PORTABILITY_MATRIX.md`, `.backup-runtimes/<host-workspace-project>.mdc`.
 
 ## 2. Achados
 
@@ -104,10 +104,10 @@ Provas: `test/clients.test.mjs` (6 testes, sem chamada de modelo; custo 0 verifi
 
 ## 5. Cobertura por habilidade e contagens
 
-Contagem original: 104 itens (21 canônicos + 83 importados). Final: 104 itens, destino de cada um no
-registry — 21 `active`, 83 `imported-unreviewed` (43 criativos, 25 Logical Solution, 15 OkGas),
-0 em quarentena, 0 removidos. Duplicatas detectadas pelo gate: 71 grupos de arquivos, 123 arquivos
-redundantes (todos em importados).
+Contagem publicada (pós-2.1): 24 skills `canonical:active` (perfil `dev` 21 + `creative` 3).
+Imports locais não entram no registry publicado; conhecimento útil está nas skills canônicas.
+Histórico R1: 21 ativos + 83 importados não revisados (inventário de origem omitido).
+Duplicatas detectadas pelo gate na época: grupos de arquivos redundantes só em imports locais.
 
 | Skill | Linhas | Tokens | Casos (disparo/não/conflito/saída) | Gatilhos do hook |
 | --- | ---: | ---: | --- | ---: |
@@ -195,7 +195,7 @@ CR-041, CR-049, CR-066.
 | G12 Reprodução | APROVADO | CI remota não executada |
 
 Requisitos novos (fora da rubrica, em `contract.json`): 12 APROVADOS, 2 REPROVADOS (NR-11 matriz
-dos três clientes, NR-15 área Criativos sem itens ativos), 1 NÃO VERIFICADO (NR-07 execução nativa).
+dos três clientes, NR-15 área Creative sem itens ativos na época R1), 1 NÃO VERIFICADO (NR-07 execução nativa).
 
 Limitações: nenhuma chamada de modelo (eficácia e seleção reais não medidas); sem Android SDK,
 emulador ou macOS; CI não executada; perfis reais (`~/.claude`, `~/.agents`, `~/.codex`, User Rules)

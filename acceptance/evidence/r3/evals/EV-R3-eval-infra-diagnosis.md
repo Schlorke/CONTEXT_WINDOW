@@ -19,7 +19,7 @@ Falhas de infra **não** atribuídas às skills.
 
 | Campo | Valor |
 | --- | --- |
-| Executável | `C:\Users\harry\.local\bin\claude.exe` |
+| Executável | `<user-home>\.local\bin\claude.exe` |
 | Versão | `2.1.74` (Claude Code) |
 | Método de auth | `claude.ai` (OAuth firstParty), reportado por `claude auth status` |
 | Estado status (agora) | `loggedIn: true`, subscription `max` |

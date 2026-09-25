@@ -1,7 +1,0 @@
-interface:
-  display_name: "Blender Camera"
-  short_description: "Frames Blender shots with a real lens"
-  default_prompt:
-    "Use $blender-camera to frame the existing Blender camera for this shot."
-policy:
-  allow_implicit_invocation: true

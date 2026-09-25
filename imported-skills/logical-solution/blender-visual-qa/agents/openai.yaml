@@ -1,8 +1,0 @@
-interface:
-  display_name: "Blender Visual QA"
-  short_description: "Checks Blender results with captures"
-  default_prompt:
-    "Use $blender-visual-qa to capture the Blender viewport and stop after three
-    tries."
-policy:
-  allow_implicit_invocation: true

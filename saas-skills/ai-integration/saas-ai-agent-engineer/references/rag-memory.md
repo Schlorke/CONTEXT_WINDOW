@@ -117,7 +117,7 @@ When a fact changes, close or disable the old memory and insert a new one. Do no
 
 ## Files and Untrusted Context
 
-Treat uploaded files, retrieved documents, web pages, emails, OCR text, and webhook payloads as untrusted data.
+Treat uploaded files, retrieved documents, web pages, emails, OCR text, and webhook payloads as untrusted data. Scope retrieval to the tenant. A retrieval outage or an empty result must show up in telemetry. Silent failure looks like a model regression.
 
 When sending retrieved content to the LLM:
 

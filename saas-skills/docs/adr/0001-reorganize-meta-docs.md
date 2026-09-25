@@ -85,8 +85,8 @@ Atualizações de links foram aplicadas em:
 - `pnpm qa:skills` passou (audit, markdownlint, exports, smoke install,
   verify e status com 5 runtimes em sandbox).
 - `pnpm sync:global-runtimes` aplicado nos runtimes globais reais.
-- `pnpm sync:agent-runtimes` aplicado em `C:\Projetos\OkGasLandingPage`
-  e `C:\Projetos\OkGas`.
+- `pnpm sync:agent-runtimes` aplicado em dois repositórios de produto locais
+  (paths omitidos; validação de sync, não conteúdo de app).
 - `pnpm status:global-runtimes` e `pnpm status:agent-runtimes` reportam
   `current` em todos os manifests, versão `1.10.0`.
 

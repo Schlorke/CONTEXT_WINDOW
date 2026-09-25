@@ -5,15 +5,15 @@
   "meta": "15/15 calls completed; behavioral 15/15 not met",
   "calls_used": 15,
   "calls_authorized": 15,
-  "kit": "C:\\Temp\\cw-r3\\eval-pilot\\produto",
+  "kit": "<sandbox>\\eval-pilot\\produto",
   "codex_binary": {
-    "path": "C:\\Users\\harry\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
+    "path": "<user-home>\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
     "version": "codex-cli 0.147.0-alpha.1.2",
     "belongs_to": "Cursor extension openai.chatgpt-26.5730.61309-win32-x64 (ChatGPT)",
     "other_binaries_found_not_used": [
-      "C:\\Users\\harry\\AppData\\Local\\OpenAI\\Codex\\bin\\13995fba801849b0\\codex.exe",
-      "C:\\Users\\harry\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\codex.exe",
-      "C:\\Users\\harry\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\aec6b7c6fcdfb66a\\codex.exe"
+      "<user-home>\\AppData\\Local\\OpenAI\\Codex\\bin\\13995fba801849b0\\codex.exe",
+      "<user-home>\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\codex.exe",
+      "<user-home>\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\aec6b7c6fcdfb66a\\codex.exe"
     ],
     "switched_mid_pilot": false
   },

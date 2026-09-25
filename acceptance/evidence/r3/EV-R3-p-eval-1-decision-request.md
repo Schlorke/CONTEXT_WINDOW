@@ -30,7 +30,7 @@ Não cobre: 21 skills uma a uma; 83 imported; CR-041/049 em escala completa; CI/
 
 | Item | Valor |
 | --- | --- |
-| Kit | `C:\Temp\cw-r3\eval-pilot\` (criar sob auth; **não** reusar só o kit A13c se estiver sujo de chat) |
+| Kit | `<sandbox>\eval-pilot\` (criar sob auth; **não** reusar só o kit A13c se estiver sujo de chat) |
 | Produto | `...\eval-pilot\produto` gerado do pacote/fonte atual + `cw install --target … --profile dev --clients claude,codex,cursor` |
 | Fixture legado (só caso C) | cópia mínima de `test/fixtures/legacy-shop-migration` **ou** subpasta `legado/` já no kit, **sem** `pnpm install` pesado se não for necessário à pergunta analítica |
 | Perfis isolados | opcional: `--home …\eval-pilot\home` para Claude/Codex **se** o dono preferir não misturar com o perfil real já migrado; padrão deste pedido: **usar o perfil real 2.0** (já P-PROF-1) + skills de **projeto** no kit |
@@ -190,7 +190,7 @@ Regra de parada: 1 FAIL em **D** (carregou arquitetura à toa) → registrar e *
 
 ## Sequência após autorização (agente)
 
-1. Criar kit `C:\Temp\cw-r3\eval-pilot`, install no `produto`, `verify`.
+1. Criar kit `<sandbox>\eval-pilot`, install no `produto`, `verify`.
 2. Rodar A→E em Cursor, depois Claude Code, depois Codex (ou intercalado por caso — mesma contagem).
 3. Preencher score + evidências; **não** colar corpo de skills nos chats.
 4. Entregar só: tabela PASS/FAIL 5×3, falhas reais, paths das transcrições.
@@ -209,7 +209,7 @@ Regra de parada: 1 FAIL em **D** (carregou arquitetura à toa) → registrar e *
 Confirmações pedidas com **E15** ou **E12**:
 
 1. Cota/modelo dos três clientes pode ser consumida agora.  
-2. Pasta `C:\Temp\cw-r3\eval-pilot` pode ser criada/escrita.  
+2. Pasta `<sandbox>\eval-pilot` pode ser criada/escrita.  
 3. Aceita perfil real 2.0 + skills de projeto no kit (ou diga “home isolado” e autorize login separado).
 
 **Nenhuma chamada até a letra + confirmações.**

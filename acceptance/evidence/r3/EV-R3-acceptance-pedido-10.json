@@ -4,7 +4,7 @@
   "node": "v25.2.1",
   "platform": "win32 10.0.26200",
   "repoHead": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
-  "run": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z",
+  "run": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z",
   "policy": {
     "writeConfinement": false,
     "confinedExecutor": {
@@ -100,7 +100,7 @@
       "id": "A2",
       "title": "distributable package built outside the checkout",
       "ok": true,
-      "bundle": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\bundle",
+      "bundle": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\bundle",
       "libraryVersion": "2.0.0",
       "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
       "files": 151,
@@ -116,13 +116,13 @@
       "id": "A4",
       "title": "product generated from the package; preflight of workspace, pnpm version, settings and scripts",
       "ok": true,
-      "product": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
+      "product": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
       "blockers": [],
       "warnings": [],
-      "workspaceRoot": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
+      "workspaceRoot": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
       "packageManager": {
         "value": "pnpm@12.5.1",
-        "declaredIn": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto"
+        "declaredIn": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto"
       },
       "settings": {
         "nodeLinker": "hoisted",
@@ -154,7 +154,7 @@
       "blocked": false,
       "manifestsUnchanged": true,
       "nodeLinker": "hoisted",
-      "storeDir": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\.pnpm-store\\v11",
+      "storeDir": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\.pnpm-store\\v11",
       "packageManager": "pnpm@12.5.1",
       "decision": {
         "allow": true,
@@ -180,9 +180,9 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -201,7 +201,7 @@
       "exit": 0,
       "blocked": false,
       "spawned": true,
-      "cwd": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
+      "cwd": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
       "command": "pnpm run verify",
       "grantId": "D4",
       "tests": 11,
@@ -215,7 +215,7 @@
             "verify"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -228,10 +228,10 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\user.npmrc",
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\user.npmrc",
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -249,7 +249,7 @@
       "exit": 0,
       "blocked": false,
       "spawned": true,
-      "cwd": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
+      "cwd": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto",
       "command": "pnpm run check:tokens",
       "grantId": "D3",
       "tests": 5,
@@ -263,7 +263,7 @@
             "check:tokens"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -276,10 +276,10 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\user.npmrc",
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\user.npmrc",
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -332,7 +332,7 @@
             "tokens"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -361,7 +361,7 @@
             "arch"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -389,7 +389,7 @@
             "check:tokens"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -426,7 +426,7 @@
       "exit": 0,
       "blocked": false,
       "spawned": true,
-      "cwd": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\legacy\\legacy-shop",
+      "cwd": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\legacy\\legacy-shop",
       "command": "pnpm run test",
       "grantId": "D5",
       "tests": 7,
@@ -440,7 +440,7 @@
             "test"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -452,10 +452,10 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\legacy\\user.npmrc",
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\legacy\\user.npmrc",
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -488,7 +488,7 @@
       "exit": 0,
       "blocked": false,
       "spawned": true,
-      "cwd": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\migrated\\loja",
+      "cwd": "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\migrated\\loja",
       "command": "pnpm run verify",
       "grantId": "D4",
       "tests": 15,
@@ -502,7 +502,7 @@
             "verify"
           ],
           "destinations": [
-            "C:\\Temp\\cw-r3\\acceptance"
+            "<sandbox>\\acceptance"
           ],
           "risks": [
             "execução sem confinamento de escrita",
@@ -515,10 +515,10 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\migrated\\user.npmrc",
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\migrated\\user.npmrc",
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -547,24 +547,24 @@
       "id": "A13a",
       "title": "Codex lists the product's installed skills from the product root",
       "ok": true,
-      "binary": "C:\\Users\\harry\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
+      "binary": "<user-home>\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
       "source": "ChatGPT editor extension",
       "version": "codex-cli 0.147.0-alpha.1.2",
       "fromProject": 20,
       "roots": [
-        "C:\\Users\\harry\\.agents\\skills",
-        "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\codex-probe\\codex-home\\skills\\.system",
-        "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto\\.agents\\skills"
+        "<user-home>\\.agents\\skills",
+        "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\codex-probe\\codex-home\\skills\\.system",
+        "<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto\\.agents\\skills"
       ]
     },
     {
       "id": "A13b",
       "title": "Claude Code loads the product's installed skills from the project (credential-free, cost 0)",
       "ok": true,
-      "binary": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+      "binary": "<user-home>\\.local\\bin\\claude.exe",
       "version": "2.1.74",
       "loaded": "Loaded 21 unique skills (21 unconditional, 0 conditional, managed: 0, user: 0, project: 21, additional: 0, legacy commands: 0)",
-      "projectDirs": "Loading skills from: managed=C:\\ProgramData\\ClaudeCode\\.claude\\skills, user=C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\claude-probe\\claude-config\\skills, project=[C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto\\.claude\\skills]",
+      "projectDirs": "Loading skills from: managed=C:\\ProgramData\\ClaudeCode\\.claude\\skills, user=<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\claude-probe\\claude-config\\skills, project=[<sandbox>\\acceptance\\run-2026-09-25T06-31-31-053Z\\product\\produto\\.claude\\skills]",
       "costUsd": 0,
       "result": "Not logged in · Please run /login"
     },

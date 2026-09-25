@@ -157,6 +157,8 @@ const users = await prisma.user.findMany({
 });
 ```
 
+Pass values only through a tagged `$queryRaw` or `$executeRaw`. Do not concatenate input into `$queryRawUnsafe`. `Prisma.raw` is for identifiers the application already trusts, not for user text. Reject an invalid `Date` before it reaches the query. A SQL `COUNT` may arrive as `bigint`.
+
 #### Use raw queries for complex aggregations
 
 ```typescript
@@ -334,7 +336,7 @@ If information is missing:
 1. **No indexes**: Queries become O(n) scans. Add indexes on WHERE, ORDER BY, JOIN fields.
 2. **Using Float for money**: Rounding errors accumulate. Always use Decimal.
 3. **No createdAt/updatedAt**: Can't audit or sort by creation time.
-4. **Editing generated migrations**: Risk of data loss. Create new migrations for changes.
+4. **Editing generated migrations**: Risk of data loss. Create new migrations for changes. Rehearse on a disposable database, take a backup before production, and prefer additive SQL. A new tenant table ships with its isolation policy. The deploy is confirmed by a health check, not by the push alone.
 5. **Deep eager loading**: `include: { user: { include: { profile: { ... } } } }` causes bloated objects.
 6. **M:N without explicit junction**: Implicit junction tables hide important data (e.g., order date).
 7. **No soft delete for regulatory data**: Can't comply with audit requirements.

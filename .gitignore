@@ -10,6 +10,12 @@ dist/
 .env
 .env.*.local
 
+# Scratch local (binários, zips, scripts pontuais)
+.tmp/
+
+# Skills privadas de projetos (não distribuídas; não publicar no GitHub)
+imported-skills/
+
 # SO / IDE
 .DS_Store
 Thumbs.db

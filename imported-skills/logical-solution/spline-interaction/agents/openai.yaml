@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Interaction"
-  short_description: "Wires Spline hover click and events"
-  default_prompt:
-    "Use $spline-interaction to inspect existing Spline events by id and add
-    user-driven feedback."
-policy:
-  allow_implicit_invocation: true

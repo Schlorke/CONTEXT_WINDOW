@@ -6,7 +6,7 @@ Critério: [CURSOR-VERIFICATION.md](../../CURSOR-VERIFICATION.md) · Pendência:
 | --- | --- |
 | Data | 2026-09-25 |
 | Cursor versão | **3.22.8** (system setup); commit `031424cf8bc0263293fa58956a6b14f93ce8bae0`; Nightly; Electron 42.10.0; Windows_NT 10.0.26200 |
-| Pasta aberta | `C:\Temp\cw-r3\cursor-kit\produto` |
+| Pasta aberta | `<sandbox>\cursor-kit\produto` |
 | Janela | New Window + Open Folder no kit (não a sessão do repositório Context_Window) |
 | Artefato / kit | nonce `1d78593e`; bundle `run-2026-09-25T05-38-42-176Z` |
 | SHA-256 marcador (pré-checagem) | `f9efd05cc70638bb2f7a60f636ba835f60e27aa45f2ac9ee54dc32c1b5d10648` |
@@ -27,14 +27,14 @@ A única skill deste projeto que começa com `cw-probe` é `cw-probe-1d78593e`.
 
 CW-PROBE-1D78593E
 
-`c:\Temp\cw-r3\cursor-kit\produto\.agents\skills\cw-probe-1d78593e`
+`<sandbox>\cursor-kit\produto\.agents\skills\cw-probe-1d78593e`
 ```
 
 Checagem:
 
 - [x] Menciona `cw-probe-1d78593e`
 - [x] Token `CW-PROBE-1D78593E`
-- [x] Pasta sob `C:\Temp\cw-r3\cursor-kit\produto\.agents\skills\…`
+- [x] Pasta sob `<sandbox>\cursor-kit\produto\.agents\skills\…`
 - [x] **Não** cita `~/.claude`, `~/.agents`, `~/.codex` ou `~/.cursor` como origem
 
 ## Prompt 2

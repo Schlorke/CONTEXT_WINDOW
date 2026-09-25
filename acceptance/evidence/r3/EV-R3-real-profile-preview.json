@@ -1,36 +1,36 @@
 {
   "schema": "context-window/real-profile-preview@1",
   "at": "2026-09-25",
-  "how": "node --permission --allow-fs-read=* --allow-fs-write=C:\\Temp\\cw-r3\\preview --allow-child-process scripts/cw.mjs plan --user --profile dev --json; same with doctor --user --json (writes allowed only in the preview folder; the child process is git rev-parse)",
+  "how": "node --permission --allow-fs-read=* --allow-fs-write=<sandbox>\\preview --allow-child-process scripts/cw.mjs plan --user --profile dev --json; same with doctor --user --json (writes allowed only in the preview folder; the child process is git rev-parse)",
   "plan": {
     "exitCode": 2,
     "meaning": "2 = conflicts, nothing would be written",
     "sinks": [
       {
-        "dir": "C:\\Users\\harry\\.claude\\skills",
+        "dir": "<user-home>\\.claude\\skills",
         "ops": 0
       },
       {
-        "dir": "C:\\Users\\harry\\.agents\\skills",
+        "dir": "<user-home>\\.agents\\skills",
         "ops": 0
       }
     ],
     "legacy": [
-      "C:\\Users\\harry\\.codex\\skills",
-      "C:\\Users\\harry\\.cursor\\rules"
+      "<user-home>\\.codex\\skills",
+      "<user-home>\\.cursor\\rules"
     ],
     "blocks": [
       {
-        "file": "C:\\Users\\harry\\.claude\\CLAUDE.md",
+        "file": "<user-home>\\.claude\\CLAUDE.md",
         "action": "write"
       },
       {
-        "file": "C:\\Users\\harry\\.codex\\AGENTS.md",
+        "file": "<user-home>\\.codex\\AGENTS.md",
         "action": "write"
       }
     ],
     "conflicts": {
-      "legacy-managed @ C:\\Users\\harry\\.claude\\skills": {
+      "legacy-managed @ <user-home>\\.claude\\skills": {
         "count": 21,
         "ids": [
           "ai-context-diagrams",
@@ -56,7 +56,7 @@
           "testing-strategies"
         ]
       },
-      "unmanaged-collision @ C:\\Users\\harry\\.agents\\skills": {
+      "unmanaged-collision @ <user-home>\\.agents\\skills": {
         "count": 21,
         "ids": [
           "ai-context-diagrams",
@@ -82,13 +82,13 @@
           "testing-strategies"
         ]
       },
-      "legacy-install-present @ C:\\Users\\harry\\.codex\\skills": {
+      "legacy-install-present @ <user-home>\\.codex\\skills": {
         "count": 1,
         "ids": [
           "codex-legacy"
         ]
       },
-      "legacy-install-present @ C:\\Users\\harry\\.cursor\\rules": {
+      "legacy-install-present @ <user-home>\\.cursor\\rules": {
         "count": 1,
         "ids": [
           "cursor-user-rules"
@@ -170,14 +170,14 @@
     "conflicts": 0,
     "sinks": [
       {
-        "dir": "C:\\Users\\harry\\.claude\\skills",
+        "dir": "<user-home>\\.claude\\skills",
         "ops": {
           "replace": 21,
           "legacy-manifest-remove": 1
         }
       },
       {
-        "dir": "C:\\Users\\harry\\.agents\\skills",
+        "dir": "<user-home>\\.agents\\skills",
         "ops": {
           "replace": 21
         }
@@ -185,14 +185,14 @@
     ],
     "legacy": [
       {
-        "dir": "C:\\Users\\harry\\.codex\\skills",
+        "dir": "<user-home>\\.codex\\skills",
         "ops": {
           "legacy-remove": 21,
           "legacy-manifest-remove": 1
         }
       },
       {
-        "dir": "C:\\Users\\harry\\.cursor\\rules",
+        "dir": "<user-home>\\.cursor\\rules",
         "ops": {
           "legacy-remove": 22,
           "legacy-manifest-remove": 1
@@ -201,11 +201,11 @@
     ],
     "blocks": [
       {
-        "file": "C:\\Users\\harry\\.claude\\CLAUDE.md",
+        "file": "<user-home>\\.claude\\CLAUDE.md",
         "action": "write"
       },
       {
-        "file": "C:\\Users\\harry\\.codex\\AGENTS.md",
+        "file": "<user-home>\\.codex\\AGENTS.md",
         "action": "write"
       }
     ]

@@ -12,7 +12,7 @@
     "nature": "behavioral"
   },
   "claude_rt10": {
-    "executable": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+    "executable": "<user-home>\\.local\\bin\\claude.exe",
     "version": "2.1.74",
     "A": { "cell": "FAIL", "nature": "infrastructure", "error": "OAuth 401 expired" },
     "B": { "cell": "NOT_RUN", "nature": "infrastructure_stop" },

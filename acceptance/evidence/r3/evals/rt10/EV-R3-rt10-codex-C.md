@@ -5,7 +5,7 @@
 - model_config: gpt-6-astra (from ~/.codex/config.toml; no -m)
 - usage: {"input_tokens":105562,"cached_input_tokens":77184,"cache_write_input_tokens":0,"output_tokens":1102,"reasoning_output_tokens":18}
 - commands_observed:
-- "C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content .agents/skills/legacy-code-refactoring/SKILL.md; Get-Content .agents/skills/multiplatform-platform-architecture/SKILL.md; Get-Content .agents/skills/react-saas-architecture/SKILL.md; rg --files -g '"'!node_modules'"' -g '"'!pnpm-lock.yaml'"' -g '"'!package-lock.json'"' | Select-Object -First 70; rg -n 'Legacy|legacy|FSD|moderniza' C:/Users/harry/.codex/memories/MEMORY.md"
+- "C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content .agents/skills/legacy-code-refactoring/SKILL.md; Get-Content .agents/skills/multiplatform-platform-architecture/SKILL.md; Get-Content .agents/skills/react-saas-architecture/SKILL.md; rg --files -g '"'!node_modules'"' -g '"'!pnpm-lock.yaml'"' -g '"'!package-lock.json'"' | Select-Object -First 70; rg -n 'Legacy|legacy|FSD|moderniza' <user-home>/.codex/memories/MEMORY.md"
 - "C:\\Program Files\\PowerShell\\7\\pwsh.exe" -NoProfile -Command 'Get-Content README.md; Get-Content package.json; git status --short; Get-Content .agents/skills/multiplatform-platform-architecture/SKILL.md'
 
 

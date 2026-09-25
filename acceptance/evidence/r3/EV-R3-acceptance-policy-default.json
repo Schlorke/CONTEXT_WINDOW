@@ -4,7 +4,7 @@
   "node": "v25.2.1",
   "platform": "win32 10.0.26200",
   "repoHead": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
-  "run": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z",
+  "run": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z",
   "policy": {
     "writeConfinement": false,
     "confinedExecutor": {
@@ -47,7 +47,7 @@
       "id": "A2",
       "title": "distributable package built outside the checkout",
       "ok": true,
-      "bundle": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\bundle",
+      "bundle": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\bundle",
       "libraryVersion": "2.0.0",
       "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
       "files": 150,
@@ -63,13 +63,13 @@
       "id": "A4",
       "title": "product generated from the package; preflight of workspace, pnpm version, settings and scripts",
       "ok": true,
-      "product": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+      "product": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
       "blockers": [],
       "warnings": [],
-      "workspaceRoot": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+      "workspaceRoot": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
       "packageManager": {
         "value": "pnpm@12.5.1",
-        "declaredIn": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+        "declaredIn": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
       },
       "settings": {
         "nodeLinker": "hoisted",
@@ -101,7 +101,7 @@
       "blocked": false,
       "manifestsUnchanged": true,
       "nodeLinker": "hoisted",
-      "storeDir": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\.pnpm-store\\v11",
+      "storeDir": "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\.pnpm-store\\v11",
       "packageManager": "pnpm@12.5.1",
       "decision": {
         "allow": true,
@@ -127,9 +127,9 @@
       "telemetry": {
         "changedOutside": [],
         "watchList": [
-          "C:\\Users\\harry\\.npmrc",
-          "C:\\Users\\harry\\node_modules\\.modules.yaml",
-          "C:\\Users\\harry\\.expo"
+          "<user-home>\\.npmrc",
+          "<user-home>\\node_modules\\.modules.yaml",
+          "<user-home>\\.expo"
         ],
         "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
       },
@@ -151,8 +151,8 @@
           "verify"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
           "redirected TEMP/XDG/store under the sandbox",
           "possible writes elsewhere on the host (unconfined)"
         ],
@@ -179,8 +179,8 @@
           "check:tokens"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
           "redirected TEMP/XDG/store under the sandbox",
           "possible writes elsewhere on the host (unconfined)"
         ],
@@ -207,8 +207,8 @@
           "tokens"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product"
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product"
         ],
         "risks": [
           "unconfined node process for the token gate"
@@ -232,7 +232,7 @@
           "arch"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
         ],
         "risks": [
           "unconfined node process"
@@ -256,7 +256,7 @@
           "check:tokens"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
         ],
         "risks": [
           "unconfined builds/tests"
@@ -289,8 +289,8 @@
           "test"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy\\legacy-shop",
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy\\legacy-shop",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy",
           "redirected TEMP/XDG/store under the sandbox",
           "possible writes elsewhere on the host (unconfined)"
         ],
@@ -325,8 +325,8 @@
           "verify"
         ],
         "destinations": [
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated\\loja",
-          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated\\loja",
+          "<sandbox>\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated",
           "redirected TEMP/XDG/store under the sandbox",
           "possible writes elsewhere on the host (unconfined)"
         ],

@@ -1,6 +1,6 @@
 {
   "schema": "context-window/mutations@1",
-  "harness": "C:\\Temp\\cw-r3\\harness\\mutate.mjs (applies the mutant, runs the test file, always restores and compares the source)",
+  "harness": "<sandbox>\\harness\\mutate.mjs (applies the mutant, runs the test file, always restores and compares the source)",
   "results": [
     {
       "id": "M-CX10",

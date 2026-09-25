@@ -13,7 +13,7 @@ Prévia de perfis: [EV-R3-real-profile-preview.json](EV-R3-real-profile-preview.
 
 | ID           | Frente                                     | Objetivo                                                                      |
 | ------------ | ------------------------------------------ | ----------------------------------------------------------------------------- |
-| **P-INC-1**  | Recuperação incidente `gb-locacoes` / home | `C:\Users\harry\node_modules` de volta ao store padrão; store temp só depois  |
+| **P-INC-1**  | Recuperação incidente `<host-workspace-project>` / home | `<user-home>\node_modules` de volta ao store padrão; store temp só depois  |
 | **P-PROF-1** | Perfis reais → biblioteca 2.0              | Claude + Codex + Cursor (skills/regras gerenciadas); preservar não gerenciado |
 
 Ordem obrigatória se ambos forem autorizados: **1 → 2** (recuperar home antes de mexer em
@@ -27,40 +27,40 @@ Ordem obrigatória se ambos forem autorizados: **1 → 2** (recuperar home antes
 
 | Item             | Valor                                                                                            |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
-| Raiz do projeto  | `C:\Users\harry` (`package.json` name: `gb-locacoes`)                                            |
-| `node_modules`   | `C:\Users\harry\node_modules`                                                                    |
+| Raiz do projeto  | `<user-home>` (`package.json` name: `<host-workspace-project>`)                                            |
+| `node_modules`   | `<user-home>\node_modules`                                                                    |
 | `packageManager` | `pnpm@10.27.0`                                                                                   |
-| `storeDir` atual | `C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\template-e2e\.pnpm-store\v10` |
+| `storeDir` atual | `<user-home>\<external-sandbox>\sandbox\template-e2e\.pnpm-store\v10` |
 | Store temporário | **ainda existe**                                                                                 |
 | Store padrão     | `%LOCALAPPDATA%\pnpm\store\v10` (**existe**)                                                     |
-| Lockfile         | `C:\Users\harry\pnpm-lock.yaml` presente                                                         |
+| Lockfile         | `<user-home>\pnpm-lock.yaml` presente                                                         |
 
 ### Pré-condições (você)
 
-1. Fechar editor/servidor/testes que usem `gb-locacoes` ou `C:\Users\harry\node_modules`.
+1. Fechar editor/servidor/testes que usem `<host-workspace-project>` ou `<user-home>\node_modules`.
 2. Não apagar o store temporário **antes** da verificação do passo 4.
 
 ### Comandos (somente após auth)
 
 ```powershell
 # 1) Snapshot (não destrutivo)
-Rename-Item C:\Users\harry\node_modules node_modules.cw-incident-20260925
+Rename-Item <user-home>\node_modules node_modules.cw-incident-20260925
 
-# 2) Reinstalar na raiz do projeto (é C:\Users\harry)
-Set-Location C:\Users\harry
+# 2) Reinstalar na raiz do projeto (é <user-home>)
+Set-Location <user-home>
 corepack enable
 corepack prepare pnpm@10.27.0 --activate
 pnpm install --frozen-lockfile
 
 # 3) Verificar
-Select-String -Path C:\Users\harry\node_modules\.modules.yaml -Pattern "storeDir|packageManager"
+Select-String -Path <user-home>\node_modules\.modules.yaml -Pattern "storeDir|packageManager"
 # Esperado: storeDir = ...\AppData\Local\pnpm\store\v10 ; packageManager = pnpm@10.27.0
-git -C C:\Users\harry status --short
+git -C <user-home> status --short
 # checks usuais do projeto (os que você costuma rodar; não inventar suíte nova aqui)
 
 # 4) Só depois de 3 OK — limpeza
-Remove-Item -Recurse -Force C:\Users\harry\node_modules.cw-incident-20260925
-Remove-Item -Recurse -Force C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\template-e2e\.pnpm-store
+Remove-Item -Recurse -Force <user-home>\node_modules.cw-incident-20260925
+Remove-Item -Recurse -Force <user-home>\<external-sandbox>\sandbox\template-e2e\.pnpm-store
 ```
 
 Se `--frozen-lockfile` falhar por drift legítimo do lock do projeto, **parar** e reportar; não
@@ -70,11 +70,11 @@ forçar `pnpm install` sem lock sem nova autorização.
 
 | Path                                                | Efeito                                              |
 | --------------------------------------------------- | --------------------------------------------------- |
-| `C:\Users\harry\node_modules`                       | renomeado → recriado                                |
-| `C:\Users\harry\node_modules\.modules.yaml`         | novo `storeDir` padrão                              |
+| `<user-home>\node_modules`                       | renomeado → recriado                                |
+| `<user-home>\node_modules\.modules.yaml`         | novo `storeDir` padrão                              |
 | `.husky/_` (via `prepare`)                          | pode ser reescrito pelos scripts do projeto         |
 | `postinstall` / `prisma generate`                   | podem rodar (já falharam antes sem escrever código) |
-| Store temp sob `AuditoriasExternas\...\.pnpm-store` | apagado **só** no passo 4                           |
+| Store temp sob `<external-sandbox>\...\.pnpm-store` | apagado **só** no passo 4                           |
 | Código-fonte / lock / `package.json`                | **não** devem mudar; se mudarem, abortar e reportar |
 
 ### Backup / rollback (P-INC-1)
@@ -88,7 +88,7 @@ forçar `pnpm install` sem lock sem nova autorização.
 ### Riscos (P-INC-1)
 
 - Rede + disco; scripts husky / prisma / `onlyBuiltDependencies`.
-- `C:\Users\harry` é workspace ancestral de muita coisa — fechar consumidores antes.
+- `<user-home>` é workspace ancestral de muita coisa — fechar consumidores antes.
 
 ### Prova de conclusão (P-INC-1)
 
@@ -125,7 +125,7 @@ User Rules do Cursor: texto ainda 1.x na máquina (CR-021) — colagem **manual*
    `~/.agents`, `~/.codex`, `~/.cursor\rules` durante a escrita.
 3. Aceitar que o comportamento dos agentes muda **globalmente** em todos os projetos.
 
-### Comandos (somente após auth) — a partir de `C:\Projetos\Context_Window`
+### Comandos (somente após auth) — a partir de `<library-repo>`
 
 ```powershell
 # A) Confirmar plano (só leitura; exit 0 esperado com as flags)
@@ -151,7 +151,7 @@ node scripts/cw.mjs contract --format cursor-user-rules --with-usage-policy
 
 ### O que **não** é tocado de propósito
 
-- Skills **foreign** / nomes fora do catálogo ativo (ex.: criativos Rive no Cursor, se foreign).
+- Skills **foreign** / nomes fora do catálogo ativo (ex.: creative Rive no Cursor, se foreign).
 - Conteúdo fora dos blocos gerenciados em `CLAUDE.md` / `AGENTS.md` (o instalador injeta/atualiza
   o bloco Context Window; não é wipe do arquivo inteiro — se o plano mostrar só `write` de bloco,
   o restante deve permanecer; divergência inesperada = abortar e reportar).
@@ -213,8 +213,8 @@ Responda com **uma** letra:
 
 Confirmações explícitas pedidas em **I** ou **I+P**:
 
-1. Processos que usam `C:\Users\harry\node_modules` / `gb-locacoes` estão fechados.
-2. Autoriza `pnpm install --frozen-lockfile` na raiz `C:\Users\harry` (scripts do projeto).
+1. Processos que usam `<user-home>\node_modules` / `<host-workspace-project>` estão fechados.
+2. Autoriza `pnpm install --frozen-lockfile` na raiz `<user-home>` (scripts do projeto).
 3. Autoriza apagar o store temp **somente após** verificação OK.
 
 Confirmações explícitas pedidas em **P** ou **I+P**:

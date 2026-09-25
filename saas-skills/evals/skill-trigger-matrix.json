@@ -1330,6 +1330,162 @@
         "Sequencing: contracts and token auth before any backend extraction or second surface",
         "Prohibition of !important/Tailwind ! with enforcement in CI"
       ]
+    },
+    {
+      "skill": "blender-scene-production",
+      "collection": "creative",
+      "should_trigger": [
+        {
+          "id": "bsp-1",
+          "prompt": "No Blender aberto, ajuste o material PBR do objeto selecionado sem sobrescrever o .blend original.",
+          "expected_primary_skill": "blender-scene-production"
+        },
+        {
+          "id": "bsp-2",
+          "prompt": "Export this Blender character to GLB and keep the existing armature animation.",
+          "expected_primary_skill": "blender-scene-production"
+        },
+        {
+          "id": "bsp-3",
+          "prompt": "Inspect the live Blender scene and tell me which objects and armatures are in it before any edit.",
+          "expected_primary_skill": "blender-scene-production"
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "bsp-n1",
+          "prompt": "Add a feature slice for checkout under packages/frontend using Feature-Sliced Design.",
+          "expected_primary_skill": "react-saas-architecture"
+        },
+        {
+          "id": "bsp-n2",
+          "prompt": "Build a Spline 3D hero and embed the splinecode on the landing page.",
+          "expected_primary_skill": "spline-web-scenes"
+        },
+        {
+          "id": "bsp-n3",
+          "prompt": "Grade and export the commercial in DaVinci Resolve. The picture cut is already locked.",
+          "expected_primary_skill": "audiovisual-production"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "bsp-c1",
+          "prompt": "Render the Blender shot to an intermediate and then grade it for the final commercial.",
+          "expected_primary_skill": "blender-scene-production",
+          "expected_secondary_skills": ["audiovisual-production"],
+          "resolution": "Author and export the intermediate in Blender first. Grade and delivery start only after that file exists."
+        }
+      ],
+      "minimum_output": [
+        "Checkpoint before writing",
+        "One subsystem per edit",
+        "Validation from a fresh scene read"
+      ]
+    },
+    {
+      "skill": "spline-web-scenes",
+      "collection": "creative",
+      "should_trigger": [
+        {
+          "id": "sws-1",
+          "prompt": "Revise the Spline 3D hero materials and check the embed cost before we publish the landing.",
+          "expected_primary_skill": "spline-web-scenes"
+        },
+        {
+          "id": "sws-2",
+          "prompt": "Na cena Spline aberta, ajuste a câmera do hero 3D sem reconstruir a cena.",
+          "expected_primary_skill": "spline-web-scenes"
+        },
+        {
+          "id": "sws-3",
+          "prompt": "Add a hover state to the Spline product model and keep a static fallback on the page.",
+          "expected_primary_skill": "spline-web-scenes"
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "sws-n1",
+          "prompt": "Model the same product in Blender and export GLB.",
+          "expected_primary_skill": "blender-scene-production"
+        },
+        {
+          "id": "sws-n2",
+          "prompt": "Define semantic color tokens and a Button primitive in packages/ui.",
+          "expected_primary_skill": "design-system-implementation"
+        },
+        {
+          "id": "sws-n3",
+          "prompt": "Cut a 15-second Reel from the screen recording and burn captions.",
+          "expected_primary_skill": "audiovisual-production"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "sws-c1",
+          "prompt": "Embed the Spline scene on the Next.js landing and also decide the FSD folder for the page.",
+          "expected_primary_skill": "spline-web-scenes",
+          "expected_secondary_skills": ["react-saas-architecture"],
+          "resolution": "Spline skill owns the scene and embed behavior. Folder placement of the page belongs to the frontend architecture skill."
+        }
+      ],
+      "minimum_output": [
+        "Scene facts from the graph",
+        "One subsystem edited",
+        "Embed fallback and cost called out"
+      ]
+    },
+    {
+      "skill": "audiovisual-production",
+      "collection": "creative",
+      "should_trigger": [
+        {
+          "id": "avp-1",
+          "prompt": "Edite o Reel vertical, mantenha o gancho nos primeiros segundos e exporte 9:16 com legenda.",
+          "expected_primary_skill": "audiovisual-production"
+        },
+        {
+          "id": "avp-2",
+          "prompt": "The product demo cut is locked. Grade it and mix the voiceover without touching the camera originals.",
+          "expected_primary_skill": "audiovisual-production"
+        },
+        {
+          "id": "avp-3",
+          "prompt": "Prepare ingest bins and proxies for the new interview footage before anyone cuts.",
+          "expected_primary_skill": "audiovisual-production"
+        }
+      ],
+      "should_not_trigger": [
+        {
+          "id": "avp-n1",
+          "prompt": "Rig the character in the open Blender file and fix the arm deformation.",
+          "expected_primary_skill": "blender-scene-production"
+        },
+        {
+          "id": "avp-n2",
+          "prompt": "Write the Prisma schema and migration for the billing tables.",
+          "expected_primary_skill": "prisma-database-design"
+        },
+        {
+          "id": "avp-n3",
+          "prompt": "Light the Spline scene and frame the hero object.",
+          "expected_primary_skill": "spline-web-scenes"
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "avp-c1",
+          "prompt": "Record a product demo and also implement the missing checkout button in the Next.js app so the UI is real.",
+          "expected_primary_skill": "audiovisual-production",
+          "expected_secondary_skills": ["react-saas-architecture"],
+          "resolution": "The video skill plans the demo only after the interface exists. Building the button is frontend work, not a generated UI frame."
+        }
+      ],
+      "minimum_output": [
+        "One production route",
+        "Source media preserved",
+        "Delivery spec and QC result"
+      ]
     }
   ]
 }

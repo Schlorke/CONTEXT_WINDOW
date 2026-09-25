@@ -39,7 +39,7 @@ Nenhuma célula classificada como FAIL comportamental. Nenhuma falha de infra ne
 
 |              |                                                                                                                  |
 | ------------ | ---------------------------------------------------------------------------------------------------------------- |
-| Executável   | `C:\Users\harry\.local\bin\claude.exe` **2.1.74**                                                                |
+| Executável   | `<user-home>\.local\bin\claude.exe` **2.1.74**                                                                |
 | Modelo       | `claude-opus-4-6`                                                                                                |
 | Env processo | sem `ANTHROPIC_CUSTOM_HEADERS` / API key / base URL / `CLAUDE_CONFIG_DIR`                                        |
 | A            | PASS\* — topologia web+mobile+packages+FSD (via AGENTS.md); sem Read de SKILL.md                                 |

@@ -135,6 +135,8 @@ Dataset rules:
 - Version datasets with prompt/tool/schema changes.
 - Store expected behavior, not only expected wording.
 - Run small smoke evals in PRs and larger evals on schedule.
+- Each case names a capability that already exists. State whether the run is mocked or a paid model call, and do not spend the paid call without authorization.
+- A retrieval change needs a hit, an irrelevant passage, and an injection attempt. Empty or failed retrieval is a telemetry signal, not a silent model regression.
 
 ## Prompt Caching and Cost
 

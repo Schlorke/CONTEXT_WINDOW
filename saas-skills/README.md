@@ -15,15 +15,19 @@ distribuído; esta pasta guarda o conteúdo.
 | `ai-integration/` | `ai-context-diagrams`, `ai-interface-design`, `context-window-optimization`, `prompt-engineering-hybrid`, `saas-ai-agent-engineer`, `multi-perspective-council`, `multi-agent-skill-creator`, `multi-agent-skill-installer` (só invocação explícita) |
 | `documentation/` | `intelligent-project-docs`, `technical-research-writing` |
 
-O perfil `creative` existe e está vazio até que itens importados de mídia sejam revisados.
+## Coleções ativas (perfil `creative`)
+
+| Coleção | Skills |
+| --- | --- |
+| `creative/` | `blender-scene-production`, `spline-web-scenes`, `audiovisual-production` |
 
 ## Material importado
 
-`imported-skills/` guarda 83 itens importados de outros projetos (43 de `criativos`, 25 de
-`logical-solution`, 15 de `okgas`), todos com status `imported-unreviewed`: estão inventariados no
-registry com origem e licença declarada, entram na detecção de duplicatas e nunca são distribuídos.
-Promover um item exige revisão, gate do catálogo limpo, casos de avaliação e mudança de status com
-justificativa no registry.
+Imports locais (pasta `imported-skills/`, não versionada) guardam acervo de
+outros projetos com status fora de `canonical:active`: não são distribuídos.
+O conhecimento útil já promovido está nas skills canônicas acima. Promover um
+item novo exige revisão, gate do catálogo limpo, casos de avaliação e mudança
+de status com justificativa no registry — sem publicar inventário de cliente.
 
 ## Manutenção
 

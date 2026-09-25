@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Lighting"
-  short_description: "Lights Spline scenes with intent"
-  default_prompt:
-    "Use $spline-lighting to fix or design Spline lights without adding extra
-    glow."
-policy:
-  allow_implicit_invocation: true

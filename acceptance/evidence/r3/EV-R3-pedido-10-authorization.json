@@ -9,7 +9,7 @@
       "steps": ["A9a"],
       "command": "pnpm run tokens",
       "scripts": ["tokens"],
-      "destinations": ["C:\\Temp\\cw-r3\\acceptance"],
+      "destinations": ["<sandbox>\\acceptance"],
       "risks": [
         "execução sem confinamento de escrita",
         "processo Node do token gate sob permissões do SO",
@@ -21,7 +21,7 @@
       "steps": ["A9b"],
       "command": "pnpm run arch",
       "scripts": ["arch"],
-      "destinations": ["C:\\Temp\\cw-r3\\acceptance"],
+      "destinations": ["<sandbox>\\acceptance"],
       "risks": [
         "execução sem confinamento de escrita",
         "processo Node do arch-check sob permissões do SO"
@@ -32,7 +32,7 @@
       "steps": ["A8", "A9c"],
       "command": "pnpm run check:tokens",
       "scripts": ["check:tokens"],
-      "destinations": ["C:\\Temp\\cw-r3\\acceptance"],
+      "destinations": ["<sandbox>\\acceptance"],
       "risks": [
         "execução sem confinamento de escrita",
         "vitest, next build e expo export podem escrever fora do sandbox",
@@ -44,7 +44,7 @@
       "steps": ["A7", "A11b"],
       "command": "pnpm run verify",
       "scripts": ["verify"],
-      "destinations": ["C:\\Temp\\cw-r3\\acceptance"],
+      "destinations": ["<sandbox>\\acceptance"],
       "risks": [
         "execução sem confinamento de escrita",
         "arch, tokens, typecheck, vitest, next build e expo export",
@@ -56,7 +56,7 @@
       "steps": ["A10b"],
       "command": "pnpm run test",
       "scripts": ["test"],
-      "destinations": ["C:\\Temp\\cw-r3\\acceptance"],
+      "destinations": ["<sandbox>\\acceptance"],
       "risks": [
         "execução sem confinamento de escrita",
         "vitest no fixture legado descartável"
@@ -66,6 +66,6 @@
   "notes": [
     "D6 (A12) não concede subprocesso: compara resultados de A10b e A11b.",
     "A6, A10 e A11 permanecem com --ignore-scripts (D7 negado).",
-    "Esta autorização vale só para fixtures sob C:\\Temp\\cw-r3\\acceptance\\run-*; mudança de comando/destino/escopo exige nova decisão."
+    "Esta autorização vale só para fixtures sob <sandbox>\\acceptance\\run-*; mudança de comando/destino/escopo exige nova decisão."
   ]
 }

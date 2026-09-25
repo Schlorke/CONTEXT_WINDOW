@@ -1,8 +1,0 @@
-interface:
-  display_name: "Blender Scene Inspection"
-  short_description: "Inspects a Blender scene read-only"
-  default_prompt:
-    "Use $blender-scene-inspection to list the live Blender scene without
-    changing it."
-policy:
-  allow_implicit_invocation: true

@@ -53,7 +53,7 @@ Estado: **REPROVADO**. CX-12 cobre revisão **mecânica** 83/83 (origem, evidên
 | --- | --- | --- | --- | --- | --- |
 | P-SEC-1 | Revogação remota da sessão Codex copiada | ACH-005 / CR-063 (revogação) | Documentar procedimento; **não** copiar/expor credencial | `codex logout` / `login` no perfil real; se dúvida, suporte OpenAI | Declaração do dono + ausência de dúvida operacional (não “arquivo sumiu”) |
 | P-SEC-2 | Resíduos `dist/.../codex-home` | higiene / ACH | Classificar (feito: [EV-R3-dist-codex-home-residues.md](evidence/r3/EV-R3-dist-codex-home-residues.md)); remoção só com escopo | Autorizar remoção do diretório ou subpastas listadas | Dir ausente ou manifesto do que restou + `pnpm secrets` |
-| P-INC-1 | Recuperar `C:\Users\harry\node_modules` / store | incidente | Procedimento exato abaixo; **não** apagar store temp antes da verificação | Autorizar e executar (ou autorizar agente a executar) os passos | Novo `.modules.yaml` com store padrão + checks do projeto |
+| P-INC-1 | Recuperar `<user-home>\node_modules` / store | incidente | Procedimento exato abaixo; **não** apagar store temp antes da verificação | Autorizar e executar (ou autorizar agente a executar) os passos | Novo `.modules.yaml` com store padrão + checks do projeto |
 | P-CUR-1 | A13c Cursor escopo projeto | CR-025/026, NR-11, G03 (descoberta) | **Concluído** — [EV-R3-cursor-session.md](evidence/r3/EV-R3-cursor-session.md) | — | Dois prompts PASS; origem no kit |
 | P-PROF-1 | Atualizar perfis reais 1.x → 2.0 | CR-047, CR-021 | Prévia conflitos ([EV-R3-real-profile-preview.json](evidence/r3/EV-R3-real-profile-preview.json)); plan/doctor | Autorizar `install --user …` + colar User Rules | doctor sem DIVERGENT; User Rules 2.0 |
 | P-EVAL-1 | Avaliações comportamentais | CR-041, CR-049, CR-069 | Plano + casos ([EVAL-PLAN-R3.md](EVAL-PLAN-R3.md)); **sem** colar corpo de skills | Autorizar piloto (12) e tetos; login em perfis isolados | Transcrições + `evals:score` |
@@ -69,17 +69,17 @@ Estado: **REPROVADO**. CX-12 cobre revisão **mecânica** 83/83 (origem, evidên
 
 Estado atual lido (sem alterar):
 
-- `C:\Users\harry\node_modules\.modules.yaml`: `packageManager: pnpm@10.27.0`, `nodeLinker: isolated`,
-  `storeDir: C:\Users\harry\AuditoriasExternas\context-window-20260924\sandbox\template-e2e\.pnpm-store\v10`
+- `<user-home>\node_modules\.modules.yaml`: `packageManager: pnpm@10.27.0`, `nodeLinker: isolated`,
+  `storeDir: <user-home>\<external-sandbox>\sandbox\template-e2e\.pnpm-store\v10`
 - Esse store temporário **ainda existe**
 - Store padrão `%LOCALAPPDATA%\pnpm\store\v10` **existe**
 
 ```text
 # Após autorização explícita — NÃO executar agora
-# 1. Fechar editor/servidor/testes que usem gb-locacoes / C:\Users\harry\node_modules
+# 1. Fechar editor/servidor/testes que usem <host-workspace-project> / <user-home>\node_modules
 # 2. Renomear (não apagar):
-Rename-Item C:\Users\harry\node_modules node_modules.cw-incident-20260925
-# 3. No diretório do projeto gb-locacoes (não inventar path se outro):
+Rename-Item <user-home>\node_modules node_modules.cw-incident-20260925
+# 3. No diretório do projeto <host-workspace-project> (não inventar path se outro):
 #    pnpm install --frozen-lockfile   # Corepack → 10.27.0, store padrão
 # 4. Verificar:
 #    - storeDir do novo .modules.yaml = %LOCALAPPDATA%\pnpm\store\v10
@@ -88,7 +88,7 @@ Rename-Item C:\Users\harry\node_modules node_modules.cw-incident-20260925
 # 5. Só então apagar node_modules.cw-incident-20260925 e o store temporário
 ```
 
-Destino: `C:\Users\harry\node_modules` + store temporário.  
+Destino: `<user-home>\node_modules` + store temporário.  
 Efeito: reinstala deps do workspace ancestral.  
 Risco: scripts do projeto (husky, prisma, builds).  
 Consumo: rede + disco.  
@@ -105,7 +105,7 @@ Remoção do diretório inteiro: **bloqueada por autorização** (P-SEC-2).
 Nesta máquina agora: `%LOCALAPPDATA%\Android\Sdk` com `platform-tools`, `emulator`, `platforms` (android-36/37), JDK 17.  
 `ANDROID_HOME` / `adb` no PATH: **não** configurados. iOS: sem macOS.  
 Provas A8 (Hermes export) **não** = `nativeRuntime`.  
-Alternativas para auth: (1) setar `ANDROID_HOME` + `pnpm --filter mobile android` no produto descartável sob `C:\Temp\cw-r3`; (2) EAS remoto (custo/conta do dono).
+Alternativas para auth: (1) setar `ANDROID_HOME` + `pnpm --filter mobile android` no produto descartável sob `<sandbox>`; (2) EAS remoto (custo/conta do dono).
 
 ## Decisões ainda necessárias do proprietário (única lista)
 

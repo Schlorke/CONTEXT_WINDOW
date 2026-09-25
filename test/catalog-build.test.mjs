@@ -206,7 +206,7 @@ describe("catalog gate", () => {
         {
           id: "imported-thing",
           root: "imported-skills",
-          collection: "criativos",
+          collection: "studio",
           status: "imported-unreviewed",
           profiles: [],
         },

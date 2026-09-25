@@ -17,7 +17,7 @@
 > Clients hold routes, bootstrap, configuration and platform adapters only. Product screens, business rules and styles live in the packages. Mobile never imports the web client.
 
 **Arquivo lido:**  
-`C:\Temp\cw-r3\eval-pilot\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`  
+`<sandbox>\eval-pilot\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`  
 (seção “Admission rules (MANDATORY)” / Step 2)
 
 Verificação offline: trecho presente na fonte canônica espelhada no skill instalado.

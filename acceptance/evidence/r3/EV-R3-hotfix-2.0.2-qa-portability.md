@@ -2,9 +2,9 @@
 
 ## Causa Ubuntu
 
-1. `test/acceptance-auth.test.mjs` usava `C:\Temp\...` / `C:\Users\...`.
+1. `test/acceptance-auth.test.mjs` usava `<temp>\...` / `<user-home>\...`.
    Em POSIX, `path.resolve("C:\\Temp\\...")` torna-se relativo ao cwd do runner
-   (`.../CONTEXT_WINDOW/C:\Temp\...`), quebrando cobertura parent/filho.
+   (`.../CONTEXT_WINDOW/<temp>\...`), quebrando cobertura parent/filho.
 2. `test/pnpm-guard.test.mjs` usava `storeDir: C:/outside/store`. Em POSIX isso
    **não** é absoluto; `path.resolve(workspace, "C:/outside/store")` cai *dentro*
    do sandbox → o blocker esperado não dispara.

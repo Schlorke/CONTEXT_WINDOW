@@ -2,7 +2,7 @@
 
 ## Reprodução
 
-Checkout limpo `3533c4c` em `C:\Temp\cw-r3\hotfix-clean-3533c4c`:
+Checkout limpo `3533c4c` em `<sandbox>\hotfix-clean-3533c4c`:
 
 - `pnpm install --frozen-lockfile` → 0
 - `node scripts/cw.mjs catalog --check` → **1** (`catalog.lock.json is stale`)

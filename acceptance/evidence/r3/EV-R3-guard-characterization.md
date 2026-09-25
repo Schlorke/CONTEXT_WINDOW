@@ -24,7 +24,7 @@ de escrita e sem AppContainer. Rede não é restringida pelo guard (necessária 
 
 Sob Node.js 25.2.1 com `--permission`, uma tentativa de `pnpm install` falhou com
 `ERR_ACCESS_DENIED` em `getaddrinfo(registry.npmjs.org)` e o canário de
-`C:\Users\harry\node_modules` ficou intacto.
+`<user-home>\node_modules` ficou intacto.
 
 Isso é **resultado daquela configuração**, não prova de incompatibilidade geral do pnpm com todo
 modelo de permissão, e **não** prova de segurança do mecanismo substituto (o guard). Canário

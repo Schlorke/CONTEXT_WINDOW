@@ -3,10 +3,10 @@
 | Campo | Valor |
 | --- | --- |
 | Resultado | **PASS** (infra) |
-| executable | `C:\Users\harry\.local\bin\claude.exe` |
+| executable | `<user-home>\.local\bin\claude.exe` |
 | version | `2.1.74 (Claude Code)` |
 | model | `claude-opus-4-6` |
-| cwd | `C:\Temp\cw-r3\eval-pilot\produto` |
+| cwd | `<sandbox>\eval-pilot\produto` |
 | prompt | `responda apenas com a palavra ok` |
 | resposta | `ok` |
 | exit | 0 |
@@ -14,6 +14,6 @@
 | cost_usd | ~0.081 |
 | process env cleared | `ANTHROPIC_CUSTOM_HEADERS`, `ANTHROPIC_API_KEY`, `ANTHROPIC_BASE_URL`, `CLAUDE_CONFIG_DIR` |
 | User env | **não** alterado (`ANTHROPIC_CUSTOM_HEADERS` User permanece PRESENTE) |
-| raw | `C:\Temp\cw-r3\eval-pilot\raw-rt10\claude-smoke.jsonl` |
+| raw | `<sandbox>\eval-pilot\raw-rt10\claude-smoke.jsonl` |
 
 Claude A–E: **não** executados — aguardar autorização.

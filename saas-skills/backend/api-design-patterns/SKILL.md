@@ -258,7 +258,7 @@ export async function POST(req: NextRequest) {
 
 ### Phase 9: Configure Multi-Tenancy
 
-Derive tenant or organization scope from trusted server context, then include it in every query. In OK Gas-style repos this is usually `orgId` from `auth()` plus `can()` checks and a shared Prisma client from `@/lib/prisma`.
+Derive tenant or organization scope from trusted server context, then include it in every query. Use the field the project already uses, such as `orgId` from the session, plus the authorization check that project already has, and the shared database client. Do not invent a second tenant column.
 
 ```typescript
 const invoices = await prisma.invoice.findMany({

@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Scene Analysis"
-  short_description: "Audits a live Spline 3D scene"
-  default_prompt:
-    "Use $spline-scene-analysis to inspect the current Spline hierarchy before
-    any edit."
-policy:
-  allow_implicit_invocation: true

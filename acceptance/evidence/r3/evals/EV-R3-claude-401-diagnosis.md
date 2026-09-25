@@ -11,7 +11,7 @@ Provas:
 1. Resposta da API no RT-10 A: `authentication_error` / `OAuth access token has expired` (`raw-rt10/claude-A.jsonl`).
 2. `init.apiKeySource = "none"` → o `-p` tentou OAuth, não API key.
 3. `~\.claude\.credentials.json` **mtime 2026-08-04** (ainda) — não foi regravado após o LOGIN-C reportado; `auth status` pode reportar sessão “logada” sem access token válido para a API.
-4. Mesmo home: `CLAUDE_CONFIG_DIR` **AUSENTE** → `auth status` e `-p` usam `C:\Users\harry\.claude` (não há home isolado do harness).
+4. Mesmo home: `CLAUDE_CONFIG_DIR` **AUSENTE** → `auth status` e `-p` usam `<user-home>\.claude` (não há home isolado do harness).
 
 **Fator comprovado de interferência no ambiente (não é home isolado):**
 
@@ -31,10 +31,10 @@ Ou seja: o processo herda header de **AI gateway** no nível **User**. Isso afet
 
 | Item | PowerShell / perfil User | Harness RT-10 / shell Cursor |
 | --- | --- | --- |
-| executable | `C:\Users\harry\.local\bin\claude.exe` | **igual** |
+| executable | `<user-home>\.local\bin\claude.exe` | **igual** |
 | versão | 2.1.74 | **igual** |
-| cwd | (sua pasta) | `C:\Temp\cw-r3\eval-pilot\produto` |
-| USERPROFILE | `C:\Users\harry` | **igual** |
+| cwd | (sua pasta) | `<sandbox>\eval-pilot\produto` |
+| USERPROFILE | `<user-home>` | **igual** |
 | HOME | tipicamente AUSENTE no Windows | AUSENTE |
 | CLAUDE_CONFIG_DIR | AUSENTE → `~\.claude` | AUSENTE → **mesmo** `~\.claude` |
 | ANTHROPIC_BASE_URL | AUSENTE | AUSENTE |
@@ -64,7 +64,7 @@ $env:ANTHROPIC_CUSTOM_HEADERS = $null
 Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
 Remove-Item Env:ANTHROPIC_BASE_URL -ErrorAction SilentlyContinue
 Remove-Item Env:CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue
-& C:\Users\harry\.local\bin\claude.exe -p "..." ...
+& <user-home>\.local\bin\claude.exe -p "..." ...
 ```
 
 Isso faz o teste usar o Claude real + OAuth em `~\.claude`, sem o header de gateway injetado no ambiente User/Cursor. **Não** altera skills nem User Rules.
@@ -84,8 +84,8 @@ Remove-Item Env:ANTHROPIC_CUSTOM_HEADERS -ErrorAction SilentlyContinue
 Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
 Remove-Item Env:ANTHROPIC_BASE_URL -ErrorAction SilentlyContinue
 Remove-Item Env:CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue
-Set-Location C:\Temp\cw-r3\eval-pilot\produto
-& C:\Users\harry\.local\bin\claude.exe -p "responda apenas com a palavra ok" --permission-mode plan --allowedTools "" --no-session-persistence
+Set-Location <sandbox>\eval-pilot\produto
+& <user-home>\.local\bin\claude.exe -p "responda apenas com a palavra ok" --permission-mode plan --allowedTools "" --no-session-persistence
 ```
 
 Esperado: stdout com `ok` (ou equivalente curto), **sem** 401.  

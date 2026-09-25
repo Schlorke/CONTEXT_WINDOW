@@ -1,6 +1,6 @@
 # Claude final A
 
-- executable: C:\Users\harry\.local\bin\claude.exe
+- executable: <user-home>\.local\bin\claude.exe
 - version: 2.1.74
 - model: claude-opus-4-6
 - cost_usd: 0.2510135
@@ -8,7 +8,7 @@
 - result_field: 
 - reads: 
 - skill_tool: 
-- writes_outside_or_plans: C:\Users\harry\.claude\plans\concurrent-scribbling-mitten.md
+- writes_outside_or_plans: <user-home>\.claude\plans\concurrent-scribbling-mitten.md
 
 ## Texts observed
 

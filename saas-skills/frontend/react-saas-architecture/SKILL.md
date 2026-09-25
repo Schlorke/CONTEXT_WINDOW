@@ -114,6 +114,8 @@ pnpm test
 
 ## Advanced Cases
 
+- **Where a file goes:** classify layer, then business group, then slice, then segment. The group folder has no `index.ts`. A wrapper that only forwards props stays inline in the terminal slice. Do not add a `composition/` folder whose only job is to mount a shell.
+- **React performance order:** remove request waterfalls, then bundle weight, then server work, then client fetching, then re-renders, then paint, and only then micro-optimizations. Vercel Engineering publishes the expanded catalog under MIT (Copyright (c) 2026 Vercel, Inc.). This library does not redistribute that catalog: the imported copy has no copyright notice, and the file it points to for the full rules is not in the import.
 - **Large domains:** group slices in a folder with no code of its own (`features/crm/client-save`);
   sibling isolation still applies inside the group (see `multiplatform-platform-architecture`
   reference `fsd-frontend-taxonomy.md`).

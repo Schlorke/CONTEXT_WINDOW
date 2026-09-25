@@ -1,7 +1,7 @@
 {
   "schema": "context-window/guard-proof@1",
-  "root": "C:\\Temp\\cw-r3\\guard-proof",
-  "homeExcluded": "C:\\Users\\harry",
+  "root": "<sandbox>\\guard-proof",
+  "homeExcluded": "<user-home>",
   "characterization": {
     "id": "EV-R3-guard-characterization",
     "at": "2026-09-25T06:03:50.228Z",
@@ -62,8 +62,8 @@
     "blocked": true,
     "spawned": false,
     "blockers": [
-      "pnpm would use the workspace at C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor, not the project C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor\\child",
-      "the pnpm version would be inherited from C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor (pnpm@10.27.0)",
+      "pnpm would use the workspace at <sandbox>\\guard-proof\\ancestral\\sandbox\\ancestor, not the project <sandbox>\\guard-proof\\ancestral\\sandbox\\ancestor\\child",
+      "the pnpm version would be inherited from <sandbox>\\guard-proof\\ancestral\\sandbox\\ancestor (pnpm@10.27.0)",
       "pnpmfile present (.pnpmfile.cjs): it runs code even with --ignore-scripts"
     ],
     "treeUnchanged": true,
@@ -83,7 +83,7 @@
       "Downloading the pnpm 12.5.1 binary for win32-x64...",
       ""
     ],
-    "escapeFile": "C:\\Temp\\cw-r3\\guard-proof\\write-escape\\forbidden\\escape.txt",
+    "escapeFile": "<sandbox>\\guard-proof\\write-escape\\forbidden\\escape.txt",
     "escapeSucceeded": true,
     "changedOutside": [],
     "propertyProven": false,

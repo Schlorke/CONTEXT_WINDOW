@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Animation"
-  short_description: "Adds purposeful Spline 3D motion"
-  default_prompt:
-    "Use $spline-animation to add code-driven Spline motion with idle and
-    entrance, not free looping."
-policy:
-  allow_implicit_invocation: true

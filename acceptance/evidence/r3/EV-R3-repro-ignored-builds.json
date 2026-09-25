@@ -1,7 +1,7 @@
 {
   "at": "2026-09-25T04:49:56.706Z",
   "bundle": {
-    "path": "C:\\Temp\\cw-r3\\bundle-before",
+    "path": "<sandbox>\\bundle-before",
     "libraryVersion": "2.0.0",
     "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
     "files": 147
@@ -30,7 +30,7 @@
       "changedOutsideSandbox": [],
       "args": [
         "install",
-        "--store-dir=C:\\Temp\\cw-r3\\repro-12.5.1\\.pnpm-store",
+        "--store-dir=<sandbox>\\repro-12.5.1\\.pnpm-store",
         "--ignore-pnpmfile"
       ]
     },
@@ -51,7 +51,7 @@
       "changedOutsideSandbox": [],
       "args": [
         "install",
-        "--store-dir=C:\\Temp\\cw-r3\\repro-10.27.0\\.pnpm-store",
+        "--store-dir=<sandbox>\\repro-10.27.0\\.pnpm-store",
         "--ignore-pnpmfile"
       ]
     }

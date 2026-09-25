@@ -20,7 +20,7 @@
   "deleted": {
     "count": 16,
     "files": [
-      ".backup-runtimes/gb-locacoes.mdc",
+      ".backup-runtimes/<host-workspace-project>.mdc",
       "saas-skills/docs/runtime/PORTABILITY_MATRIX.md",
       "saas-skills/frontend/react-saas-architecture/references/folder-structure-patterns.md",
       "scripts/audit-skills.mjs",

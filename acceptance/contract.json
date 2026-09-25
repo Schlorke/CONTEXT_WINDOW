@@ -1037,9 +1037,9 @@
     },
     {
       "id": "NR-15",
-      "text": "Matriz de testes: Bootstrap, FSD, Design, Legado, Distribuição, Atualização, Clientes, Contexto, Segurança, Criativos",
+      "text": "Matriz de testes: Bootstrap, FSD, Design, Legado, Distribuição, Atualização, Clientes, Contexto, Segurança, Creative",
       "status": "REPROVADO",
-      "evidence": "Criativos: perfil `creative` vazio (43 itens importados não revisados) — nada a testar ainda; demais áreas cobertas"
+      "evidence": "Histórico R1: área Creative sem itens ativos no registry. Pós-2.1 o perfil creative publica 3 skills canônicas; imports locais não versionados não entram na matriz publicada."
     }
   ]
 }

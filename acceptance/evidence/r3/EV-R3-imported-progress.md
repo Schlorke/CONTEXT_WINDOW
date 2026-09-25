@@ -1,29 +1,32 @@
 # Progresso técnico — importados (pós-R3)
 
-Revisão mecânica regenerada: [EV-imported-review.json](EV-imported-review.json) — 74 não
-verificado, 9 bloqueado, 0 revisado, 0 ativo. **NR-20 permanece REPROVADO** até leitura humana
+Revisão mecânica: [EV-imported-review.json](EV-imported-review.json) (resumo sanitizado —
+inventário nomeado não é publicado). **NR-20 permanece REPROVADO** até leitura humana
 completa + licença com evidência + (para ativo) casos de acionamento.
 
-Nenhuma promoção em lote. Especialidades criativas preservadas (não substituídas por genéricos).
+Nenhuma promoção em lote de imports locais. Conhecimento reutilizável de vídeo/3D foi
+consolidado nas skills canônicas do perfil `creative`
+(`blender-scene-production`, `spline-web-scenes`, `audiovisual-production`).
 
-## Família `project-okgas` (13) — trabalho local feito agora
+## Imports locais (não versionados)
 
-| id | Licença no pacote | Tools | Lacunas de gate | Caso de uso preparado (rascunho) | Leitura humana |
-| --- | --- | --- | --- | --- | --- |
-| okgas-mobile-fsd | nenhuma | expo | Operational Contract; trigger matrix | “Organize uma feature Expo em FSD mobile sem copiar árvore web” | parcial (esta rodada): instruções específicas de camadas; **não** marca `revisado` |
-| okgas-po-briefing | nenhuma | — | Operational Contract; ref quebrada `assets/brand/`; matrix | “Produza briefing de PO com critérios de aceite testáveis” | parcial: útil; bloqueio de promoção pela ref quebrada + licença |
-| demais 11 okgas-* | nenhuma | prisma/expo em alguns | OC + matrix | ver IDs no EV-imported-review | pendente |
+Famílias locais (produto SaaS, vídeo/3D, checks de aparelho) permanecem só em disco sob
+`imported-skills/` (gitignored). Contagens e IDs de origem omitidos neste relatório
+publicado.
 
-Conclusão técnica: okgas é candidato a revisão humana priorizada (alinhado ao produto SaaS), mas
-**não** pode ir a `revisado`/`ativo` sem (1) declaração de autoria/licença do dono, (2) seção
-Operational Contract, (3) entrada na skill-trigger-matrix, (4) leitura completa registrada.
+Conclusão técnica: material local pode ser candidato a revisão humana, mas **não** vai a
+`revisado`/`ativo` sem (1) declaração de autoria/licença do dono, (2) seção Operational
+Contract, (3) entrada na skill-trigger-matrix, (4) leitura completa registrada — e sem
+publicar inventário de cliente.
 
-## Bloqueados (9) — inalterados
+## Bloqueados (histórico R3) — inalterados na época
 
-Remotion (7) licença desconhecida; `prisma-client-api` e `react-best-practices` MIT sem copyright/
-atribuição suficientes. Permanecem `bloqueado` até evidência — **não** excluídos para subir nota.
+Pacotes de composição programática de vídeo sem LICENSE registrada; enciclopédias ORM /
+performance React de terceiros sem atribuição suficiente na cópia local. Permanecem fora
+de `active` até evidência — **não** excluídos só para subir nota.
 
-## Criativos (video/3d/remotion)
+## Perfil Creative (canônico)
 
-Dependem de DaVinci, Blender, Spline, Rive, Remotion, ffmpeg. Revisão documental ≠ funcionamento
-demonstrado na ferramenta. Casos P-CRT no [EVAL-PLAN-R3.md](../EVAL-PLAN-R3.md) só se item ativo.
+Dependem de DaVinci, Blender, Spline e ferramentas de mídia quando o pedido exige.
+Revisão documental ≠ funcionamento demonstrado na ferramenta. Casos P-CRT no
+[EVAL-PLAN-R3.md](../EVAL-PLAN-R3.md) só se item ativo.

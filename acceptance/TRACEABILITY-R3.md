@@ -8,7 +8,7 @@ contraprovas e evidências e NR-16 a NR-20 para os requisitos novos.
 
 ### D-R3-01 — instalação limpa do produto falha (`ERR_PNPM_IGNORED_BUILDS esbuild@0.28.2`)
 
-- Reprodução: um pacote antigo (`C:\Temp\cw-r3\bundle-before`), a mesma árvore e duas versões do
+- Reprodução: um pacote antigo (`<sandbox>\bundle-before`), a mesma árvore e duas versões do
   pnpm. Com 12.5.1 a saída é 1 e o `ERR_PNPM_IGNORED_BUILDS` aparece. Com 10.27.0 a saída é 0. O
   esbuild é o mesmo (0.28.2) nos dois lockfiles gerados
   ([EV-R3-repro-ignored-builds.json](evidence/r3/EV-R3-repro-ignored-builds.json)).
@@ -34,8 +34,8 @@ contraprovas e evidências e NR-16 a NR-20 para os requisitos novos.
 
 - Reprodução: variando só a versão fixada, como em D-R3-01.
 - Causa:
-  - as sandboxes da rodada 1 ficavam sob `C:\Users\harry`, abaixo do `package.json` do
-    `gb-locacoes`, que fixa `pnpm@10.27.0`;
+  - as sandboxes da rodada 1 ficavam sob `<user-home>`, abaixo do `package.json` do
+    `<host-workspace-project>`, que fixa `pnpm@10.27.0`;
   - o Corepack usa o `packageManager` do ancestral mais próximo, então a rodada 1 rodou com pnpm
     10.27.0, e não com o 12.5.1 declarado no relatório (correção registrada em REPORT-R3);
   - a auditoria em `C:\Temp` usou o padrão do Corepack (12.5.1).

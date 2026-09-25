@@ -1,7 +1,0 @@
-interface:
-  display_name: "Blender Rendering"
-  short_description: "Picks Cycles or Eevee for the goal"
-  default_prompt:
-    "Use $blender-rendering to choose Cycles or Eevee from the delivery goal."
-policy:
-  allow_implicit_invocation: true

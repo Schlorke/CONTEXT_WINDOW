@@ -1,6 +1,6 @@
 # P-EVAL-1 — matriz final E15
 
-Data: 2026-09-25. Kit: `C:\Temp\cw-r3\eval-pilot\produto`.  
+Data: 2026-09-25. Kit: `<sandbox>\eval-pilot\produto`.  
 Chamadas: **15 / 15** (sem retries de score; sem troca de binário Codex no meio).
 
 ## Decisão
@@ -15,7 +15,7 @@ Meta 15/15 comportamental não atingida: Claude Code (OAuth) e Codex (modelo/CLI
 
 | Campo                                            | Valor                                                                                                                                                                                                 |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Caminho efetivamente utilizado**               | `C:\Users\harry\.cursor\extensions\openai.chatgpt-26.5730.61309-win32-x64\bin\windows-x86_64\codex.exe`                                                                                               |
+| **Caminho efetivamente utilizado**               | `<user-home>\.cursor\extensions\openai.chatgpt-26.5730.61309-win32-x64\bin\windows-x86_64\codex.exe`                                                                                               |
 | **Versão retornada**                             | `codex-cli 0.147.0-alpha.1.2`                                                                                                                                                                         |
 | **Origem**                                       | Extensão Cursor **ChatGPT** `openai.chatgpt-26.5730.61309-win32-x64`                                                                                                                                  |
 | **Outros binários encontrados e NÃO utilizados** | `%LOCALAPPDATA%\OpenAI\Codex\bin\13995fba801849b0\codex.exe`; `%LOCALAPPDATA%\OpenAI.ChatGPT_backup\Codex\bin\codex.exe`; `%LOCALAPPDATA%\OpenAI.ChatGPT_backup\Codex\bin\aec6b7c6fcdfb66a\codex.exe` |
@@ -87,7 +87,7 @@ Todo FAIL/resultado Codex abaixo refere-se **somente** a esse binário/versão.
 
 - Cursor: `EV-R3-eval-cursor-{A-E}.md`
 - Codex binary: `EV-R3-eval-codex-binary.md`
-- Raw: `C:\Temp\cw-r3\eval-pilot\raw\claude-*.jsonl`, `codex-*.jsonl`
+- Raw: `<sandbox>\eval-pilot\raw\claude-*.jsonl`, `codex-*.jsonl`
 - Score: `EV-R3-eval-pilot-score.json`
 
 QA / P-REL-1: **não** iniciados.

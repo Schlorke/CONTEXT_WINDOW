@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Web Performance"
-  short_description: "Keeps Spline Web 3D cheap"
-  default_prompt:
-    "Use $spline-web-performance to measure the Spline scene with analyze_scene
-    and cut cost without changing the art."
-policy:
-  allow_implicit_invocation: true

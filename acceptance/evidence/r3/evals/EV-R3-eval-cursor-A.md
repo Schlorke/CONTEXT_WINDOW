@@ -9,7 +9,7 @@
 ## Descoberta
 
 NÃO OBSERVÁVEL (sem log nativo de Read). META do subagente declarou:
-`C:\Temp\cw-r3\eval-pilot\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`
+`<sandbox>\eval-pilot\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`
 
 ## Seleção
 

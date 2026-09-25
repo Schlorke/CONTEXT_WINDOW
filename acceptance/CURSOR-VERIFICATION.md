@@ -24,12 +24,12 @@ Não prova:
 
 ## Kit preparado
 
-Pasta descartável `C:\Temp\cw-r3\cursor-kit`, gerada a partir do pacote avaliado na aceitação final
+Pasta descartável `<sandbox>\cursor-kit`, gerada a partir do pacote avaliado na aceitação final
 (identidade em [evidence/r3/EV-R3-cursor-kit.json](evidence/r3/EV-R3-cursor-kit.json)):
 
 | Item | Valor |
 | --- | --- |
-| Projeto | `C:\Temp\cw-r3\cursor-kit\produto` (`install --clients cursor`, `verify` passa) |
+| Projeto | `<sandbox>\cursor-kit\produto` (`install --clients cursor`, `verify` passa) |
 | Skill-sonda | `.agents/skills/cw-probe-1d78593e` |
 | Token esperado | `CW-PROBE-1D78593E` |
 | Linha-marcador | linha `Preconditions` do `Operational Contract` de `multiplatform-platform-architecture` |
@@ -38,16 +38,16 @@ Pasta descartável `C:\Temp\cw-r3\cursor-kit`, gerada a partir do pacote avaliad
 
 ## Procedimento
 
-1. No Cursor, **File > New Window** e **File > Open Folder** em `C:\Temp\cw-r3\cursor-kit\produto`.
+1. No Cursor, **File > New Window** e **File > Open Folder** em `<sandbox>\cursor-kit\produto`.
 2. Abra um chat de Agent novo, sem histórico.
 3. Envie: `Quais skills deste projeto começam com cw-probe? Siga o que essa skill pede.`
    Esperado: `cw-probe-1d78593e`, o token `CW-PROBE-1D78593E` e a pasta
-   `C:\Temp\cw-r3\cursor-kit\produto\.agents\skills\cw-probe-1d78593e`.
+   `<sandbox>\cursor-kit\produto\.agents\skills\cw-probe-1d78593e`.
 4. Envie: `Sem editar nada, cite literalmente a linha Preconditions do Operational Contract da skill
    multiplatform-platform-architecture e diga de qual arquivo ela veio.`
    Esperado: `| Preconditions | Node >= 22.13 and the pnpm version pinned in the template's
    packageManager ...` e o arquivo
-   `C:\Temp\cw-r3\cursor-kit\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`.
+   `<sandbox>\cursor-kit\produto\.agents\skills\multiplatform-platform-architecture\SKILL.md`.
 5. Registre em `acceptance/evidence/r3/EV-R3-cursor-session.md`: versão do Cursor (Help > About),
    data, as duas respostas completas e, se a interface listar as skills do projeto, uma captura.
 
@@ -58,16 +58,16 @@ usuário e o resultado é REPROVADO para o escopo de projeto.
 ## Efeitos e reversão
 
 - O Cursor grava o estado da janela no próprio perfil (histórico de pastas e `workspaceStorage`),
-  como em qualquer pasta aberta. Nada é gravado pelo Context Window fora de `C:\Temp\cw-r3`.
-- Reversão: feche a janela e apague só `C:\Temp\cw-r3\cursor-kit`.
+  como em qualquer pasta aberta. Nada é gravado pelo Context Window fora de `<sandbox>`.
+- Reversão: feche a janela e apague só `<sandbox>\cursor-kit`.
 
 ## Recriar o kit (comandos testados em 2026-09-25)
 
 ```powershell
-node scripts/cw.mjs build --out C:\Temp\cw-r3\cursor-kit\bundle
-node C:\Temp\cw-r3\cursor-kit\bundle\saas-skills\engineering\multiplatform-platform-architecture\scripts\scaffold.mjs --out C:\Temp\cw-r3\cursor-kit\produto --scope "@empresa" --name "Produto"
-git -C C:\Temp\cw-r3\cursor-kit\produto init -q
-node C:\Temp\cw-r3\cursor-kit\bundle\scripts\cw.mjs install --target C:\Temp\cw-r3\cursor-kit\produto --profile dev --clients cursor --home C:\Temp\cw-r3\cursor-kit\home
+node scripts/cw.mjs build --out <sandbox>\cursor-kit\bundle
+node <sandbox>\cursor-kit\bundle\saas-skills\engineering\multiplatform-platform-architecture\scripts\scaffold.mjs --out <sandbox>\cursor-kit\produto --scope "@empresa" --name "Produto"
+git -C <sandbox>\cursor-kit\produto init -q
+node <sandbox>\cursor-kit\bundle\scripts\cw.mjs install --target <sandbox>\cursor-kit\produto --profile dev --clients cursor --home <sandbox>\cursor-kit\home
 ```
 
 A skill-sonda é uma pasta `cw-probe-<nonce>` em `.agents/skills` com um `SKILL.md` de nome igual e

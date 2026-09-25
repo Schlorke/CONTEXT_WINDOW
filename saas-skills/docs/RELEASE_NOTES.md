@@ -1,5 +1,11 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 2.1.0 - 25 de setembro de 2026
+
+Perfil `creative` com três skills canônicas (`blender-scene-production`,
+`spline-web-scenes`, `audiovisual-production`). `imported-skills/` não foi
+apagado. Matriz: `docs/governance/IMPORTED_CANONICALIZATION_2_1.md`.
+
 ## 2.0.3 - 25 de setembro de 2026
 
 Hotfix: install concorrente no Node 24 — holder vivo sem journal → busy (3),
@@ -36,9 +42,9 @@ Resumo operacional (detalhes em `CHANGELOG.md` e em `acceptance/`):
   (LLM Council) para pressure test de planos e grandes mudanças. Cinco estilos
   de raciocínio com elenco dinâmico por projeto, peer review anônimo, advogado
   do diabo, chairman com veredito forçado e fechamento em linguagem de leigo;
-  modos FULL/FAST com degradação declarada por runtime. Origem: dor real do
-  projeto OkGas (mudanças implementadas sem antecipação de riscos de segunda
-  ordem), generalizada como skill de processo para qualquer projeto.
+  modos FULL/FAST com degradação declarada por runtime. Origem: dor recorrente
+  de mudanças implementadas sem antecipação de riscos de segunda ordem,
+  generalizada como skill de processo para qualquer projeto.
 - Registros: profile em `integrations/cursor-rule-profiles.json` v1.4.0 (sem
   globs — skill de processo, sempre-visível), entrada em
   `evals/skill-trigger-matrix.json` v1.12.0 (3 positivos, 3 negativos contra
@@ -52,8 +58,9 @@ Resumo operacional (detalhes em `CHANGELOG.md` e em `acceptance/`):
 - `engineering/multiplatform-platform-architecture` v1.0.0: skill de
   arquitetura de plataforma multiplataforma (monorepo apps/packages/products,
   FSD nos clients, API modular com leis de fronteira e 12-factor, Expo mobile,
-  auth dupla, contratos-first). Origem: consenso arquitetural do projeto OkGas
-  (ADR-061, 2026-07-28), generalizado como molde para novos projetos.
+  auth dupla, contratos-first). Origem: consenso arquitetural de produto SaaS
+  multiplataforma (ADR interno, 2026-07-28), generalizado como molde para
+  novos projetos.
 - Registros: +1 profile em `integrations/cursor-rule-profiles.json` (v1.3.0),
   +9 casos em `evals/skill-trigger-matrix.json` (v1.11.0; totais 65/61/20),
   contagens do catálogo atualizadas (20 skills).

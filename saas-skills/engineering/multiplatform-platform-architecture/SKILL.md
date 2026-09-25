@@ -135,6 +135,9 @@ accepts cookie or Bearer and yields the same session context. Never ship mobile 
 
 - Mobile native adapters (secure store, SQLite offline queue, push, background location, OTA) live
   in the mobile client or in platform-specific package variants; the product screens stay shared.
+  An offline write validates, stores locally, then queues with a stable operation id scoped to one
+  org and one user. Sync sends a bounded batch. Conflict, denial, and invalid payloads stay
+  distinct errors. The queue does not invent a second product tree.
   Kotlin/Swift modules only for a demonstrated native need, wrapped behind a typed module.
 - Desktop: default to the installed PWA; a thin Tauri shell only for a concrete OS requirement.
 

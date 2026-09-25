@@ -1,8 +1,0 @@
-interface:
-  display_name: "Spline Visual QA"
-  short_description: "Critiques Spline shots until they match"
-  default_prompt:
-    "Use $spline-visual-qa to screenshot the Spline scene, list visual gaps, fix
-    them, and re-check."
-policy:
-  allow_implicit_invocation: true

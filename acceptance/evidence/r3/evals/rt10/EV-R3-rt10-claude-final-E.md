@@ -1,6 +1,6 @@
 # Claude final E
 
-- executable: C:\Users\harry\.local\bin\claude.exe
+- executable: <user-home>\.local\bin\claude.exe
 - version: 2.1.74
 - model: claude-opus-4-6
 - cost_usd: 0.13287975
@@ -18,7 +18,7 @@ Uma exig├¬ncia concreta do contrato que ela governa:
 
 > *"New projects start with both clients running on the shared packages."*
 
-Lida do item 1 do bloco "Context Window ÔÇö mandatory product architecture contract" em `AGENTS.md` (linha que fecha o par├ígrafo de Topology). A mesma regra aparece id├¬ntica em `C:\Users\harry\.claude\CLAUDE.md`.
+Lida do item 1 do bloco "Context Window ÔÇö mandatory product architecture contract" em `AGENTS.md` (linha que fecha o par├ígrafo de Topology). A mesma regra aparece id├¬ntica em `<user-home>\.claude\CLAUDE.md`.
 
 Isso significa que, ao criar o produto, o scaffold j├í deve entregar `apps/clients/web` (Next.js) e `apps/clients/mobile` (Expo) consumindo `packages/frontend`, `packages/ui` e `packages/design-tokens` ÔÇö n├úo se come├ºa s├│ com web para "adicionar mobile depois".
 ---
