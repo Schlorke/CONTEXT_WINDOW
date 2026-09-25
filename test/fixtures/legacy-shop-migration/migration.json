@@ -1,0 +1,12 @@
+{
+  "removeFromTemplate": [
+    "packages/frontend/src/entities/product",
+    "packages/frontend/src/features/toggle-favorite",
+    "packages/frontend/src/widgets/product-highlight",
+    "packages/frontend/src/pages/home"
+  ],
+  "vitestInclude": [
+    "packages/**/*.test.{ts,tsx}",
+    "characterization/**/*.test.tsx"
+  ]
+}

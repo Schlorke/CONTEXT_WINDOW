@@ -1,0 +1,71 @@
+{
+  "at": "2026-09-25T03:46:59.525Z",
+  "node": "v25.2.1",
+  "results": [
+    {
+      "label": "build distributable bundle",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "scaffold product from template",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "git init (a product is its own repository)",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "plan (no writes)",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "install library from bundle",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "verify installation",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "doctor --strict",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "pnpm install",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "pnpm verify (arch, typecheck web+native, tests, next build, expo export android+ios)",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "pnpm check:tokens (token reaches both clients)",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "deliberate upward import (feature -> widget) fails the gate",
+      "exit": 1,
+      "ok": true
+    },
+    {
+      "label": "gate passes again after revert",
+      "exit": 0,
+      "ok": true
+    },
+    {
+      "label": "uninstall --dry-run",
+      "exit": 0,
+      "ok": true
+    }
+  ]
+}

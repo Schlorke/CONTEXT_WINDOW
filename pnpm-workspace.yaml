@@ -1,0 +1,11 @@
+# This repository is its own pnpm workspace root, so installing a clone or copy never climbs to a
+# pnpm-workspace.yaml in a parent directory (for example a home directory that is a workspace).
+packages:
+  - "."
+
+# pnpm 12 settings (pnpm >= 11 reads only auth and registry settings from .npmrc).
+# "pnpm run" / "pnpm exec" fail instead of installing when node_modules is out of date.
+verifyDepsBeforeRun: error
+# No dependency of this repository needs a build script; any new one must be reviewed here.
+strictDepBuilds: true
+allowBuilds: {}

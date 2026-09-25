@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Camera"
+  short_description: "Frames Spline 3D without fighting UI"
+  default_prompt:
+    "Use $spline-camera-composition to frame the Spline shot so the website
+    headline still reads."
+policy:
+  allow_implicit_invocation: true

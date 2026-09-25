@@ -1,329 +1,94 @@
-# IDE RUNTIME GUIDE
-
-Guia operacional para instalar `saas-skills` corretamente em Codex, Claude e Cursor.
-
-**Objetivo:** transformar a biblioteca canônica em runtimes reais por plataforma, com instalação segura e validação sem tocar no código do projeto-alvo.
-
-## Regra Central
-
-Não existe hoje um formato único de "skill" que qualquer IDE consuma da mesma forma.
-
-Para esta biblioteca, a estratégia correta é:
-
-- **fonte de verdade:** `saas-skills/`
-- **política de update:** edite `saas-skills/` e sincronize; não edite cópias instaladas
-- **runtime Codex:** `$CODEX_HOME/skills/<skill>/SKILL.md`
-- **runtime Claude:** `.claude/skills/<skill>/SKILL.md` ou `~/.claude/skills/<skill>/SKILL.md`
-- **runtime Cursor por projeto:** `.cursor/rules/*.mdc`
-- **compatibilidade global do Cursor:** `~/.cursor/rules/*.mdc`
-- **bootstrap global oficial do Cursor:** `Cursor Settings > Rules`
-
-Ou seja, a biblioteca precisa de adapters por ambiente.
-
-Cada runtime gerenciado recebe `.saas-skills-manifest.json`. Esse manifest registra a versão instalada e permite verificar se uma instância ficou desatualizada em relação à fonte atual.
-
-Se você quiser obrigar o agente a declarar quais skills usou em cada tarefa, aplique também a política de disclosure do projeto:
-
-- `AGENTS.md` para Codex
-- `CLAUDE.md` para Claude
-- `.cursor/rules/skill-usage-reporting.mdc` para Cursor
-
-## Codex
-
-O `skill-installer` nativo da Codex instala skills em:
-
-```text
-$CODEX_HOME/skills/<skill>/SKILL.md
-```
-
-Na prática:
-
-- se `CODEX_HOME` estiver definido, o destino é `<CODEX_HOME>/skills/`
-- caso contrário, o padrão é `~/.codex/skills/`
-
-Ponto importante:
-
-- esse mecanismo resolve apenas a instalação da própria Codex
-- ele não gera `.cursor/rules/`
-- ele não instala `.claude/skills/` dentro do projeto
-
-## Claude
-
-Claude Code usa skills em:
-
-```text
-.claude/skills/<skill-name>/SKILL.md
-```
-
-e também suporta skills pessoais em:
-
-```text
-~/.claude/skills/<skill-name>/SKILL.md
-```
-
-Pontos importantes:
-
-- as skills precisam ficar como diretórios imediatos dentro de `.claude/skills/`
-- copiar a árvore canônica inteira com coleções (`frontend/`, `backend/`) para dentro de `.claude/skills/` não é o modo recomendado de runtime
-- **escolha UM escopo para a biblioteca genérica** — recomendado: global
-  (`~/.claude/skills`), reservando `.claude/skills/` do projeto para skills
-  específicas do projeto. Instalar nos dois escopos dobra a lista de skills que
-  o modelo vê, encurta as descriptions pelo orçamento de listagem e degrada o
-  disparo automático. O instalador e o `verify` avisam quando detectam
-  duplicação.
-- o disparo automático do Claude é julgamento do modelo sobre
-  `description`/`when_to_use` (não há `globs` determinístico nativo); o campo
-  `paths:` no frontmatter apenas **restringe a visibilidade** da skill a
-  sessões que tocam arquivos casando o glob — bom para skills de nicho, ruim
-  para skills obrigatórias (ficam invisíveis no momento do prompt)
-- para uma camada determinística equivalente ao `alwaysApply`/`globs` do
-  Cursor, instale o hook de roteamento: `pnpm install:claude-hook -- <dir>`
-  (gera `.claude/hooks/skill-router.mjs` + `.claude/skill-routing.json` a
-  partir dos profiles e registra os hooks em `.claude/settings.json`)
-
-Por isso, para Claude, o caminho mais seguro é usar o instalador do repositório
-(global para a biblioteca + hook por projeto).
-
-## Cursor
-
-Cursor usa regras em:
-
-```text
-.cursor/rules/*.mdc
-```
-
-Como compatibilidade global neste repositório, as rules também podem ser materializadas em:
-
-```text
-~/.cursor/rules/*.mdc
-```
-
-Pontos importantes:
-
-- `.cursor/skills/` não é o runtime oficial do Cursor
-- o runtime real do Cursor é `.cursor/rules/`
-- algumas regras funcionam melhor como **Agent Requested**
-- outras podem ser **Auto Attached** quando existe um conjunto de `globs` bem definido
-- a documentação oficial do Cursor descreve `User Rules` globais na interface
-- por isso, neste repositório, `~/.cursor/rules/` é tratado como export de compatibilidade e não como equivalente perfeito da UI
-- para o caminho global oficialmente alinhado, use também `pnpm export:cursor-user-rules` e cole o bootstrap em `Cursor Settings > Rules`
-
-Nesta biblioteca, o adapter de Cursor é gerado a partir de:
-
-- [cursor-rule-profiles.json](../../integrations/cursor-rule-profiles.json)
-
-## Instalador Unificado
-
-Se você quer um único comando que qualquer agente possa executar para instalar nos três destinos corretos, use:
-
-```bash
-pnpm install:agent-runtimes -- <target-dir>
-pnpm verify:agent-runtimes -- <target-dir>
-```
-
-Equivalente portátil:
-
-```bash
-node scripts/install-agent-runtimes.mjs <target-dir>
-node scripts/verify-agent-runtimes.mjs <target-dir>
-```
-
-Esse fluxo instala:
-
-- Codex em `$CODEX_HOME/skills/`
-- Claude em `<target-dir>/.claude/skills/`
-- Cursor em `<target-dir>/.cursor/rules/`
-
-Se você quiser instalar também as versões globais de Claude e Cursor:
-
-```bash
-pnpm install:agent-runtimes -- <target-dir> --global-all
-pnpm verify:agent-runtimes -- <target-dir> --global-all
-pnpm export:cursor-user-rules
-```
-
-Se você quiser apenas os runtimes globais:
-
-```bash
-pnpm install:global-runtimes
-pnpm verify:global-runtimes
-pnpm export:cursor-user-rules
-```
-
-## Modos Úteis
-
-### Apenas projeto
-
-```bash
-pnpm install:agent-runtimes -- . --project-only
-pnpm verify:agent-runtimes -- . --project-only
-```
-
-### Apenas Codex
-
-```bash
-pnpm install:agent-runtimes -- . --codex-only
-pnpm verify:agent-runtimes -- . --codex-only
-```
-
-### Apenas Claude
-
-```bash
-pnpm install:agent-runtimes -- . --claude-only
-pnpm verify:agent-runtimes -- . --claude-only
-```
-
-### Apenas Cursor
-
-```bash
-pnpm install:agent-runtimes -- . --cursor-only
-pnpm verify:agent-runtimes -- . --cursor-only
-```
-
-### Apenas globais
-
-```bash
-pnpm install:global-runtimes
-pnpm verify:global-runtimes
-pnpm export:cursor-user-rules
-```
-
-### Status e sincronização
-
-```bash
-pnpm status:agent-runtimes -- .
-pnpm status:global-runtimes
-
-pnpm sync:agent-runtimes -- .
-pnpm sync:global-runtimes
-```
-
-Use `status` para descobrir quais runtimes estão `current`, `outdated`, `missing` ou `foreign`.
-Use `sync` para reaplicar a versão atual de `saas-skills/` nos runtimes desejados.
-Se o escopo incluir Cursor global, regenere também `pnpm export:cursor-user-rules` e atualize o texto colado em `Cursor Settings > Rules` quando o bootstrap mudar.
-
-## Política de Disclosure das Skills Usadas
-
-Para exigir que o agente informe no final da tarefa quais skills realmente foram usadas, rode:
-
-```bash
-pnpm install:skill-usage-reporting -- .
-pnpm verify:skill-usage-reporting -- .
-```
-
-Esse fluxo instala a política em:
-
-- `AGENTS.md`
-- `CLAUDE.md`
-- `.cursor/rules/skill-usage-reporting.mdc`
-
-Formato exigido:
-
-```text
-Skills Used
-- <skill-name>: <short reason>
-```
-
-Se nenhuma skill foi usada:
-
-```text
-Skills Used: none
-```
-
-## Smoke Seguro dos Runtimes Globais
-
-Se você quer validar o fluxo completo sem mexer nas instalações reais do usuário, use homes isolados:
-
-```bash
-pnpm install:agent-runtimes -- . --global-all --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
-pnpm verify:agent-runtimes -- . --global-all --codex-home .agent-runtime-smoke/codex-home --claude-home .agent-runtime-smoke/claude-home --cursor-home .agent-runtime-smoke/cursor-home
-```
-
-Isso é útil para:
-
-- smoke tests
-- CI local
-- validação por agentes
-- testes em repositório de terceiros
-
-## Fluxo Seguro Recomendado
-
-Use este fluxo quando quiser instalar a biblioteca sem comprometer o projeto:
-
-1. Rode instalação em modo `dry-run`.
-2. Confirme que só serão tocadas pastas `.claude/`, `.cursor/` e, se aplicável, o `CODEX_HOME` escolhido.
-3. Rode a instalação real com homes isolados.
-4. Rode a verificação estrutural.
-5. Rode `status` para confirmar se a sandbox está `current`.
-6. Execute smoke tests que peçam apenas análise, plano ou especificação.
-7. Se tudo estiver bom, repita sem os homes isolados para instalar nos runtimes reais.
-
-## Smoke Test Sem Impacto no Projeto
-
-Depois de instalar, valide com prompts que não pedem edição.
-
-Exemplos:
-
-- Backend:
-  `Analyze how you would design the invoices API in this repo with auth, validation, and pagination. Do not edit files.`
-- Frontend:
-  `Explain how you would organize the shared React layers and feature folders for this repo. Do not edit files.`
-- Documentation:
-  `Propose a README, AGENTS.md, and ADR structure for this repository. Do not edit files.`
-- Testing:
-  `Define the testing pyramid and tooling stack you would apply to this repo. Do not edit files.`
-
-Critério de aprovação:
-
-- a resposta foca no domínio certo
-- a resposta cobre os elementos mínimos daquela skill
-- a resposta não mistura de forma caótica duas ou três skills vizinhas
-
-## Quando Considerar que "Funcionou"
-
-Considere a instalação funcional quando:
-
-- `pnpm verify:agent-runtimes` passar
-- `pnpm status:agent-runtimes` ou `pnpm status:global-runtimes` mostrar `current`
-- Codex encontrar as skills em `$CODEX_HOME/skills/`
-- Claude encontrar as skills em `.claude/skills/` ou `~/.claude/skills/`
-- Cursor carregar as regras geradas em `.cursor/rules/`
-- se o escopo for Cursor global, o export de compatibilidade existir em `~/.cursor/rules/` e o bootstrap `CURSOR_USER_RULES.md` ter sido gerado para `Settings > Rules`
-- smoke tests sem edição mostrarem comportamento coerente com a skill esperada
-
-## O Que Esta Estratégia Evita
-
-Ela evita:
-
-- usar o `skill-installer` da Codex como se ele instalasse também Claude e Cursor
-- instalar a árvore errada em `.claude/skills/`
-- depender de `.cursor/skills/` como se fosse runtime nativo
-- tratar `~/.cursor/rules/` como se fosse garantia de exibição na UI do Cursor
-- tocar no código da aplicação para apenas validar a biblioteca
-- misturar fonte de verdade com adapters específicos por plataforma
-- deixar uma IA atualizada e as outras desatualizadas sem detecção
-
-## Referências Operacionais
-
-- Cursor Rules oficial: [docs.cursor.com/en/context/rules](https://docs.cursor.com/en/context/rules)
-- Claude Skills oficial: [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills)
-- Skill Installer da Codex: comportamento observado no skill nativo `skill-installer` da própria Codex, que instala em `$CODEX_HOME/skills`
-
-## Troubleshooting
-
-- **Cursor não aplicou a library:** confirme que os arquivos foram para `.cursor/rules/` ou `~/.cursor/rules/`, não para `.cursor/skills/`.
-- **As rules globais do Cursor não apareceram na interface:** isso não invalida o export de compatibilidade. Gere `pnpm export:cursor-user-rules` e cole o bootstrap em `Cursor Settings > Rules`.
-- **Claude não encontrou a skill:** confirme que existe uma pasta imediata por skill em `.claude/skills/` ou `~/.claude/skills/`.
-- **Só a Codex recebeu as skills:** isso acontece quando o fluxo usou apenas o `skill-installer` nativo da Codex.
-- **Atualizei uma cópia instalada e as outras IAs não acompanharam:** o fluxo correto é editar `saas-skills/` e rodar `sync`.
-- **Não sei qual runtime está atrasado:** rode `pnpm status:agent-runtimes -- <target-dir>` ou `pnpm status:global-runtimes`.
-- **Você quer testar sem tocar no ambiente real:** rode o instalador com `--codex-home`, `--claude-home` e `--cursor-home`.
-- **Não sabe se usa projeto ou global:** projeto para escopo local; global para disponibilizar em todos os repositórios do usuário.
-- **O agente quer editar o app para “testar”:** isso é erro de fluxo; a validação correta é estrutural + smoke prompt sem edição.
-
-## Documentos Relacionados
-
-- [README.md](../../README.md)
-- [CURSOR_USER_RULES_GUIDE.md](CURSOR_USER_RULES_GUIDE.md)
-- [PORTABILITY_MATRIX.md](PORTABILITY_MATRIX.md)
-- [TARGET_REPO_AGENT_GUIDE.md](TARGET_REPO_AGENT_GUIDE.md)
+# Guia de runtime dos clientes (Claude Code, Codex, Cursor)
+
+Como cada cliente descobre skills e instruções, o que o `cw` instala para cada um e o que foi
+comprovado, com versão. "Comprovado" significa executado com o binário real, em perfil isolado e sem
+chamada de modelo; "documentado" significa só a documentação oficial; "não verificado" fica escrito
+como tal.
+
+## Matriz
+
+| | Claude Code | Codex | Cursor |
+| --- | --- | --- | --- |
+| Skills do projeto | `.claude/skills/<id>/SKILL.md` | `.agents/skills/<id>/SKILL.md` (do diretório atual até a raiz do repositório) | `.agents/skills`, `.cursor/skills`; compatibilidade: `.claude/skills`, `.codex/skills` |
+| Skills do usuário | `$CLAUDE_CONFIG_DIR/skills` ou `~/.claude/skills` | `~/.agents/skills`; legado `$CODEX_HOME/skills` e `~/.codex/skills` | `~/.agents/skills`, `~/.cursor/skills`; compatibilidade: `~/.claude/skills`, `~/.codex/skills` |
+| Instruções do projeto | `CLAUDE.md` (o `cw` grava `@AGENTS.md`) | `AGENTS.md` | `AGENTS.md` e `CLAUDE.md` |
+| Instruções do usuário | `$CLAUDE_CONFIG_DIR/CLAUDE.md` | `$CODEX_HOME/AGENTS.md` | Cursor Settings > Rules (colar à mão) |
+| Só invocação explícita | `disable-model-invocation: true` | `agents/openai.yaml` → `policy.allow_implicit_invocation: false` | segue o frontmatter |
+| Onde o `cw` grava | `.claude/skills` | `.agents/skills` | usa a cópia do Claude quando ele também foi escolhido; senão `.agents/skills` |
+
+## O que foi comprovado (2026-09-24, Windows 11, Node.js 25.2.1)
+
+| Cliente e versão | Prova | Resultado |
+| --- | --- | --- |
+| Codex CLI 0.147.0-alpha.1.2 (extensão ChatGPT 26.5730.61309) | `codex debug prompt-input` com `CODEX_HOME` isolado | as 20 skills automáticas do perfil `dev` aparecem na raiz `.agents/skills` do projeto; a skill explícita não aparece; os blocos do `AGENTS.md` do projeto e o `$CODEX_HOME/AGENTS.md` chegam ao prompt; o texto do time no `AGENTS.md` é preservado |
+| Codex CLI 0.147.0-alpha.1.2 | skill de teste em `$CODEX_HOME/skills` | o local legado continua sendo lido; cópias 1.x ali seguem visíveis até a migração |
+| Claude Code 2.1.74 | `claude -p` sem credenciais, `CLAUDE_CONFIG_DIR` isolado (custo 0, sem chamada de API) | 21 skills do projeto descobertas; o mesmo no escopo de usuário; `disable-model-invocation` retira exatamente uma skill da lista enviada ao modelo; o hook `UserPromptSubmit` injeta contexto para prompt correspondente e fica calado para prompt neutro |
+| Cursor 3.22.7 | observação da própria sessão do IDE | lê `~/.claude/skills`, `~/.codex/skills` e `~/.agents/skills`; quando o mesmo nome existe em mais de um lugar, mostra uma só cópia. As cópias vistas eram anteriores à 2.0: isso mostra os locais lidos, não a distribuição 2.0 |
+
+Os testes que repetem essas provas estão em `test/clients.test.mjs` e rodam quando o binário existe.
+O Codex é procurado em `CW_CODEX_BIN`, no `PATH` e na extensão ChatGPT do editor
+(`~/.cursor/extensions/openai.chatgpt-*/bin/<plataforma>/codex`, também em `~/.vscode`); o Claude
+Code em `CW_CLAUDE_BIN` e no `PATH`.
+
+Em 2026-09-25 as mesmas provas de Codex e Claude foram repetidas em um produto gerado a partir do
+pacote final (`pnpm acceptance`, etapas A13a e A13b): o Codex listou as 20 skills automáticas na
+raiz `.agents/skills` do produto e o Claude Code carregou 21 skills do projeto, com custo 0.
+Descoberta não é aplicação: nenhuma dessas provas mostra o modelo usando a skill.
+
+## Não verificado
+
+- Descoberta de skills de **projeto** pelo Cursor: o CLI `cursor-agent` 2026.09.08 exige a API
+  antes de listar qualquer coisa, e não houve autorização para chamadas autenticadas. O roteiro
+  para uma sessão nova do IDE, com uma skill-sonda de nome único cuja origem é identificável, está
+  em `acceptance/CURSOR-VERIFICATION.md`.
+- Descoberta de skills do **usuário** pelo Codex em perfil isolado: o Codex usa a pasta do perfil
+  do sistema operacional mesmo com `HOME`/`USERPROFILE` trocados, então o teste não pode ser feito
+  sem tocar no perfil real. O caminho `~/.agents/skills` aparece como raiz no prompt (lido, não
+  escrito).
+- Invocação explícita (`$skill` no Codex, `/skill` no Claude) de uma skill só explícita: exige
+  chamada de modelo.
+- User Rules do Cursor: o texto é gerado por `contract --format cursor-user-rules`; colar e
+  conferir é manual.
+- Linux e macOS: a CI em `.github/workflows/qa.yml` cobre Ubuntu e Windows (biblioteca) e Ubuntu
+  (aceitação sem os clientes de IA), mas não foi executada neste ciclo (sem push).
+- Aplicação de uma skill pelo modelo em qualquer um dos três clientes: exige avaliação com chamada
+  de modelo, que depende de autorização e orçamento.
+
+## Duplicatas entre escopos (ACH-011)
+
+Os três clientes leem o projeto e o usuário ao mesmo tempo. O Codex mostra as duas cópias quando o
+nome se repete; o Claude aplica precedência (usuário sobre projeto); o Cursor mostra uma. Uma cópia
+antiga em qualquer um desses lugares pode, portanto, vencer a nova.
+
+Tratamento:
+
+1. Instale a biblioteca em um só escopo por cliente.
+2. O `cw` grava uma cópia por destino (Claude e Cursor dividem `.claude/skills`), com manifest e
+   hash por arquivo; `verify` confere cada uma.
+3. `doctor` percorre todas as pastas que cada cliente lê — incluindo os locais legados do Codex —,
+   lista cópias com o mesmo nome e marca as divergentes; é somente leitura.
+4. Instalações 1.x (`.saas-skills-manifest.json`) bloqueiam a instalação até `--migrate-legacy` ou
+   `--keep-legacy`.
+
+## Contexto carregado
+
+Medido com o tokenizador `o200k_base` sobre uma instalação real do perfil `dev`:
+
+| Parte | Quando entra | Tokens |
+| --- | --- | --- |
+| Contrato + política de uso no `AGENTS.md` | sempre | 730 |
+| Lista de skills (nome + descrição, 20 automáticas) | sempre, montada pelo cliente | 1.179 |
+| Corpo de uma skill (`SKILL.md`) | quando a tarefa ativa a skill | 2.115 a 3.674 |
+| Referências | só quando a skill pede | sob demanda |
+
+Uma tarefa típica (contrato + lista + uma skill) fica entre 4.024 e 5.583 tokens. O Claude Code
+reserva para a lista inteira cerca de 1% da janela de contexto (≈ 2.000 tokens numa janela de 200 mil,
+dividida com outras skills); a biblioteca ocupa ≈ 1.200. Os testes limitam o texto sempre ativo a
+4.096 bytes e a lista a 7.200 bytes.
+
+## Referências oficiais
+
+- Cursor: <https://cursor.com/docs/skills.md>, <https://cursor.com/docs/rules.md>
+- Claude Code: <https://code.claude.com/docs/en/skills.md>, <https://code.claude.com/docs/en/hooks>
+- Codex: <https://developers.openai.com/codex/skills>, <https://github.com/openai/codex/issues/14337>
+- Especificação Agent Skills: <https://agentskills.io/specification>

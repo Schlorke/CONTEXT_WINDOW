@@ -1,0 +1,105 @@
+{
+ "file": "dist/global-runtime-validation-20260413/codex-home/auth.json",
+ "exists": true,
+ "stat": {
+  "size": 4360,
+  "mtime": "2026-04-05T13:31:12.537Z",
+  "birthtime": "2026-04-13T15:07:15.243Z"
+ },
+ "jsonShape": {
+  "auth_mode": "string(non-empty)",
+  "OPENAI_API_KEY": "null",
+  "tokens": {
+   "id_token": "string(non-empty)",
+   "access_token": "string(non-empty)",
+   "refresh_token": "string(non-empty)",
+   "account_id": "string(non-empty)"
+  },
+  "last_refresh": "string(non-empty)"
+ },
+ "authMode": "chatgpt",
+ "apiKeyPresent": false,
+ "oauthTokensPresent": true,
+ "siblings": [
+  {
+   "name": ".tmp",
+   "type": "dir",
+   "mtime": "2026-04-13T15:07:19.626Z"
+  },
+  {
+   "name": "auth.json",
+   "type": "file",
+   "size": 4360,
+   "mtime": "2026-04-05T13:31:12.537Z"
+  },
+  {
+   "name": "cache",
+   "type": "dir",
+   "mtime": "2026-04-13T15:07:19.711Z"
+  },
+  {
+   "name": "cap_sid",
+   "type": "file",
+   "size": 311,
+   "mtime": "2026-04-12T22:54:16.605Z"
+  },
+  {
+   "name": "installation_id",
+   "type": "file",
+   "size": 36,
+   "mtime": "2026-04-11T22:40:34.440Z"
+  },
+  {
+   "name": "memories",
+   "type": "dir",
+   "mtime": "2026-04-13T15:05:26.946Z"
+  },
+  {
+   "name": "models_cache.json",
+   "type": "file",
+   "size": 235392,
+   "mtime": "2026-04-13T15:07:22.122Z"
+  },
+  {
+   "name": "skills",
+   "type": "dir",
+   "mtime": "2026-04-13T15:06:43.142Z"
+  },
+  {
+   "name": "tmp",
+   "type": "dir",
+   "mtime": "2026-04-13T15:05:26.941Z"
+  }
+ ],
+ "git": {
+  "tracked": false,
+  "inIndex": false,
+  "ignoredBy": ".gitignore:3:dist/ dist/global-runtime-validation-20260413/codex-home/auth.json",
+  "commitsTouchingPath": [],
+  "commitsTouchingDirAnyTime": [],
+  "anyDistPathInHistory": 0,
+  "objectsNamedAuthJsonInHistory": 0,
+  "stashes": 0
+ },
+ "canonical": {
+  "path": "%USERPROFILE%\\.codex\\auth.json",
+  "exists": true,
+  "stat": {
+   "size": 3948,
+   "mtime": "2026-09-15T05:59:14.899Z",
+   "birthtime": "2026-04-05T13:31:12.536Z"
+  },
+  "sameBytesAsCopy": false,
+  "sameShapeAsCopy": true,
+  "sameRefreshToken": false,
+  "sameAccountId": true,
+  "sameLastRefresh": false
+ },
+ "filesNamedLikeCredentials": [
+  {
+   "path": "C:\\Projetos\\Context_Window\\dist\\global-runtime-validation-20260413\\codex-home\\auth.json",
+   "size": 4360,
+   "identicalToCopy": true
+  }
+ ]
+}

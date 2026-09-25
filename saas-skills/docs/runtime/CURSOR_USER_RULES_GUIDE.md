@@ -1,127 +1,32 @@
-# CURSOR USER RULES GUIDE
+# Cursor User Rules
 
-Guia específico para o ponto mais confuso do runtime do Cursor: a diferença entre `Project Rules`, `User Rules` e o export de compatibilidade desta biblioteca.
-
-## Regra Curta
-
-Para o Cursor, trate assim:
-
-- runtime oficial por projeto: `.cursor/rules/*.mdc`
-- superfície global oficialmente documentada: `Cursor Settings > Rules`
-- export de compatibilidade deste repositório: `~/.cursor/rules/*.mdc`
-
-Ou seja: o global do Cursor não é equivalente a Codex e Claude.
-
-## O Que Este Repositório Faz
-
-Quando você roda:
+O Cursor guarda as User Rules nas configurações do aplicativo, não em arquivo. Para que o contrato
+de arquitetura (e, se desejado, a política `Skills Used`) valha em todos os projetos abertos no
+Cursor, gere o texto e cole-o em **Cursor Settings > Rules**.
 
 ```bash
-pnpm install:cursor-global
+node scripts/cw.mjs contract --format cursor-user-rules --with-usage-policy
 ```
 
-o projeto faz duas coisas:
+A primeira linha traz a versão da biblioteca e um hash curto do texto
+(`Context Window contract v2.0.0 sha256=…`). Depois de atualizar a biblioteca, gere de novo e
+compare com o que está colado; se o hash mudou, substitua o texto.
 
-1. materializa as rules geradas em `~/.cursor/rules/*.mdc`
-2. grava um arquivo auxiliar `~/.cursor/rules/CURSOR_USER_RULES.md`
+## Precedência
 
-Esse arquivo auxiliar existe para ser o texto pronto de bootstrap do Cursor global.
+As regras do projeto (`AGENTS.md`, `.cursor/rules`) vêm antes das User Rules. Em um repositório
+com a biblioteca instalada (`install --target`), o bloco `context-window:contract` do `AGENTS.md`
+já traz o mesmo contrato; as User Rules cobrem repositórios que ainda não têm instalação.
 
-## O Que Ainda É Manual
+## O que não usar
 
-O repositório **não edita as configurações internas do Cursor**.
+- `~/.cursor/rules/*.mdc` como substituto das User Rules: esses arquivos ficam na máquina, não
+  sincronizam e não aparecem como User Rules.
+- Regras `.mdc` geradas com o corpo inteiro de cada skill: as skills já são descobertas pelo
+  Cursor em `.agents/skills` e `.claude/skills` e carregadas sob demanda.
 
-Então, para ter o caminho global mais alinhado com a documentação oficial do Cursor, faça também:
+## Limites
 
-```bash
-pnpm export:cursor-user-rules
-```
-
-Depois:
-
-1. abra `dist/cursor-user-rules/CURSOR_USER_RULES.md`
-2. copie o conteúdo
-3. cole em `Cursor Settings > Rules`
-
-## Fluxo Recomendado
-
-### Projeto atual
-
-Quando você quer comportamento confiável neste repositório:
-
-```bash
-pnpm install:cursor -- .
-pnpm verify:cursor -- .
-```
-
-Se as skills completas já estiverem instaladas globalmente em Claude/Codex e o
-projeto limitar o contexto do Cursor, prefira stubs curtos:
-
-```bash
-pnpm install:cursor -- . --cursor-project-stubs
-pnpm verify:cursor -- . --cursor-project-stubs
-```
-
-Sem a flag, o projeto recebe rules completas. Com a flag, cada rule serve como
-gatilho e aponta para a skill global, preservando as regras locais como fonte de
-verdade e evitando que dezenas de corpos genéricos entrem no contexto do repo.
-
-### Global com compatibilidade + bootstrap oficial
-
-Quando você quer preparar o Cursor para todos os projetos:
-
-```bash
-pnpm install:cursor-global
-pnpm verify:cursor-global
-pnpm export:cursor-user-rules
-```
-
-Depois cole o bootstrap exportado em `Cursor Settings > Rules`.
-
-### Update correto
-
-Quando a biblioteca mudar:
-
-```bash
-pnpm sync:cursor-global
-pnpm verify:cursor-global
-pnpm export:cursor-user-rules
-```
-
-Se o bootstrap gerado mudar, recoloque o texto atualizado em `Cursor Settings > Rules`.
-
-## O Que `verify` e `status` Conseguem Provar
-
-Eles conseguem provar:
-
-- que os arquivos gerados existem em `~/.cursor/rules/`
-- que o manifest está atualizado
-- que o bootstrap `CURSOR_USER_RULES.md` foi gerado
-
-Eles **não conseguem provar**:
-
-- que você colou o bootstrap nas configurações do Cursor
-- que a UI do Cursor exibiu essas regras globais
-- que o Cursor tratou a configuração global exatamente como trataria uma `User Rule` criada manualmente na interface
-
-## Por Que Não Jogar Tudo em User Rules
-
-Não é uma boa ideia colar o corpo completo das `19` skills nas `User Rules` globais do Cursor.
-
-Isso piora:
-
-- custo de contexto
-- ruído em tarefas simples
-- ativação excessiva
-- manutenção
-
-Por isso o export global do Cursor é um **bootstrap curto**, enquanto o runtime detalhado continua em `.cursor/rules/*.mdc`.
-
-## Resumo
-
-Se houver dúvida:
-
-- quer garantia por projeto: use `.cursor/rules/`
-- quer preparar o global do Cursor: use `install:cursor-global` **e** `export:cursor-user-rules`
-- quer prova estrutural: use `verify:cursor-global`
-- quer comportamento oficial na UI: cole o bootstrap em `Cursor Settings > Rules`
+Colar e conferir o texto é manual; o `cw` não lê as configurações do Cursor. Instalações 1.x que
+geraram `~/.cursor/rules` ou `.cursor/rules` são apontadas por `doctor` e removidas com
+`--migrate-legacy`.

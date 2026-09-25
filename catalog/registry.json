@@ -1,0 +1,2355 @@
+{
+  "schema": "context-window/registry@1",
+  "library": "context-window/saas-skills",
+  "$comment": "Hand-maintained source of truth for identity, status, origin, profiles and invocation of every SKILL.md package in this repository. Content lives in the SKILL.md packages. Only status=active is distributed.",
+  "roots": {
+    "canonical": "saas-skills",
+    "imported": "imported-skills"
+  },
+  "profiles": {
+    "dev": {
+      "description": "Product engineering skills (frontend FSD, multiplatform, backend, AI, testing, docs).",
+      "contract": true
+    },
+    "creative": {
+      "description": "Creative/media skills (video, 3D, motion). Empty until imported items are reviewed and promoted.",
+      "contract": false
+    }
+  },
+  "skills": [
+    {
+      "id": "art-direction",
+      "path": "imported-skills/criativos/art-direction",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "audiovisual-debugging",
+      "path": "imported-skills/criativos/audiovisual-debugging",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "b2b-tech-video",
+      "path": "imported-skills/criativos/b2b-tech-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-to-resolve",
+      "path": "imported-skills/criativos/blender-to-resolve",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "brand-video",
+      "path": "imported-skills/criativos/brand-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "cinematic-editing",
+      "path": "imported-skills/criativos/cinematic-editing",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "color-grading",
+      "path": "imported-skills/criativos/color-grading",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "commercial-editor",
+      "path": "imported-skills/criativos/commercial-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "content-script",
+      "path": "imported-skills/criativos/content-script",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "creative-video-orchestrator",
+      "path": "imported-skills/criativos/creative-video-orchestrator",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "davinci-mcp-operator",
+      "path": "imported-skills/criativos/davinci-mcp-operator",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "davinci-resolve-editor",
+      "path": "imported-skills/criativos/davinci-resolve-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "design-system-import",
+      "path": "imported-skills/criativos/design-system-import",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "fairlight-audio",
+      "path": "imported-skills/criativos/fairlight-audio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "fusion-vfx",
+      "path": "imported-skills/criativos/fusion-vfx",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "hook-retention",
+      "path": "imported-skills/criativos/hook-retention",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "instagram-delivery",
+      "path": "imported-skills/criativos/instagram-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "logical-solution-video-director",
+      "path": "imported-skills/criativos/logical-solution-video-director",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "media-ingest",
+      "path": "imported-skills/criativos/media-ingest",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "motion-3d",
+      "path": "imported-skills/criativos/motion-3d",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "motion-design",
+      "path": "imported-skills/criativos/motion-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "presenter-audio",
+      "path": "imported-skills/criativos/presenter-audio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "quality-control",
+      "path": "imported-skills/criativos/quality-control",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-best-practices",
+      "path": "imported-skills/criativos/remotion-best-practices",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-captions",
+      "path": "imported-skills/criativos/remotion-captions",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-docs",
+      "path": "imported-skills/criativos/remotion-docs",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-markup",
+      "path": "imported-skills/criativos/remotion-markup",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-multimedia",
+      "path": "imported-skills/criativos/remotion-multimedia",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-render",
+      "path": "imported-skills/criativos/remotion-render",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "remotion-studio",
+      "path": "imported-skills/criativos/remotion-studio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "render-delivery",
+      "path": "imported-skills/criativos/render-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "saas-product-video",
+      "path": "imported-skills/criativos/saas-product-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "screen-recording-editor",
+      "path": "imported-skills/criativos/screen-recording-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "screencast-edit",
+      "path": "imported-skills/criativos/screencast-edit",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "social-video",
+      "path": "imported-skills/criativos/social-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "sound-design",
+      "path": "imported-skills/criativos/sound-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "still-images",
+      "path": "imported-skills/criativos/still-images",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "storytelling",
+      "path": "imported-skills/criativos/storytelling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "studio-router",
+      "path": "imported-skills/criativos/studio-router",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "subtitles-accessibility",
+      "path": "imported-skills/criativos/subtitles-accessibility",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "video-editing-director",
+      "path": "imported-skills/criativos/video-editing-director",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "visual-review",
+      "path": "imported-skills/criativos/visual-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "web-video-delivery",
+      "path": "imported-skills/criativos/web-video-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-animation",
+      "path": "imported-skills/logical-solution/blender-animation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-camera",
+      "path": "imported-skills/logical-solution/blender-camera",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-debug",
+      "path": "imported-skills/logical-solution/blender-debug",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-lighting",
+      "path": "imported-skills/logical-solution/blender-lighting",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-master",
+      "path": "imported-skills/logical-solution/blender-master",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-materials",
+      "path": "imported-skills/logical-solution/blender-materials",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-modeling",
+      "path": "imported-skills/logical-solution/blender-modeling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-rendering",
+      "path": "imported-skills/logical-solution/blender-rendering",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-rigging",
+      "path": "imported-skills/logical-solution/blender-rigging",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-scene-inspection",
+      "path": "imported-skills/logical-solution/blender-scene-inspection",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-visual-qa",
+      "path": "imported-skills/logical-solution/blender-visual-qa",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "blender-web3d",
+      "path": "imported-skills/logical-solution/blender-web3d",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-animation",
+      "path": "imported-skills/logical-solution/spline-animation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-camera-composition",
+      "path": "imported-skills/logical-solution/spline-camera-composition",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-hero-design",
+      "path": "imported-skills/logical-solution/spline-hero-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-interaction",
+      "path": "imported-skills/logical-solution/spline-interaction",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-lighting",
+      "path": "imported-skills/logical-solution/spline-lighting",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-master",
+      "path": "imported-skills/logical-solution/spline-master",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-materials",
+      "path": "imported-skills/logical-solution/spline-materials",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-modeling",
+      "path": "imported-skills/logical-solution/spline-modeling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-scene-analysis",
+      "path": "imported-skills/logical-solution/spline-scene-analysis",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-visual-qa",
+      "path": "imported-skills/logical-solution/spline-visual-qa",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-web-integration",
+      "path": "imported-skills/logical-solution/spline-web-integration",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "spline-web-performance",
+      "path": "imported-skills/logical-solution/spline-web-performance",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "teste-iphone-perf",
+      "path": "imported-skills/logical-solution/teste-iphone-perf",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-a11y-ui",
+      "path": "imported-skills/okgas/okgas-a11y-ui",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-agentops-diagnosis",
+      "path": "imported-skills/okgas/okgas-agentops-diagnosis",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-ai-readiness",
+      "path": "imported-skills/okgas/okgas-ai-readiness",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-db-migration",
+      "path": "imported-skills/okgas/okgas-db-migration",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-eval-authoring",
+      "path": "imported-skills/okgas/okgas-eval-authoring",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-feature-module-layout",
+      "path": "imported-skills/okgas/okgas-feature-module-layout",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-lab-elicitation",
+      "path": "imported-skills/okgas/okgas-lab-elicitation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-mobile-fsd",
+      "path": "imported-skills/okgas/okgas-mobile-fsd",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-module-boundaries",
+      "path": "imported-skills/okgas/okgas-module-boundaries",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-offline-first",
+      "path": "imported-skills/okgas/okgas-offline-first",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-po-briefing",
+      "path": "imported-skills/okgas/okgas-po-briefing",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-rag-grounding-review",
+      "path": "imported-skills/okgas/okgas-rag-grounding-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "okgas-saas-security-review",
+      "path": "imported-skills/okgas/okgas-saas-security-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "prisma-client-api",
+      "path": "imported-skills/okgas/prisma-client-api",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "react-best-practices",
+      "path": "imported-skills/okgas/react-best-practices",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "summary": null,
+      "triggers": [],
+      "review": {
+        "status": "pending",
+        "notes": "not distributed until reviewed, tested and promoted"
+      }
+    },
+    {
+      "id": "ai-context-diagrams",
+      "path": "saas-skills/ai-integration/ai-context-diagrams",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Mermaid and C4 diagram guidance for architecture communication, agent comprehension, and doc placement.",
+      "triggers": [
+        "mermaid",
+        "re:\\bc4\\b",
+        "diagrama de arquitetura",
+        "architecture diagram",
+        "fluxograma"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "ai-interface-design",
+      "path": "saas-skills/ai-integration/ai-interface-design",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "AI product interface guidance for streaming, trust signals, memory, transparency, and recovery UX.",
+      "triggers": [
+        "interface de ia",
+        "chat ui",
+        "streaming de resposta",
+        "ux do assistente",
+        "ai chat interface",
+        "interface de chat"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "context-window-optimization",
+      "path": "saas-skills/ai-integration/context-window-optimization",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Context-window optimization for token and tool-output budgeting, validation scheduling, ordering, compression, retrieval boundaries, and drift prevention.",
+      "triggers": [
+        "context window",
+        "janela de contexto",
+        "orcamento de tokens",
+        "token budget",
+        "compressao de contexto",
+        "context drift",
+        "tool output budget"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "multi-agent-skill-creator",
+      "path": "saas-skills/ai-integration/multi-agent-skill-creator",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Create and maintain one canonical Agent Skill with trigger evals and safe Codex, Claude, and Cursor adapters.",
+      "triggers": [
+        "criar uma skill",
+        "criar uma habilidade",
+        "create a skill",
+        "atualizar skill.md",
+        "skill creator",
+        "skill trigger matrix"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "multi-agent-skill-installer",
+      "path": "saas-skills/ai-integration/multi-agent-skill-installer",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "explicit",
+      "summary": "Multi-agent install workflow for Codex, Claude, and Cursor runtimes, including global vs project scope, sandbox validation, and non-invasive verification.",
+      "triggers": [
+        "instalar skills",
+        "instalar habilidades",
+        "sincronizar skills",
+        "sync skills",
+        "biblioteca de skills",
+        "atualizar skills instaladas"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "multi-perspective-council",
+      "path": "saas-skills/ai-integration/multi-perspective-council",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Multi-perspective advisory council (LLM Council) that pressure-tests plans and large changes with five reasoning styles, anonymous peer review, a devil's advocate, and a chairman verdict closed in plain language.",
+      "triggers": [
+        "convoca o conselho",
+        "convocar o conselho",
+        "conselho multi-perspectiva",
+        "multi-perspective council",
+        "llm council",
+        "segunda opiniao",
+        "multiplas perspectivas",
+        "advogado do diabo",
+        "pressure test"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "prompt-engineering-hybrid",
+      "path": "saas-skills/ai-integration/prompt-engineering-hybrid",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Prompt engineering guidance for structured output, schema contracts, fallback clauses, and output-format decisions.",
+      "triggers": [
+        "engenharia de prompt",
+        "prompt engineering",
+        "few-shot",
+        "output estruturado",
+        "structured output",
+        "reduzir alucinacao"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "saas-ai-agent-engineer",
+      "path": "saas-skills/ai-integration/saas-ai-agent-engineer",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "AI agent engineering guidance for SaaS products: tool calling, RAG, memory, prompt/version governance, permissions, evals, and observability.",
+      "triggers": [
+        "agente de ia",
+        "ai agent",
+        "tool calling",
+        "re:\\brag\\b",
+        "memoria do agente",
+        "evals de agente",
+        "evals do agente",
+        "agent evals",
+        "system prompt"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "api-design-patterns",
+      "path": "saas-skills/backend/api-design-patterns",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "REST and route-handler guidance for auth, validation, error envelopes, pagination, rate limiting, webhooks, and tenant isolation.",
+      "triggers": [
+        "rota de api",
+        "route handler",
+        "rest api",
+        "api rest",
+        "endpoint da api",
+        "endpoint de api",
+        "api endpoint",
+        "webhook",
+        "paginacao da api",
+        "rate limit"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "clean-architecture-ddd",
+      "path": "saas-skills/backend/clean-architecture-ddd",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Domain-driven and clean architecture guidance for bounded contexts, use cases, entities, repositories, and layer separation.",
+      "triggers": [
+        "clean architecture",
+        "arquitetura hexagonal",
+        "hexagonal architecture",
+        "ports and adapters",
+        "portas e adaptadores",
+        "bounded context",
+        "domain-driven",
+        "re:\\bddd\\b",
+        "value object",
+        "camada de dominio",
+        "caso de uso",
+        "monolito modular",
+        "modular monolith",
+        "arquitetura do backend",
+        "backend architecture"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "prisma-database-design",
+      "path": "saas-skills/backend/prisma-database-design",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Prisma and PostgreSQL design guidance for schema modeling, indexes, migrations, query behavior, and multi-tenancy.",
+      "triggers": [
+        "prisma",
+        "schema do banco",
+        "database schema",
+        "migracao do banco",
+        "migracao de banco",
+        "database migration",
+        "indice no banco",
+        "postgres",
+        "postgresql"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "intelligent-project-docs",
+      "path": "saas-skills/documentation/intelligent-project-docs",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "documentation",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Project documentation governance for README, AGENTS.md, ADRs, module docs, ownership, and single source of truth.",
+      "triggers": [
+        "agents.md",
+        "documentacao do projeto",
+        "project docs",
+        "re:\\badr\\b",
+        "estruturar docs",
+        "readme do projeto"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "technical-research-writing",
+      "path": "saas-skills/documentation/technical-research-writing",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "documentation",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Technical research and report-writing guidance for scoping, source evaluation, citation quality, synthesis, and uncertainty handling.",
+      "triggers": [
+        "pesquisa tecnica",
+        "relatorio tecnico",
+        "research report",
+        "avaliar fontes",
+        "citacoes"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "legacy-code-refactoring",
+      "path": "saas-skills/engineering/legacy-code-refactoring",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Legacy refactoring workflow focused on hotspots, characterization tests, dependency risks, and incremental cleanup.",
+      "triggers": [
+        "codigo legado",
+        "legacy code",
+        "refactor legacy",
+        "refatorar codigo legado",
+        "code smell",
+        "teste de caracterizacao",
+        "characterization test",
+        "migrar para fsd",
+        "modernizar o projeto",
+        "adotar o contrato"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "multiplatform-platform-architecture",
+      "path": "saas-skills/engineering/multiplatform-platform-architecture",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Platform-level architecture for multiplatform SaaS: pnpm monorepo, product FSD in packages/<product>-dom mirrored by apps/clients/web and apps/clients/mobile, modular API with boundary laws and 12-factor, Expo host, dual cookie+Bearer auth, contracts-first /api/v1.",
+      "triggers": [
+        "novo projeto saas",
+        "new saas project",
+        "novo projeto com frontend",
+        "bootstrap do projeto",
+        "monorepo",
+        "multiplataforma",
+        "multiplatform",
+        "apps/clients",
+        "next.js e expo",
+        "cliente mobile",
+        "mobile expo",
+        "workspace pnpm",
+        "extrair api"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "systems-analysis-saas",
+      "path": "saas-skills/engineering/systems-analysis-saas",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "SaaS systems analysis guidance for requirements, MVP scope, business rules, models, and stakeholder validation.",
+      "triggers": [
+        "levantamento de requisitos",
+        "requirements elicitation",
+        "definir mvp",
+        "regras de negocio",
+        "analise de sistemas"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "testing-strategies",
+      "path": "saas-skills/engineering/testing-strategies",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Testing strategy guidance for Vitest, Testing Library, Playwright, focused-to-full validation cadence, incremental CI gates, and all-source coverage boundaries.",
+      "triggers": [
+        "teste unitario",
+        "testes unitarios",
+        "unit test",
+        "vitest",
+        "playwright",
+        "re:\\btdd\\b",
+        "cobertura de teste",
+        "test coverage",
+        "estrategia de testes",
+        "teste de arquitetura"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "component-reuse-portability",
+      "path": "saas-skills/frontend/component-reuse-portability",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Cross-project component porting workflow for dependency resolution, import rewriting, token adaptation, and registry maintenance.",
+      "triggers": [
+        "portar componente",
+        "port component",
+        "reaproveitar componente",
+        "reuse component",
+        "component registry",
+        "componente entre projetos"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "design-system-implementation",
+      "path": "saas-skills/frontend/design-system-implementation",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Design system guidance for semantic tokens, Storybook, component governance, and shared UI contracts in frontend codebases.",
+      "triggers": [
+        "design system",
+        "design tokens",
+        "design token",
+        "storybook",
+        "component library",
+        "biblioteca de componentes",
+        "atomic design",
+        "packages/ui"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "react-saas-architecture",
+      "path": "saas-skills/frontend/react-saas-architecture",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "React and Next.js App Router architecture for feature boundaries, runtime-specific client/server/contracts entrypoints, shared layers, co-location, and export discipline.",
+      "triggers": [
+        "feature-sliced",
+        "feature sliced",
+        "fsd",
+        "estrutura de pastas",
+        "folder structure",
+        "public api do slice",
+        "organizacao do frontend",
+        "arquitetura do frontend",
+        "frontend architecture"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    },
+    {
+      "id": "saas-ui-specifications",
+      "path": "saas-skills/frontend/saas-ui-specifications",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": ["dev"],
+      "invocation": "auto",
+      "summary": "Frontend UI specification guidance for typography, color roles, spacing, density, responsive behavior, and accessibility.",
+      "triggers": [
+        "tipografia",
+        "typography scale",
+        "paleta de cores",
+        "color palette",
+        "escala de espacamento",
+        "spacing scale",
+        "dark mode",
+        "modo escuro",
+        "wcag",
+        "contraste de cor",
+        "acessibilidade web"
+      ],
+      "review": {
+        "status": "reviewed",
+        "at": "2026-09-24",
+        "notes": "canonical library item"
+      }
+    }
+  ]
+}

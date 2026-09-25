@@ -1,6 +1,6 @@
 ---
 name: clean-architecture-ddd
-description: Apply Clean Architecture layers, SOLID principles, and Domain-Driven Design patterns to TypeScript/Next.js/Prisma SaaS. Use when architecting application layers, defining domain boundaries, implementing use cases, applying SOLID to React/Node, choosing DDD patterns, or writing Architectural Decision Records. Triggers on clean architecture, SOLID, DDD, domain layer, use cases, bounded context, aggregate, entity, value object, architectural decision, ADR.
+description: "Choose and implement backend architecture: modular monolith by default, ports-and-adapters where domain rules and integrations justify it, DDD patterns, use cases, repositories, ADRs; no FSD in the backend. Use when designing backend modules, domain models or bounded contexts."
 metadata:
   author: SaaS Skills Collection
   version: "1.1"
@@ -20,115 +20,68 @@ module anatomy and extraction playbooks belong to
 `multiplatform-platform-architecture`; this skill governs domain modeling and
 layering INSIDE a module or feature that the platform structure has placed.
 
-## Internal Feature Structure (MANDATORY)
+## Operational Contract
 
-Feature-first does not stop at `src/features/`. Inside EVERY feature, the root
-contains ONLY two top groups plus its public barrel and docs:
+| Field | Contract |
+| --- | --- |
+| Objective | Choose and implement a backend architecture whose boundaries are real: modular monolith by default, ports-and-adapters where the domain and integrations justify it. |
+| Use when | Designing backend modules, use cases, domain models, repositories, ports/adapters, ADRs for backend structure. |
+| Do not use when | Frontend code (FSD rules live in react-saas-architecture), API endpoint details (api-design-patterns), schema design (prisma-database-design). |
+| Inputs | Business rules, integrations, isolation and testability needs, measured scale requirements, current backend code. |
+| Preconditions | Bounded contexts or at least module candidates are identified; shared contracts are kept apart from server code. |
+| Tools | TypeScript, the repository's test runner, a dependency rule tool (dependency-cruiser or eslint-plugin-boundaries) for domain/infrastructure boundaries. |
+| Procedure | Backend Architecture Decision below, then the Core Workflow. |
+| Output | Decision record (ADR) plus modules with domain, application (use cases and ports), adapters and entrypoints. |
+| Validation | Domain code imports no framework, ORM or I/O; use cases are tested with in-memory adapters; dependency rules run in CI. |
+| Known failures | Hexagonal folder names without real ports, domain importing Prisma, microservices or CQRS without a measured driver, contracts package importing server code. |
 
-```text
-src/features/<feature>/
-├── modules/            # functional capabilities of the domain
-│   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
-│       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
-│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ client/ server/ jobs/
-│       └── index.ts    # curated public barrel of the module
-├── shared/             # ONLY what 2+ modules of THIS feature consume
-│   └── components/ hooks/ schemas/ services/ domain/ config/ ...
-├── index.ts            # feature public API
-└── README.md
-```
+## Backend Architecture Decision (MANDATORY)
 
-Non-negotiable rules:
+Feature-Sliced Design is a frontend methodology and is never applied to backend code. Backend code
+lives in `apps/services/api` (or in Next.js route handlers while the API is still hosted there) and
+uses modules:
 
-1. NO loose `components/`, `hooks/`, `schemas/`, `services/`, `domain/`, `data/`
-   at the feature root — every artifact belongs to a module or to the feature's
-   `shared/`. Create folders only when they hold real files.
-2. Ownership decides placement: consumed by 1 module → `modules/<m>/...`;
-   by 2+ modules of the feature → `<feature>/shared/...`; by 2+ features and
-   domain-neutral → `src/shared/...`; global technical mechanism →
-   `src/infrastructure/...`.
-3. Ownership beats visual type: never organize primarily by
-   `dialogs/ cards/ forms/ tables/` — first the owning module, then (optionally,
-   with real volume) visual grouping inside it
-   (`modules/categories/components/dialogs/{create,edit,delete}`).
-4. Module names express capability: `workspace` (full operational area:
-   actions, filters, state, flows), `overview` (summary view: KPIs, cards,
-   previews), `tracking`, `workflow`, `categories`, `planning`... Avoid `hub`
-   as a permanent name and avoid `dashboard` when it collides with a Dashboard
-   feature.
-5. Cross-feature imports go through public entrypoints only: the feature root
-   barrel or `features/<f>/modules/<m>` (plus its
-   `client`/`server`/`contracts`).
-   Never deep-import another feature's internals.
-6. Naming inside modules is responsibility-first: never a generic `root/`
-   folder; never repeat the parent's name without need; use the shortest
-   precise semantic name for the responsibility. Homonym file/folder
-   (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
-   obligation — `shell/frame.tsx` is correct when the file is only the frame.
+| Situation | Choice |
+| --- | --- |
+| Default for a product backend | Modular monolith: one deployable, modules with public `index.ts`, no cross-module internals |
+| Rich domain rules, several external integrations to swap or fake, long-lived core | Ports-and-adapters inside the affected modules |
+| CRUD with little logic | Module with service + repository; do not add ports for their own sake |
+| Independent scaling, isolation or ownership proven by metrics | Extract that module to a service (playbook in multiplatform-platform-architecture) |
+| Audit/temporal query need proven by a requirement | Event sourcing for that aggregate only, with an ADR |
 
-### Presentation Composition Layers
-
-Clean Architecture's presentation layer may be split further when the target
-repository formalizes UI ownership:
+Module anatomy when ports-and-adapters is adopted:
 
 ```text
-app -> layouts -> widgets -> features -> shared
+apps/services/api/src/modules/billing/
+├── domain/           entities, value objects, domain services — pure TypeScript
+├── application/      use cases + ports (interfaces owned by the use cases)
+├── adapters/         implementations of ports: prisma repositories, payment gateway client
+├── entrypoints/      http handlers/controllers mapping contracts to use cases
+└── index.ts          public API of the module (use cases, events), nothing else
 ```
 
-- `app` owns routes and final composition;
-- `layouts` own persistent frames and structural navigation;
-- `widgets` own layout-specific visual integrations and may compose features;
-- `features` own product capabilities and business workflows;
-- `shared` remains domain-neutral.
+Real boundaries, not folder names:
 
-This is a presentation taxonomy, not a replacement for Domain/Application/
-Infrastructure boundaries. A widget must not become the owner of business
-rules, and a feature must not import its layout or layout-owned widgets. Group
-widgets by layout owner when the repository chooses that convention, for example
-`widgets/panel/notification-center`.
+- `domain/` imports nothing from `adapters/`, `entrypoints/`, Prisma, HTTP frameworks or Node I/O.
+- `application/` depends on port interfaces; adapters are injected at the composition root.
+- Every port has an in-memory or fake adapter used by use-case tests.
+- Network contracts (Zod schemas, DTO types) live in `packages/contracts`; clients import contracts,
+  never server modules. Server-only packages declare `"contextWindow": { "runtime": "server" }` so the
+  frontend architecture gate rejects client imports.
 
-### Runtime-Specific Public Surfaces
+Dependency rule example (dependency-cruiser):
 
-When a module serves both browser and server consumers, curate explicit public
-surfaces instead of mixing runtimes in one barrel:
-
-```text
-modules/<module>/
-├── index.ts            # runtime-neutral or presentation API
-├── client/index.ts     # browser adapters, fetch services and client hooks
-├── server/index.ts     # database, filesystem, secrets and server orchestration
-└── contracts/index.ts  # neutral DTOs, schemas and explicit types
+```js
+module.exports = {
+  forbidden: [
+    { name: "domain-is-pure", from: { path: "/domain/" }, to: { path: "(/adapters/|/entrypoints/|@prisma|express|fastify|^node:)" } },
+    { name: "no-cross-module-internals", from: { path: "modules/([^/]+)/" }, to: { path: "modules/(?!$1)[^/]+/(?!index)" } },
+  ],
+};
 ```
 
-- Mark the client boundary according to the framework and keep it free of
-  Prisma, `node:*`, secrets and server-only transitive imports.
-- Mark the server boundary with the repository's server-only guard. Server
-  Actions use a narrow action entrypoint rather than exposing the whole server
-  barrel to the browser graph.
-- Put types shared by pure/browser code in `contracts`; a type-only import from
-  `server` is still an ownership leak.
-- Keep broad capability registries out of client service entrypoints. A barrel
-  that is semantically valid but too broad can defeat tree-shaking, create
-  cycles or trigger bundler chunking failures.
-- Pure `domain`, `application`, `ports`, `contracts` and `schemas` segments do
-  not depend on React/Next, icon or state libraries, DOM/browser/environment
-  globals, generated clients, infrastructure or server modules.
-- Presentation never accesses the database directly, and server segments do
-  not depend on shared presentation surfaces.
-
-Use this skill when you need to:
-
-- Design layered architecture for a new SaaS module or entire application
-- Define and enforce SOLID principles in TypeScript services, React components, or Node.js handlers
-- Decompose a domain into bounded contexts and context maps
-- Implement domain models (entities, value objects, aggregates)
-- Create use case/application service classes
-- Make architectural decisions and document them with ADRs
-- Refactor procedural code into domain-driven patterns
-- Establish domain terminology and ubiquitous language across teams
-- Define repository interfaces and infrastructure implementations
-
-Triggered by: clean architecture, SOLID design, DDD, domain models, bounded context, aggregate, entity, value object, use cases, context map, architectural decision, ADR.
+Scale is prepared by modules and contracts. Do not introduce microservices, CQRS, message brokers or
+event sourcing without a measured driver recorded in an ADR.
 
 ## Core Workflow
 

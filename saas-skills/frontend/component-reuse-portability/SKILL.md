@@ -1,6 +1,6 @@
 ---
 name: component-reuse-portability
-description: "Step-by-step procedure for extracting, adapting, and installing reusable React components from one project to another, including dependency resolution, import rewriting, design token adaptation, and registry maintenance. Use when porting components between projects, resolving component dependencies, adapting a component library to a new codebase, or maintaining a shared component registry. Triggers on: reuse component, port component, shared library, component adaptation, cross-project, component registry, component extraction."
+description: "Port components between projects into the right destination: primitives to packages/ui with .web/.native variants, product components to FSD slices, resolving dependencies, imports and tokens. Use when reusing, extracting or adapting a component from another codebase."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0
@@ -14,50 +14,38 @@ metadata:
 
 # When to Use This Skill
 
-## Internal Feature Structure (MANDATORY)
+## Operational Contract
 
-Feature-first does not stop at `src/features/`. Inside EVERY feature, the root
-contains ONLY two top groups plus its public barrel and docs:
+| Field | Contract |
+| --- | --- |
+| Objective | Port a component between projects so that it lands in the right package or slice of the target, with its dependencies, tokens, platform variants and tests. |
+| Use when | Reusing, extracting or adapting a component from another codebase, or maintaining a cross-project component registry. |
+| Do not use when | Building a primitive from scratch (design-system-implementation) or deciding the folder structure (react-saas-architecture). |
+| Inputs | Source component and its imports, target repository, target tokens and aliases. |
+| Preconditions | Target follows the contract (packages/ui, packages/design-tokens, packages/frontend in FSD) or a migration is authorized. |
+| Tools | Dependency listing (`rg` on imports), the target's package manager, typecheck, tests, `pnpm arch` in the target. |
+| Procedure | Placement rule below, then the Core Workflow. |
+| Output | Component in its destination with contract/web/native files when it is a primitive, tests, catalog entry, registry update. |
+| Validation | Target typecheck, tests and architecture gate pass; web build and mobile bundle still succeed. |
+| Known failures | Copying a primitive into a feature slice, duplicating a component source, hardcoded colors, web-only component rendered by mobile. |
 
-```text
-src/features/<feature>/
-├── modules/            # functional capabilities of the domain
-│   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
-│       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
-│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ server/ jobs/
-│       └── index.ts    # curated public barrel of the module
-├── shared/             # ONLY what 2+ modules of THIS feature consume
-│   └── components/ hooks/ schemas/ services/ domain/ config/ ...
-├── index.ts            # feature public API
-└── README.md
-```
+## Placement in the Target (MANDATORY)
 
-Non-negotiable rules:
+| What is being ported | Destination |
+| --- | --- |
+| Domain-neutral primitive (Button, Input, Dialog shell) | `packages/ui`: `src/contract/<name>.ts`, `src/web/<Name>.web.tsx`, `src/native/<Name>.native.tsx`, exported by both entry points and listed in `catalog.ts` |
+| Business view of an entity (ProductCard) | `packages/frontend/src/entities/<entity>/ui` |
+| User interaction (AddToCartButton) | `packages/frontend/src/features/<feature>/ui` + `model` |
+| Composed block (Header, PricingTable) | `packages/frontend/src/widgets/<widget>/ui` |
+| Colors, spacing, radius, typography used by the component | `packages/design-tokens` (never literals in components) |
 
-1. NO loose `components/`, `hooks/`, `schemas/`, `services/`, `domain/`, `data/`
-   at the feature root — every artifact belongs to a module or to the feature's
-   `shared/`. Create folders only when they hold real files.
-2. Ownership decides placement: consumed by 1 module → `modules/<m>/...`;
-   by 2+ modules of the feature → `<feature>/shared/...`; by 2+ features and
-   domain-neutral → `src/shared/...`; global technical mechanism →
-   `src/infrastructure/...`.
-3. Ownership beats visual type: never organize primarily by
-   `dialogs/ cards/ forms/ tables/` — first the owning module, then (optionally,
-   with real volume) visual grouping inside it
-   (`modules/categories/components/dialogs/{create,edit,delete}`).
-4. Module names express capability: `workspace` (full operational area:
-   actions, filters, state, flows), `overview` (summary view: KPIs, cards,
-   previews), `tracking`, `workflow`, `categories`, `planning`... Avoid `hub`
-   as a permanent name and avoid `dashboard` when it collides with a Dashboard
-   feature.
-5. Cross-feature imports go through public entrypoints only: the feature root
-   barrel or `features/<f>/modules/<m>` (plus its `server`/`contracts`).
-   Never deep-import another feature's internals.
-6. Naming inside modules is responsibility-first: never a generic `root/`
-   folder; never repeat the parent's name without need; use the shortest
-   precise semantic name for the responsibility. Homonym file/folder
-   (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
-   obligation — `shell/frame.tsx` is correct when the file is only the frame.
+Rules:
+
+1. One source per component: never keep a second copy in `packages/frontend` or in a client app.
+2. A web-only source (DOM elements, Radix, CSS classes) gets a native counterpart before it is used
+   by pages rendered on mobile; until then it stays in a web-only package and the gate reports
+   `RUNTIME-WEB-ONLY` if shared code imports it.
+3. Imports inside the target go through public APIs (`@scope/ui`, slice `index.ts`).
 
 This skill applies when:
 
@@ -73,13 +61,13 @@ Do NOT use this skill for: initial component building (see `design-system-implem
 
 ## Core Workflow
 
-Inspect both repositories before copying: package manager and lockfile, `tsconfig.json` aliases, `components.json`, Tailwind version/config, Storybook version, component registry/manifest, and existing UI folder taxonomy. In OK Gas-style targets, prefer `src/components/ui/primitives`, `src/components/ui/composed`, and `src/components/features` over a generic `src/shared/components` destination, and use `pnpm` scripts when `pnpm-lock.yaml` is present.
+Inspect both repositories before copying: package manager and lockfile, `tsconfig.json` aliases, `components.json`, Tailwind version/config, Storybook or catalog, component registry/manifest, and the target's packages (`packages/ui`, `packages/design-tokens`, `packages/frontend`). Destinations follow the placement table above; use `pnpm` scripts when `pnpm-lock.yaml` is present.
 
 ### Step 1: Identify Component in Registry
 
 #### Source identification
 
-- Locate the component in the source project (e.g., `src/components/ui/primitives/button`, `src/components/ui/composed/dialog`, or the source repo's equivalent shared UI folder)
+- Locate the component in the source project (its UI package, `packages/ui/src/...`, or the source repo's equivalent shared UI folder)
 - Verify it exists and is mature (not in-progress)
 - Check CHANGELOG or git history for stability
 
@@ -137,20 +125,15 @@ DataTable
 3. Check if internal imports exist in target project
 4. If missing, add them to the copy list (recursive)
 
-### Step 3: Copy Component to Shared Folder
+### Step 3: Copy Component to Its Destination
 
 #### Target location (recommended)
 
 ```text
-target-project/<repo-ui-folder>/<component-name>/
-```
-
-For OK Gas-style targets:
-
-```text
-target-project/src/components/ui/primitives/<component-name>/
-target-project/src/components/ui/composed/<component-name>/
-target-project/src/components/features/<feature-name>/
+target-project/packages/ui/src/contract/<name>.ts            (primitive props contract)
+target-project/packages/ui/src/web/<Name>.web.tsx            (web implementation)
+target-project/packages/ui/src/native/<Name>.native.tsx      (native implementation)
+target-project/packages/frontend/src/<layer>/<slice>/ui/     (product components)
 ```
 
 #### Files to copy (co-located structure)
@@ -167,8 +150,8 @@ Button/
 #### Example copy command
 
 ```bash
-cp -r source-project/src/components/ui/primitives/button \
-      target-project/src/components/ui/primitives/
+cp source-project/packages/ui/src/web/Button.web.tsx target-project/packages/ui/src/web/
+# then add the contract, the native variant, both entry-point exports and the catalog entry
 ```
 
 ### Step 4: Rewrite Imports (Alias Adaptation)
@@ -180,7 +163,7 @@ cp -r source-project/src/components/ui/primitives/button \
 // "@/*": ["src/*"]
 
 import { cn } from "@/shared/lib";
-import { Button } from "@/shared/components";
+import { Button } from "@/components/ui/button";
 ```
 
 #### Check target project's aliases
@@ -210,9 +193,9 @@ grep -n "@/" Button/Button.tsx
 sed -i 's/@\//@app\//g' Button/Button.tsx
 ```
 
-## Step 5: Remove Source-Project-Specific Logic
+### Step 5: Remove Source-Project-Specific Logic
 
-### Things to NEVER copy
+#### Things to NEVER copy
 
 - Authentication logic (e.g., `useAuth()`, tokens)
 - API calls or data fetching (e.g., `fetch('/api/users')`)
@@ -310,13 +293,13 @@ pnpm exec tsc --noEmit
 # Should show no errors in the copied component
 ```
 
-## Common issues
+#### Common issues
 
 - Missing types (e.g., `import { ComponentProps }`)
 - Mismatched type versions (e.g., `@types/react`)
 - Undefined utility functions (e.g., `cn` not imported)
 
-### Fix example
+#### Fix example
 
 ```typescript
 // ❌ Error: cn is not defined
@@ -335,7 +318,8 @@ import { cn } from '@/shared/lib';
 module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}", // Include copied components
+    "../../../packages/ui/src/**/*.{ts,tsx}", // shared primitives
+    "../../../packages/frontend/src/**/*.{ts,tsx}", // FSD slices
   ],
 };
 ```
@@ -350,7 +334,7 @@ pnpm dev
 
 **Common issue:** Tailwind classes not applying = Tailwind config doesn't scan component folder. Add to `content` array.
 
-## Step 9: Verify Radix UI Primitives are Installed
+### Step 9: Verify Radix UI Primitives are Installed
 
 If component uses Radix UI (Dialog, Dropdown, etc.):
 
@@ -359,7 +343,7 @@ If component uses Radix UI (Dialog, Dropdown, etc.):
 import * as Dialog from "@radix-ui/react-dialog";
 ```
 
-### Check target project
+#### Check target project
 
 ```bash
 pnpm list --depth 0 | rg radix
@@ -367,13 +351,13 @@ pnpm list --depth 0 | rg radix
 package.json: "@radix-ui/react-dialog": "^1.0.0"
 ```
 
-## If missing, install
+#### If missing, install
 
 ```bash
 pnpm add @radix-ui/react-dialog
 ```
 
-### Common Radix imports to check
+#### Common Radix imports to check
 
 - `@radix-ui/react-dialog` (Dialog)
 - `@radix-ui/react-dropdown-menu` (Dropdown)
@@ -412,12 +396,12 @@ Do NOT guess import aliases, design token values, or dependency versions.
 ```typescript
 // ❌ BAD: Copies Button, but Button imports Input
 // Target project now has Button without Input
-import { Input } from "@/shared/components";
+import { Input } from "@acme/ui";
 
 // ✅ GOOD: Copy both Button and Input, resolve in order
 ```
 
-#### Hardcoding Design Token Values
+### Hardcoding Design Token Values
 
 ```typescript
 // ❌ BAD: hardcoded color
@@ -427,7 +411,7 @@ import { Input } from "@/shared/components";
 <button style={{ backgroundColor: 'var(--color-primary)' }}>
 ```
 
-#### Not Removing Authentication Logic
+### Not Removing Authentication Logic
 
 ```typescript
 // ❌ BAD: copied from source with auth
@@ -442,7 +426,7 @@ export const DataDisplay = ({ data }) => (
 );
 ```
 
-#### Ignoring TypeScript Errors
+### Ignoring TypeScript Errors
 
 ```typescript
 // ❌ BAD: compilation passes but types are loose
@@ -452,7 +436,7 @@ const [data]: any = useState();
 const [data, setData] = useState<MyType[]>([]);
 ```
 
-#### Not Testing Dark Mode
+### Not Testing Dark Mode
 
 ```text
 // ❌ BAD: component works in light mode, breaks in dark

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Blender Lighting"
+  short_description: "Lights Blender scenes with a purpose"
+  default_prompt:
+    "Use $blender-lighting to add only the Blender lights the shot needs."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,18 @@
+{
+  "name": "@acme/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./app": "./src/app/index.ts",
+    "./pages/*": "./src/pages/*/index.ts"
+  },
+  "dependencies": {
+    "@acme/design-tokens": "workspace:*",
+    "@acme/ui": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

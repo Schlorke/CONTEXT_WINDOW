@@ -1,0 +1,115 @@
+ok 1 - the consumer template passes
+ok 2 - detects FSD-LAYER
+ok 3 - detects FSD-SLICE
+ok 4 - detects FSD-PUBLIC-API
+ok 5 - detects FSD-XAPI
+ok 6 - detects FSD-WILDCARD-API
+ok 7 - detects FSD-GLOBAL-BARREL
+ok 8 - detects FSD-UNKNOWN-LAYER
+ok 9 - detects FSD-SELF-PACKAGE
+ok 10 - detects UI-DUPLICATE-SOURCE
+ok 11 - detects FOUNDATION-UPWARD
+ok 12 - detects FOUNDATION-UPWARD
+ok 13 - detects CLIENT-DEEP-IMPORT
+ok 14 - detects PACKAGE-BOUNDARY
+ok 15 - detects CLIENT-CROSS
+ok 16 - detects RUNTIME-WEB-ONLY
+ok 17 - detects RUNTIME-NATIVE-ONLY
+ok 18 - detects RUNTIME-NATIVE-ONLY
+ok 19 - detects RUNTIME-WEB-ONLY
+ok 20 - detects RUNTIME-NODE
+ok 21 - detects SERVER-ONLY
+ok 22 - detects SERVER-ONLY
+ok 23 - detects TEST-IMPORT
+ok 24 - slice groups: grouped slices are valid, sibling imports inside a group are not
+ok 25 - entities may cross-import through the @x API addressed to them
+ok 26 - comments and strings never count as imports
+ok 1 - architecture gate
+ok 1 - creates a renamed project whose gate copy is identical to the canonical gate
+ok 2 - scaffold
+ok 1 - rejects path traversal in name [ACH-003/CR-057]
+ok 2 - rejects duplicate id across collections [CR-078]
+ok 3 - rejects unregistered SKILL.md
+ok 4 - rejects invalid YAML frontmatter
+ok 5 - rejects broken reference
+ok 6 - rejects reference escaping the package
+ok 7 - rejects machine-specific path
+ok 8 - rejects POSIX home path
+ok 9 - rejects secret-like content
+ok 10 - rejects missing operational contract
+ok 11 - valid multi-line YAML metadata is parsed and rendered as the same value [CR-005]
+ok 12 - relative paths that contain home/ or Users/ are not machine paths
+ok 13 - imported/quarantined items are inventoried but never distributed
+ok 14 - the lock file detects catalog drift
+ok 3 - catalog gate
+ok 1 - contract block preserves user content, is idempotent and imports into CLAUDE.md
+ok 2 - an edited or malformed block is a conflict; uninstall removes only the block
+ok 3 - contract export for Cursor User Rules carries version, hash and the optional usage policy
+ok 4 - a profile that declares the contract installs it by default; --without-contract opts out
+ok 5 - a 1.x usage-policy block requires --migrate-legacy and is then replaced
+ok 4 - managed contract blocks
+ok 1 - no suggestion for neutral or ambiguous prompts
+ok 2 - expected skill suggested for positive prompts
+ok 3 - word boundaries: api does not match rapid
+ok 4 - hook install merges settings, preserves project entries and fails on non-strict JSON
+ok 5 - installed hook answers from a subdirectory of a non-ASCII project
+ok 5 - claude router hook [ACH-020/ACH-021]
+ok 1 - build refuses directories it did not create and dangerous locations
+ok 2 - the bundle installs outside the checkout and matches checkout output
+ok 6 - build and distribution [ACH-002/CR-059/G12]
+ok 1 - the canonical catalog passes the gate and its lock is current
+ok 2 - always-on text and the skill listing stay within the context budget
+ok 7 - real repository catalog
+ok 1 - project skills are visible to Codex, explicit-only skills are not implicit
+ok 2 - the project AGENTS.md blocks reach the prompt and the team's own text is preserved
+ok 3 - the user-scope contract in $CODEX_HOME/AGENTS.md reaches the prompt outside any project
+ok 8 - Codex discovery [ACH-011/CR-031]
+ok 1 - project skills are discovered and the explicit-only skill is withheld from the model
+ok 2 - the routing hook adds context for a matching prompt and stays silent otherwise
+ok 3 - user-scope skills in CLAUDE_CONFIG_DIR are discovered outside any project
+ok 9 - Claude Code discovery [ACH-011/ACH-020/CR-031]
+ok 1 - project install writes only inside the target (no global side effect) [ACH-018/CR-080]
+ok 2 - identical bytes in every sink and verifiable identity metadata [ACH-011]
+ok 3 - unmanaged same-name content is never overwritten; conflict and nothing written [ACH-001/CR-012]
+ok 4 - --adopt replaces an unmanaged folder only after backing it up [CR-012]
+ok 5 - an identical unmanaged copy is adopted without rewriting
+ok 6 - second run is a no-op (idempotent) [CR-009]
+ok 7 - content drift without version bump is reported and fixed by sync [ACH-006/CR-014]
+ok 8 - local edits are detected and never silently overwritten [ACH-008/CR-013]
+ok 9 - verify detects an incomplete package (missing auxiliary file) [CR-020]
+ok 10 - removal and rename in the source clean managed entries only [CR-011]
+ok 11 - dry-run and plan write nothing and announce removals and conflicts [ACH-019/CR-018/CR-019]
+ok 10 - install into projects
+ok 1 - malicious manifest entries are rejected and nothing is deleted [ACH-007/CR-058]
+ok 2 - a manifest file path escaping the entry is rejected [ACH-007]
+ok 3 - a junction at an entry is a conflict and its target is untouched [CR-060]
+ok 4 - a project runtime dir that is a junction to outside the project is refused [CR-061]
+ok 5 - non-ASCII, spaces and dashes in target and home paths [ACH-004/CR-004/CR-061]
+ok 6 - case-mismatched existing folder is a conflict on case-insensitive filesystems
+ok 11 - path safety
+ok 1 - an injected failure rolls back to the exact previous state [ACH-009/CR-015]
+ok 2 - a killed process leaves a journal; status reports it and recover restores the previous state [CR-015/CR-016]
+ok 3 - a write failure (directory in place of a file) is reported and state stays verifiable
+ok 4 - concurrent installs never produce a misleading success [ACH-010/CR-017]
+ok 12 - failures, interruption and concurrency
+ok 1 - user scope honours CLAUDE_CONFIG_DIR and writes ~/.agents/skills for Codex/Cursor [CR-029/CR-030]
+ok 2 - claude+cursor uses a single sink (Cursor reads .claude/skills) to avoid duplicates
+ok 3 - explicit-only skills are marked for every client
+ok 4 - a 1.x install blocks until --migrate-legacy, which backs up before removing [CR-021/CR-031]
+ok 5 - doctor reports divergent homonymous copies across discovery dirs without touching them [ACH-011/CR-031]
+ok 6 - a project inside the home directory does not list the user skills dir twice
+ok 13 - user scope, clients and legacy installs
+ok 1 - project discovery stops at the git root, like the clients do
+ok 14 - doctor project boundaries
+ok 1 - unknown flags, positional paths and missing destination are usage errors [ACH-018/CR-080]
+ok 15 - strict CLI
+ok 1 - a version bump alone marks entries outdated because identity metadata changes
+ok 16 - version bump
+ok 17 - inventory reports every gap of the legacy project
+ok 18 - the migrated project reaches the contract with the same characterization cases
+ok 19 - bare opening fences get a language; closing fences stay bare
+ok 20 - comments inside fences and headings outside are untouched
+ok 21 - a fence of another character or shorter length does not close the block
+ok 22 - CRLF files keep CRLF and list-indented fences are handled
+ok 23 - an ignored credential copy is reported as an owner action without failing or printing it
+ok 24 - a publishable credential fails the scan without printing it

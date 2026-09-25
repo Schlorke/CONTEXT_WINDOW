@@ -1,6 +1,6 @@
 ---
 name: technical-research-writing
-description: Procedural guide for conducting technical research and writing high-quality reports following international standards, covering research question formulation, systematic source collection, evidence evaluation (CRAAP Test), synthesis methodology, citation systems, report architecture, and epistemic differentiation.
+description: "Conduct technical research and write reports: research questions, source collection and evaluation (CRAAP), synthesis, citations, report structure and explicit uncertainty. Use when asked for a technical study, comparison, literature review or research report."
 metadata:
   author: SaaS Skills Library
   version: 1.0
@@ -27,6 +27,21 @@ Use this skill when:
 - Establishing research question scope and specificity
 
 **Triggers:** technical report, research methodology, literature review, CRAAP test, source evaluation, citation, technical writing, evidence hierarchy, synthesis, research question, background research, whitepapers.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Produce technical research with scoped questions, evaluated sources and explicit uncertainty. |
+| Use when | Research reports, technology comparisons, literature reviews and technical audits. |
+| Do not use when | Quick factual answers or code changes. |
+| Inputs | Research question, scope and audience. |
+| Preconditions | Primary sources are reachable and the research date is recorded. |
+| Tools | Web search/fetch of primary sources and a citation format. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | report with claims, evidence, citations and confidence levels. |
+| Validation | Every decisive claim cites a primary source and uncertainty is stated. |
+| Known failures | Citing secondary summaries, undated claims, conclusions stronger than the evidence. |
 
 ## Core Workflow
 

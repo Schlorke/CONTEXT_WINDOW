@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Acme",
+    "slug": "acme",
+    "scheme": "acme",
+    "version": "0.1.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}

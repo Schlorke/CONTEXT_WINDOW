@@ -1,6 +1,6 @@
 ---
 name: testing-strategies
-description: Procedural guide for implementing testing strategies in Next.js/React/TypeScript SaaS projects, covering the testing pyramid, TDD workflow (Red-Green-Refactor), unit tests (Vitest), integration tests, E2E tests (Playwright), React component testing (Testing Library), API route testing, and test organization patterns. Use when setting up a testing framework, writing unit tests, implementing TDD, testing React components, creating E2E test suites, testing API routes, or defining a testing strategy for a new project.
+description: "Define and implement testing for Next.js/Expo/React/TypeScript: pyramid, TDD, Vitest, Testing Library, Playwright, API tests, architecture-gate tests, web/mobile proof levels, characterization tests and CI gates. Use when setting up, writing or reviewing tests."
 metadata:
   author: Engineering Standards Team
   version: "1.1"
@@ -29,7 +29,22 @@ Trigger this skill when:
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
 
-Before proposing folders or commands, inspect the repo first: `package.json` scripts, lockfile/package manager, `vitest.config.*`, `playwright.config.*`, Storybook config, existing test locations, and CI. In OK Gas-style repos, prefer `pnpm`, Vitest projects such as `unit` and `storybook`, Playwright tests under `tests/e2e`, and existing scripts like `pnpm test:run`, `pnpm test:run:storybook`, `pnpm test:run:all`, and `pnpm test:e2e`.
+Before proposing folders or commands, inspect the repo first: `package.json` scripts, lockfile/package manager, `vitest.config.*`, `playwright.config.*`, Storybook config, existing test locations, and CI. Use the scripts the repository already defines instead of inventing commands.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Decide what to test and at which level, and wire the checks that keep behavior, architecture and both clients (web and mobile) from regressing. |
+| Use when | Setting up or reviewing tests, TDD, component/hook/API tests, E2E, CI gates, migration characterization, architecture gate tests. |
+| Do not use when | The task is only about production code structure with tests already defined. |
+| Inputs | Risk areas, public contracts, existing test setup and CI, target platforms. |
+| Preconditions | Test runner and package manager identified from the repository. |
+| Tools | Vitest, Testing Library, Playwright, MSW, the architecture gate, `expo export`/native builds, the repository's CI. |
+| Procedure | Pyramid and levels below; the Architecture and Multiplatform section for product repositories. |
+| Output | Tests at the right level, CI gates, documented proof level per platform. |
+| Validation | Tests fail when the behavior or rule they protect is broken (checked with a deliberate violation), pass otherwise, and run in CI. |
+| Known failures | Tests that never fail, browser previews reported as native proof, flaky tests left in CI, coverage over imported files only. |
 
 ## Testing Pyramid
 
@@ -254,31 +269,7 @@ Test multiple units working together (e.g., component + API call + state managem
 - Slower than unit tests (seconds, not milliseconds).
 - Reset database state between tests.
 
-**Example** (component + API route):
-
-```text
-describe("UserList integration", () => {
-  beforeEach(() => {
-    // Reset database
-    db.clear();
-    db.insert("users", [
-      { id: 1, name: "Alice" },
-      { id: 2, name: "Bob" },
-    ]);
-  });
-
-  it("should fetch and display users from API", async () => {
-    render(<UserList />);
-
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
-
-    await waitFor(() => {
-      expect(screen.getByText("Alice")).toBeInTheDocument();
-      expect(screen.getByText("Bob")).toBeInTheDocument();
-    });
-  });
-});
-```
+See `references/test-examples.md` (Integration Test Example) for a component + API example.
 
 ## E2E Testing with Playwright
 
@@ -297,51 +288,7 @@ export default defineConfig({
 });
 ```
 
-**Page Object Pattern** (for maintainability):
-
-```text
-export class LoginPage {
-  constructor(private page: Page) {}
-
-  async goto() {
-    await this.page.goto("/login");
-  }
-
-  async fillEmail(email: string) {
-    await this.page.fill("input[type=email]", email);
-  }
-
-  async fillPassword(password: string) {
-    await this.page.fill("input[type=password]", password);
-  }
-
-  async clickSubmit() {
-    await this.page.click("button[type=submit]");
-  }
-
-  async isDashboardVisible() {
-    return this.page.isVisible("h1:has-text('Dashboard')");
-  }
-}
-```
-
-**Example E2E test**:
-
-```text
-import { test, expect } from "@playwright/test";
-import { LoginPage } from "./pages/LoginPage";
-
-test("should log in and view dashboard", async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-
-  await loginPage.fillEmail("user@example.com");
-  await loginPage.fillPassword("password123");
-  await loginPage.clickSubmit();
-
-  expect(await loginPage.isDashboardVisible()).toBe(true);
-});
-```
+Use the Page Object pattern for maintainability; see `references/test-examples.md` (E2E Page Object Example).
 
 **E2E best practices**:
 
@@ -357,31 +304,23 @@ Test Next.js API routes with `NextRequest` or supertest. Keep one happy-path cas
 
 ## Mocking Patterns
 
-**Mock external APIs** with Mock Service Worker (MSW):
+Mock external APIs with Mock Service Worker (MSW) and use `vi.fn()` for callbacks; see `references/test-examples.md` (Mocking Examples).
 
-```text
-import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
+## Architecture and Multiplatform Tests (MANDATORY for product repositories)
 
-const server = setupServer(
-  http.get("https://api.example.com/users/:id", () => {
-    return HttpResponse.json({ id: 1, name: "Alice" });
-  })
-);
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
-```
-
-**Mock functions**:
-
-```text
-const mockCallback = vi.fn();
-mockCallback("arg1", "arg2");
-expect(mockCallback).toHaveBeenCalledWith("arg1", "arg2");
-expect(mockCallback).toHaveBeenCalledTimes(1);
-```
+- **Architecture gate:** `pnpm arch` runs in CI. Its own tests inject deliberate violations
+  (cross-slice import, deep import, upward import, web-only code in shared code, server-only import in
+  a client) and require each one to fail; a gate that never fails proves nothing.
+- **Shared behavior:** business logic lives in pure model functions of FSD slices (reducers,
+  formatters) tested once; web components are tested with Testing Library; the same page components
+  are rendered by both clients.
+- **Platform proof levels** — report the level reached, never a higher one:
+  L1 typecheck of the web and native projects; L2 web build and `expo export` bundles for Android
+  and iOS; L3 native build (`expo prebuild` + Gradle/Xcode); L4 run on emulator/device with an
+  interaction. Missing SDKs make L3/L4 "not verified", not "not applicable".
+- **Tokens:** `pnpm check:tokens` proves a token change reaches both outputs.
+- **Migrations:** characterization cases stored as data run against the legacy and the migrated code
+  through two thin adapters; the migration is done only when the same cases pass on both.
 
 ## What to Test (Priority)
 
@@ -425,7 +364,7 @@ __tests__/
 
 Choose one pattern; be consistent across project.
 
-When `vitest.config.*` defines named projects, run the project-specific scripts instead of inventing a new command. Example: unit tests through `pnpm test:run`, Storybook/component tests through `pnpm test:run:storybook`, all configured projects through `pnpm test:run:all`.
+In FSD packages, tests live next to the code of the slice (`features/<f>/model/*.test.ts`) and are never imported by production code. When `vitest.config.*` defines named projects, run the project-specific scripts instead of inventing a new command.
 
 ## Coverage and Validation Gates
 

@@ -1,6 +1,6 @@
 ---
 name: api-design-patterns
-description: Design and implement REST APIs in Next.js SaaS with authentication, Zod validation, error handling, cursor pagination, rate limiting, webhooks, and multi-tenancy. Use when building REST endpoints, implementing auth flows, adding input validation, standardizing errors, paginating results, implementing webhooks, or configuring tenant isolation. Triggers on API design, REST, route handler, authentication, authorization, middleware, validation, Zod, pagination, rate limiting, webhook, multi-tenant API.
+description: "Design REST APIs and Next.js route handlers: auth, validation, error envelopes, pagination, rate limiting, idempotency, webhooks and tenant isolation. Use when creating or reviewing endpoints, route handlers or API contracts."
 metadata:
   author: SaaS Skills Collection
   version: "1.0"
@@ -34,6 +34,21 @@ laws and the dual cookie+Bearer auth architecture belong to
 `multiplatform-platform-architecture`; this skill designs the endpoints inside
 whatever host that skill (or the repo) has established, with contracts sourced
 from a shared Zod package (`/api/v1` + OpenAPI generated from Zod) when one exists.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Design REST and route handlers with auth, validation, error envelopes, pagination, rate limits, webhooks and tenant isolation. |
+| Use when | Creating or reviewing API endpoints or webhooks. |
+| Do not use when | Frontend-only work or schema design alone (use prisma-database-design). |
+| Inputs | Resource model, auth model and API consumers. |
+| Preconditions | The backend architecture is decided; shared contracts live in a contracts package, apart from server code. |
+| Tools | Zod (or equivalent), the framework's route handlers, an OpenAPI generator if the project uses one. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | endpoint contract, handler, tests and error envelope. |
+| Validation | Contract tests cover success, validation, auth and tenant isolation; generated OpenAPI is in sync. |
+| Known failures | Validating after side effects, leaking internal errors, missing tenant filters. |
 
 ## Core Workflow
 

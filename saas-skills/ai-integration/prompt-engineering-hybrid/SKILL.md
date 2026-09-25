@@ -1,6 +1,6 @@
 ---
 name: prompt-engineering-hybrid
-description: Master hybrid prompt engineering combining natural language narrative with structured schemas (JSON/YAML/XML) for LLMs. Craft effective prompts reducing hallucination via 10-component framework, format selection decision trees, chain-of-thought patterns, few-shot examples, and iterative refinement. Trigger when engineering prompts, choosing between text/XML/JSON formats, reducing AI hallucinations, creating structured output schemas, building reusable prompt templates, or optimizing token efficiency.
+description: "Engineer prompts that combine natural language with structured schemas (JSON, YAML, XML): format selection, output contracts, few-shot examples, reasoning scaffolds and fallback clauses against hallucination. Use when writing or refining prompts, templates or structured outputs."
 metadata:
   author: Claude Agent, SaaS Skills
   version: 1.0
@@ -24,6 +24,21 @@ Activate this skill whenever:
 - Building internal prompt libraries for your SaaS
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Design prompts that combine narrative instructions with structured schemas and fallback clauses. |
+| Use when | Writing prompts, structured-output contracts, reducing hallucination, choosing output formats. |
+| Do not use when | Agent architecture (use saas-ai-agent-engineer) or context budgeting (use context-window-optimization). |
+| Inputs | Task, target model, output consumer and examples. |
+| Preconditions | A verifiable output definition exists (schema or accepted examples). |
+| Tools | JSON Schema or Zod and the target model's structured-output feature. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | prompt template, schema, fallback clauses and test cases. |
+| Validation | Sample runs validate against the schema and failure cases hit the fallback. |
+| Known failures | Schema and prose that disagree, overlong few-shot blocks, instructions that cannot be tested. |
 
 ## Core Workflow
 

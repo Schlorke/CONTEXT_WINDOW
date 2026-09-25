@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blender Modeling"
+  short_description: "Chooses Blender modeling approaches"
+  default_prompt:
+    "Use $blender-modeling to pick the least destructive Blender modeling
+    method."
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 ---
 name: multi-perspective-council
-description: Convene a multi-perspective advisory council (LLM Council style) that pressure-tests a plan, idea, or implementation BEFORE code is written. Five fixed reasoning styles (Contrarian, First Principles, Expansionist, Outsider, Executor) incarnated with the open project's context analyze independently, anonymously peer-review each other, face a devil's advocate, and a chairman delivers a verdict with consensus, preserved dissent, second-order risks (future bugs, embedded-AI misbehavior, desktop vs mobile vs offline gaps) and a plain-language recommendation. Use on request for a second opinion or before large implementations. Trigger phrases include convoca o conselho, conselho completo, conselho rapido, segunda opiniao, multiplas perspectivas, llm council, advogado do diabo, pressure test, second opinion, council review, plano de grande implementacao, mudanca estrutural grande, migracao de schema em producao, refatoracao que afeta varios modulos, mudar o comportamento da IA do produto.
+description: "Convene a five-perspective advisory council (contrarian, first principles, expansionist, outsider, executor) with anonymous peer review, a devil's advocate and a chairman verdict before large implementations. Use for second opinions: convoca o conselho, segunda opiniao, advogado do diabo, pressure test."
 metadata:
   author: "Claude Agent, SaaS Skills"
   version: "1.0"
@@ -14,6 +14,21 @@ metadata:
 ---
 
 # Multi-Perspective Council
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Pressure-test a plan with five reasoning styles, anonymous review, a devil's advocate and a chairman verdict. |
+| Use when | An explicit request for a council or second opinion, or before a large structural change. |
+| Do not use when | Small changes, factual questions, or when the user asked for immediate implementation without review. |
+| Inputs | The plan or proposal, project context and constraints. |
+| Preconditions | Enough project context to argue concretely; subagents only when the client provides them (see references/runtime-degradation.md). |
+| Tools | Client subagents when available, otherwise sequential personas. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | verdict with consensus, preserved dissent, second-order risks and a plain-language recommendation. |
+| Validation | Each advisor produced independent points, dissent is preserved and every risk is tied to the plan. |
+| Known failures | Sycophantic consensus, generic risks, convening the council for trivial tasks. |
 
 ## When to Use
 

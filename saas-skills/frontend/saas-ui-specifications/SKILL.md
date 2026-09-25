@@ -1,6 +1,6 @@
 ---
 name: saas-ui-specifications
-description: "Reference-driven skill providing concrete UI/UX specifications for SaaS applications: typographic scales, color systems, spacing tokens, responsive grid, dark mode, and WCAG 2.2 accessibility patterns. Use when defining typography, choosing color palettes, establishing spacing systems, setting up responsive grid, implementing dark mode, or verifying accessibility compliance. Triggers on: typography scale, color palette, spacing system, grid layout, dark mode, WCAG accessibility, responsive design, SaaS UI specifications."
+description: "Concrete UI specifications for SaaS: type scale, color roles, spacing tokens, density, responsive grid, dark mode and WCAG 2.2 accessibility. Use when defining typography, palettes, spacing or layouts, or checking the accessibility of an interface."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0
@@ -27,6 +27,21 @@ This skill applies when:
 - Creating design tokens for Tailwind CSS or CSS custom properties
 
 Do NOT use this skill for: design system governance (see `design-system-implementation`), folder structure decisions (see `react-saas-architecture`).
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Specify typography, color roles, spacing, density, responsive behavior and accessibility for the product UI. |
+| Use when | Defining or reviewing visual specifications and token values. |
+| Do not use when | Component implementation mechanics (use design-system-implementation) or FSD placement (use react-saas-architecture). |
+| Inputs | Brand, content density and target platforms (web and mobile). |
+| Preconditions | Token values live in packages/design-tokens and both clients consume them. |
+| Tools | WCAG contrast checks and the tokens package. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | semantic token values, usage rules and accessibility requirements. |
+| Validation | Text roles meet WCAG AA contrast and both clients use the same tokens with no duplicated values. |
+| Known failures | Color literals in components, web-only units in shared specs, touch targets ignored. |
 
 ## Core Workflow
 

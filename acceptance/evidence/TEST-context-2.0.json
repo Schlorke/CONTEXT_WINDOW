@@ -1,0 +1,527 @@
+{
+  "tokenizer": "o200k_base",
+  "alwaysOnAgentsMd": 730,
+  "listing": 1179,
+  "groups": {
+    "always-on": {
+      "n": 2,
+      "bytes": 3381,
+      "tokens": 812,
+      "max": 730,
+      "maxLabel": "AGENTS.md (contract + usage policy blocks)"
+    },
+    "listing-entry": {
+      "n": 20,
+      "bytes": 5831,
+      "tokens": 1179,
+      "max": 70,
+      "maxLabel": "multiplatform-platform-architecture"
+    },
+    "skill-md": {
+      "n": 21,
+      "bytes": 284325,
+      "tokens": 65349,
+      "max": 3728,
+      "maxLabel": "clean-architecture-ddd"
+    },
+    "reference": {
+      "n": 29,
+      "bytes": 157230,
+      "tokens": 38328,
+      "max": 3557,
+      "maxLabel": "prompt-engineering-hybrid/references/format-selection-guide.md"
+    }
+  },
+  "tasks": [
+    {
+      "task": "FSD feature in packages/frontend",
+      "skills": [
+        "react-saas-architecture"
+      ],
+      "skillTokens": 2115,
+      "total": 4024
+    },
+    {
+      "task": "new product bootstrap (web + mobile)",
+      "skills": [
+        "multiplatform-platform-architecture"
+      ],
+      "skillTokens": 2850,
+      "total": 4759
+    },
+    {
+      "task": "shared component with .web/.native",
+      "skills": [
+        "design-system-implementation"
+      ],
+      "skillTokens": 3025,
+      "total": 4934
+    },
+    {
+      "task": "legacy adoption",
+      "skills": [
+        "legacy-code-refactoring"
+      ],
+      "skillTokens": 3674,
+      "total": 5583
+    },
+    {
+      "task": "Prisma schema change",
+      "skills": [
+        "prisma-database-design"
+      ],
+      "skillTokens": 3018,
+      "total": 4927
+    },
+    {
+      "task": "API route",
+      "skills": [
+        "api-design-patterns"
+      ],
+      "skillTokens": 3269,
+      "total": 5178
+    },
+    {
+      "task": "README/AGENTS docs",
+      "skills": [
+        "intelligent-project-docs"
+      ],
+      "skillTokens": 2856,
+      "total": 4765
+    }
+  ],
+  "items": [
+    {
+      "group": "always-on",
+      "label": "AGENTS.md (contract + usage policy blocks)",
+      "bytes": 3122,
+      "tokens": 730
+    },
+    {
+      "group": "always-on",
+      "label": "CLAUDE.md (@AGENTS.md import)",
+      "bytes": 259,
+      "tokens": 82
+    },
+    {
+      "group": "listing-entry",
+      "label": "ai-context-diagrams",
+      "bytes": 272,
+      "tokens": 54
+    },
+    {
+      "group": "skill-md",
+      "label": "ai-context-diagrams",
+      "bytes": 14648,
+      "tokens": 3540
+    },
+    {
+      "group": "reference",
+      "label": "ai-context-diagrams/references/c4-model-patterns.md",
+      "bytes": 9139,
+      "tokens": 2252
+    },
+    {
+      "group": "reference",
+      "label": "ai-context-diagrams/references/mermaid-examples.md",
+      "bytes": 7333,
+      "tokens": 1925
+    },
+    {
+      "group": "listing-entry",
+      "label": "ai-interface-design",
+      "bytes": 281,
+      "tokens": 61
+    },
+    {
+      "group": "skill-md",
+      "label": "ai-interface-design",
+      "bytes": 15094,
+      "tokens": 3427
+    },
+    {
+      "group": "reference",
+      "label": "ai-interface-design/references/compliance-checklist.md",
+      "bytes": 2540,
+      "tokens": 595
+    },
+    {
+      "group": "reference",
+      "label": "ai-interface-design/references/implementation-roadmap.md",
+      "bytes": 1234,
+      "tokens": 330
+    },
+    {
+      "group": "listing-entry",
+      "label": "api-design-patterns",
+      "bytes": 246,
+      "tokens": 49
+    },
+    {
+      "group": "skill-md",
+      "label": "api-design-patterns",
+      "bytes": 13891,
+      "tokens": 3269
+    },
+    {
+      "group": "listing-entry",
+      "label": "clean-architecture-ddd",
+      "bytes": 301,
+      "tokens": 61
+    },
+    {
+      "group": "skill-md",
+      "label": "clean-architecture-ddd",
+      "bytes": 16984,
+      "tokens": 3728
+    },
+    {
+      "group": "reference",
+      "label": "clean-architecture-ddd/references/ddd-tactical-patterns.md",
+      "bytes": 10516,
+      "tokens": 2379
+    },
+    {
+      "group": "listing-entry",
+      "label": "component-reuse-portability",
+      "bytes": 297,
+      "tokens": 55
+    },
+    {
+      "group": "skill-md",
+      "label": "component-reuse-portability",
+      "bytes": 14965,
+      "tokens": 3525
+    },
+    {
+      "group": "reference",
+      "label": "component-reuse-portability/references/registry-and-advanced-cases.md",
+      "bytes": 1751,
+      "tokens": 392
+    },
+    {
+      "group": "listing-entry",
+      "label": "context-window-optimization",
+      "bytes": 301,
+      "tokens": 58
+    },
+    {
+      "group": "skill-md",
+      "label": "context-window-optimization",
+      "bytes": 15661,
+      "tokens": 3681
+    },
+    {
+      "group": "reference",
+      "label": "context-window-optimization/references/compression-strategies.md",
+      "bytes": 4133,
+      "tokens": 1034
+    },
+    {
+      "group": "reference",
+      "label": "context-window-optimization/references/rag-decision-guide.md",
+      "bytes": 4725,
+      "tokens": 1149
+    },
+    {
+      "group": "listing-entry",
+      "label": "design-system-implementation",
+      "bytes": 299,
+      "tokens": 59
+    },
+    {
+      "group": "skill-md",
+      "label": "design-system-implementation",
+      "bytes": 12842,
+      "tokens": 3025
+    },
+    {
+      "group": "listing-entry",
+      "label": "intelligent-project-docs",
+      "bytes": 282,
+      "tokens": 65
+    },
+    {
+      "group": "skill-md",
+      "label": "intelligent-project-docs",
+      "bytes": 13407,
+      "tokens": 2856
+    },
+    {
+      "group": "listing-entry",
+      "label": "legacy-code-refactoring",
+      "bytes": 321,
+      "tokens": 57
+    },
+    {
+      "group": "skill-md",
+      "label": "legacy-code-refactoring",
+      "bytes": 16178,
+      "tokens": 3674
+    },
+    {
+      "group": "listing-entry",
+      "label": "multi-agent-skill-creator",
+      "bytes": 290,
+      "tokens": 60
+    },
+    {
+      "group": "skill-md",
+      "label": "multi-agent-skill-creator",
+      "bytes": 8437,
+      "tokens": 1849
+    },
+    {
+      "group": "reference",
+      "label": "multi-agent-skill-creator/references/runtime-contracts.md",
+      "bytes": 2790,
+      "tokens": 671
+    },
+    {
+      "group": "skill-md",
+      "label": "multi-agent-skill-installer",
+      "bytes": 7386,
+      "tokens": 1842
+    },
+    {
+      "group": "listing-entry",
+      "label": "multi-perspective-council",
+      "bytes": 332,
+      "tokens": 69
+    },
+    {
+      "group": "skill-md",
+      "label": "multi-perspective-council",
+      "bytes": 16682,
+      "tokens": 3648
+    },
+    {
+      "group": "reference",
+      "label": "multi-perspective-council/references/advisor-prompts.md",
+      "bytes": 6319,
+      "tokens": 1508
+    },
+    {
+      "group": "reference",
+      "label": "multi-perspective-council/references/output-templates.md",
+      "bytes": 2883,
+      "tokens": 689
+    },
+    {
+      "group": "reference",
+      "label": "multi-perspective-council/references/runtime-degradation.md",
+      "bytes": 2803,
+      "tokens": 631
+    },
+    {
+      "group": "listing-entry",
+      "label": "multiplatform-platform-architecture",
+      "bytes": 350,
+      "tokens": 70
+    },
+    {
+      "group": "skill-md",
+      "label": "multiplatform-platform-architecture",
+      "bytes": 12545,
+      "tokens": 2850
+    },
+    {
+      "group": "reference",
+      "label": "multiplatform-platform-architecture/references/client-fsd-mirror.md",
+      "bytes": 2329,
+      "tokens": 536
+    },
+    {
+      "group": "reference",
+      "label": "multiplatform-platform-architecture/references/fsd-frontend-taxonomy.md",
+      "bytes": 4604,
+      "tokens": 1092
+    },
+    {
+      "group": "reference",
+      "label": "multiplatform-platform-architecture/references/modular-api-anatomy.md",
+      "bytes": 6891,
+      "tokens": 1292
+    },
+    {
+      "group": "reference",
+      "label": "multiplatform-platform-architecture/references/platform-monorepo-tree.md",
+      "bytes": 5335,
+      "tokens": 1211
+    },
+    {
+      "group": "listing-entry",
+      "label": "prisma-database-design",
+      "bytes": 248,
+      "tokens": 47
+    },
+    {
+      "group": "skill-md",
+      "label": "prisma-database-design",
+      "bytes": 12289,
+      "tokens": 3018
+    },
+    {
+      "group": "listing-entry",
+      "label": "prompt-engineering-hybrid",
+      "bytes": 306,
+      "tokens": 54
+    },
+    {
+      "group": "skill-md",
+      "label": "prompt-engineering-hybrid",
+      "bytes": 13809,
+      "tokens": 3182
+    },
+    {
+      "group": "reference",
+      "label": "prompt-engineering-hybrid/references/format-selection-guide.md",
+      "bytes": 14910,
+      "tokens": 3557
+    },
+    {
+      "group": "listing-entry",
+      "label": "react-saas-architecture",
+      "bytes": 321,
+      "tokens": 69
+    },
+    {
+      "group": "skill-md",
+      "label": "react-saas-architecture",
+      "bytes": 8824,
+      "tokens": 2115
+    },
+    {
+      "group": "reference",
+      "label": "react-saas-architecture/references/advanced-component-patterns.md",
+      "bytes": 1796,
+      "tokens": 396
+    },
+    {
+      "group": "reference",
+      "label": "react-saas-architecture/references/fsd-structure-examples.md",
+      "bytes": 3616,
+      "tokens": 839
+    },
+    {
+      "group": "listing-entry",
+      "label": "saas-ai-agent-engineer",
+      "bytes": 270,
+      "tokens": 64
+    },
+    {
+      "group": "skill-md",
+      "label": "saas-ai-agent-engineer",
+      "bytes": 11975,
+      "tokens": 2521
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/architecture.md",
+      "bytes": 5893,
+      "tokens": 1172
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/evals-observability.md",
+      "bytes": 4448,
+      "tokens": 901
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/implementation-patterns.md",
+      "bytes": 5058,
+      "tokens": 1064
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/rag-memory.md",
+      "bytes": 4203,
+      "tokens": 874
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/review-checklists.md",
+      "bytes": 5107,
+      "tokens": 1064
+    },
+    {
+      "group": "reference",
+      "label": "saas-ai-agent-engineer/references/security-governance.md",
+      "bytes": 4844,
+      "tokens": 985
+    },
+    {
+      "group": "listing-entry",
+      "label": "saas-ui-specifications",
+      "bytes": 272,
+      "tokens": 57
+    },
+    {
+      "group": "skill-md",
+      "label": "saas-ui-specifications",
+      "bytes": 11692,
+      "tokens": 3190
+    },
+    {
+      "group": "reference",
+      "label": "saas-ui-specifications/references/color-system.md",
+      "bytes": 9520,
+      "tokens": 3198
+    },
+    {
+      "group": "reference",
+      "label": "saas-ui-specifications/references/spacing-grid.md",
+      "bytes": 10420,
+      "tokens": 3279
+    },
+    {
+      "group": "reference",
+      "label": "saas-ui-specifications/references/typography-scale.md",
+      "bytes": 6779,
+      "tokens": 2054
+    },
+    {
+      "group": "listing-entry",
+      "label": "systems-analysis-saas",
+      "bytes": 273,
+      "tokens": 58
+    },
+    {
+      "group": "skill-md",
+      "label": "systems-analysis-saas",
+      "bytes": 13009,
+      "tokens": 2974
+    },
+    {
+      "group": "listing-entry",
+      "label": "technical-research-writing",
+      "bytes": 288,
+      "tokens": 49
+    },
+    {
+      "group": "skill-md",
+      "label": "technical-research-writing",
+      "bytes": 18225,
+      "tokens": 3712
+    },
+    {
+      "group": "listing-entry",
+      "label": "testing-strategies",
+      "bytes": 281,
+      "tokens": 63
+    },
+    {
+      "group": "skill-md",
+      "label": "testing-strategies",
+      "bytes": 15782,
+      "tokens": 3723
+    },
+    {
+      "group": "reference",
+      "label": "testing-strategies/references/test-examples.md",
+      "bytes": 5311,
+      "tokens": 1259
+    }
+  ]
+}

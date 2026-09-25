@@ -1,0 +1,29 @@
+{
+  "name": "acme-platform",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@12.5.1",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "arch": "node tools/arch-check.mjs",
+    "tokens": "node tools/token-check.mjs",
+    "typecheck": "tsc -p packages/ui/tsconfig.json && tsc -p packages/ui/tsconfig.native.json && tsc -p packages/frontend/tsconfig.json && tsc -p apps/clients/web/tsconfig.json && tsc -p apps/clients/mobile/tsconfig.json",
+    "test": "vitest run",
+    "build:web": "pnpm --filter @acme/web build",
+    "bundle:mobile": "pnpm --filter @acme/mobile bundle",
+    "check:tokens": "node tools/token-propagation-check.mjs",
+    "verify": "pnpm arch && pnpm tokens && pnpm typecheck && pnpm test && pnpm build:web && pnpm bundle:mobile"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.6",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "typescript": "5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "5.0.1"
+  }
+}

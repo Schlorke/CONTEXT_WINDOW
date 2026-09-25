@@ -1,296 +1,138 @@
 ---
 name: multi-agent-skill-installer
-description: Install and verify this skills library across Codex, Claude, and Cursor using the correct runtime targets for each platform. Trigger when the user wants global installation, project-local installation, sync across all three AI tools, safe sandbox validation, or a copyable workflow that lets any agent install the library without touching application code.
+description: Install, update, verify, repair or remove the Context Window skill library for Claude Code, Codex and Cursor with the cw CLI — project or user scope, profiles, isolated sandbox profiles, conflict handling, legacy 1.x migration and the Cursor User Rules export. Use only when the user explicitly asks to install, sync, update, verify, repair or uninstall the library.
 metadata:
-  author: Codex Agent, SaaS Skills
-  version: 1.3
-  last_validated: 2026-07-21
+  author: Context Window
+  version: "2.0.0"
+  last_validated: "2026-09-24"
   sources:
-    - "Source repo (C:/Projetos/Context_Window): saas-skills/README.md"
-    - "Source repo: README.md"
-    - "Source repo: saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md"
-    - "Source repo: saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md"
-    - Codex skill-installer behavior
+    - Context Window cw CLI help and test suite
+    - Claude Code skills and memory documentation
+    - Codex skills documentation and codex debug prompt-input
+    - Cursor rules and skills documentation
 ---
 
-# When to Use This Skill
+# Multi-Agent Skill Installer
 
-Activate this skill whenever:
+## Operational Contract
 
-- Installing this library into Codex, Claude, or Cursor
-- Installing this library into only one of those runtimes
-- Syncing the library across all three AI tools
-- Syncing the library back into only one selected runtime
-- Choosing between project-local and global installation
-- Installing a mandatory policy that forces agents to disclose which skills they used at the end of the task
-- Validating the installation in sandbox before touching real runtimes
-- Generating a copyable `AGENTS.md` or operator workflow for multi-IA install
-- Verifying that skills landed in the correct runtime directories
+| Field | Contract |
+| --- | --- |
+| Objective | Put the right skills, contract blocks and hook in the right place for each selected client, safely and reversibly, and prove it with `verify`. |
+| Use when | The user explicitly asks to install, update, sync, verify, repair or uninstall the library, or to validate it in an isolated profile. |
+| Do not use when | Creating or editing a canonical skill (multi-agent-skill-creator), or changing application code. |
+| Inputs | Destination (`--target <dir>` or `--user`), profile (`dev` or `creative`), clients (`claude,codex,cursor`), optional blocks (contract, usage policy, Claude hook). |
+| Preconditions | Node.js 20 or newer; a Context Window checkout or a bundle made with `build --out`; the destination exists; the user approved the scope. |
+| Tools | The `cw` CLI (`node scripts/cw.mjs` inside the checkout or bundle). |
+| Procedure | Steps 1–7 below. |
+| Output | Installed skills with `.cw-manifest.json` per skill directory, an install record in `.context-window/install.json`, managed text blocks, the `verify` result. |
+| Validation | `verify` exits 0; `status` reports every skill as current; the plan printed before install matches the result. |
+| Known failures | Exit 2 (conflicts, nothing written), exit 3 (busy or interrupted run), a hand-edited installed skill, a 1.x install in the same folders, the Cursor User Rules text not pasted. |
 
-This skill is MANDATORY and must be followed without exception when its trigger fires.
+## Where each client reads skills
 
-If the request creates or materially changes a canonical skill, use
-`multi-agent-skill-creator` first; this installer owns only sandbox distribution,
-synchronization, manifests, and runtime verification after source validation.
+| Client | Project scope | User scope |
+| --- | --- | --- |
+| Claude Code | `.claude/skills/<id>/SKILL.md` | `$CLAUDE_CONFIG_DIR/skills` or `~/.claude/skills` |
+| Codex | `.agents/skills/<id>/SKILL.md` | `~/.agents/skills` |
+| Cursor | reads `.claude/skills` (compatibility) and `.agents/skills` | reads `~/.claude/skills` and `~/.agents/skills`; User Rules are pasted manually |
 
-## Core Workflow
+`cw` writes each skill once per sink: when Claude and Cursor are both selected, Cursor uses the Claude
+copy instead of receiving a duplicate. The contract block goes to `AGENTS.md` (read by Codex and Cursor)
+and `CLAUDE.md` imports it with `@AGENTS.md`. At user scope it goes to `~/.claude/CLAUDE.md` and
+`$CODEX_HOME/AGENTS.md`.
 
-### Step 1: Pick the Correct Installation Scope
+## Step 1 — Confirm scope and profile
 
-Choose one of these scopes before writing anything:
+Ask the user when it is not explicit: one project (`--target <dir>`) or the whole user profile
+(`--user`); which clients; which profile. The `dev` profile turns the architecture contract on by
+default; pass `--without-contract` for repositories without a product frontend.
 
-1. **Project-only** — install only:
-   - `.claude/skills/`
-   - `.cursor/rules/`
-2. **Codex-only** — install only:
-   - `$CODEX_HOME/skills/`
-3. **Claude-only** — install only:
-   - `.claude/skills/` or `~/.claude/skills/`
-4. **Cursor-only** — install only:
-   - `.cursor/rules/` and, if global, also export the bootstrap for `Cursor Settings > Rules`
-5. **Global-only** — install only:
-   - `$CODEX_HOME/skills/`
-   - `~/.claude/skills/`
-   - `~/.cursor/rules/` as compatibility export
-   - `Cursor Settings > Rules` via exported bootstrap
-6. **Unified project install** — install:
-   - `$CODEX_HOME/skills/`
-   - project `.claude/skills/`
-   - project `.cursor/rules/`
-7. **Unified global + project install** — install everything above
-
-If the user says "for all my projects," prefer the global flow.
-If the user says "only in this repo," prefer the project flow.
-If the user says "only for Codex", "only for Claude", or "only for Cursor", prefer the single-runtime flow.
-
-**Claude scope rule (avoid duplication):** the generic library must live in ONE
-Claude scope only. Recommended default: GLOBAL (`~/.claude/skills`), mirroring
-Codex; reserve project `.claude/skills/` for project-specific skills. Installing
-both scopes doubles the skill listing the model sees, the listing budget
-truncates descriptions, and automatic triggering degrades. The installer and
-`verify` print a warning when they detect the library in both scopes — treat
-that warning as an action item, not noise.
-
-**Recommended per-machine + per-project flow:**
+## Step 2 — Prove it in an isolated profile first
 
 ```bash
-pnpm install:global-runtimes            # once per machine (Codex + Claude global + Cursor global)
-pnpm install:cursor -- <target-dir> --cursor-project-stubs # when global skills exist
-pnpm install:claude-hook -- <target-dir> # per project (deterministic Claude routing hook, no skill duplication)
+node scripts/cw.mjs plan --target <scratch-project> --profile dev --home <sandbox>/home
+node scripts/cw.mjs install --target <scratch-project> --profile dev --home <sandbox>/home
+node scripts/cw.mjs verify --target <scratch-project> --home <sandbox>/home
+node scripts/cw.mjs doctor --target <scratch-project> --home <sandbox>/home
 ```
 
-The `install:claude-hook` alias writes `.claude/hooks/skill-router.mjs`,
-generates `.claude/skill-routing.json` from the runtime profiles, and merges the
-hook registration into `.claude/settings.json` (idempotent; never clobbers
-custom files — it skips non-managed hook/routing files with a warning).
+`--home` isolates `~`, `.claude` and `.codex`; `--claude-config-dir` and `--codex-home` override them
+individually. Never point these options at the real profile to make a test pass.
 
-### Step 2: Use the Repository Installer, Not Ad Hoc Copying
-
-Prefer the runtime scripts in this repository:
-
-- `scripts/install-agent-runtimes.mjs`
-- `scripts/verify-agent-runtimes.mjs`
-- `scripts/export-cursor-user-rules.mjs`
-
-Canonical commands:
+## Step 3 — Plan, then install
 
 ```bash
-pnpm install:agent-runtimes -- <target-dir>
-pnpm verify:agent-runtimes -- <target-dir>
+node scripts/cw.mjs plan --target <project> --profile dev
+node scripts/cw.mjs install --target <project> --profile dev
 ```
 
-Single-runtime aliases:
+`plan` (or `install --dry-run`) lists every create, update, replace and remove before anything is
+written. `install` re-plans under a lock and applies the same operations. Show the plan to the user
+when it touches existing files.
+
+## Step 4 — Resolve conflicts explicitly (exit code 2)
+
+Nothing is written when a conflict exists. Read the reason and choose deliberately:
+
+| Conflict | Meaning | Resolution |
+| --- | --- | --- |
+| `unmanaged-collision` | A folder with the same name exists and was not installed by cw | Keep it, or `--adopt <id>` / `--adopt-all` (backup kept) |
+| `locally-modified` | An installed skill was edited by hand | Move the change to the library source, or `--force-local` (backup kept) |
+| `legacy-managed` / `legacy-manifest` | A 1.x install (`.saas-skills-manifest.json`) is present | `--migrate-legacy` to replace it, or `--keep-legacy` |
+| `link`, `case-mismatch`, `unsafe-root` | Symlink/junction, case clash or path outside the sink | Fix the filesystem; cw never follows links |
+| `invalid-manifest` | Manifest tampered or corrupt | Inspect; reinstall after removing the folder deliberately |
+
+## Step 5 — Verify and report
 
 ```bash
-pnpm install:codex -- <target-dir>
-pnpm verify:codex -- <target-dir>
-
-pnpm install:claude -- <target-dir>
-pnpm verify:claude -- <target-dir>
-
-pnpm install:cursor -- <target-dir>
-pnpm verify:cursor -- <target-dir>
+node scripts/cw.mjs status --target <project>
+node scripts/cw.mjs verify --target <project>
+node scripts/cw.mjs doctor --target <project> --strict
 ```
 
-When Codex/Claude global skills are already installed and the target repository
-enforces a small agent-context budget, install short Cursor trigger stubs:
+`verify` checks every file hash, manifest and block; `doctor` also reports duplicates between the
+project and user scopes and leftovers of older installs. Report the exit codes, not impressions.
+
+## Step 6 — Cursor User Rules (user scope only)
+
+Cursor's User Rules live in the application settings, not in files. Print the text and ask the user to
+paste it into Cursor Settings > Rules:
 
 ```bash
-pnpm install:cursor -- <target-dir> --cursor-project-stubs
-pnpm verify:cursor -- <target-dir> --cursor-project-stubs
+node scripts/cw.mjs contract --format cursor-user-rules --with-usage-policy
 ```
 
-Without this flag, project Cursor rules contain the full generated skill body.
-With it, each `.mdc` keeps only description-based discovery and points to the
-global Claude/Codex `SKILL.md`; project rules and gates remain authoritative.
+The header carries the library version and a hash; after an update, compare it with the pasted text.
+This step is manual and cannot be verified by `cw`.
 
-Skill usage disclosure policy:
+## Step 7 — Update, repair, remove
 
 ```bash
-pnpm install:skill-usage-reporting -- <target-dir>
-pnpm verify:skill-usage-reporting -- <target-dir>
+node scripts/cw.mjs install --target <project>
+node scripts/cw.mjs recover --target <project>
+node scripts/cw.mjs uninstall --target <project> --dry-run
+node scripts/cw.mjs uninstall --target <project>
 ```
 
-Global-only:
+- Update: run `install` again after updating the library; the record keeps profile, clients and blocks.
+- Exit code 3 means another run holds the lock or a previous run was interrupted: wait, then `recover`.
+- `uninstall` removes only files it can prove it installed; hand-edited ones need `--force-local`.
+
+## Distributing outside the checkout
 
 ```bash
-pnpm install:global-runtimes
-pnpm verify:global-runtimes
-pnpm export:cursor-user-rules
+node scripts/cw.mjs build --out <empty-dir>
+node <empty-dir>/scripts/cw.mjs install --target <project> --profile dev
 ```
 
-Project-only:
+The bundle contains only active skills, the catalog lock and the CLI; imported or quarantined items are
+never distributed.
 
-```bash
-pnpm install:agent-runtimes -- <target-dir> --project-only
-pnpm verify:agent-runtimes -- <target-dir> --project-only
-```
+## Rules
 
-For updates and corrections, use the sync aliases:
-
-```bash
-pnpm sync:agent-runtimes -- <target-dir>
-pnpm sync:global-runtimes
-pnpm status:agent-runtimes -- <target-dir>
-pnpm export:cursor-user-rules
-```
-
-If the install scope includes Cursor global, assume the bootstrap in `Cursor Settings > Rules` may need to be recopied after updates.
-
-### Step 3: Always Start with Sandbox Validation
-
-Do not install into real global runtimes first.
-
-Run a dry-run and then a sandbox install using isolated homes:
-
-```bash
-pnpm install:agent-runtimes -- <target-dir> --global-all --dry-run --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
-pnpm install:agent-runtimes -- <target-dir> --global-all --cursor-project-stubs --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
-pnpm verify:agent-runtimes -- <target-dir> --global-all --cursor-project-stubs --codex-home <sandbox>/codex-home --claude-home <sandbox>/claude-home --cursor-home <sandbox>/cursor-home
-```
-
-Use sandbox validation to prove:
-
-- Codex skills land in `$CODEX_HOME/skills/`
-- Claude skills land in `.claude/skills/` or `~/.claude/skills/`
-- Cursor rules land in `.cursor/rules/` or `~/.cursor/rules/`
-- Cursor global bootstrap is generated for `Settings > Rules`
-- no application code was touched
-
-### Step 4: Verify the Runtime Targets Explicitly
-
-Correct targets are:
-
-- **Codex:** `$CODEX_HOME/skills/<skill>/SKILL.md`
-- **Claude project:** `.claude/skills/<skill>/SKILL.md`
-- **Claude global:** `~/.claude/skills/<skill>/SKILL.md`
-- **Cursor project:** `.cursor/rules/*.mdc`
-- **Cursor global compat:** `~/.cursor/rules/*.mdc`
-- **Cursor global official:** `Cursor Settings > Rules` with the exported bootstrap
-
-Every managed runtime should also contain:
-
-- `.saas-skills-manifest.json`
-
-If skill usage disclosure is requested, correct governance targets are:
-
-- `AGENTS.md`
-- `CLAUDE.md`
-- `.cursor/rules/skill-usage-reporting.mdc`
-
-Reject the install as wrong if:
-
-- it uses `.cursor/skills/` as the Cursor runtime
-- it claims Cursor global is fully configured without generating the bootstrap for `Settings > Rules`
-- it nests `saas-skills/frontend/...` directly under `.claude/skills/`
-- it assumes the Codex `skill-installer` automatically provisions Claude and Cursor
-
-### Step 5: Run Non-Invasive Smoke Tests
-
-After structural verification, test behavior with prompts that do not edit files.
-
-Use prompts like:
-
-```text
-Analyze how you would design the invoices API in this repository with auth, validation, and pagination. Do not edit files.
-```
-
-```text
-Explain how you would organize the shared React layers and feature folders for this repository. Do not edit files.
-```
-
-```text
-Propose a README, AGENTS.md, and ADR structure for this repository. Do not edit files.
-```
-
-```text
-Define the testing pyramid and tooling stack you would apply to this repository. Do not edit files.
-```
-
-Approve only if the response enters the correct domain and covers the expected essentials of the triggered skill.
-
-### Step 6: Install for Real Only After Sandbox Passes
-
-If the sandbox install and smoke tests pass, repeat the flow without sandbox homes.
-
-For global install:
-
-```bash
-pnpm install:global-runtimes
-pnpm verify:global-runtimes
-```
-
-For project + global:
-
-```bash
-pnpm install:agent-runtimes -- <target-dir> --global-all
-pnpm verify:agent-runtimes -- <target-dir> --global-all
-pnpm status:agent-runtimes -- <target-dir> --global-all
-```
-
-## Enforcement
-
-You must enforce these rules:
-
-- Never modify application code just to test installation
-- Never treat `.cursor/skills/` as the official Cursor runtime
-- Never use the Codex `skill-installer` as if it were a universal Claude/Cursor installer
-- Never patch runtime copies directly when the real intent is to update the library
-- Always verify runtime placement after install
-- Always use sync after changing the canonical source
-- If the user asks for observability of skill usage, install and verify the disclosure policy as part of the workflow
-- Always prefer sandbox validation before writing to global runtimes
-
-## Common Anti-Patterns
-
-- Copying the canonical `saas-skills/` tree directly into `.claude/skills/`
-- Installing only Codex and assuming Claude and Cursor will discover the same files
-- Fixing a bug only inside `$CODEX_HOME/skills/`, `.claude/skills/`, or `.cursor/rules/` and assuming the other runtimes will magically update
-- Writing global Cursor guidance into random docs or settings instead of generating `.mdc` rules
-- Treating `~/.cursor/rules/` as if it guaranteed the same behavior and UI visibility as `User Rules`
-- Running build, migrations, or app tests just to validate the library runtime
-- Skipping verification because the files "look right"
-
-## Fallback
-
-If the runtime scripts are unavailable, fall back to manual placement with the same target rules:
-
-- copy each skill folder into `$CODEX_HOME/skills/<skill>/`
-- copy each skill folder into `.claude/skills/<skill>/` or `~/.claude/skills/<skill>/`
-- generate one `.mdc` file per skill for `.cursor/rules/` or `~/.cursor/rules/`
-- generate the Cursor global bootstrap text for `Settings > Rules`
-
-State clearly that manual fallback is lower-confidence than the repository scripts and re-run structural verification after copying.
-
-## Source References
-
-All paths below are inside the SOURCE repository (`C:/Projetos/Context_Window`),
-not the target project — installed copies of this skill cannot resolve them
-relatively:
-
-- Repository runtime guide: `saas-skills/docs/runtime/IDE_RUNTIME_GUIDE.md`
-- Repository operator playbook: `saas-skills/docs/runtime/TARGET_REPO_AGENT_GUIDE.md`
-- Runtime matrix: `saas-skills/docs/runtime/PORTABILITY_MATRIX.md`
-- Root operator overview: `README.md`
-- Library overview: `saas-skills/README.md`
-- Codex native installer behavior: `C:/Users/harry/.codex/skills/.system/skill-installer/SKILL.md`
+- Never copy skill folders by hand or patch installed copies; change the library source and reinstall.
+- Never run install against real user profiles before the isolated run passes.
+- Installing skills never migrates a project's code; adoption follows legacy-code-refactoring.
+- Report "not verified" for anything that could not be executed (for example, a client that is not
+  installed on the machine).

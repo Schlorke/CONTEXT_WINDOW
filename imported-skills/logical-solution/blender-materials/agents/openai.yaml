@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blender Materials"
+  short_description: "Decides Blender lookdev without clobber"
+  default_prompt:
+    "Use $blender-materials to adjust the existing Principled material instead
+    of replacing it."
+policy:
+  allow_implicit_invocation: true

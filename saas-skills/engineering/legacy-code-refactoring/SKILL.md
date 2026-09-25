@@ -1,6 +1,6 @@
 ---
 name: legacy-code-refactoring
-description: Operational manual for safely refactoring and reorganizing legacy code in Next.js/React/TypeScript SaaS projects, covering initial audit, code smell identification, characterization tests, SOLID application, hotspot analysis (git-based metrics), safe refactoring workflow (Red-Green-Refactor), and tooling automation. Use when inheriting a legacy codebase, planning a refactoring sprint, identifying code smells, writing characterization tests for untested code, analyzing git hotspots, or reorganizing a messy project structure.
+description: "Refactor legacy code safely and migrate existing products to the architecture contract: inventory, characterization tests, incremental moves, architecture gate, retirement of replaced code; code smells and hotspots. Use when modernizing a repo, adopting the contract or refactoring untested code."
 metadata:
   author: Engineering Standards Team
   version: "1.1"
@@ -16,63 +16,61 @@ metadata:
 
 # When to Use This Skill
 
-## Internal Feature Structure (MANDATORY)
+## Operational Contract
 
-Feature-first does not stop at `src/features/`. Inside EVERY feature, the root
-contains ONLY two top groups plus its public barrel and docs:
+| Field | Contract |
+| --- | --- |
+| Objective | Refactor legacy code safely and, when adoption is authorized, migrate a product repository to the mandatory contract (thin web/mobile clients + packages/frontend in FSD + packages/ui + packages/design-tokens) without changing behavior. |
+| Use when | Inheriting or modernizing a legacy codebase, adopting the architecture contract in an existing product, writing characterization tests, hotspot analysis, removing code smells. |
+| Do not use when | Brand-new projects (use multiplatform-platform-architecture scaffold) or small edits that already fit the contract. |
+| Inputs | The legacy repository, its routes and public contracts, approved design, integrations and data. |
+| Preconditions | Explicit authorization to change the repository; a way to run its tests and build. Installing skills never authorizes a migration. |
+| Tools | `scripts/legacy-inventory.mjs` (inventory and gap report), characterization tests, `tools/arch-check.mjs` from multiplatform-platform-architecture, git history for hotspots. |
+| Procedure | Contract Adoption Procedure below, then the Core Workflow for refactorings inside each move. |
+| Output | Migrated repository (or an explicitly labeled intermediate state), migration log, characterization tests passing before and after, retired legacy structures. |
+| Validation | Same characterization cases pass on legacy and migrated code; `pnpm arch` passes (or lists only the violations of the declared intermediate state); web build and mobile bundle succeed. |
+| Known failures | Moving folders without fixing ownership and imports, rewriting behavior during a move, deleting legacy code before the replacement passes, calling an intermediate state "conformant". |
 
-```text
-src/features/<feature>/
-├── modules/            # functional capabilities of the domain
-│   └── <module>/       # e.g. workspace, overview, tracking, categories, chat
-│       ├── components/ # UI owned by this capability (ownership BEFORE visual type)
-│       ├── hooks/ services/ schemas/ contracts/ domain/ config/ client/ server/ jobs/
-│       └── index.ts    # curated public barrel of the module
-├── shared/             # ONLY what 2+ modules of THIS feature consume
-│   └── components/ hooks/ schemas/ services/ domain/ config/ ...
-├── index.ts            # feature public API
-└── README.md
-```
+## Contract Adoption Procedure (MANDATORY)
 
-Non-negotiable rules:
+Applies when a task authorizes adopting or modernizing a product repository with a frontend.
 
-1. NO loose `components/`, `hooks/`, `schemas/`, `services/`, `domain/`, `data/`
-   at the feature root — every artifact belongs to a module or to the feature's
-   `shared/`. Create folders only when they hold real files.
-2. Ownership decides placement: consumed by 1 module → `modules/<m>/...`;
-   by 2+ modules of the feature → `<feature>/shared/...`; by 2+ features and
-   domain-neutral → `src/shared/...`; global technical mechanism →
-   `src/infrastructure/...`.
-3. Ownership beats visual type: never organize primarily by
-   `dialogs/ cards/ forms/ tables/` — first the owning module, then (optionally,
-   with real volume) visual grouping inside it
-   (`modules/categories/components/dialogs/{create,edit,delete}`).
-4. Module names express capability: `workspace` (full operational area:
-   actions, filters, state, flows), `overview` (summary view: KPIs, cards,
-   previews), `tracking`, `workflow`, `categories`, `planning`... Avoid `hub`
-   as a permanent name and avoid `dashboard` when it collides with a Dashboard
-   feature.
-5. Cross-feature imports go through public entrypoints only: the feature root
-   barrel or `features/<f>/modules/<m>` (plus its
-   `client`/`server`/`contracts`).
-   Never deep-import another feature's internals.
-6. Naming inside modules is responsibility-first: never a generic `root/`
-   folder; never repeat the parent's name without need; use the shortest
-   precise semantic name for the responsibility. Homonym file/folder
-   (`view/view.tsx`) is the DEFAULT for a module's main artifact, not an
-   obligation — `shell/frame.tsx` is correct when the file is only the frame.
+1. **Inventory.** Run `node <this-skill>/scripts/legacy-inventory.mjs --root <repo>`. It lists
+   framework, routes, type-based folders (`components/`, `hooks/`, `utils/`...), gaps against the
+   topology and a first mapping proposal. Record public contracts that must not change: routes,
+   URLs/SEO metadata, API calls, analytics events, persisted data.
+2. **Characterize.** Before moving anything, write characterization tests against the current
+   behavior: pure logic (inputs → outputs), rendered text and roles of each route, API payloads.
+   Store the cases as data (for example `characterization/cases.json`) so the same cases run
+   against the legacy and the migrated code through two thin adapters.
+3. **Target skeleton.** Create the missing topology from the multiplatform template
+   (`apps/clients/web`, `apps/clients/mobile`, `packages/frontend`, `packages/ui`,
+   `packages/design-tokens`). The web client takes over the legacy routes; the mobile client
+   renders the same pages.
+4. **Move incrementally.** One concept at a time, following the mapping:
+   generic UI primitives → `packages/ui` (contract + `.web` + `.native`); business views and models →
+   `entities/<noun>`; user interactions → `features/<verb>`; composed blocks → `widgets/`; screen
+   content → `pages/<page>`; route files → clients. Fix imports to public APIs in the same change,
+   move tokens out of components into `packages/design-tokens`, keep behavior identical.
+5. **Gate each step.** After each move run the characterization tests and `pnpm arch`. An
+   intermediate state may keep a documented list of known violations; it is labeled
+   "intermediate" in the migration log and never reported as final conformity.
+6. **Retire.** Delete the legacy structure only after its replacement passes the same cases. The
+   final state has no type-based folders, no duplicate component sources and a clean gate.
+7. **Prove both clients.** `pnpm build:web` and `pnpm bundle:mobile` (and native builds when the
+   environment allows) complete the migration evidence.
 
-Trigger this skill when:
+Mapping heuristics (always confirmed by reading the code):
 
-- You inherit a legacy codebase without comprehensive test coverage.
-- You plan a refactoring sprint to reduce technical debt.
-- You identify code smells (God Components, prop drilling, copy-paste code).
-- You need to write characterization tests for untested code.
-- You analyze git history to find hotspots (high-churn files).
-- You reorganize a messy project structure.
-- You apply SOLID principles to existing React/TypeScript code.
-
-This skill is MANDATORY and must be followed without exception when its trigger fires.
+| Legacy location | Destination |
+| --- | --- |
+| `components/Button.tsx`, generic inputs, layout primitives | `packages/ui` |
+| `components/<BusinessThing>*.tsx` | `entities/<thing>/ui` or `widgets/<block>/ui` |
+| `hooks/use<Action>.ts` with state changes | `features/<action>/model` |
+| `hooks/use<Thing>Query.ts`, `services/<thing>.ts` | `entities/<thing>/api` |
+| `utils/format*.ts` with business meaning | `entities/<thing>/model`; generic ones `shared/lib/<focus>` |
+| `pages/<route>.tsx` / `app/<route>/page.tsx` | route file in `apps/clients/web` + `pages/<page>/ui` |
+| hardcoded colors/spacing | `packages/design-tokens` |
 
 ## Definition
 

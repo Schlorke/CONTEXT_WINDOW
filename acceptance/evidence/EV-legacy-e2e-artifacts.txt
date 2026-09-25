@@ -1,0 +1,5 @@
+web html contains 'Itens no carrinho': True
+web html contains 'Adicionar': True
+web html contains 'Loja': True
+android hbc contains 'Itens no carrinho': True
+ios hbc contains 'Itens no carrinho': True

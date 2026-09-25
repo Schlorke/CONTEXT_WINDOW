@@ -1,0 +1,1045 @@
+{
+  "schema": "context-window/acceptance@1",
+  "libraryVersion": "2.0.0",
+  "evaluatedAt": "2026-09-25",
+  "baseline": {
+    "commit": "66194b0",
+    "report": "PARECER.md (auditoria 2026-09-24)",
+    "score": 3.7,
+    "upperBound": 4.4,
+    "weightedCoverage": 0.931
+  },
+  "rubric": {
+    "formula": "nota = 10·A/(A+R+U); limite = 10·(A+U)/(A+R+U); cobertura = (A+R)/(A+R+U); média ponderada pelos pesos",
+    "dimensions": [
+      {
+        "dim": 1,
+        "name": "Correção funcional",
+        "weight": 20,
+        "A": 8,
+        "R": 0,
+        "U": 0,
+        "score": 10,
+        "limit": 10,
+        "coverage": 1
+      },
+      {
+        "dim": 2,
+        "name": "Distribuição/estado",
+        "weight": 15,
+        "A": 15,
+        "R": 0,
+        "U": 1,
+        "score": 9.375,
+        "limit": 10,
+        "coverage": 0.9375
+      },
+      {
+        "dim": 3,
+        "name": "Compatibilidade",
+        "weight": 10,
+        "A": 12,
+        "R": 0,
+        "U": 0,
+        "score": 10,
+        "limit": 10,
+        "coverage": 1
+      },
+      {
+        "dim": 4,
+        "name": "Seleção/contexto",
+        "weight": 10,
+        "A": 6,
+        "R": 0,
+        "U": 2,
+        "score": 7.5,
+        "limit": 10,
+        "coverage": 0.75
+      },
+      {
+        "dim": 5,
+        "name": "Instruções",
+        "weight": 10,
+        "A": 7,
+        "R": 1,
+        "U": 1,
+        "score": 7.777777777777778,
+        "limit": 8.88888888888889,
+        "coverage": 0.8888888888888888
+      },
+      {
+        "dim": 6,
+        "name": "Arquitetura",
+        "weight": 10,
+        "A": 6,
+        "R": 1,
+        "U": 0,
+        "score": 8.571428571428571,
+        "limit": 8.571428571428571,
+        "coverage": 1
+      },
+      {
+        "dim": 7,
+        "name": "Segurança",
+        "weight": 10,
+        "A": 7,
+        "R": 1,
+        "U": 0,
+        "score": 8.75,
+        "limit": 8.75,
+        "coverage": 1
+      },
+      {
+        "dim": 8,
+        "name": "Testes",
+        "weight": 7,
+        "A": 3,
+        "R": 1,
+        "U": 1,
+        "score": 6,
+        "limit": 8,
+        "coverage": 0.8
+      },
+      {
+        "dim": 9,
+        "name": "Clean Code/pastas",
+        "weight": 5,
+        "A": 3,
+        "R": 1,
+        "U": 0,
+        "score": 7.5,
+        "limit": 7.5,
+        "coverage": 1
+      },
+      {
+        "dim": 10,
+        "name": "Operação",
+        "weight": 3,
+        "A": 3,
+        "R": 1,
+        "U": 0,
+        "score": 7.5,
+        "limit": 7.5,
+        "coverage": 1
+      }
+    ]
+  },
+  "result": {
+    "score": 8.69,
+    "upperBound": 9.28,
+    "criteriaWithVerdict": 76,
+    "weightedCoverage": 0.941,
+    "criticalBlockers": [
+      "CR-063"
+    ]
+  },
+  "gates": [
+    {
+      "id": "G01",
+      "name": "Auditoria",
+      "condition": "Achados confirmados corrigidos e revalidados, sem encerramento apenas documental.",
+      "status": "REPROVADO",
+      "evidence": "22 de 28 achados encerrados com teste; 4 parciais (ACH-011: Cursor de projeto não verificado; ACH-013: perfis reais ainda com cópias 1.x; ACH-026: licenças importadas declaradas, não verificadas, e um arquivo 1.x mantido por ter edição local; ACH-027: CI escrita, não executada); 2 abertos (ACH-005: credencial em dist/, ação do dono; ACH-024: nenhuma avaliação comportamental)."
+    },
+    {
+      "id": "G02",
+      "name": "Catálogo",
+      "condition": "Inventário completo, recursos íntegros e destino rastreável de todos os itens originais.",
+      "status": "APROVADO",
+      "evidence": "104 itens registrados (21 ativos + 83 importados com origem e destino `imported-unreviewed`); gate e lock; `catalog` sem erros. Licença de 83 importados segue declarada, não verificada (CR-055)."
+    },
+    {
+      "id": "G03",
+      "name": "Três clientes",
+      "condition": "Suporte comprovado para Cursor, Claude Code e Codex na matriz declarada.",
+      "status": "REPROVADO",
+      "evidence": "Claude Code 2.1.74 e Codex 0.147.0-alpha.1.2 comprovados sem chamada de modelo; Cursor 3.22.7 só observado no escopo de usuário — descoberta de projeto NÃO VERIFICADA."
+    },
+    {
+      "id": "G04",
+      "name": "Fonte única",
+      "condition": "Identidade, versões, geração e detecção de divergência funcionando.",
+      "status": "APROVADO",
+      "evidence": "render único, `cw-source-hash`, manifest com hashes, lock do catálogo, `verify` e `doctor` testados."
+    },
+    {
+      "id": "G05",
+      "name": "Distribuição",
+      "condition": "Instalação, atualização, conflitos, recuperação e remoção segura comprovados.",
+      "status": "APROVADO",
+      "evidence": "31 testes do motor + EV-final-e2e (pacote fora do checkout)."
+    },
+    {
+      "id": "G06",
+      "name": "Arquitetura",
+      "condition": "Templates e habilidades aplicam apps/clients + packages + FSD obrigatório.",
+      "status": "APROVADO",
+      "evidence": "template + scaffold + gate; skills FSD/multiplataforma/design system/legado/backend reescritas; contrato no AGENTS.md por padrão no perfil dev."
+    },
+    {
+      "id": "G07",
+      "name": "Espelhamento",
+      "condition": "Web/mobile executáveis, compartilhamento real e fronteiras preservadas.",
+      "status": "REPROVADO",
+      "evidence": "next build + expo export Android/iOS + propagação de token + variantes corretas comprovados; execução nativa (build Gradle/Xcode, emulador) NÃO VERIFICADA — sem Android SDK e sem macOS."
+    },
+    {
+      "id": "G08",
+      "name": "Legados",
+      "condition": "Processo de migração implementado e testado, não somente descrito.",
+      "status": "APROVADO",
+      "evidence": "legacy-inventory.mjs + fixture + mesmos 7 casos de caracterização no legado e no migrado + gate + build + bundles (EV-legacy-e2e)."
+    },
+    {
+      "id": "G09",
+      "name": "Conteúdo",
+      "condition": "Habilidades operacionais com critérios e provas, não apenas instruções genéricas.",
+      "status": "APROVADO",
+      "evidence": "Operational Contract em 21/21, exigido pelo gate; comandos das skills testados. Eficácia comportamental NÃO VERIFICADA (CR-049)."
+    },
+    {
+      "id": "G10",
+      "name": "Contexto",
+      "condition": "Seleção e consumo medidos, sem regressão de correção para economizar tokens.",
+      "status": "APROVADO",
+      "evidence": "sempre ativo 730, lista 1.179, tarefa 4.024–5.583 tokens; roteador 0 falsos positivos; seleção em cliente real NÃO VERIFICADA (CR-041)."
+    },
+    {
+      "id": "G11",
+      "name": "Proteção",
+      "condition": "Testes e gates detectam violações introduzidas deliberadamente.",
+      "status": "APROVADO",
+      "evidence": "23 violações injetadas no gate; violação real no produto e2e falha o `pnpm arch`; mutações nos testes de doctor e backup detectadas."
+    },
+    {
+      "id": "G12",
+      "name": "Reprodução",
+      "condition": "Outra instalação limpa consegue repetir os resultados com os artefatos entregues.",
+      "status": "APROVADO",
+      "evidence": "cópia limpa passa `pnpm qa`; pacote `build --out` instala fora do checkout; produto e2e do zero. CI remota NÃO VERIFICADA."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "CR-001",
+      "critical": true,
+      "dim": 1,
+      "text": "Gate `qa:skills` passa no estado auditado",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "`pnpm qa` exit 0 no estado final (catálogo, 100 testes, lint, segredos, formatação)"
+    },
+    {
+      "id": "CR-002",
+      "critical": false,
+      "dim": 1,
+      "text": "Gate passa em clone limpo do HEAD",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "cópia limpa de 599 arquivos publicáveis: `pnpm install --frozen-lockfile` + `pnpm qa` (EV-clean-copy-qa.log)"
+    },
+    {
+      "id": "CR-003",
+      "critical": false,
+      "dim": 1,
+      "text": "Instalação+verify em destino limpo geram todos os artefatos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: install into projects; EV-final-e2e (install + verify a partir do pacote)"
+    },
+    {
+      "id": "CR-004",
+      "critical": true,
+      "dim": 1,
+      "text": "Instalação funciona com caminhos não-ASCII no ambiente real",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: non-ASCII, spaces and dashes in target and home paths; test: installed hook answers from a subdirectory of a non-ASCII project (Windows 11, Node 25.2.1)"
+    },
+    {
+      "id": "CR-005",
+      "critical": false,
+      "dim": 1,
+      "text": "Metadados lidos corretamente para YAML válido",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: valid multi-line YAML metadata is parsed and rendered as the same value; test: rejects invalid YAML frontmatter"
+    },
+    {
+      "id": "CR-006",
+      "critical": false,
+      "dim": 1,
+      "text": "Exportações padrão geradas",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "exportações 2.0 = pacote `build --out` e texto de User Rules: tests `the bundle installs outside the checkout…`, `contract export for Cursor User Rules…` (critério reinterpretado: exportadores 1.x removidos)"
+    },
+    {
+      "id": "CR-007",
+      "critical": false,
+      "dim": 1,
+      "text": "Hook: saída no contrato e acertos em positivos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: expected skill suggested for positive prompts; Claude Code 2.1.74 real: `provided additionalContext`"
+    },
+    {
+      "id": "CR-008",
+      "critical": false,
+      "dim": 1,
+      "text": "Infra de evals executa",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "`pnpm evals:init` + `pnpm evals:score` executam sobre a matriz 2.0 (157 casos pendentes)"
+    },
+    {
+      "id": "CR-009",
+      "critical": false,
+      "dim": 2,
+      "text": "Idempotência",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: second run is a no-op (idempotent)"
+    },
+    {
+      "id": "CR-010",
+      "critical": false,
+      "dim": 2,
+      "text": "Atualização com bump chega a todos os destinos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: a version bump alone marks entries outdated because identity metadata changes"
+    },
+    {
+      "id": "CR-011",
+      "critical": false,
+      "dim": 2,
+      "text": "Remoção/renomeação sem resíduos e sem tocar alheios",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: removal and rename in the source clean managed entries only"
+    },
+    {
+      "id": "CR-012",
+      "critical": true,
+      "dim": 2,
+      "text": "Conteúdo alheio homônimo preservado ou conflito explícito",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: unmanaged same-name content is never overwritten; conflict and nothing written; test: --adopt replaces an unmanaged folder only after backing it up"
+    },
+    {
+      "id": "CR-013",
+      "critical": false,
+      "dim": 2,
+      "text": "Edição local detectada e não perdida",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: local edits are detected and never silently overwritten"
+    },
+    {
+      "id": "CR-014",
+      "critical": true,
+      "dim": 2,
+      "text": "Drift com mesma versão detectado",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: content drift without version bump is reported and fixed by sync"
+    },
+    {
+      "id": "CR-015",
+      "critical": false,
+      "dim": 2,
+      "text": "Falha preserva estado anterior",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: an injected failure rolls back to the exact previous state"
+    },
+    {
+      "id": "CR-016",
+      "critical": false,
+      "dim": 2,
+      "text": "Estado parcial detectável e recuperável",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: a killed process leaves a journal; status reports it and recover restores the previous state"
+    },
+    {
+      "id": "CR-017",
+      "critical": false,
+      "dim": 2,
+      "text": "Concorrência sem sucesso enganoso",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: concurrent installs never produce a misleading success"
+    },
+    {
+      "id": "CR-018",
+      "critical": false,
+      "dim": 2,
+      "text": "Dry-run sem efeitos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: dry-run and plan write nothing and announce removals and conflicts"
+    },
+    {
+      "id": "CR-019",
+      "critical": false,
+      "dim": 2,
+      "text": "Dry-run antecipa remoções/sobrescritas",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: dry-run and plan write nothing and announce removals and conflicts"
+    },
+    {
+      "id": "CR-020",
+      "critical": false,
+      "dim": 2,
+      "text": "Verify detecta pacote incompleto",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: verify detects an incomplete package (missing auxiliary file)"
+    },
+    {
+      "id": "CR-021",
+      "critical": false,
+      "dim": 2,
+      "text": "Superfície global do Cursor rastreável/atual",
+      "baseline": "REPROVADO",
+      "state": "NÃO VERIFICADO",
+      "evidence": "pastas de usuário gerenciadas com manifest e `verify`; o texto de User Rules tem versão e hash, mas colar e conferir no Cursor é manual. O texto hoje colado nesta máquina ainda é o bootstrap 1.x (observado na sessão)."
+    },
+    {
+      "id": "CR-078",
+      "critical": false,
+      "dim": 2,
+      "text": "Colisão de nomes na fonte bloqueia a instalação",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: rejects duplicate id across collections"
+    },
+    {
+      "id": "CR-079",
+      "critical": false,
+      "dim": 2,
+      "text": "Isolamento entre projetos com perfis diferentes",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: projects with different selections stay isolated from each other"
+    },
+    {
+      "id": "CR-080",
+      "critical": false,
+      "dim": 2,
+      "text": "Escopo de escrita explícito (sem efeito global implícito; flags inválidas rejeitadas)",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: unknown flags, positional paths and missing destination are usage errors; test: project install writes only inside the target (no global side effect)"
+    },
+    {
+      "id": "CR-022",
+      "critical": false,
+      "dim": 3,
+      "text": "SKILL.md Claude conforme contrato",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "Claude Code 2.1.74 carrega as 21 skills (`Loaded 21 unique skills … project: 21`)"
+    },
+    {
+      "id": "CR-023",
+      "critical": false,
+      "dim": 3,
+      "text": "Hook conforme contrato de eventos/saída/timeout",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: hook install merges settings, preserves project entries and fails on non-strict JSON; Claude Code 2.1.74: hook `UserPromptSubmit` com `additionalContext`"
+    },
+    {
+      "id": "CR-024",
+      "critical": false,
+      "dim": 3,
+      "text": "Hook funciona fora da raiz do projeto",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: installed hook answers from a subdirectory of a non-ASCII project"
+    },
+    {
+      "id": "CR-025",
+      "critical": false,
+      "dim": 3,
+      "text": "`.mdc` no formato documentado de globs",
+      "baseline": "NÃO VERIFICADO",
+      "state": "APROVADO",
+      "evidence": "sem `.mdc` na 2.0; o artefato do Cursor é `SKILL.md` no formato documentado (nome = pasta, minúsculas/hífens), exigido pelo gate do catálogo (critério reinterpretado)"
+    },
+    {
+      "id": "CR-026",
+      "critical": false,
+      "dim": 3,
+      "text": "Descoberta nativa no Cursor",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "Cursor 3.22.7 lista nesta sessão skills de `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills` (observado, escopo de usuário)"
+    },
+    {
+      "id": "CR-027",
+      "critical": false,
+      "dim": 3,
+      "text": "`~/.cursor/rules` consumido",
+      "baseline": "NÃO VERIFICADO",
+      "state": "APROVADO",
+      "evidence": "a 2.0 não escreve em `~/.cursor/rules`; as superfícies escritas (`~/.claude/skills`, `~/.agents/skills`) são lidas pelo Cursor (observado). Critério reinterpretado."
+    },
+    {
+      "id": "CR-028",
+      "critical": false,
+      "dim": 3,
+      "text": "Skills com `paths:` disponíveis no Cursor sem arquivo correspondente",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "nenhuma skill tem `paths:`; Claude Code: `21 unconditional, 0 conditional`"
+    },
+    {
+      "id": "CR-029",
+      "critical": false,
+      "dim": 3,
+      "text": "Alvo Codex = local documentado atual",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: user scope honours CLAUDE_CONFIG_DIR and writes ~/.agents/skills for Codex/Cursor; Codex 0.147: raiz `.agents/skills` do projeto no prompt"
+    },
+    {
+      "id": "CR-030",
+      "critical": false,
+      "dim": 3,
+      "text": "Respeita `CLAUDE_CONFIG_DIR`",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: user scope honours CLAUDE_CONFIG_DIR…; Claude Code real com `CLAUDE_CONFIG_DIR` isolado"
+    },
+    {
+      "id": "CR-031",
+      "critical": false,
+      "dim": 3,
+      "text": "Detecta cópias divergentes nos diretórios lidos pelos clientes",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: doctor reports divergent homonymous copies…; test: project discovery stops at the git root, like the clients do; doctor somente leitura no perfil real"
+    },
+    {
+      "id": "CR-032",
+      "critical": false,
+      "dim": 3,
+      "text": "Ponta a ponta nativo no Claude Code",
+      "baseline": "NÃO VERIFICADO",
+      "state": "APROVADO",
+      "evidence": "Claude Code 2.1.74: instalação → descoberta (projeto e usuário) → hook, sem chamada de modelo (escopo: até a fronteira do modelo)"
+    },
+    {
+      "id": "CR-033",
+      "critical": false,
+      "dim": 3,
+      "text": "Ponta a ponta nativo no Codex",
+      "baseline": "NÃO VERIFICADO",
+      "state": "APROVADO",
+      "evidence": "Codex CLI 0.147.0-alpha.1.2: instalação → `debug prompt-input` lista as skills e os blocos do AGENTS.md (escopo: projeto; até a fronteira do modelo)"
+    },
+    {
+      "id": "CR-034",
+      "critical": false,
+      "dim": 4,
+      "text": "Listagem dentro do orçamento do cliente",
+      "baseline": "NÃO VERIFICADO",
+      "state": "APROVADO",
+      "evidence": "lista = 1.179 tokens (o200k) para 20 skills; orçamento do Claude ≈ 1% da janela (≈ 2.000 em 200k); teste de orçamento de bytes"
+    },
+    {
+      "id": "CR-035",
+      "critical": false,
+      "dim": 4,
+      "text": "SKILL.md < 5.000 tokens e < 500 linhas",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "maior SKILL.md = 3.728 tokens; gate ≤ 500 linhas"
+    },
+    {
+      "id": "CR-036",
+      "critical": false,
+      "dim": 4,
+      "text": "Globs não anexam regras grandes a quase todo arquivo",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "nenhuma regra por glob na 2.0"
+    },
+    {
+      "id": "CR-037",
+      "critical": false,
+      "dim": 4,
+      "text": "Stub com custo baixo",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "custo sempre ativo = 730 tokens (contrato + política); stubs deixaram de existir (critério reinterpretado)"
+    },
+    {
+      "id": "CR-038",
+      "critical": false,
+      "dim": 4,
+      "text": "Mesma instrução não repetida em várias superfícies do mesmo cliente",
+      "baseline": "REPROVADO",
+      "state": "NÃO VERIFICADO",
+      "evidence": "AGENTS.md/CLAUDE.md sem repetição (CLAUDE.md só importa); com Claude e Codex no mesmo projeto, o Cursor vê duas cópias idênticas (`.claude/skills` e `.agents/skills`) — deduplicação do Cursor no escopo de projeto não verificada"
+    },
+    {
+      "id": "CR-039",
+      "critical": false,
+      "dim": 4,
+      "text": "Roteador sem falsos positivos em neutros",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: no suggestion for neutral or ambiguous prompts"
+    },
+    {
+      "id": "CR-040",
+      "critical": false,
+      "dim": 4,
+      "text": "Roteador robusto a termos ambíguos",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: no suggestion for neutral or ambiguous prompts; test: word boundaries: api does not match rapid"
+    },
+    {
+      "id": "CR-041",
+      "critical": false,
+      "dim": 4,
+      "text": "Precisão/recall de seleção medidos em cliente real",
+      "baseline": "NÃO VERIFICADO",
+      "state": "NÃO VERIFICADO",
+      "evidence": "exige chamadas de modelo (não autorizadas)"
+    },
+    {
+      "id": "CR-042",
+      "critical": false,
+      "dim": 5,
+      "text": "Frontmatter válido e conforme (21/21)",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "gate do catálogo: 21/21"
+    },
+    {
+      "id": "CR-043",
+      "critical": false,
+      "dim": 5,
+      "text": "Conteúdo autossuficiente e portátil",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "gate: referências dentro do pacote e nenhum caminho de máquina (21/21)"
+    },
+    {
+      "id": "CR-044",
+      "critical": false,
+      "dim": 5,
+      "text": "Referências resolvíveis no runtime Cursor",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "o Cursor lê a pasta copiada inteira; todas as referências resolvem dentro do pacote (gate)"
+    },
+    {
+      "id": "CR-045",
+      "critical": false,
+      "dim": 5,
+      "text": "Afirmações sobre runtimes corretas",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "IDE_RUNTIME_GUIDE reescrito com provas reais (Codex, Claude) e limites declarados"
+    },
+    {
+      "id": "CR-046",
+      "critical": false,
+      "dim": 5,
+      "text": "Critérios de aplicabilidade explícitos",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "`Operational Contract` (Use when / Do not use when) em 21/21; contrato com escopo e `--without-contract`"
+    },
+    {
+      "id": "CR-047",
+      "critical": false,
+      "dim": 5,
+      "text": "Fonte e instalado sem instruções contraditórias ativas",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "no repositório, instalado = fonte (hash); mas os perfis reais desta máquina seguem com cópias 1.x divergentes (doctor: DIVERGENT) — atualização global não autorizada"
+    },
+    {
+      "id": "CR-048",
+      "critical": false,
+      "dim": 5,
+      "text": "Estrutura mínima presente",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "gate do catálogo"
+    },
+    {
+      "id": "CR-049",
+      "critical": false,
+      "dim": 5,
+      "text": "Eficácia comportamental comprovada",
+      "baseline": "NÃO VERIFICADO",
+      "state": "NÃO VERIFICADO",
+      "evidence": "exige chamadas de modelo (não autorizadas)"
+    },
+    {
+      "id": "CR-081",
+      "critical": false,
+      "dim": 5,
+      "text": "Ferramentas do repositório preservam o conteúdo operacional",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "fix-markdownlint só corrige MD040 fora de cercas; 4 testes"
+    },
+    {
+      "id": "CR-050",
+      "critical": false,
+      "dim": 6,
+      "text": "Fonte única e geração unidirecional",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "fonte `saas-skills/` + registry → render → destinos"
+    },
+    {
+      "id": "CR-051",
+      "critical": false,
+      "dim": 6,
+      "text": "Adaptadores isolados, sem dependência de runtime",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "render.mjs único para todos os destinos; bytes idênticos (test identical bytes in every sink)"
+    },
+    {
+      "id": "CR-052",
+      "critical": false,
+      "dim": 6,
+      "text": "Modelo de estado suficiente para propriedade e identidade de conteúdo",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "manifest v2 com hash por arquivo + registro de instalação"
+    },
+    {
+      "id": "CR-053",
+      "critical": false,
+      "dim": 6,
+      "text": "Modelo de destinos alinhado a quem lê cada diretório",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "targets.mjs alinhado a Claude/Codex reais; Cursor pela documentação e observação"
+    },
+    {
+      "id": "CR-054",
+      "critical": false,
+      "dim": 6,
+      "text": "Material importado segregado do pipeline",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: imported/quarantined items are inventoried but never distributed"
+    },
+    {
+      "id": "CR-055",
+      "critical": false,
+      "dim": 6,
+      "text": "Procedência/licença do material importado",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "procedência registrada 83/83; licença declarada pelo dono como interna em 76 (não verificada) e desconhecida em 7 (remotion-*)"
+    },
+    {
+      "id": "CR-056",
+      "critical": false,
+      "dim": 6,
+      "text": "Um único caminho de instalação por runtime",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "scripts 1.x removidos; único caminho `cw.mjs`"
+    },
+    {
+      "id": "CR-057",
+      "critical": true,
+      "dim": 7,
+      "text": "`name` validado antes de virar caminho",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: rejects path traversal in name"
+    },
+    {
+      "id": "CR-058",
+      "critical": false,
+      "dim": 7,
+      "text": "Remoção via manifest confinada às entradas gerenciadas",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: malicious manifest entries are rejected and nothing is deleted"
+    },
+    {
+      "id": "CR-059",
+      "critical": true,
+      "dim": 7,
+      "text": "Operação destrutiva sobre caminho informado protegida",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: build refuses directories it did not create and dangerous locations"
+    },
+    {
+      "id": "CR-060",
+      "critical": false,
+      "dim": 7,
+      "text": "Links/junctions não removem conteúdo externo",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "test: a junction at an entry is a conflict and its target is untouched"
+    },
+    {
+      "id": "CR-061",
+      "critical": false,
+      "dim": 7,
+      "text": "Escrita confinada ao destino declarado",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "test: a project runtime dir that is a junction to outside the project is refused; testes sob `--permission` confinados ao sandbox"
+    },
+    {
+      "id": "CR-062",
+      "critical": false,
+      "dim": 7,
+      "text": "Sem rede/subprocesso no instalador",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "cw.mjs e lib/ sem child_process nem rede (testes rodam sob `--permission`, que bloqueia subprocessos)"
+    },
+    {
+      "id": "CR-063",
+      "critical": true,
+      "dim": 7,
+      "text": "Árvore do repositório sem credenciais",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "`dist/global-runtime-validation-20260413/codex-home/auth.json` continua na árvore (ignorado pelo git); `pnpm secrets` o aponta; remoção/rotação depende do dono"
+    },
+    {
+      "id": "CR-064",
+      "critical": false,
+      "dim": 7,
+      "text": "Integridade/proveniência do instalado verificável",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "hash por arquivo + `cw-source-hash` + `verify`"
+    },
+    {
+      "id": "CR-065",
+      "critical": false,
+      "dim": 8,
+      "text": "Testes automatizados do instalador",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "31 testes do motor + 28 de catálogo/blocos/hook/build"
+    },
+    {
+      "id": "CR-066",
+      "critical": false,
+      "dim": 8,
+      "text": "CI executando o gate",
+      "baseline": "REPROVADO",
+      "state": "NÃO VERIFICADO",
+      "evidence": "`.github/workflows/qa.yml` criado; não executado (sem push autorizado)"
+    },
+    {
+      "id": "CR-067",
+      "critical": false,
+      "dim": 8,
+      "text": "Gate cobre cenários de risco",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "`pnpm qa` inclui os cenários de risco (colisão, drift, rollback, concorrência, links, Unicode)"
+    },
+    {
+      "id": "CR-068",
+      "critical": false,
+      "dim": 8,
+      "text": "Smoke em sandbox com homes sintéticos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "testes com homes sintéticos; perfis isolados nos testes de cliente"
+    },
+    {
+      "id": "CR-069",
+      "critical": false,
+      "dim": 8,
+      "text": "Resultados de evals registrados",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "nenhum resultado de avaliação comportamental registrado (sem chamadas de modelo autorizadas)"
+    },
+    {
+      "id": "CR-070",
+      "critical": false,
+      "dim": 9,
+      "text": "Pastas separam fonte, geradores e saídas",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "catalog/, scripts/, saas-skills/, imported-skills/, test/, acceptance/"
+    },
+    {
+      "id": "CR-071",
+      "critical": false,
+      "dim": 9,
+      "text": "Sem duplicação relevante de lógica",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "janelas de 6 linhas duplicadas entre arquivos: 41 → 0 (EV-code-metrics-2.0.json)"
+    },
+    {
+      "id": "CR-072",
+      "critical": false,
+      "dim": 9,
+      "text": "Lógica em funções testáveis",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "lógica em scripts/lib/*.mjs; gate, inventário, fixer e roteador testados por import direto"
+    },
+    {
+      "id": "CR-073",
+      "critical": false,
+      "dim": 9,
+      "text": "Sem artefatos órfãos/alheios versionados",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "`.backup-runtimes/` removido; `saas-skills/integrations/cursor-rule-profiles.json` segue sem uso, mantido porque tem alteração local não commitada do dono"
+    },
+    {
+      "id": "CR-074",
+      "critical": false,
+      "dim": 10,
+      "text": "Manifest registra versão, origem, data e artefatos",
+      "baseline": "APROVADO",
+      "state": "APROVADO",
+      "evidence": "manifest: versão, commit, data, entradas com hashes"
+    },
+    {
+      "id": "CR-075",
+      "critical": false,
+      "dim": 10,
+      "text": "Release rastreável a commit/tag",
+      "baseline": "REPROVADO",
+      "state": "REPROVADO",
+      "evidence": "a 2.0 não está em commit nem tag (commit/tag/release não autorizados); manifests gravam o commit do HEAD"
+    },
+    {
+      "id": "CR-076",
+      "critical": false,
+      "dim": 10,
+      "text": "Pré-requisitos de ambiente declarados",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "`engines.node >=22.13`; README declara Node e pnpm"
+    },
+    {
+      "id": "CR-077",
+      "critical": false,
+      "dim": 10,
+      "text": "Falhas de instalação sinalizadas por exit ≠ 0",
+      "baseline": "REPROVADO",
+      "state": "APROVADO",
+      "evidence": "códigos 1/2/3/64 testados"
+    }
+  ],
+  "newRequirements": [
+    {
+      "id": "NR-01",
+      "text": "Topologia apps/clients/web + apps/clients/mobile + packages/frontend + packages/ui + packages/design-tokens",
+      "status": "APROVADO",
+      "evidence": "template + scaffold + gate TOPOLOGY + EV-final-e2e"
+    },
+    {
+      "id": "NR-02",
+      "text": "FSD estrito com gate entre pacotes e violações deliberadas",
+      "status": "APROVADO",
+      "evidence": "arch-gate.test.mjs (27) + violação no e2e"
+    },
+    {
+      "id": "NR-03",
+      "text": "Componentes compartilhados com .web/.native, resolução provada no Next e no Metro",
+      "status": "APROVADO",
+      "evidence": "next build + expo export; bundles sem código da outra plataforma"
+    },
+    {
+      "id": "NR-04",
+      "text": "Catálogo equivalente ao Storybook nos dois clientes",
+      "status": "APROVADO",
+      "evidence": "catalog.ts + rota /catalog + tela catalog; build e bundle"
+    },
+    {
+      "id": "NR-05",
+      "text": "Prova de propagação de token",
+      "status": "APROVADO",
+      "evidence": "pnpm check:tokens: sentinela no HTML/JS web e nos .hbc Android e iOS"
+    },
+    {
+      "id": "NR-06",
+      "text": "Componente com estados e fluxo compartilhado",
+      "status": "APROVADO",
+      "evidence": "Button (estados) + feature toggle-favorite usada pelas duas plataformas; testes"
+    },
+    {
+      "id": "NR-07",
+      "text": "Execução nativa real (não só preview no navegador)",
+      "status": "NÃO VERIFICADO",
+      "evidence": "sem Android SDK/emulador e sem macOS nesta máquina; nível atingido: bundle Hermes"
+    },
+    {
+      "id": "NR-08",
+      "text": "Migração de legado implementada e provada em fixture",
+      "status": "APROVADO",
+      "evidence": "EV-legacy-e2e"
+    },
+    {
+      "id": "NR-09",
+      "text": "Backend: decisão monólito modular × hexagonal, sem FSD",
+      "status": "APROVADO",
+      "evidence": "clean-architecture-ddd reescrita; contrato item 7"
+    },
+    {
+      "id": "NR-10",
+      "text": "Catálogo com procedência, status, duplicatas e destino de cada item original",
+      "status": "APROVADO",
+      "evidence": "registry 104 itens; `catalog` reporta duplicatas (71 grupos, 123 arquivos redundantes)"
+    },
+    {
+      "id": "NR-11",
+      "text": "Matriz de versões e testes dos três clientes; tratamento de ACH-011",
+      "status": "REPROVADO",
+      "evidence": "Cursor de projeto não verificado; tratamento de ACH-011 implementado (doctor, escopo único, sink único Claude+Cursor)"
+    },
+    {
+      "id": "NR-12",
+      "text": "Instalação: destino/perfil/versão explícitos, manifest, idempotência, proteção, conflitos, caminhos, interrupção, concorrência, falha parcial, Windows/acentos/links, pacote fora do checkout",
+      "status": "APROVADO",
+      "evidence": "engine.test.mjs + catalog-build.test.mjs + EV-final-e2e"
+    },
+    {
+      "id": "NR-13",
+      "text": "Skills operacionais (objetivo, uso, entradas, pré-condições, ferramentas, procedimento, saída, validação, falhas)",
+      "status": "APROVADO",
+      "evidence": "gate exige as 10 chaves em 21/21"
+    },
+    {
+      "id": "NR-14",
+      "text": "Contexto com carregamento progressivo medido e política obrigatória desde o início",
+      "status": "APROVADO",
+      "evidence": "TEST-context-2.0.json; contrato padrão no perfil dev"
+    },
+    {
+      "id": "NR-15",
+      "text": "Matriz de testes: Bootstrap, FSD, Design, Legado, Distribuição, Atualização, Clientes, Contexto, Segurança, Criativos",
+      "status": "REPROVADO",
+      "evidence": "Criativos: perfil `creative` vazio (43 itens importados não revisados) — nada a testar ainda; demais áreas cobertas"
+    }
+  ]
+}

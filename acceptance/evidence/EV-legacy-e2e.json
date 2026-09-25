@@ -1,0 +1,29 @@
+{
+  "at": "2026-09-25T03:54:48.610Z",
+  "results": [
+    {
+      "label": "inventory of the legacy app",
+      "exit": 0
+    },
+    {
+      "label": "legacy: pnpm install (own workspace root, no lifecycle scripts)",
+      "exit": 0
+    },
+    {
+      "label": "legacy: characterization cases",
+      "exit": 0
+    },
+    {
+      "label": "migrated: pnpm install",
+      "exit": 0
+    },
+    {
+      "label": "migrated: pnpm verify (gate, typecheck, same characterization cases + unit tests, next build, expo export)",
+      "exit": 0
+    },
+    {
+      "label": "inventory of the migrated product (no gaps)",
+      "exit": 0
+    }
+  ]
+}

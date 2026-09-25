@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Modeling"
+  short_description: "Models Spline 3D geometry simply"
+  default_prompt:
+    "Use $spline-modeling to build or edit Spline geometry with the simplest
+    technique that reads."
+policy:
+  allow_implicit_invocation: true

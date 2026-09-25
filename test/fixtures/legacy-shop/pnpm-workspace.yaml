@@ -1,0 +1,10 @@
+# The legacy app is its own pnpm workspace root; the pnpm version is pinned by packageManager.
+packages:
+  - "."
+
+verifyDepsBeforeRun: error
+strictDepBuilds: true
+allowBuilds:
+  # Same review as the product template: the optional @esbuild/<platform> package provides the
+  # binary, so esbuild's install script is not needed.
+  esbuild: false

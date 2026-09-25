@@ -1,0 +1,133 @@
+{
+  "schema": "context-window/guard-proof@1",
+  "root": "C:\\Temp\\cw-r3\\guard-proof",
+  "homeExcluded": "C:\\Users\\harry",
+  "characterization": {
+    "id": "EV-R3-guard-characterization",
+    "at": "2026-09-25T06:03:50.228Z",
+    "mechanism": {
+      "kind": "preventive preflight + environment redirection + post-run mtime watch",
+      "not": "OS/security sandbox that confines subprocess writes",
+      "preflight": {
+        "what": "validates paths and configuration before spawning; refuses to start when blockers exist",
+        "checks": [
+          "project is inside the declared sandbox after realpath",
+          "sandbox does not overlap the user profile",
+          "nearest pnpm-workspace root equals the project (blocks ancestral workspace selection)",
+          "packageManager pin is exact and declared on the project (blocks Corepack inheritance)",
+          "strictDepBuilds, allowBuilds decisions, no dangerouslyAllowAllBuilds",
+          "storeDir/cacheDir/stateDir/globalDir/virtualStoreDir/modulesDir inside the sandbox when set in yaml",
+          "pnpmfile absent"
+        ]
+      },
+      "environmentRedirection": {
+        "what": "sets TEMP/TMP, XDG_*, pnpm_config_store/cache/state/userconfig and Expo home under the sandbox",
+        "effect": "biases where pnpm and well-behaved tools write by default; does not deny writes elsewhere",
+        "authorizedDestinationsRelativeToSandbox": [
+          "tmp",
+          "xdg/config",
+          "xdg/data",
+          "xdg/cache",
+          "xdg/state",
+          ".pnpm-store",
+          ".pnpm-cache",
+          ".pnpm-state",
+          "expo-home",
+          "user.npmrc",
+          "<project>/node_modules (via the install itself)"
+        ]
+      },
+      "subprocessRestrictions": {
+        "spawn": "spawnSync('pnpm', …) with shell on win32; no Node --permission, no job-object write ACL, no AppContainer",
+        "scripts": "when ignoreScripts is false, project and dependency lifecycle scripts run with the redirected env only",
+        "network": "not restricted by the guard (registry access is required for a real install)",
+        "postRunWatch": "compares mtime of a fixed list (ancestor configs, user npmrc, optional extras); detects some changes after the fact; does not prevent them"
+      },
+      "sourceSignals": {
+        "usesSpawnSync": true,
+        "usesNodePermission": false,
+        "usesAllowFsWrite": false,
+        "redirectsStore": true,
+        "postWatchMtime": true
+      }
+    },
+    "nodePermissionProbe": {
+      "status": "configuration result, not a general incompatibility claim and not a proof of the substitute",
+      "observed": "under Node.js 25.2.1 --permission, a pnpm install attempt failed with ERR_ACCESS_DENIED on getaddrinfo(registry.npmjs.org); the home canary was untouched",
+      "meaning": "that run could not reach the registry under the flags used; it does not prove that every permission configuration is incompatible with pnpm, and it does not prove that the guard's env redirection confines writes"
+    }
+  },
+  "ancestralProof": {
+    "id": "EV-R3-guard-ancestral",
+    "blocked": true,
+    "spawned": false,
+    "blockers": [
+      "pnpm would use the workspace at C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor, not the project C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor\\child",
+      "the pnpm version would be inherited from C:\\Temp\\cw-r3\\guard-proof\\ancestral\\sandbox\\ancestor (pnpm@10.27.0)",
+      "pnpmfile present (.pnpmfile.cjs): it runs code even with --ignore-scripts"
+    ],
+    "treeUnchanged": true,
+    "beforeFiles": 4,
+    "afterFiles": 4,
+    "ok": true
+  },
+  "writeProof": {
+    "id": "EV-R3-guard-write-escape",
+    "claimUnderTest": "guard blocks writes outside the sandbox by subprocesses of the install",
+    "how": "project postinstall writes to a sibling folder outside the sandbox but still under the disposable root; ignoreScripts=false so the lifecycle script runs; allowBuilds empty and no dependency builds",
+    "blocked": false,
+    "spawned": true,
+    "installStatus": 0,
+    "stderrTail": [
+      "! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-12.5.1.tgz",
+      "Downloading the pnpm 12.5.1 binary for win32-x64...",
+      ""
+    ],
+    "escapeFile": "C:\\Temp\\cw-r3\\guard-proof\\write-escape\\forbidden\\escape.txt",
+    "escapeSucceeded": true,
+    "changedOutside": [],
+    "propertyProven": false,
+    "propertyAbsent": true,
+    "okInterpretation": "FAIL as a write-confinement claim: the subprocess wrote outside the sandbox; the guard did not prevent it"
+  },
+  "allowedProof": {
+    "id": "EV-R3-guard-allowed-install",
+    "separateFrom": "EV-R3-guard-write-escape",
+    "preflightOk": true,
+    "blockers": [],
+    "blocked": false,
+    "spawned": true,
+    "status": 0,
+    "ignoreScripts": true,
+    "storeInsideSandbox": true,
+    "packagePresent": true,
+    "changedOutside": [],
+    "limitsOfThisProof": [
+      "proves a legitimate install can complete under preflight + env redirection with --ignore-scripts",
+      "does not prove write confinement of subprocesses",
+      "does not rely on Node --permission"
+    ],
+    "ok": true
+  },
+  "nodeProbeRestatement": {
+    "id": "EV-R3-node-permission-probe-restatement",
+    "priorObservation": "Node.js 25.2.1 with --permission: pnpm install failed ERR_ACCESS_DENIED getaddrinfo registry.npmjs.org; home canary unchanged",
+    "classification": "result of that specific permission configuration, not general incompatibility of pnpm with every permission setup, and not evidence that the guard substitutes for it",
+    "intactCanaryMeaning": "an intact canary after a network denial does not prove write confinement of the guard and does not close ancestral-workspace or write-block criteria"
+  },
+  "policy": {
+    "writeConfinementAvailable": false,
+    "fallbackToUnrestrictedForbidden": true,
+    "installsMayClaim": [
+      "preflight refuses ancestral workspace / inherited packageManager / unsafe settings before spawn",
+      "env redirects default store/cache/temp/xdg into the declared sandbox directory",
+      "post-run watch of a fixed file list (detection, not prevention)"
+    ],
+    "installsMustNotClaim": [
+      "security sandbox",
+      "subprocess write confinement",
+      "Node permission model as the substitute mechanism",
+      "intact canary after network failure as proof of isolation"
+    ]
+  }
+}

@@ -1,0 +1,5177 @@
+{
+  "schema": "context-window/imported-review@1",
+  "rules": {
+    "depreciado": "an active canonical skill has the same id",
+    "bloqueado": "declared license unknown, a third-party license without copyright notice or attribution, or secret-like content, private files, links or special files in the package",
+    "não verificado": "everything else: license evidence, gate gaps, external tools and a human reading are still missing",
+    "revisado": "never derived: requires a human reading of the instructions, a passing gate and license evidence",
+    "ativo": "never derived: requires revisado, trigger cases and a registry change with justification"
+  },
+  "total": 83,
+  "byStatus": {
+    "não verificado": 74,
+    "bloqueado": 9
+  },
+  "byFamily": {
+    "creative-video": 36,
+    "creative-remotion": 7,
+    "3d-blender": 12,
+    "3d-spline": 12,
+    "dev-imported": 3,
+    "project-okgas": 13
+  },
+  "items": [
+    {
+      "id": "art-direction",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/art-direction",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1011,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "443ad89fc13e8bf0ea8b5cd6f7604491f9b5484b19f9e7c2762833f12c0ecc0e"
+      },
+      "frontmatter": {
+        "name": "art-direction",
+        "descriptionChars": 231,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "audiovisual-debugging",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/audiovisual-debugging",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1168,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "1cb8ebc8390f5379be9b7ff57773d5deb1dd6b825995e5ec2323f9e24c833e04"
+      },
+      "frontmatter": {
+        "name": "audiovisual-debugging",
+        "descriptionChars": 121,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "ffmpeg",
+          "mcp-server",
+          "python"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, ffmpeg, mcp-server, python",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "b2b-tech-video",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/b2b-tech-video",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 962,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "54da9c654762e0d28a72e9e5c6317375130f01e151671f1b9db8fe97ea71baef"
+      },
+      "frontmatter": {
+        "name": "b2b-tech-video",
+        "descriptionChars": 116,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-to-resolve",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/blender-to-resolve",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1185,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "f6f054c102e435207fddc61c9eb16c7a65b8d36f99e25d60b279920e6773d3f1"
+      },
+      "frontmatter": {
+        "name": "blender-to-resolve",
+        "descriptionChars": 117,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "blender",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, blender, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "brand-video",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/brand-video",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 866,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "49474c804b7bcc9dbf92d801640c8e315bd7cd3ec0ff680b889614f1a2699114"
+      },
+      "frontmatter": {
+        "name": "brand-video",
+        "descriptionChars": 140,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "logical-solution-video-director"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "cinematic-editing",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/cinematic-editing",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1287,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "e101d1c00e0f3756bbd65538b5892232a9834b138847351b912ff9a706791e35"
+      },
+      "frontmatter": {
+        "name": "cinematic-editing",
+        "descriptionChars": 137,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "color-grading",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/color-grading",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1309,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "bff60fec88534da84a82bd2569de6d382daa4955470c5bbc70d475129912caae"
+      },
+      "frontmatter": {
+        "name": "color-grading",
+        "descriptionChars": 123,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "commercial-editor",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/commercial-editor",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1084,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "3ceb5773eec39a550d9b7a381fbd456e62537a8fde915ab591cb302de4aa20a8"
+      },
+      "frontmatter": {
+        "name": "commercial-editor",
+        "descriptionChars": 128,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "content-script",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/content-script",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1079,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "1efa67f70285042199ab29a42330a2b9f66cf600af162e7b0ebeb49faa732f1f"
+      },
+      "frontmatter": {
+        "name": "content-script",
+        "descriptionChars": 207,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "creative-video-orchestrator",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/creative-video-orchestrator",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 2367,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "64b05b7e40cfcda5816c1b50577543d64a89922482594a48299d8c685688bae4"
+      },
+      "frontmatter": {
+        "name": "creative-video-orchestrator",
+        "descriptionChars": 254,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "blender",
+          "ffmpeg",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "logical-solution-video-director",
+          "criativos-resolve",
+          "davinci-mcp-operator",
+          "video-editing-director",
+          "fusion-vfx"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, blender, ffmpeg, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "davinci-mcp-operator",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/davinci-mcp-operator",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 2040,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "eed9ee5973986a9b647f3cc8f019f2288f138796b5f7f96db7ca3b4ef22c827c"
+      },
+      "frontmatter": {
+        "name": "davinci-mcp-operator",
+        "descriptionChars": 167,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "ffmpeg",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, ffmpeg, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "davinci-resolve-editor",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/davinci-resolve-editor",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1430,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "d07c1976267f1cafb40816b7893937192f2848ebaa4c4c0eb34d9313bec78310"
+      },
+      "frontmatter": {
+        "name": "davinci-resolve-editor",
+        "descriptionChars": 116,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "screen-recording-editor",
+          "davinci-mcp-operator"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "design-system-import",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/design-system-import",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1134,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "bf08710bc9fd161e33ca320fd8731afba3d0657dfe842663adbb90aa42fe3074"
+      },
+      "frontmatter": {
+        "name": "design-system-import",
+        "descriptionChars": 219,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "fairlight-audio",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/fairlight-audio",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1362,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "f3cd27c53f183b7fede94adefcdaf4f52ceb744b713b6cdba7411d49d51b1082"
+      },
+      "frontmatter": {
+        "name": "fairlight-audio",
+        "descriptionChars": 112,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "fusion-vfx",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/fusion-vfx",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1205,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "9cc2aa2f5922e150dc77ab2e6f3269beda6aed80f9cfde27c35ae67fce0cf12c"
+      },
+      "frontmatter": {
+        "name": "fusion-vfx",
+        "descriptionChars": 137,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "hook-retention",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/hook-retention",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1017,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "44c5f7c80ed1a2f8dad3e2f63c1341baaac121cb1b1613f3aaf6456e4a937297"
+      },
+      "frontmatter": {
+        "name": "hook-retention",
+        "descriptionChars": 105,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "instagram-delivery",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/instagram-delivery",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 859,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "20c6d2daeca80ea6370f48a643be9224b738ac7c23464f28d0bdc0d4f94be92f"
+      },
+      "frontmatter": {
+        "name": "instagram-delivery",
+        "descriptionChars": 91,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "logical-solution-video-director",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/logical-solution-video-director",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1493,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "c46f4e17da7866055d47c21a431b88d76964fc8519c5421eff7d14e923c96d3d"
+      },
+      "frontmatter": {
+        "name": "logical-solution-video-director",
+        "descriptionChars": 151,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "media-ingest",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/media-ingest",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 916,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "0931a27598e4133543d87d47705c4df8b3df69886dae438cfad9640b9fdef4c2"
+      },
+      "frontmatter": {
+        "name": "media-ingest",
+        "descriptionChars": 92,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "motion-3d",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/motion-3d",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 927,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "77a321c7cea29a9767b47af73da814f008b0bb7987a809aca869151a7ad2672e"
+      },
+      "frontmatter": {
+        "name": "motion-3d",
+        "descriptionChars": 189,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "rive",
+          "remotion",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, rive, remotion, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "motion-design",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/motion-design",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1186,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "2ffcaa72637c5eb91585e310cd9c1e4c17a44e0ea9fa9b29bb8fd39e86becec6"
+      },
+      "frontmatter": {
+        "name": "motion-design",
+        "descriptionChars": 130,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "presenter-audio",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/presenter-audio",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1152,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "2400bdca489177840fe907397ea460304bda7fd0edf6391088e7ee00f40e9a28"
+      },
+      "frontmatter": {
+        "name": "presenter-audio",
+        "descriptionChars": 181,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "remotion-captions"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: remotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "quality-control",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/quality-control",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 878,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "10ebd85ef0c05c24f0cbe0318a0bbc3e0450a10d42c9f64fa8fe6c0dad1b23d1"
+      },
+      "frontmatter": {
+        "name": "quality-control",
+        "descriptionChars": 100,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "remotion-best-practices",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-best-practices",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 138,
+        "bytes": 1164766,
+        "scripts": [
+          "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx",
+          "remotion-maps/techniques/cesium/assets/example-Root.tsx",
+          "remotion-maps/techniques/cesium/assets/flight-path.ts",
+          "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+          "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx",
+          "remotion-maps/techniques/maptiler/assets/example-Root.tsx",
+          "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts",
+          "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx",
+          "remotion-maps/techniques/maptiler/assets/tokens.ts",
+          "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs",
+          "remotion-markup/remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx",
+          "remotion-markup/remotion-maps/techniques/cesium/assets/example-Root.tsx",
+          "remotion-markup/remotion-maps/techniques/cesium/assets/flight-path.ts",
+          "remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+          "remotion-markup/remotion-maps/techniques/maptiler/assets/CountryLabel.tsx",
+          "remotion-markup/remotion-maps/techniques/maptiler/assets/example-Root.tsx",
+          "remotion-markup/remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts",
+          "remotion-markup/remotion-maps/techniques/maptiler/assets/RiverReveal.tsx",
+          "remotion-markup/remotion-maps/techniques/maptiler/assets/tokens.ts",
+          "remotion-markup/remotion-maps/techniques/maptiler/scripts/prep-geo.mjs"
+        ],
+        "references": 81,
+        "assets": 0,
+        "skillHash": "bcca263d4b7a8a2cbcc773cc4d2f1c3bf882dd59767683e96b773432cfe2b6f8"
+      },
+      "frontmatter": {
+        "name": "remotion-best-practices",
+        "descriptionChars": 30,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "rive",
+          "remotion",
+          "ffmpeg",
+          "cesium",
+          "mapbox",
+          "maptiler",
+          "npx"
+        ],
+        "scriptImports": [
+          "@maptiler/sdk",
+          "@turf/turf",
+          "fs",
+          "path",
+          "react",
+          "remotion",
+          "url"
+        ],
+        "networkHosts": [
+          "api.elevenlabs.io",
+          "api.maptiler.com",
+          "assets4.lottiefiles.com",
+          "cesium.com",
+          "cloud.maptiler.com",
+          "demotiles.maplibre.org",
+          "developers.google.com",
+          "docs.maptiler.com",
+          "example.com",
+          "github.com",
+          "localhost",
+          "mediabunny.dev",
+          "plsduol1ca-dsn.algolia.net",
+          "remotion.dev",
+          "remotion.media",
+          "tile.googleapis.com",
+          "unpkg.com",
+          "www.maptiler.com",
+          "www.remotion.dev",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [
+        {
+          "label": "credential handling",
+          "file": "remotion-docs/REFERENCE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/REFERENCE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/references/3d-data-sources.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/mapbox/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/REFERENCE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/cesium/references/3d-data-sources.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/cesium/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/mapbox/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/remotion-maps/techniques/maptiler/assets/RiverReveal.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-markup/voiceover.md"
+        }
+      ],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-captions",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-captions",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 6,
+        "bytes": 12783,
+        "scripts": [],
+        "references": 3,
+        "assets": 0,
+        "skillHash": "8ee80dae4c67fb7421df78d7145442cc3bc10eb0cacfb73d3672954f895d96d0"
+      },
+      "frontmatter": {
+        "name": "remotion-captions",
+        "descriptionChars": 47,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion",
+          "ffmpeg",
+          "npx"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "www.remotion.dev",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-docs",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-docs",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3007,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "3ecb8c086c25e8d279f810a28c0a1dada6cb5aef451ce7acf7c46be210a8903a"
+      },
+      "frontmatter": {
+        "name": "remotion-docs",
+        "descriptionChars": 29,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "plsduol1ca-dsn.algolia.net",
+          "www.remotion.dev",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [
+        {
+          "label": "credential handling",
+          "file": "SKILL.md"
+        }
+      ],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-markup",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-markup",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 64,
+        "bytes": 603396,
+        "scripts": [
+          "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx",
+          "remotion-maps/techniques/cesium/assets/example-Root.tsx",
+          "remotion-maps/techniques/cesium/assets/flight-path.ts",
+          "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+          "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx",
+          "remotion-maps/techniques/maptiler/assets/example-Root.tsx",
+          "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts",
+          "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx",
+          "remotion-maps/techniques/maptiler/assets/tokens.ts",
+          "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs"
+        ],
+        "references": 44,
+        "assets": 0,
+        "skillHash": "80ed53d4a40f558d8343ab71e7e4094a043f251667975a3f2cc05329071aee37"
+      },
+      "frontmatter": {
+        "name": "remotion-markup",
+        "descriptionChars": 45,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "rive",
+          "remotion",
+          "ffmpeg",
+          "cesium",
+          "mapbox",
+          "maptiler",
+          "npx"
+        ],
+        "scriptImports": [
+          "@maptiler/sdk",
+          "@turf/turf",
+          "fs",
+          "path",
+          "react",
+          "remotion",
+          "url"
+        ],
+        "networkHosts": [
+          "api.elevenlabs.io",
+          "api.maptiler.com",
+          "assets4.lottiefiles.com",
+          "cesium.com",
+          "cloud.maptiler.com",
+          "demotiles.maplibre.org",
+          "developers.google.com",
+          "docs.maptiler.com",
+          "example.com",
+          "github.com",
+          "remotion.dev",
+          "remotion.media",
+          "tile.googleapis.com",
+          "unpkg.com",
+          "www.maptiler.com",
+          "www.remotion.dev",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/REFERENCE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/references/3d-data-sources.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/cesium/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/mapbox/TECHNIQUE.md"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts"
+        },
+        {
+          "label": "credential handling",
+          "file": "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx"
+        },
+        {
+          "label": "credential handling",
+          "file": "voiceover.md"
+        }
+      ],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-multimedia",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-multimedia",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 6,
+        "bytes": 6770,
+        "scripts": [],
+        "references": 3,
+        "assets": 0,
+        "skillHash": "bb32fee29bdcac88cd77ee63248c01e8f52ad2f74eb0ae27a9ebf6c2152ff0b3"
+      },
+      "frontmatter": {
+        "name": "remotion-multimedia",
+        "descriptionChars": 27,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "mediabunny.dev",
+          "remotion.media",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-render",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-render",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 4,
+        "bytes": 4719,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "8d7a859696d63dfa8d20e2a4382dbe71e845968c956d3393d9b8c6205050c81a"
+      },
+      "frontmatter": {
+        "name": "remotion-render",
+        "descriptionChars": 23,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion",
+          "npx"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "www.remotion.dev",
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "remotion-studio",
+      "family": "creative-remotion",
+      "path": "imported-skills/criativos/remotion-studio",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "license": {
+        "declared": "unknown — may derive from third-party Remotion skills; confirm before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 2533,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "a1dc43f5dca4227e6c520a57e7090bc6a630ee7e75fdaf97bbd67880109dd92b"
+      },
+      "frontmatter": {
+        "name": "remotion-studio",
+        "descriptionChars": 24,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion",
+          "npx"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "www.w3.org"
+        ],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "license: unknown — may derive from third-party Remotion skills; confirm before promotion"
+        ]
+      }
+    },
+    {
+      "id": "render-delivery",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/render-delivery",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1149,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "556b7f2ea931c553b5493185be27deb0e72f02d8f448f6df2039319da6feb4c3"
+      },
+      "frontmatter": {
+        "name": "render-delivery",
+        "descriptionChars": 101,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "saas-product-video",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/saas-product-video",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 991,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "c46c3cabea182ac341a4df11134cf8663d08594c05eebb5d79c07eb262e16dbd"
+      },
+      "frontmatter": {
+        "name": "saas-product-video",
+        "descriptionChars": 122,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "screen-recording-editor",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/screen-recording-editor",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 913,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "e6271497fd31275662d98232234db3f0a21a8a1faeb3a6256a69b5945f2b6118"
+      },
+      "frontmatter": {
+        "name": "screen-recording-editor",
+        "descriptionChars": 112,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "ffmpeg"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: ffmpeg",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "screencast-edit",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/screencast-edit",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1254,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "def0c7508254e3b30b75428bf11d9ad7534dc14d8b665bc97a4e38d69edb1577"
+      },
+      "frontmatter": {
+        "name": "screencast-edit",
+        "descriptionChars": 223,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "spline",
+          "rive",
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "screen-recording-editor"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, spline, rive, remotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "social-video",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/social-video",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1102,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "b514ff9dd1db9db74fafc3386afaa65667a74ab458f945728f76c519d14fa258"
+      },
+      "frontmatter": {
+        "name": "social-video",
+        "descriptionChars": 99,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "subtitles-accessibility"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "sound-design",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/sound-design",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 901,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "5676467cad903fccba38c9cd7991a51a9d396ee02a1e271907c05e65f19b6f6d"
+      },
+      "frontmatter": {
+        "name": "sound-design",
+        "descriptionChars": 128,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "still-images",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/still-images",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 886,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "01a54aef8aa0c8db38f6a59fbec45ce7ee6ea7aa85527bc6621a4e0ad6639683"
+      },
+      "frontmatter": {
+        "name": "still-images",
+        "descriptionChars": 171,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: remotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "storytelling",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/storytelling",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 790,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "369d0879a3f80e93db15355699dfb75bcba9e0c1fe12aa0cbd599dee90d13266"
+      },
+      "frontmatter": {
+        "name": "storytelling",
+        "descriptionChars": 112,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "studio-router",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/studio-router",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1223,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "98c6345978c17bdd2e8d9c983418736b927c3409a74981ef8a1238620279c4a9"
+      },
+      "frontmatter": {
+        "name": "studio-router",
+        "descriptionChars": 221,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "spline",
+          "rive",
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "creative-video-orchestrator",
+          "content-script",
+          "design-system-import",
+          "art-direction",
+          "screencast-edit",
+          "presenter-audio",
+          "still-images",
+          "motion-3d",
+          "visual-review",
+          "remotion-markup",
+          "remotion-render",
+          "remotion-studio"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, spline, rive, remotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "subtitles-accessibility",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/subtitles-accessibility",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1179,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "14152bc559c9750924db921bad3ca008968f9ca8db9e41e1a06e37d88320cd2b"
+      },
+      "frontmatter": {
+        "name": "subtitles-accessibility",
+        "descriptionChars": 116,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "video-editing-director",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/video-editing-director",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1310,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "aeb17c1b5602b90424b6dd349354bc51655de9ed5c0a36979323d50193dfac1e"
+      },
+      "frontmatter": {
+        "name": "video-editing-director",
+        "descriptionChars": 118,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "visual-review",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/visual-review",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 883,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "88e2f43fc7d756632b176f61645e67e1381c0a06318aed1b5d8208fb39a09812"
+      },
+      "frontmatter": {
+        "name": "visual-review",
+        "descriptionChars": 171,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "remotion"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: remotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "web-video-delivery",
+      "family": "creative-video",
+      "path": "imported-skills/criativos/web-video-delivery",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1130,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "62fa82eb9a7b91a1b183471fa4dbc8c4de3bab7b1088ed8dae3636d3867555d7"
+      },
+      "frontmatter": {
+        "name": "web-video-delivery",
+        "descriptionChars": 100,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-animation",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-animation",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3359,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "0484bac6b471b5128cebbb383d0e9b1b9ec103e104a76e62e53dbce060caf18d"
+      },
+      "frontmatter": {
+        "name": "blender-animation",
+        "descriptionChars": 349,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-rigging",
+          "blender-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-camera",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-camera",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 2062,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "0a31b3bc5b737931378115c5da7979f2ec212bf2e1f6fa1b271a094b16ab3d0a"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:26)"
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-modeling",
+          "blender-rendering"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:26)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-debug",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-debug",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 2000,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "6dcecc44cedff482b184bb03195941f9c1d710922eb574934925e58ef51fcd21"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:67)"
+      },
+      "dependencies": {
+        "tools": [
+          "blender"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "blender-master"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:67)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-lighting",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-lighting",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 2083,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "fa627b941951debdc0d4aabb612a437828590c4872f8f8804ba05e76007abb4c"
+      },
+      "frontmatter": {
+        "name": "blender-lighting",
+        "descriptionChars": 274,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-master",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-master",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 9,
+        "bytes": 19565,
+        "scripts": [
+          "scripts/route.mjs",
+          "scripts/smoke-headless.py",
+          "scripts/validate-skills.mjs"
+        ],
+        "references": 3,
+        "assets": 0,
+        "skillHash": "35fe52f23f4c4752bfbb59b8da21533575acde3b1a7bbe66fe9f655387fc1cb7"
+      },
+      "frontmatter": {
+        "name": "blender-master",
+        "descriptionChars": 355,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "blender",
+          "spline",
+          "rive",
+          "mcp-server",
+          "python"
+        ],
+        "scriptImports": [
+          "node:fs",
+          "node:path",
+          "node:url"
+        ],
+        "networkHosts": [
+          "agentskills.io",
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "user-blender",
+          "mcp-for-blender",
+          "blender-scene-inspection",
+          "blender-debug",
+          "blender-visual-qa",
+          "blender-rigging",
+          "blender-modeling",
+          "blender-animation",
+          "blender-materials",
+          "blender-lighting",
+          "blender-camera",
+          "blender-rendering",
+          "blender-web3d"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, blender, spline, rive, mcp-server, python",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-materials",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-materials",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 1923,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "a1e55f17ba4150562e8589c4ced17aeafe2faf1f4b19f0b52e5d548765d4c989"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:25)"
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-visual-qa",
+          "blender-lighting"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:25)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-modeling",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-modeling",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3514,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "269f4b55aaa3f4ce89903e4b47e12151cdbc9f5bc39d8c1703e417d6d9d808c6"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:25)"
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:25)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-rendering",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-rendering",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 2574,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "be525c48cfc6fd750f96d04c5efc205f4739b6d1907272e9a3972267c20d2e84"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: bad indentation of a mapping entry (4:20)"
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-web3d",
+          "blender-lighting"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: bad indentation of a mapping entry (4:20)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-rigging",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-rigging",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3088,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "af10b4dd0476f8d0dd5edd16c02472a5d615aee01b746795958489475da5e4ad"
+      },
+      "frontmatter": {
+        "name": "blender-rigging",
+        "descriptionChars": 264,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-debug"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-scene-inspection",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-scene-inspection",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 1783,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "842598c0efa6b062eee9236416aa55f65cf55e70e0e6df8a4f28a46062878f8e"
+      },
+      "frontmatter": {
+        "name": "blender-scene-inspection",
+        "descriptionChars": 295,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "blender-master"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-visual-qa",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-visual-qa",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 2,
+        "bytes": 1639,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "4ef779f024365e5c4d9cf62ea788ceda63fd1ee91f9601e60f7ebc8e1ae447fa"
+      },
+      "frontmatter": {
+        "name": "blender-visual-qa",
+        "descriptionChars": 263,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "blender-master"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "blender-web3d",
+      "family": "3d-blender",
+      "path": "imported-skills/logical-solution/blender-web3d",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3027,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "68e4eb1f1b5e96f2f95e3dab5378d6e5b5cbc0d5e1a87e25c0ca72b37b30b530"
+      },
+      "frontmatter": {
+        "name": null,
+        "descriptionChars": 0,
+        "error": "invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:60)"
+      },
+      "dependencies": {
+        "tools": [
+          "blender",
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.blender.org"
+        ],
+        "mentionedSkills": [
+          "blender-master",
+          "blender-animation"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:60)",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: blender, spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-animation",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-animation",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3346,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "a04e1c9885b83a46f42c9996789f06972ca0f1171f6228c2eb5d198f6816881b"
+      },
+      "frontmatter": {
+        "name": "spline-animation",
+        "descriptionChars": 432,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "html-content",
+          "state-transitions",
+          "spline-visual-qa",
+          "spline-web-performance"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-camera-composition",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-camera-composition",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3124,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "f5e646201554d3c485c903ea97009f812f8a06fdb5391e4f5cf41c85e89de8f4"
+      },
+      "frontmatter": {
+        "name": "spline-camera-composition",
+        "descriptionChars": 336,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "dsl-reference"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-hero-design",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-hero-design",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3307,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "4c8ffb343d2b25da3e5b083298a1121ac7f1ff217733460743959bb6dd19daf4"
+      },
+      "frontmatter": {
+        "name": "spline-hero-design",
+        "descriptionChars": 351,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "spline-visual-qa",
+          "spline-web-performance"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-interaction",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-interaction",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3043,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "07883431f10554648ab23f18864113cb7ca9b5a8972c14f06012d991b70c1765"
+      },
+      "frontmatter": {
+        "name": "spline-interaction",
+        "descriptionChars": 412,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "html-content",
+          "spline-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-lighting",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-lighting",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3336,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "02db1ffa43f70621ae45e2b5af093115b0e2d67cafa6ef08529d9e4947c580c3"
+      },
+      "frontmatter": {
+        "name": "spline-lighting",
+        "descriptionChars": 324,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "materials-and-look",
+          "spline-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-master",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-master",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 6,
+        "bytes": 20068,
+        "scripts": [
+          "scripts/validate-skills.mjs"
+        ],
+        "references": 3,
+        "assets": 0,
+        "skillHash": "21b8b8a9c74fcd1172a9bb939fc0e82c00fe25b893106fc415392d64d7f7746b"
+      },
+      "frontmatter": {
+        "name": "spline-master",
+        "descriptionChars": 430,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "spline",
+          "rive",
+          "mcp-server"
+        ],
+        "scriptImports": [
+          "node:fs",
+          "node:path",
+          "node:url"
+        ],
+        "networkHosts": [
+          "agentskills.io",
+          "docs.spline.design"
+        ],
+        "mentionedSkills": [
+          "authoring-guide",
+          "authoring-guide-2",
+          "authoring-guide-3",
+          "spline-visual-qa",
+          "spline-scene-analysis",
+          "spline-modeling",
+          "spline-materials",
+          "spline-lighting",
+          "spline-camera-composition",
+          "spline-animation",
+          "spline-interaction",
+          "spline-web-performance",
+          "spline-web-integration",
+          "spline-hero-design"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, spline, rive, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-materials",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-materials",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 4434,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "8c5026cb3c0b011c4752bb523bcf6385de2ea5e3379adb9f13c4bc9c5415b052"
+      },
+      "frontmatter": {
+        "name": "spline-materials",
+        "descriptionChars": 422,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "texture-drawing",
+          "dsl-reference",
+          "spline-visual-qa",
+          "materials-and-look"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-modeling",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-modeling",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3325,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "d5817ca330b24ece9516fde86b47ea0ff75a3f691988a2c903e841c7c2034186"
+      },
+      "frontmatter": {
+        "name": "spline-modeling",
+        "descriptionChars": 347,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "davinci-resolve",
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "authoring-guide",
+          "boolean-operations",
+          "shape-blends",
+          "dsl-reference",
+          "spline-visual-qa"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: davinci-resolve, spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-scene-analysis",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-scene-analysis",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3710,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "6d996c986ac0e879d4f4ce9fcfea4a21b5fcfd4064010bd9db7e1a1508a37c96"
+      },
+      "frontmatter": {
+        "name": "spline-scene-analysis",
+        "descriptionChars": 333,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-visual-qa",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-visual-qa",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3027,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "03436a7f29501f6193229d1d3537617d136b76e02028e7d43c0dcf91de9f8e7d"
+      },
+      "frontmatter": {
+        "name": "spline-visual-qa",
+        "descriptionChars": 375,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-web-integration",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-web-integration",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 4389,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "94ed6a18d79df3d96fcc6e8e69ae5fc07a5ebfd3f702788f207ab8da7165e30d"
+      },
+      "frontmatter": {
+        "name": "spline-web-integration",
+        "descriptionChars": 402,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "docs.spline.design",
+          "www.npmjs.com"
+        ],
+        "mentionedSkills": [
+          "spline-master",
+          "teste-iphone-perf"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "spline-web-performance",
+      "family": "3d-spline",
+      "path": "imported-skills/logical-solution/spline-web-performance",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 3,
+        "bytes": 3680,
+        "scripts": [],
+        "references": 1,
+        "assets": 0,
+        "skillHash": "80122bc773e417b8013005a0d699602c60731add1ed27e980c786233beadbf8a"
+      },
+      "frontmatter": {
+        "name": "spline-web-performance",
+        "descriptionChars": 436,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "mcp-server"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "spline-master",
+          "spline-web-3d",
+          "teste-iphone-perf"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, mcp-server",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "teste-iphone-perf",
+      "family": "dev-imported",
+      "path": "imported-skills/logical-solution/teste-iphone-perf",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 2770,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "bde56ade1bc5a3a88d33f05604cc91dc61db7a93ad4920c3bb15abdba2328135"
+      },
+      "frontmatter": {
+        "name": "teste-iphone-perf",
+        "descriptionChars": 546,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "spline",
+          "rive"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "logicalsolution.com.br"
+        ],
+        "mentionedSkills": [
+          "pre-push"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: spline, rive",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-a11y-ui",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-a11y-ui",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1032,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "f4a2e12481f7e5828eeaf38c4bdd5f0f2d1b74247509bda4f32cda01be479b77"
+      },
+      "frontmatter": {
+        "name": "okgas-a11y-ui",
+        "descriptionChars": 186,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-agentops-diagnosis",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-agentops-diagnosis",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1346,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "5b6fdacb8fb768067a395680e4bc4f0a057cc1755d26630659daf372a0a49a0e"
+      },
+      "frontmatter": {
+        "name": "okgas-agentops-diagnosis",
+        "descriptionChars": 346,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-ai-readiness",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-ai-readiness",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1470,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "2626e8786d2b5919b22ab1f23a22d5c8756b5fe4eb2d4783064fed210bb8a39c"
+      },
+      "frontmatter": {
+        "name": "okgas-ai-readiness",
+        "descriptionChars": 282,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-db-migration",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-db-migration",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 2090,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "e06eb525b4728562c36e8bf3794f385a7a954399c3c93c8ffea95c9986f0697e"
+      },
+      "frontmatter": {
+        "name": "okgas-db-migration",
+        "descriptionChars": 327,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "prisma"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "pre-push"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: prisma",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-eval-authoring",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-eval-authoring",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1306,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "b5c8e4a7862df8f0f9b8a1d55c56ac5de52d1e446be37c4979339bb5b002b717"
+      },
+      "frontmatter": {
+        "name": "okgas-eval-authoring",
+        "descriptionChars": 126,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-feature-module-layout",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-feature-module-layout",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 2071,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "5f4d0b691e5c9cc69c747e3bd90ee95fbfa7871d7db6a14061d4a3f897831d77"
+      },
+      "frontmatter": {
+        "name": "okgas-feature-module-layout",
+        "descriptionChars": 212,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-lab-elicitation",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-lab-elicitation",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 946,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "3ec29f4ca69b8be3260707ed8887b0586575a89c8451ba0e8f1803e965c91207"
+      },
+      "frontmatter": {
+        "name": "okgas-lab-elicitation",
+        "descriptionChars": 195,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-mobile-fsd",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-mobile-fsd",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1179,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "85c011b68fbde2c918b470e7f24159256b1f3a85df3773c68452e3f67153f1ee"
+      },
+      "frontmatter": {
+        "name": "okgas-mobile-fsd",
+        "descriptionChars": 144,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "expo"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: expo",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-module-boundaries",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-module-boundaries",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1777,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "ed7e7c057e3c4cd0e482351db5a3aff28fcf0e61a8bd01843576a09033b7d76f"
+      },
+      "frontmatter": {
+        "name": "okgas-module-boundaries",
+        "descriptionChars": 201,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "expo"
+        ],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "behavior depends on external tools not exercised here: expo",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-offline-first",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-offline-first",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1397,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "08e5947f59742a628f6aa357657e78d1c29cd55c25ba7696121375a04a782bc0"
+      },
+      "frontmatter": {
+        "name": "okgas-offline-first",
+        "descriptionChars": 168,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-po-briefing",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-po-briefing",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 4918,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "955123ae56b3a4081c125883bd3bc3af73040a4df7ef07c1096455bbdf40b666"
+      },
+      "frontmatter": {
+        "name": "okgas-po-briefing",
+        "descriptionChars": 252,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "broken reference: assets/brand/",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "3 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-rag-grounding-review",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-rag-grounding-review",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1256,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "80d57d72b895d2f325bd7a25c2a9dcf81f06986f33434ca4f44a1fc65b6ebd7f"
+      },
+      "frontmatter": {
+        "name": "okgas-rag-grounding-review",
+        "descriptionChars": 337,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "okgas-saas-security-review",
+      "family": "project-okgas",
+      "path": "imported-skills/okgas/okgas-saas-security-review",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "license": {
+        "declared": "not recorded at import; the owner must confirm authorship or the upstream license before promotion",
+        "evidence": "none in package",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 1799,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "a1415e848e84464d32f417643f6d5c7a78bdd80a933905ec1ef37135eed449c0"
+      },
+      "frontmatter": {
+        "name": "okgas-saas-security-review",
+        "descriptionChars": 339,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": []
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "não verificado",
+        "reasons": [
+          "no license evidence in the package (registry: \"not recorded at import; the owner must confirm authorship or the upstream license before promotion\")",
+          "2 catalog gate issue(s) to fix before promotion",
+          "instructions not read by a human reviewer in this round"
+        ]
+      }
+    },
+    {
+      "id": "prisma-client-api",
+      "family": "dev-imported",
+      "path": "imported-skills/okgas/prisma-client-api",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "license": {
+        "declared": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion",
+        "evidence": "frontmatter license: MIT",
+        "files": []
+      },
+      "package": {
+        "files": 9,
+        "bytes": 44590,
+        "scripts": [],
+        "references": 8,
+        "assets": 0,
+        "skillHash": "b7c6aeb7a807274a098b406e84d0b97c038f9b1e50d4d6d66a4dd78aaa99d388"
+      },
+      "frontmatter": {
+        "name": "prisma-client-api",
+        "descriptionChars": 281,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [
+          "prisma"
+        ],
+        "scriptImports": [],
+        "networkHosts": [
+          "www.prisma.io"
+        ],
+        "mentionedSkills": [
+          "model-queries",
+          "query-options",
+          "raw-queries",
+          "client-methods",
+          "prisma-client"
+        ]
+      },
+      "instructionsRisk": [
+        {
+          "label": "credential handling",
+          "file": "references/query-options.md"
+        }
+      ],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "the package declares MIT but carries no copyright notice or upstream attribution"
+        ]
+      }
+    },
+    {
+      "id": "react-best-practices",
+      "family": "dev-imported",
+      "path": "imported-skills/okgas/react-best-practices",
+      "registryStatus": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "license": {
+        "declared": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion",
+        "evidence": "frontmatter license: MIT",
+        "files": []
+      },
+      "package": {
+        "files": 1,
+        "bytes": 6366,
+        "scripts": [],
+        "references": 0,
+        "assets": 0,
+        "skillHash": "c3f86dcbac634a8621f211cf1531efb4d89fc946cb81fc5fe16daf81378d077f"
+      },
+      "frontmatter": {
+        "name": "react-best-practices",
+        "descriptionChars": 329,
+        "error": null
+      },
+      "dependencies": {
+        "tools": [],
+        "scriptImports": [],
+        "networkHosts": [],
+        "mentionedSkills": [
+          "async-defer-await",
+          "async-parallel",
+          "async-dependencies",
+          "async-api-routes",
+          "async-suspense-boundaries",
+          "bundle-barrel-imports",
+          "bundle-dynamic-imports",
+          "bundle-defer-third-party",
+          "bundle-conditional",
+          "bundle-preload",
+          "server-auth-actions",
+          "server-cache-react",
+          "server-cache-lru",
+          "server-dedup-props",
+          "server-hoist-static-io",
+          "server-serialization",
+          "server-parallel-fetching",
+          "server-after-nonblocking",
+          "client-swr-dedup",
+          "client-event-listeners",
+          "client-passive-event-listeners",
+          "client-localstorage-schema",
+          "rerender-defer-reads",
+          "rerender-memo",
+          "rerender-memo-with-default-value",
+          "rerender-dependencies",
+          "rerender-derived-state",
+          "rerender-derived-state-no-effect",
+          "rerender-functional-setstate",
+          "rerender-lazy-state-init",
+          "rerender-simple-expression-in-memo",
+          "rerender-move-effect-to-event",
+          "rerender-transitions",
+          "rerender-use-ref-transient-values",
+          "rendering-animate-svg-wrapper",
+          "rendering-content-visibility",
+          "rendering-hoist-jsx",
+          "rendering-svg-precision",
+          "rendering-hydration-no-flicker",
+          "rendering-hydration-suppress-warning",
+          "rendering-activity",
+          "rendering-conditional-render",
+          "rendering-usetransition-loading",
+          "js-batch-dom-css",
+          "js-index-maps",
+          "js-cache-property-access",
+          "js-cache-function-results",
+          "js-cache-storage",
+          "js-combine-iterations",
+          "js-length-check-first",
+          "js-early-exit",
+          "js-hoist-regexp",
+          "js-min-max-loop",
+          "js-set-map-lookups",
+          "js-tosorted-immutable",
+          "advanced-event-handler-refs",
+          "advanced-init-once",
+          "advanced-use-latest"
+        ]
+      },
+      "instructionsRisk": [],
+      "gate": {
+        "hardIssues": [],
+        "promotionGaps": [
+          "missing \"## Operational Contract\" section",
+          "broken reference: AGENTS.md",
+          "missing entry in saas-skills/evals/skill-trigger-matrix.json"
+        ]
+      },
+      "testCriteria": "no trigger cases in skill-trigger-matrix.json; behavior tests need the external tools above",
+      "review": {
+        "status": "bloqueado",
+        "reasons": [
+          "the package declares MIT but carries no copyright notice or upstream attribution"
+        ]
+      }
+    }
+  ]
+}

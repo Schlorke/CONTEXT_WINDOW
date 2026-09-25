@@ -1,0 +1,362 @@
+{
+  "schema": "context-window/acceptance-contract@r3",
+  "libraryVersion": "2.0.0",
+  "evaluatedAt": "2026-09-25",
+  "history": {
+    "round1": {
+      "file": "acceptance/RUBRIC.md",
+      "score": 8.69,
+      "ceiling": 9.28,
+      "note": "preserved as history; round-1 claim that sandboxes ran pnpm 12.5.1 is corrected in REPORT-R3 (they ran the inherited 10.27.0)"
+    },
+    "independentAudit": {
+      "baseline": {
+        "head": "66194b0",
+        "workingTreeEntries": 84,
+        "active": 21,
+        "importedUnreviewed": 83
+      },
+      "decision": "REPROVADO"
+    }
+  },
+  "identity": {
+    "head": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+    "workingTree": "uncommitted changes on top of HEAD; file hashes in acceptance/evidence/r3/MANIFEST-R3.json",
+    "evaluatedPackageMarkerSha256": "c7ee1fe5574b6fa1e907ce5513231b4070e458b9829623cda9008c647070e6e0",
+    "templateLockfileSha256AfterScaffold": "c9b6d4f06f3b147faee288d787941a662d613f2656d7b6db5bb55e79abb59c1a"
+  },
+  "rubricR3": {
+    "score": 8.73,
+    "ceiling": 9.41,
+    "coverage": {
+      "withVerdict": 75,
+      "total": 81,
+      "weighted": 0.9322
+    },
+    "criticalNotApproved": [],
+    "notApproved": [
+      "CR-047",
+      "CR-055",
+      "CR-069",
+      "CR-073",
+      "CR-075"
+    ],
+    "notVerified": [
+      "CR-021",
+      "CR-027",
+      "CR-038",
+      "CR-041",
+      "CR-049",
+      "CR-066"
+    ],
+    "changesFromRound1": [
+      {
+        "id": "CR-002",
+        "before": "APROVADO",
+        "now": "APROVADO",
+        "reason": "round-1 evidence invalid (clean copy under the user profile ran inherited pnpm 10.27.0); replaced by CX-09 (clean copy in C:\\Temp, guarded frozen install, pnpm qa 145/145)"
+      },
+      {
+        "id": "CR-025",
+        "before": "APROVADO",
+        "now": "APROVADO",
+        "reason": "format by catalog gate; project-scope loading proven by A13c (EV-R3-cursor-session.md) on Cursor 3.22.8 — was NÃO VERIFICADO mid-R3 until A13c"
+      },
+      {
+        "id": "CR-026",
+        "before": "APROVADO",
+        "now": "APROVADO",
+        "reason": "A13c: Cursor 3.22.8 on kit discovered cw-probe + 2.0 Preconditions from project .agents/skills (not user profile)"
+      },
+      {
+        "id": "CR-027",
+        "before": "APROVADO",
+        "now": "NÃO VERIFICADO",
+        "reason": "only 1.x copies observed; no proof with the 2.0 user surface"
+      },
+      {
+        "id": "CR-063",
+        "before": "REPROVADO",
+        "now": "APROVADO",
+        "reason": "credential copy removed (round 2, authorized); pnpm secrets: 0 publishable, 0 local copies; clean copy and package scans clean. Remote revocation is tracked separately (ACH-005, owner action)"
+      },
+      {
+        "id": "A13c",
+        "before": "NÃO VERIFICADO",
+        "now": "APROVADO",
+        "reason": "EV-R3-cursor-session.md discovery+probe+marker; not general efficacy"
+      }
+    ],
+    "dimensions": [
+      {
+        "dim": 1,
+        "weight": 20,
+        "A": 8,
+        "R": 0,
+        "U": 0,
+        "score": 10,
+        "ceiling": 10
+      },
+      {
+        "dim": 2,
+        "weight": 15,
+        "A": 15,
+        "R": 0,
+        "U": 1,
+        "score": 9.375,
+        "ceiling": 10
+      },
+      {
+        "dim": 3,
+        "weight": 10,
+        "A": 11,
+        "R": 0,
+        "U": 1,
+        "score": 9.167,
+        "ceiling": 10
+      },
+      {
+        "dim": 4,
+        "weight": 10,
+        "A": 6,
+        "R": 0,
+        "U": 2,
+        "score": 7.5,
+        "ceiling": 10
+      },
+      {
+        "dim": 5,
+        "weight": 10,
+        "A": 7,
+        "R": 1,
+        "U": 1,
+        "score": 7.778,
+        "ceiling": 8.889
+      },
+      {
+        "dim": 6,
+        "weight": 10,
+        "A": 6,
+        "R": 1,
+        "U": 0,
+        "score": 8.571,
+        "ceiling": 8.571
+      },
+      {
+        "dim": 7,
+        "weight": 10,
+        "A": 8,
+        "R": 0,
+        "U": 0,
+        "score": 10,
+        "ceiling": 10
+      },
+      {
+        "dim": 8,
+        "weight": 7,
+        "A": 3,
+        "R": 1,
+        "U": 1,
+        "score": 6,
+        "ceiling": 8
+      },
+      {
+        "dim": 9,
+        "weight": 5,
+        "A": 3,
+        "R": 1,
+        "U": 0,
+        "score": 7.5,
+        "ceiling": 7.5
+      },
+      {
+        "dim": 10,
+        "weight": 3,
+        "A": 3,
+        "R": 1,
+        "U": 0,
+        "score": 7.5,
+        "ceiling": 7.5
+      }
+    ]
+  },
+  "gates": [
+    {
+      "id": "G01",
+      "name": "Auditoria",
+      "status": "REPROVADO",
+      "evidence": "defects reproduced by the auditor corrected with failing-then-passing tests (D-R3-01..06); still open: ACH-005 remote revocation (owner), ACH-013 real profiles with 1.x copies, ACH-026 license and human review of imported items"
+    },
+    {
+      "id": "G02",
+      "name": "Catálogo",
+      "status": "APROVADO",
+      "evidence": "104 items; per-item review evidence for the 83 non-active items (CX-12); unverified license claims replaced by evidence-based text"
+    },
+    {
+      "id": "G03",
+      "name": "Três clientes",
+      "status": "APROVADO",
+      "evidence": "Claude Code + Codex + Cursor 3.22.8 project-scope discovery/loading on kit (A13a/A13b/A13c). Application by model still NÃO VERIFICADA (CR-041/049) for all clients"
+    },
+    {
+      "id": "G04",
+      "name": "Fonte única",
+      "status": "APROVADO",
+      "evidence": "unchanged; render, source hash, manifests, catalog lock"
+    },
+    {
+      "id": "G05",
+      "name": "Distribuição",
+      "status": "APROVADO",
+      "evidence": "engine suite 39 tests incl. adapter failures (CX-10) and lock races (CX-11); package installed into the generated product with verify and doctor --strict (A5)"
+    },
+    {
+      "id": "G06",
+      "name": "Arquitetura",
+      "status": "APROVADO",
+      "evidence": "template installs clean with the pinned pnpm (CX-01); FSD and token gates in pnpm verify"
+    },
+    {
+      "id": "G07",
+      "name": "Espelhamento",
+      "status": "REPROVADO",
+      "evidence": "style resolution, Next prerendered HTML and Expo Hermes bundles carry the token change (A8); native build and device execution NÃO VERIFICADOS (no Android SDK, no macOS)"
+    },
+    {
+      "id": "G08",
+      "name": "Legados",
+      "status": "APROVADO",
+      "evidence": "migration redone from the package template with the same 7 characterization cases (A10–A12)"
+    },
+    {
+      "id": "G09",
+      "name": "Conteúdo",
+      "status": "APROVADO",
+      "evidence": "unchanged; behavioral efficacy NÃO VERIFICADA (CR-049)"
+    },
+    {
+      "id": "G10",
+      "name": "Contexto",
+      "status": "APROVADO",
+      "evidence": "unchanged; budget test for always-on text and listing"
+    },
+    {
+      "id": "G11",
+      "name": "Proteção",
+      "status": "APROVADO",
+      "evidence": "token counter-proofs (CX-03), FSD counter-proof in the generated product (CX-08), mutants killed (EV-R3-mutations.json)"
+    },
+    {
+      "id": "G12",
+      "name": "Reprodução",
+      "status": "APROVADO",
+      "evidence": "clean copy outside the user profile (CX-09) and product from the final package (CX-01); remote CI NÃO VERIFICADA (CR-066)"
+    }
+  ],
+  "newRequirements": [
+    {
+      "id": "NR-05",
+      "status": "APROVADO",
+      "evidence": "three levels: style resolution, web render, mobile export; negative control fails (A8, A9c)"
+    },
+    {
+      "id": "NR-07",
+      "status": "NÃO VERIFICADO",
+      "evidence": "native execution requires Android SDK / macOS or an authorized remote build"
+    },
+    {
+      "id": "NR-10",
+      "status": "APROVADO",
+      "evidence": "license claims corrected; per-item review evidence"
+    },
+    {
+      "id": "NR-11",
+      "status": "APROVADO",
+      "evidence": "A13c EV-R3-cursor-session.md — Cursor project discovery; Claude/Codex already proven"
+    },
+    {
+      "id": "NR-15",
+      "status": "REPROVADO",
+      "evidence": "Criativos area has no active items; review evidence only"
+    },
+    {
+      "id": "NR-16",
+      "status": "APROVADO",
+      "evidence": "CX-03"
+    },
+    {
+      "id": "NR-17",
+      "status": "APROVADO",
+      "evidence": "CX-01 (frozen install scripts-disabled); CX-02 (ancestral blocked before effects); CX-14 write confinement ABSENT; CX-15 blocks scripts by default unless authorizeUnconfined"
+    },
+    {
+      "id": "NR-18",
+      "status": "APROVADO",
+      "evidence": "CX-13"
+    },
+    {
+      "id": "NR-19",
+      "status": "APROVADO",
+      "evidence": "CX-05"
+    },
+    {
+      "id": "NR-20",
+      "status": "REPROVADO",
+      "evidence": "mechanical review 83/83; human reading of instructions not done; none promoted"
+    }
+  ],
+  "imported": {
+    "total": 83,
+    "byStatus": {
+      "não verificado": 74,
+      "bloqueado": 9,
+      "revisado": 0,
+      "corrigido": 0,
+      "ativo": 0,
+      "depreciado": 0
+    },
+    "blocked": [
+      "remotion-best-practices",
+      "remotion-captions",
+      "remotion-docs",
+      "remotion-markup",
+      "remotion-multimedia",
+      "remotion-render",
+      "remotion-studio",
+      "prisma-client-api",
+      "react-best-practices"
+    ]
+  },
+  "acceptanceRun": {
+    "command": "node scripts/acceptance.mjs --sandbox C:\\Temp\\cw-r3\\acceptance",
+    "report": "acceptance/evidence/r3/EV-R3-acceptance-report.json",
+    "requiredPassed": 18,
+    "requiredTotal": 18,
+    "notVerified": [],
+    "a13c": {
+      "status": "APROVADO",
+      "evidence": "acceptance/evidence/r3/EV-R3-cursor-session.md",
+      "cursorVersion": "3.22.8",
+      "scope": "project discovery and content loading only"
+    }
+  },
+  "decision": {
+    "entregaIntegralAprovada": false,
+    "reasons": [
+      "G01 and G07 not approved",
+      "CR-047, CR-055, CR-069, CR-073, CR-075 not approved; 6 criteria not verified (incl. CR-027 user surface)",
+      "NR-07 not verified; NR-15, NR-20 not approved",
+      "credential remote revocation (ACH-005) and the home incident recovery depend on the owner",
+      "write-confinement executor is optional for product approval (NR-17)"
+    ],
+    "scoreboardNotes": {
+      "G09": "APROVADO covers Operational Contract + catalog gate; CR-049 model efficacy remains NÃO VERIFICADO",
+      "G10": "APROVADO covers measured token budgets + router tests; CR-041 real-client selection remains NÃO VERIFICADO",
+      "NR-20": "Revisão item a item do catálogo importado, sem promoção em lote nem licença inventada — mechanical 83/83 done; human reading and promotion not done",
+      "pedido10Acceptance": "used --skip-qa; does not include A1; library QA is a separate pnpm qa run",
+      "A13c": "APROVADO discovery/loading only; does not approve CR-049/041/027",
+      "notaAposA13c": "8.73 (was 8.56); dim3 A 9→11 U 3→1"
+    }
+  }
+}

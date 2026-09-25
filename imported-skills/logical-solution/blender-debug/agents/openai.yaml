@@ -1,0 +1,7 @@
+interface:
+  display_name: "Blender Debug"
+  short_description: "Recovers failed Blender operations"
+  default_prompt:
+    "Use $blender-debug to diagnose a failed Blender edit and retry once."
+policy:
+  allow_implicit_invocation: true

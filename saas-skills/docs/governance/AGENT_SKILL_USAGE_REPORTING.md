@@ -35,31 +35,39 @@ Formato obrigatório:
 
 ## Onde Aplicar
 
-Para cobrir Codex, Claude e Cursor no mesmo projeto, a política deve ser instalada em:
+A política é um bloco gerenciado (`<!-- BEGIN context-window:usage-policy ... -->`) instalado junto com
+as skills:
 
-- `AGENTS.md`
-- `CLAUDE.md`
-- `.cursor/rules/skill-usage-reporting.mdc`
+- projeto: no `AGENTS.md` (lido por Codex e Cursor); o `CLAUDE.md` recebe `@AGENTS.md` para o
+  Claude Code ler o mesmo texto
+- usuário: em `$CLAUDE_CONFIG_DIR/CLAUDE.md` (Claude Code) e `$CODEX_HOME/AGENTS.md` (Codex); no
+  Cursor, pelo texto de User Rules
 
-Isso cobre:
-
-- Codex: via `AGENTS.md`
-- Claude: via `CLAUDE.md`
-- Cursor: via `.cursor/rules/*.mdc`
+O texto da política está em `catalog/contract/usage-policy.md`. O conteúdo do time fora dos
+marcadores é preservado, e há backup antes de cada mudança.
 
 ## Comandos
 
-Instalar a política no projeto-alvo:
+Instalar a política no projeto-alvo (com as skills):
 
 ```bash
-pnpm install:skill-usage-reporting -- <target-dir>
+node scripts/cw.mjs install --target <projeto> --profile dev --with-usage-policy
 ```
 
-Verificar se a política está aplicada:
+Verificar se a política está aplicada e intacta:
 
 ```bash
-pnpm verify:skill-usage-reporting -- <target-dir>
+node scripts/cw.mjs verify --target <projeto>
 ```
+
+Texto para as User Rules do Cursor, com a política:
+
+```bash
+node scripts/cw.mjs contract --format cursor-user-rules --with-usage-policy
+```
+
+Instalações 1.x que usavam o bloco `SAAS_SKILLS_USAGE_REPORTING` são detectadas; a troca exige
+`--migrate-legacy`.
 
 ## Exemplo de Saída
 

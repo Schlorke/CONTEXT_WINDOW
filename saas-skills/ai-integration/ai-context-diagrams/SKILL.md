@@ -1,6 +1,6 @@
 ---
 name: ai-context-diagrams
-description: Procedural guide for creating Mermaid diagrams and C4 Model visual representations that improve AI agent comprehension of system architecture, covering diagram type selection, Mermaid syntax optimized for LLM consumption, C4 hierarchy levels, and integration into AGENTS.md and project documentation. Trigger when documenting architecture for AI, creating C4 diagrams, writing Mermaid diagrams for docs, reducing architectural ambiguity for agents, or structuring visual context in documentation.
+description: "Create Mermaid and C4 diagrams that make architecture unambiguous for AI agents and people, and place them in AGENTS.md and docs. Use when documenting architecture, drawing C4, sequence or flow diagrams, or removing architectural ambiguity for agents."
 metadata:
   author: Claude Agent, SaaS Skills
   version: 1.0
@@ -27,6 +27,21 @@ Activate this skill whenever:
 - Replacing verbose ASCII art with machine-parseable diagrams.
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Produce Mermaid/C4 diagrams that let people and agents understand a system's structure and flows. |
+| Use when | Documenting architecture, onboarding agents, explaining a flow, drawing C4 context/container/component views. |
+| Do not use when | UI mockups, data charts, or code changes that need no documentation. |
+| Inputs | The code/ADRs being described, the question the diagram answers, and the target document. |
+| Preconditions | Scope (context/container/component) and audience are known; every fact comes from the repository, not from guesses. |
+| Tools | Mermaid syntax and repository reading; a Mermaid renderer when available. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | Mermaid blocks embedded in the target document, each with a one-line purpose. |
+| Validation | The diagram parses in a Mermaid renderer and every node maps to a real module, service or actor. |
+| Known failures | Over-detailed diagrams, diagrams left stale after refactors, labels with unescaped special characters. |
 
 ## Core Workflow
 

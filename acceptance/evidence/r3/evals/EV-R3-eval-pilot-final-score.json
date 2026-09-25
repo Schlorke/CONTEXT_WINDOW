@@ -1,0 +1,30 @@
+{
+  "schema": "context-window/p-eval-1-final@1",
+  "at": "2026-09-25",
+  "decision": "PASS",
+  "behavioral_cells_valid": 15,
+  "behavioral_cells_required": 15,
+  "matrix": {
+    "cursor": { "A": "PASS", "B": "PASS", "C": "PASS", "D": "PASS", "E": "PASS" },
+    "claude": {
+      "executable": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+      "version": "2.1.74",
+      "model": "claude-opus-4-6",
+      "A": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "cost_usd": 0.2510135 },
+      "B": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "cost_usd": 0.20388575 },
+      "C": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "cost_usd": 0.42864425 },
+      "D": { "cell": "PASS", "discovery": "N/A", "selection": "PASS", "application": "PASS", "cost_usd": 0.09434425 },
+      "E": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "cost_usd": 0.13287975, "origin_cited": "AGENTS.md" }
+    },
+    "codex": {
+      "executable": "%LOCALAPPDATA%\\OpenAI\\Codex\\bin\\13995fba801849b0\\codex.exe",
+      "version": "0.155.0-alpha.16.4",
+      "model": "gpt-6-astra",
+      "A": "PASS",
+      "B": "PASS",
+      "C": "PASS",
+      "D": "PASS",
+      "E": "PASS"
+    }
+  }
+}

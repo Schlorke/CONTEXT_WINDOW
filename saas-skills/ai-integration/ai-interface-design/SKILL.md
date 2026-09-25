@@ -1,6 +1,6 @@
 ---
 name: ai-interface-design
-description: Procedural guide for designing and implementing AI-powered conversational interfaces in SaaS products. Master 6 pillars (transparency, predictability, control, error recovery, perceived performance, context visibility), implement streaming with Vercel AI SDK, persistent memory, MCP tool integration, and compliance (WCAG, ISO 42001, EU AI Act). Trigger when building AI chat interfaces, implementing streaming, adding conversation memory, integrating external tools, designing AI UX patterns, or ensuring AI transparency.
+description: "Design AI product interfaces: streaming, trust and transparency signals, user control, error recovery, memory, tool-use visibility and accessibility (WCAG, EU AI Act). Use when building chat or copilot UIs, streaming with the Vercel AI SDK, or reviewing AI UX."
 metadata:
   author: Claude Agent, SaaS Skills
   version: 1.0
@@ -28,6 +28,21 @@ Activate this skill whenever:
 - Handling errors or edge cases in AI interactions.
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Design AI chat/assistant interfaces with streaming, transparency, user control and error recovery. |
+| Use when | Building or reviewing AI chat UIs, streaming responses, memory/context visibility, tool-use disclosure. |
+| Do not use when | Backend agent logic (use saas-ai-agent-engineer) or generic visual styling (use saas-ui-specifications). |
+| Inputs | Product flows, model and tool capabilities, compliance constraints (WCAG, AI Act). |
+| Preconditions | The UI lives in packages/frontend slices and packages/ui components (architecture contract). |
+| Tools | The project's streaming API (e.g. Vercel AI SDK) and design system. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | UX specification with states and components placed in FSD slices, plus disclosure and accessibility requirements. |
+| Validation | Loading, streaming, stop, retry and error states exist; keyboard and screen-reader checks pass; AI provenance is disclosed. |
+| Known failures | No stop/cancel, hidden AI provenance, spinner-only feedback, live regions that screen readers cannot follow. |
 
 ## Core Workflow
 

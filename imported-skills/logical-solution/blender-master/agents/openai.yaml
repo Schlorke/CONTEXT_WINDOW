@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blender Master"
+  short_description: "Routes Blender work to specialists"
+  default_prompt:
+    "Use $blender-master to inspect the Blender scene and load only the
+    specialist skills this task needs."
+policy:
+  allow_implicit_invocation: true

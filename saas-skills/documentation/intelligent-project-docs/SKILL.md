@@ -1,6 +1,6 @@
 ---
 name: intelligent-project-docs
-description: Procedural guide for structuring project documentation as persistent memory for both human developers and AI agents, using hierarchical organization (Global/System/Local layers), AGENTS.md as AI entry point, Diátaxis framework, Docs-as-Code methodology, Architecture Decision Records, and progressive disclosure.
+description: "Structure project documentation as durable memory for people and AI agents: README, AGENTS.md as agent entry point, ADRs, module docs, Diataxis, docs-as-code, single source of truth. Use when writing or reorganizing README, AGENTS.md, ADRs or project docs."
 metadata:
   author: SaaS Skills Library
   version: 1.0
@@ -27,6 +27,21 @@ Use this skill when:
 - Establishing documentation governance and update processes
 
 **Triggers:** project documentation, AGENTS.md, documentation structure, ADR, Diátaxis, docs-as-code, documentation hierarchy, README-driven development, persistent memory, documentation governance.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Govern README, AGENTS.md, ADRs and module docs as one source of truth. |
+| Use when | Creating or reorganizing project documentation or agent instructions. |
+| Do not use when | Writing skill content (use multi-agent-skill-creator) or research reports. |
+| Inputs | Repository structure, existing docs and their owners. |
+| Preconditions | The architecture contract applies: documentation describes it and never contradicts it. |
+| Tools | The repository's docs and markdownlint. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | documentation structure with owners and update triggers, including AGENTS.md sections. |
+| Validation | No contradictions between AGENTS.md, CLAUDE.md and README; links resolve; lint passes. |
+| Known failures | Instructions duplicated across files, documentation of mechanisms that do not exist. |
 
 ## Core Workflow
 

@@ -1,0 +1,222 @@
+{
+  "schema": "context-window/acceptance-run@1",
+  "at": "2026-09-25T05:42:04.909Z",
+  "node": "v25.2.1",
+  "platform": "win32 10.0.26200",
+  "repoHead": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+  "run": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z",
+  "passed": 18,
+  "failed": [],
+  "steps": [
+    {
+      "id": "A1",
+      "title": "library QA on the checkout (pnpm qa)",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "id": "A2",
+      "title": "distributable package built outside the checkout",
+      "ok": true,
+      "bundle": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\bundle",
+      "libraryVersion": "2.0.0",
+      "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+      "files": 150,
+      "markerSha256": "c7ee1fe5574b6fa1e907ce5513231b4070e458b9829623cda9008c647070e6e0"
+    },
+    {
+      "id": "A3",
+      "title": "package carries no credentials, private environments, keys or session caches",
+      "ok": true,
+      "privateFiles": []
+    },
+    {
+      "id": "A4",
+      "title": "product generated from the package; preflight of workspace, pnpm version, settings and scripts",
+      "ok": true,
+      "product": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\produto",
+      "blockers": [],
+      "warnings": [],
+      "workspaceRoot": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\produto",
+      "packageManager": {
+        "value": "pnpm@12.5.1",
+        "declaredIn": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\produto"
+      },
+      "settings": {
+        "nodeLinker": "hoisted",
+        "verifyDepsBeforeRun": "error",
+        "strictDepBuilds": true,
+        "allowBuilds": {
+          "esbuild": false
+        },
+        "storeDir": null,
+        "cacheDir": null,
+        "stateDir": null
+      },
+      "lifecycleScripts": [],
+      "lockfileSha256": "c9b6d4f06f3b147faee288d787941a662d613f2656d7b6db5bb55e79abb59c1a"
+    },
+    {
+      "id": "A5",
+      "title": "library installed into the product from the package; verify and doctor --strict",
+      "ok": true,
+      "install": 0,
+      "verify": 0,
+      "doctor": 0
+    },
+    {
+      "id": "A6",
+      "title": "frozen install from the shipped lockfile (pnpm pinned, strict builds, no hidden state)",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "manifestsUnchanged": true,
+      "nodeLinker": "hoisted",
+      "storeDir": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\.pnpm-store\\v11",
+      "packageManager": "pnpm@12.5.1",
+      "changedOutside": []
+    },
+    {
+      "id": "A7",
+      "title": "product pnpm verify: FSD gate, token gate, typecheck web+native, tests, next build, expo export",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "tests": 11,
+      "changedOutside": []
+    },
+    {
+      "id": "A8",
+      "title": "token change consumed by both clients (style resolution, web render, mobile export)",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "tests": 5,
+      "changedOutside": [],
+      "levels": {
+        "sentinel": "#12A457",
+        "previous": "#1D4ED8",
+        "styleResolution": true,
+        "webRender": {
+          "built": true,
+          "buttons": 5,
+          "primaryButtons": 4,
+          "ok": true
+        },
+        "mobileExport": {
+          "exported": true,
+          "android": true,
+          "ios": true,
+          "bundles": [
+            "apps/clients/mobile/dist-export/_expo/static/js/android/entry-7a768f2e82e7ed52389de006e58907d7.hbc",
+            "apps/clients/mobile/dist-export/_expo/static/js/ios/entry-001571b42408bd89f26d3e1e6b6f44be.hbc"
+          ]
+        },
+        "nativeRuntime": "not covered by this script"
+      }
+    },
+    {
+      "id": "A9a",
+      "title": "token counter-proof (#C0FFEE in Button.web, Button.native and the web client) fails for the right rule; restored state passes",
+      "ok": true,
+      "exit": 1,
+      "perFile": {
+        "packages/ui/src/web/Button.web.tsx": true,
+        "packages/ui/src/native/Button.native.tsx": true,
+        "apps/clients/web/src/app/page.tsx": true
+      },
+      "restoredExit": 0
+    },
+    {
+      "id": "A9b",
+      "title": "FSD counter-proof (feature importing a widget) fails the architecture gate",
+      "ok": true,
+      "exit": 1
+    },
+    {
+      "id": "A9c",
+      "title": "propagation negative control: a native component that bypasses the token makes the proof fail",
+      "ok": true,
+      "exit": 1
+    },
+    {
+      "id": "A10",
+      "title": "legacy app: frozen install",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "blockers": [],
+      "fixtureLockSha256": "ffcf552457871ee3c321a5d1b4a59b744289b885e8ed5cfdaf2ed72a9f54c600"
+    },
+    {
+      "id": "A10b",
+      "title": "legacy app: characterization tests",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "tests": 7,
+      "changedOutside": []
+    },
+    {
+      "id": "A11",
+      "title": "migrated product assembled from the package template: frozen install",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "blockers": []
+    },
+    {
+      "id": "A11b",
+      "title": "migrated product: pnpm verify (gates, typecheck, same characterization cases, build, export)",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "tests": 15,
+      "changedOutside": []
+    },
+    {
+      "id": "A12",
+      "title": "behavior preserved: same cases file, same test titles and assertion count, legacy cases pass on both",
+      "ok": true,
+      "sameCases": true,
+      "sameTitles": true,
+      "expectCalls": [
+        3,
+        3
+      ],
+      "legacyTestsPassed": 7,
+      "casesSha256": "b977a65fe01e993bddec3b4c4686819fd82f41ee45afcf3fa079463ac0d4ab6d"
+    },
+    {
+      "id": "A13a",
+      "title": "Codex lists the product's installed skills from the product root",
+      "ok": true,
+      "binary": "C:\\Users\\harry\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
+      "source": "ChatGPT editor extension",
+      "version": "codex-cli 0.147.0-alpha.1.2",
+      "fromProject": 20,
+      "roots": [
+        "C:\\Users\\harry\\.agents\\skills",
+        "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\codex-probe\\codex-home\\skills\\.system",
+        "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\produto\\.agents\\skills"
+      ]
+    },
+    {
+      "id": "A13b",
+      "title": "Claude Code loads the product's installed skills from the project (credential-free, cost 0)",
+      "ok": true,
+      "binary": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+      "version": "2.1.74",
+      "loaded": "Loaded 21 unique skills (21 unconditional, 0 conditional, managed: 0, user: 0, project: 21, additional: 0, legacy commands: 0)",
+      "projectDirs": "Loading skills from: managed=C:\\ProgramData\\ClaudeCode\\.claude\\skills, user=C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\claude-probe\\claude-config\\skills, project=[C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\product\\produto\\.claude\\skills]",
+      "costUsd": 0,
+      "result": "Not logged in · Please run /login"
+    },
+    {
+      "id": "A13c",
+      "title": "Cursor project-scope discovery in a new session",
+      "ok": null,
+      "notVerified": "requires a new Cursor session on the product (see acceptance/CURSOR-VERIFICATION.md)"
+    }
+  ]
+}

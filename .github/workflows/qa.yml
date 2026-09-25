@@ -1,0 +1,53 @@
+name: qa
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# pnpm comes from "packageManager" in package.json (no version here): CI must run the same pnpm the
+# library and the generated products pin, otherwise it validates a different install contract.
+jobs:
+  library:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [22, 24]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm qa
+
+  acceptance:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      EXPO_NO_TELEMETRY: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: pnpm install --frozen-lockfile
+      # The sandbox must be outside HOME (RUNNER_TEMP is under /home/runner) and have no parent
+      # workspace; the pnpm guard blocks the run otherwise.
+      - name: Package, generated product, counter-proofs and legacy migration
+        run: node scripts/acceptance.mjs --sandbox /tmp/cw-acceptance --skip-qa --without-clients
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acceptance-report
+          path: |
+            /tmp/cw-acceptance/run-*/acceptance-report.json
+            /tmp/cw-acceptance/run-*/acceptance.log

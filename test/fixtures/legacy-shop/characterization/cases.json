@@ -1,0 +1,46 @@
+{
+  "formatPrice": [
+    {
+      "cents": 1290,
+      "expected": "R$ 12,90"
+    },
+    {
+      "cents": 500,
+      "expected": "R$ 5,00"
+    },
+    {
+      "cents": 0,
+      "expected": "R$ 0,00"
+    }
+  ],
+  "cart": [
+    {
+      "actions": [],
+      "expectedCount": 0
+    },
+    {
+      "actions": [
+        "cafe"
+      ],
+      "expectedCount": 1
+    },
+    {
+      "actions": [
+        "cafe",
+        "pao",
+        "cafe"
+      ],
+      "expectedCount": 3
+    }
+  ],
+  "homeText": [
+    "Loja",
+    "Café",
+    "R$ 12,90",
+    "Adicionar",
+    "Pão",
+    "R$ 5,00",
+    "Adicionar",
+    "Itens no carrinho: 0"
+  ]
+}

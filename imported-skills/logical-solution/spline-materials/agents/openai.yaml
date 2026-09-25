@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Materials"
+  short_description: "Authors Spline 3D surface look"
+  default_prompt:
+    "Use $spline-materials to choose and apply the right Spline surface without
+    fake metal or plastic."
+policy:
+  allow_implicit_invocation: true

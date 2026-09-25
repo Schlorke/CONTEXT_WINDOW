@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Web Integration"
+  short_description: "Embeds Spline in this Next.js site"
+  default_prompt:
+    "Use $spline-web-integration to wire a Spline scene through the existing
+    SplineScene runtime, not a new wrapper."
+policy:
+  allow_implicit_invocation: true

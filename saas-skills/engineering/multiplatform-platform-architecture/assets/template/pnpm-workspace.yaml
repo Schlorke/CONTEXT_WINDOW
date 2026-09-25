@@ -1,0 +1,37 @@
+packages:
+  - apps/clients/*
+  - packages/*
+
+# pnpm 12 settings. pnpm >= 11 reads only auth and registry settings from .npmrc, so every other
+# setting lives here. The pnpm version itself is pinned by packageManager in package.json.
+
+# Expo/Metro and Next.js resolve one hoisted node_modules tree reliably in this monorepo.
+nodeLinker: hoisted
+
+# "pnpm run" and "pnpm exec" fail instead of installing when node_modules is out of date.
+verifyDepsBeforeRun: error
+
+# Every dependency build script is a reviewed decision; an unreviewed one fails the install.
+strictDepBuilds: true
+allowBuilds:
+  # Reviewed esbuild 0.28.x install.js: it validates the binary shipped in the optional
+  # @esbuild/<platform> package, relinks bin/esbuild on non-Windows systems as a start-up
+  # optimization, and falls back to `npm install` or an HTTPS download only when that optional
+  # package is missing. pnpm installs the optional package, so the script is not needed.
+  esbuild: false
+
+# The supply-chain quarantine (minimumReleaseAge, 1 day by default) stays on. These exact versions
+# were published less than a day before the lockfile was generated (2026-09-25) and are pinned by
+# the template; pnpm itself proposed exempting exactly them. Once they are older than one day the
+# entries are no longer needed and can be deleted when the lockfile is regenerated.
+minimumReleaseAgeExclude:
+  - '@expo/cli@57.0.27'
+  - '@expo/router-server@57.0.11'
+  - '@expo/ui@57.0.20'
+  - babel-preset-expo@57.0.13
+  - expo-glass-effect@57.0.4
+  - expo-linking@57.0.11
+  - expo-modules-core@57.0.19
+  - expo-modules-jsi@57.1.1
+  - expo-router@57.0.23
+  - expo@57.0.25

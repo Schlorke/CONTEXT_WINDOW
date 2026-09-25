@@ -338,7 +338,7 @@
     {
       "skill": "multiplatform-platform-architecture",
       "file": "skill-multiplatform-platform-architecture.mdc",
-      "description": "Platform-level architecture for multiplatform SaaS: pnpm monorepo (apps clients/services/workers + packages + products), FSD on every frontend surface, modular API with boundary laws and 12-factor, Expo mobile, dual cookie+Bearer auth, contracts-first /api/v1.",
+      "description": "Platform-level architecture for multiplatform SaaS: pnpm monorepo, product FSD in packages/<product>-dom mirrored by apps/clients/web and apps/clients/mobile, modular API with boundary laws and 12-factor, Expo host, dual cookie+Bearer auth, contracts-first /api/v1.",
       "globs": [
         "pnpm-workspace.yaml",
         "turbo.json",

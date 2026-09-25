@@ -1,5 +1,9 @@
 # PRACTICAL SKILL TEST REPORT
 
+> **Histórico (1.x).** Este relatório descreve a versão 1.x e não vale para a 2.0. A auditoria
+> independente de 2026-09-24 não reproduziu parte das conclusões. O estado atual está em
+> `acceptance/` na raiz do repositório.
+
 Relatório de teste prático manual da biblioteca `saas-skills`.
 
 **Data de referência:** 13 de abril de 2026  

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blender Rigging"
+  short_description: "Inspects rigs before any weight edit"
+  default_prompt:
+    "Use $blender-rigging to map the armature before touching weights or
+    constraints."
+policy:
+  allow_implicit_invocation: true

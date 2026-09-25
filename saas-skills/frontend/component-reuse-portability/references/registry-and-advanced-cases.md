@@ -28,12 +28,13 @@ Reference file for `component-reuse-portability`.
 {
   "components": {
     "Button": {
-      "path": "src/shared/components/Button",
+      "path": "packages/ui/src",
+      "files": ["contract/button.ts", "web/Button.web.tsx", "native/Button.native.tsx"],
       "dependencies": [],
       "status": "stable"
     },
     "DataTable": {
-      "path": "src/shared/components/DataTable",
+      "path": "packages/frontend/src/widgets/data-table",
       "dependencies": ["Button"],
       "status": "beta"
     }

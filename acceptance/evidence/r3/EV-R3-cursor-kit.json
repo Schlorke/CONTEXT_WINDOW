@@ -1,0 +1,11 @@
+{
+  "nonce": "1d78593e",
+  "token": "CW-PROBE-1D78593E",
+  "probeDir": "C:\\Temp\\cw-r3\\cursor-kit\\produto\\.agents\\skills\\cw-probe-1d78593e",
+  "marker": "| Preconditions | Node >= 22.13 and the pnpm version pinned in the template's `packageManager` (run through Corepack or an equal pnpm); for an existing repository, an explicit authorization to change it (otherwise only assess). |",
+  "markerFile": "C:\\Temp\\cw-r3\\cursor-kit\\produto\\.agents\\skills\\multiplatform-platform-architecture\\SKILL.md",
+  "markerFileSha256": "f9efd05cc70638bb2f7a60f636ba835f60e27aa45f2ac9ee54dc32c1b5d10648",
+  "bundle": "C:\\Temp\\cw-r3\\acceptance\\run-2026-09-25T05-38-42-176Z\\bundle",
+  "bundleMarkerSha256": "c7ee1fe5574b6fa1e907ce5513231b4070e458b9829623cda9008c647070e6e0",
+  "createdAt": "2026-09-25T05:42:22.6668827Z"
+}

@@ -1,5 +1,18 @@
 # RELEASE NOTES — Biblioteca saas-skills
 
+## 2.0.0 - 24 de setembro de 2026
+
+Resumo operacional (detalhes em `CHANGELOG.md` e em `acceptance/`):
+
+- instalação, atualização e remoção passam pelo `scripts/cw.mjs`, com plano prévio, conflitos
+  explícitos (código 2, nada escrito), backups, rollback e `recover`;
+- o catálogo (`catalog/registry.json`) é a fonte de status, perfis e gatilhos; o lock fixa os hashes;
+- o perfil `dev` instala o contrato de arquitetura no `AGENTS.md` (Claude lê via `@AGENTS.md`);
+- o template de produto prova Next.js + Expo sobre `packages/frontend`, `packages/ui` e
+  `packages/design-tokens`, com gate de arquitetura e propagação de token;
+- a descoberta das skills foi comprovada no Codex CLI 0.147.0-alpha.1.2 e no Claude Code 2.1.74 sem
+  chamada de modelo; Cursor segue documentado e observado no escopo de usuário.
+
 ## 1.17.0 — 31 de agosto de 2026
 
 ### Added in 1.17.0

@@ -1,0 +1,161 @@
+{
+  "rows": [
+    {
+      "file": "scripts/cw.mjs",
+      "loc": 1291,
+      "functions": 26,
+      "emptyOrReturnCatches": 1,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/fix-markdownlint.mjs",
+      "loc": 85,
+      "functions": 2,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/init-skill-replay.mjs",
+      "loc": 23,
+      "functions": 0,
+      "emptyOrReturnCatches": 0,
+      "processExit": 1
+    },
+    {
+      "file": "scripts/lib/apply.mjs",
+      "loc": 315,
+      "functions": 9,
+      "emptyOrReturnCatches": 7,
+      "processExit": 2
+    },
+    {
+      "file": "scripts/lib/blocks.mjs",
+      "loc": 139,
+      "functions": 6,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/catalog.mjs",
+      "loc": 307,
+      "functions": 10,
+      "emptyOrReturnCatches": 1,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/cli.mjs",
+      "loc": 62,
+      "functions": 2,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/fsx.mjs",
+      "loc": 153,
+      "functions": 20,
+      "emptyOrReturnCatches": 4,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/hook.mjs",
+      "loc": 173,
+      "functions": 6,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/manifest.mjs",
+      "loc": 94,
+      "functions": 5,
+      "emptyOrReturnCatches": 1,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/plan.mjs",
+      "loc": 235,
+      "functions": 5,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/render.mjs",
+      "loc": 62,
+      "functions": 2,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/secrets.mjs",
+      "loc": 30,
+      "functions": 1,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/source.mjs",
+      "loc": 41,
+      "functions": 2,
+      "emptyOrReturnCatches": 1,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/lib/targets.mjs",
+      "loc": 135,
+      "functions": 7,
+      "emptyOrReturnCatches": 1,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/score-skill-replays.mjs",
+      "loc": 297,
+      "functions": 8,
+      "emptyOrReturnCatches": 0,
+      "processExit": 1
+    },
+    {
+      "file": "scripts/secret-scan.mjs",
+      "loc": 76,
+      "functions": 3,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/skill-eval-utils.mjs",
+      "loc": 126,
+      "functions": 8,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    },
+    {
+      "file": "scripts/templates/claude-skill-router.mjs",
+      "loc": 129,
+      "functions": 9,
+      "emptyOrReturnCatches": 5,
+      "processExit": 2
+    },
+    {
+      "file": "saas-skills/engineering/multiplatform-platform-architecture/scripts/arch-check.mjs",
+      "loc": 370,
+      "functions": 16,
+      "emptyOrReturnCatches": 2,
+      "processExit": 2
+    },
+    {
+      "file": "saas-skills/engineering/multiplatform-platform-architecture/scripts/scaffold.mjs",
+      "loc": 50,
+      "functions": 2,
+      "emptyOrReturnCatches": 0,
+      "processExit": 1
+    },
+    {
+      "file": "saas-skills/engineering/legacy-code-refactoring/scripts/legacy-inventory.mjs",
+      "loc": 70,
+      "functions": 3,
+      "emptyOrReturnCatches": 0,
+      "processExit": 0
+    }
+  ],
+  "totalLoc": 4263,
+  "duplicatedWindows": 0,
+  "pairs": {}
+}

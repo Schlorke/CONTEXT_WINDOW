@@ -1,6 +1,6 @@
 ---
 name: context-window-optimization
-description: Procedural guide for structuring and optimizing LLM context windows in SaaS development, covering token and tool-output budgeting, positional bias mitigation, context drift prevention, validation scheduling, smart compression, progressive disclosure, and RAG integration. Trigger when optimizing context for agents, managing token or command-log costs, structuring long prompts, preventing context drift, choosing between RAG and in-context approaches, or compressing documentation for LLM consumption.
+description: "Structure and budget LLM context: token and tool-output budgets, ordering against positional bias, compression, progressive disclosure, drift prevention, RAG versus in-context. Use when optimizing prompts or agent context, cutting token cost, or compressing docs for LLMs."
 metadata:
   author: Claude Agent, SaaS Skills
   version: 1.1
@@ -28,6 +28,21 @@ Activate this skill whenever:
   or validation commands in long-running coding tasks.
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Fit the right information into an agent's context at a measured cost without losing requirements. |
+| Use when | Token budgets, long prompts, tool-output budgets, compression, RAG versus in-context decisions, context drift. |
+| Do not use when | Model selection or pricing questions, UI design. |
+| Inputs | The task, candidate context sources with measured sizes, and the quality criteria of the output. |
+| Preconditions | A tokenizer or client telemetry is available; the criteria for a correct output are written down. |
+| Tools | A tokenizer (for example tiktoken) or client telemetry; the project's instruction files. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | an ordered context plan with a budget per source and what is loaded only on demand. |
+| Validation | Token counts measured before and after with the same quality criteria still met and no mandatory instruction dropped. |
+| Known failures | Saving tokens by dropping requirements, estimating tokens from characters, summaries that go stale. |
 
 ## Core Workflow
 

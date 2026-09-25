@@ -1,6 +1,6 @@
 ---
 name: prisma-database-design
-description: Design PostgreSQL schemas with Prisma ORM for SaaS projects, covering data modeling, relations, migrations, query optimization, indexing, multi-tenant schemas, and seeding. Use when designing database schemas, creating Prisma models, optimizing queries, adding indexes, implementing multi-tenancy at DB level, or managing migrations. Triggers on Prisma schema, database design, migration, PostgreSQL, query optimization, index, multi-tenant database, seed, data modeling, performance tuning.
+description: "Design Prisma and PostgreSQL schemas: models, relations, indexes, migrations, query performance and multi-tenancy. Use when creating or changing a schema, writing migrations, fixing slow queries or planning tenant isolation."
 metadata:
   author: SaaS Skills Collection
   version: "1.0"
@@ -28,6 +28,21 @@ Use this skill when you need to:
 - Handle data integrity and constraints
 
 Triggered by: Prisma schema, database design, PostgreSQL, migration, query optimization, index, multi-tenant, seed data, performance, denormalization.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Design Prisma/PostgreSQL schemas, indexes, migrations and tenant isolation. |
+| Use when | Schema modeling, migrations, indexes or query performance with Prisma. |
+| Do not use when | Other ORMs or client-side state. |
+| Inputs | Domain model, access patterns, tenancy model, current schema and migrations. |
+| Preconditions | The repository's Prisma version is known (Prisma 7 changes client setup); a disposable database is available for migration tests. |
+| Tools | prisma migrate dev/deploy, EXPLAIN ANALYZE, the repository's Prisma client singleton. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | schema change, migration, index rationale and query changes. |
+| Validation | The migration applies on a disposable database, EXPLAIN shows the intended indexes and tenant filters are present. |
+| Known failures | Editing applied migrations, Float for money, missing tenant indexes, Prisma client reaching client bundles. |
 
 ## Core Workflow
 
@@ -336,7 +351,7 @@ When designing or modifying database schemas:
 1. Always add tenantId and multi-tenancy index for SaaS
 2. Always use Decimal for monetary fields, never Float
 3. Always add createdAt, updatedAt, and deletedAt (soft delete)
-4. Always create new migrations, never edit generated SQL
+4. Never edit a migration that was already applied; to customize SQL (renames, backfills), create it with `prisma migrate dev --create-only`, review and edit it, then apply
 5. Always add indexes on fields used in WHERE, ORDER BY, JOIN
 6. Always normalize to 3NF before denormalizing
 7. Always follow the repo's tenant isolation pattern: explicit `tenantId`/`orgId` filters, existing RLS, or existing repository/middleware helpers

@@ -1,0 +1,25 @@
+{
+  "files": 611,
+  "install": {
+    "status": 0,
+    "blocked": false,
+    "blockers": [],
+    "changedOutside": []
+  },
+  "qa": {
+    "status": 0,
+    "blocked": false,
+    "changedOutside": [],
+    "tests": "145",
+    "pass": "145",
+    "fail": "0",
+    "skipped": "0",
+    "catalog": true,
+    "lint": "0",
+    "secrets": [
+      "0",
+      "0"
+    ],
+    "prettier": true
+  }
+}

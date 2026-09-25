@@ -1,6 +1,6 @@
 ---
 name: design-system-implementation
-description: "Build and maintain design systems with design tokens, Atomic Design methodology, Storybook documentation, and component governance in React/Next.js/Tailwind CSS projects. Use when creating design systems, defining design tokens, setting up Storybook, establishing governance, or migrating to token-based architecture. Triggers on: design system, design tokens, Storybook setup, atomic design, component library, token architecture."
+description: "Build one design system for web and mobile: tokens in packages/design-tokens, primitives in packages/ui with a shared contract and .web/.native files, catalog on both platforms, dark mode, token-propagation proof. Use when defining tokens or creating shared components."
 metadata:
   author: SaaS Frontend Team
   version: 1.0.0
@@ -26,119 +26,88 @@ This skill applies when:
 
 Do NOT use this skill for: concrete UI value specifications (see `saas-ui-specifications`), folder structure decisions (see `react-saas-architecture`), or component implementation details.
 
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Build and govern one design system shared by web and mobile: tokens in `packages/design-tokens`, primitives in `packages/ui` with a platform-neutral contract and `.web`/`.native` implementations, a catalog on both platforms. |
+| Use when | Defining tokens, creating or changing primitives, setting up the catalog or Storybook, dark mode, token governance, migrating hardcoded styles. |
+| Do not use when | Concrete UI values (saas-ui-specifications), folder structure (react-saas-architecture), porting from another project (component-reuse-portability). |
+| Inputs | Brand/design decisions, the approved screens, the current packages/ui and design-tokens. |
+| Preconditions | The repository follows the contract topology or a migration is authorized. |
+| Tools | TypeScript, Vitest with Testing Library (web), `expo export` (native bundle), `pnpm check:tokens`, optional Storybook web and React Native Storybook. |
+| Procedure | Core Workflow below. |
+| Output | Tokens, primitives with contract + web + native files, catalog entries with every state, tests, changelog entry. |
+| Validation | `pnpm verify` (gate, typecheck of web and native projects, tests, web build, mobile bundle) and `pnpm check:tokens` proving a token change reaches both clients. |
+| Known failures | Web-only primitive rendered on mobile, color literals in components, a second copy of a primitive in a feature, catalog that only exists on the web, browser preview presented as native proof. |
+
 ## Core Workflow
 
-Inspect the target repository first. `AGENTS.md`/`CLAUDE.md`, `package.json`, `components.json`, Tailwind version, `.storybook/`, `COMPONENT_MANIFEST.md`, `.storybook/AI_CONTEXT.md`, and existing component registries override generic design-system examples. In OK Gas-style repos, use `src/components/ui/primitives`, `src/components/ui/composed`, `src/components/features`, Storybook 10, Tailwind v4, `pnpm ai:context`, `pnpm verify:ai`, and `pnpm build-storybook` when the touched files require those checks.
+Inspect the target repository first: `AGENTS.md`/`CLAUDE.md`, `package.json`, `packages/design-tokens`, `packages/ui` (entry points `index.web.ts` and `index.native.ts`, `catalog.ts`), Storybook configuration if present, and existing registries. Repository conventions override generic examples as long as they respect the contract.
 
 ### Step 1: Define Design Token Architecture (3 Layers)
 
-Design tokens form a pyramid:
+**Layer 1 — Primitive tokens:** raw values (`palette.brand600 = "#1D4ED8"`, `space.md = 16`).
 
-**Layer 1 — Primitive Tokens:** Raw, context-free values.
+**Layer 2 — Semantic tokens:** roles per theme (`themes.light.color.primary`, `surface`, `text`, `muted`, `danger`).
 
-- Colors: `#6366F1`, `#EC4899`
-- Sizes: `4px`, `8px`, `16px`, `24px`
-- Type sizes: `12px`, `14px`, `16px`, `18px`
-- Named plainly: `color-blue-500`, `space-4`, `font-size-base`
+**Layer 3 — Component tokens:** bindings used inside a primitive (`button.background.primary`), derived from semantic tokens.
 
-**Layer 2 — Semantic Tokens:** Map primitives to purpose.
-
-- `--color-primary`: points to `--color-blue-600`
-- `--color-surface-default`: points to `--color-neutral-50`
-- `--space-component-padding`: points to `--space-4`
-- Named by role: `primary`, `secondary`, `danger`, `surface`, `border`
-
-**Layer 3 — Component Tokens:** Bind semantic tokens to specific UI.
-
-- `--button-bg-default`: points to `--color-primary`
-- `--button-padding`: points to `--space-component-padding`
-- `--input-border-color`: points to `--color-border-default`
-- Named: `--<component>-<property>-<state>`
-
-**Storage:** Organize in `src/design-tokens/` as JSON or TypeScript:
+**Storage:** `packages/design-tokens/src/` as TypeScript objects so that web and native read the same values:
 
 ```text
-├── primitives.json       (raw values)
-├── semantic.json         (semantic mappings)
-├── component-levels.json (UI-specific)
-└── index.ts             (exports all)
+packages/design-tokens/src/
+├── tokens.ts       palette, light/dark themes, space, radius, typography (split into files as it grows)
+└── index.ts        public API
 ```
 
-### Step 2: Implement Atomic Design Structure
+Web may additionally emit CSS custom properties from these objects; native reads them through the theme provider. There is never a second source of values.
 
-Map Atomic Design intent to the repository's component taxonomy. If the repo already uses OK Gas-style folders, do not introduce `atoms/molecules/organisms`; use:
+### Step 2: Implement the Shared Primitive Package
 
 ```text
-src/components/
-├── ui/
-│   ├── primitives/        (Button, Input, Badge, Icon, Tag)
-│   └── composed/          (Dialog, DataTable, SearchBar, complex reusable UI)
-├── features/              (domain-aware feature components)
-├── layout/                (shells and structural layout)
-├── effects/               (visual/effect components)
-└── auth/                  (auth-specific reusable UI, if present)
+packages/ui/src/
+├── contract/<name>.ts           props contract shared by both platforms
+├── web/<Name>.web.tsx           DOM implementation ("use client" when interactive)
+├── native/<Name>.native.tsx     React Native implementation
+├── theme/ThemeProvider.tsx      theme context over design-tokens
+├── catalog.ts                   entries with every state of every primitive
+├── index.web.ts                 web entry point
+└── index.native.ts              native entry point
 ```
 
-**Primitives:** Single purpose, no internal dependencies. Example: Button accepts `variant` and `size` props.
+`package.json` exposes both entry points with conditions so Next.js and Metro resolve the right file:
 
-**Composed UI:** Combine 2+ primitives. Example: SearchBar = Input + Button + Icon.
-
-**Feature components:** Complex, domain-aware UI that should not leak into generic UI layers.
-
-**Layouts/pages:** Next.js `src/app/**/layout.tsx` and `page.tsx` compose layout, feature, and UI components.
-
-### Step 3: Configure Storybook (CSF3 Format)
-
-Install and initialize only if the repo does not already have Storybook. Prefer existing scripts and package manager:
-
-```sh
-pnpm storybook
-pnpm build-storybook
+```json
+{ "exports": { ".": { "react-native": "./src/index.native.ts", "default": "./src/index.web.ts" } } }
 ```
 
-For repos with AI component context, regenerate and inspect the registry after component or story changes:
+Rules: primitives are domain-neutral; business components live in FSD slices of `packages/frontend`; there is exactly one source per primitive; both implementations satisfy the same contract type.
 
-```sh
-pnpm ai:context
-pnpm verify:ai
-```
+### Step 3: Catalog on Both Platforms (Storybook Equivalent)
 
-#### Mandatory stories per component
+The catalog is mandatory; Storybook is optional.
 
-- Default: base state
-- Variants: all `variant` prop options (if applicable)
-- States: all interactive states (hover, focus, disabled, loading)
-- Edge Cases: empty state, max-length text, error states
-- Composition: how it combines with other components
+- `catalog.ts` lists each primitive with all states (default, variants, disabled, loading, error, long text).
+- `packages/frontend/src/pages/catalog` renders the catalog; the web client exposes it at `/catalog` and the mobile client as the `catalog` screen, so every state is visible on both platforms.
+- If Storybook is added, web stories and React Native stories import from the same package entry points; they never copy components.
+- Browser previews (react-native-web) are not native proof. Native evidence is an `expo export` bundle at minimum, and an emulator/device run when available.
 
-#### Example story structure
+#### Essential checks per primitive
 
-```typescript
-export default {
-  title: "ui/primitives/Button",
-  component: Button,
-  parameters: { layout: "centered" },
-};
+- Contract type shared by both implementations (typecheck of web and native projects).
+- Web test with Testing Library for roles, disabled and loading states.
+- Catalog entry for each state.
+- Accessibility: roles/labels on web, `accessibilityRole`/`accessibilityState` on native.
 
-export const Default = { args: { children: "Click me" } };
-export const Primary = { args: { ...Default.args, variant: "primary" } };
-export const Loading = { args: { ...Default.args, isLoading: true } };
-```
+### Step 3b: Prove Token Propagation
 
-#### Essential Storybook addons
+Two complementary checks, both in the template:
 
-- `@storybook/addon-a11y` — Accessibility audits
-- `@storybook/addon-interactions` — Test interactions
-- `@storybook/addon-viewport` — Responsive testing
-- `@storybook/addon-backgrounds` — Light/dark theme preview
+- `pnpm tokens` (`tools/token-check.mjs`, part of `pnpm verify`) rejects design values written outside `packages/design-tokens`: color literals, named colors, literal sizes in style properties, local constants used as design values and redefinitions of canonical token names, in TS/TSX and CSS of both clients, `packages/ui` and `packages/frontend`. Tests and fixtures are out of scope; a deliberate exception carries `// token-check-allow: <reason>`.
+- `pnpm check:tokens` (`tools/token-propagation-check.mjs`) temporarily replaces `brand600` with a sentinel color and requires it at three levels: the value resolved by the web and native `Button` implementations (Vitest, `react-native` replaced by recording host components), the `background-color` of the buttons in the prerendered Next.js HTML, and the Hermes bundles of the Expo export for Android and iOS. It restores the file and exits 1 unless the three levels pass.
 
-**Autodocs:** Enable in `.storybook/main.ts`:
-
-```typescript
-docs: {
-  autodocs: "tag";
-}
-```
+Neither check runs the native app: execution on a device or emulator is a separate proof. Run `check:tokens` on a clean working tree. A token change that does not reach both clients is a defect.
 
 ### Step 4: Establish Governance Model
 
@@ -170,17 +139,15 @@ docs: {
 
 ### Step 5: Implement Dark Mode via Semantic Tokens
 
-Strategy: Use CSS custom properties to switch token values by theme.
+Strategy: one set of semantic themes (`themes.light`, `themes.dark`) in `packages/design-tokens`, selected by the theme provider on both platforms.
 
 #### Approach
 
-1. Semantic tokens point to CSS custom properties: `color: var(--color-surface-default);`
-2. Define two sets of custom properties in CSS:
-   - `:root { --color-surface-default: #FFFFFF; }` (light)
-   - `[data-theme="dark"] { --color-surface-default: #1F2937; }` (dark)
-3. Toggle theme via `document.documentElement.setAttribute('data-theme', 'dark')`
+1. Primitives read colors from `useTheme()`, never literals.
+2. Native: the provider picks the theme (for example from `useColorScheme()`), components apply it through `StyleSheet`/style props.
+3. Web: the same provider drives the components; when CSS is preferred, generate custom properties from the same theme objects (`:root` and `[data-theme="dark"]`) instead of writing values by hand.
 
-**Do NOT:** Use different component files for dark mode. Do NOT hard-code colors in component files.
+**Do NOT:** use different component files for dark mode, hard-code colors in component files, or keep a CSS-only palette that native cannot read.
 
 ### Step 6: Verify WCAG 2.2 AA Compliance
 
@@ -190,7 +157,7 @@ Strategy: Use CSS custom properties to switch token values by theme.
 - Large text (18+ px or 14+ px bold): 3:1
 - Graphical elements: 3:1
 
-**Run Storybook a11y addon** on every story to catch violations early.
+**Check every catalog state** for contrast; when Storybook is present, run its a11y addon on every story.
 
 #### Mandatory checklist
 

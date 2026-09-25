@@ -3,59 +3,51 @@
 ## Source of Truth
 
 Maintain one canonical directory. In Context Window it lives under
-`saas-skills/<collection>/<skill>/`. Runtime directories are generated outputs
-and must not be edited as the source.
+`saas-skills/<collection>/<skill>/` and is registered in `catalog/registry.json`.
+Installed copies are generated outputs and must not be edited as the source.
 
 ## Mapping
 
-| Concern         | Canonical                            | Codex            | Claude                                        | Cursor                                                              |
-| --------------- | ------------------------------------ | ---------------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| Instructions    | `SKILL.md`                           | copied           | copied with supported frontmatter enrichment  | full body or short project stub generated in `.mdc`                 |
-| Trigger summary | `description`                        | native discovery | native discovery plus optional router profile | rule `description`                                                  |
-| File matching   | runtime profile                      | optional         | `paths` and/or routing hook                   | `globs`                                                             |
-| UI metadata     | `agents/openai.yaml`                 | supported        | ignored safely                                | ignored safely                                                      |
-| Resources       | `scripts/`, `references/`, `assets/` | copied           | copied                                        | canonical paths must remain resolvable from generated rule workflow |
-| Drift state     | library version and manifest         | manifest         | manifest                                      | manifest                                                            |
+| Concern | Canonical | Codex | Claude Code | Cursor |
+| --- | --- | --- | --- | --- |
+| Skill folder | `SKILL.md` + resources | `.agents/skills/<id>` (project), `~/.agents/skills` (user) | `.claude/skills/<id>`, `$CLAUDE_CONFIG_DIR/skills` | reads `.agents/skills` and `.claude/skills` natively |
+| Rendered copy | — | same bytes for every sink: normalized frontmatter + `cw-id`, `cw-library-version`, `cw-source-hash` | same | same |
+| Trigger summary | `description` (≤ 1024 chars) | skill listing | skill listing + optional routing hook (`triggers` in the registry) | skill listing |
+| Explicit-only | `invocation: "explicit"` in the registry | `agents/openai.yaml` `policy.allow_implicit_invocation: false` | `disable-model-invocation: true` | frontmatter |
+| Resources | `scripts/`, `references/`, `assets/` | copied | copied | copied |
+| Drift state | catalog lock | `.cw-manifest.json` per sink | same | same |
 
-Do not assume fields supported by one runtime are portable verbatim. Keep the
-intent canonical and let the repository adapter perform the translation.
-
-Use full Cursor project rules when the project is the only runtime location.
-Use `--cursor-project-stubs` when global Claude/Codex skills already provide the
-full body and the repository protects its context budget. A stub must keep
-`alwaysApply: false`, use `globs: []`, remain small, and point to the canonical
-global skill copies; global compatibility rules remain full adapters.
+Do not assume a field supported by one client is portable verbatim. Keep the
+intent canonical (registry + frontmatter) and let the renderer translate it.
 
 ## Trigger Design
 
 - Put the most important positive triggers in the canonical description.
-- Use profile prompt triggers for deterministic routing only when the phrase is
-  specific enough to avoid unrelated tasks.
-- Use file globs only when merely editing that file type should activate the
-  skill.
+- Registry `triggers` feed the Claude routing hook; use multiword phrases that
+  everyday prompts do not contain (the router test checks neutral and ambiguous
+  prompts).
 - Add negative cases for adjacent skills and one conflict case that defines
   which skill is primary.
 
 ## Validation Ladder
 
-1. Validate the individual skill structure.
-2. Run the canonical library audit and Markdown/format checks.
-3. Generate flat skills and Cursor rules.
-4. Install Codex, Claude, and Cursor into isolated homes.
-5. Verify manifests, counts, paths, frontmatter, resources, and routing data.
-6. Only then synchronize the explicitly requested real runtimes.
+1. `node scripts/cw.mjs catalog` — structure, references, operational contract,
+   eval coverage, machine paths, secrets.
+2. `node scripts/cw.mjs catalog --write-lock` and `pnpm qa`.
+3. Install into a scratch project with an isolated home (`--home <sandbox>/home`)
+   and run `verify` and `doctor`.
+4. When the client binaries exist, `pnpm test` also runs the discovery tests
+   (`test/clients.test.mjs`) that prove what Codex and Claude Code see.
+5. Only then install into the explicitly requested real destinations.
 
-The sandbox should use explicit paths outside application source. Never point a
-cleanup or recursive overwrite at a repository root, home directory, or an
-unresolved environment variable.
+Never point `--home`, `--claude-config-dir`, `--codex-home` or `--out` at a
+repository root, a real profile, or an unresolved environment variable.
 
 ## Update Contract
 
-When updating an existing skill:
-
-1. compare the canonical source with installed manifests;
-2. edit only the canonical source, profiles, evals, and documentation;
-3. preserve unrelated user changes;
-4. validate in sandbox;
-5. run the repository's managed sync command;
-6. verify each selected runtime after synchronization.
+1. Edit only the canonical source, registry, evals and documentation.
+2. Preserve unrelated user changes.
+3. Regenerate the lock and run `pnpm qa`.
+4. Run `install` again on each destination; local edits in installed copies
+   stop the install with a conflict until they are moved to the source.
+5. Run `verify` on each destination.

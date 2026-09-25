@@ -4,8 +4,8 @@
 
 **Como usar:** Copie o bloco de regras relevante para o arquivo de configuração do seu ambiente:
 
-- Claude Code → `.claude/RULES.md` ou system prompt do projeto
-- Cursor → `.cursorrules` na raiz do projeto
+- Codex e Cursor → `AGENTS.md` na raiz do projeto
+- Claude Code → `CLAUDE.md` na raiz, com a linha `@AGENTS.md` para reaproveitar o mesmo texto
 - VS Code Copilot → `.github/copilot-instructions.md`
 - Continue.dev → `.continuerc.json` rules
 - System prompt genérico → Cole no início do contexto
@@ -104,7 +104,7 @@ As regras acima refletem a stack e as boas práticas identificadas no repositór
 
 ### Relação com as Skills
 
-Estas rules são complementares às 21 skills da biblioteca `saas-skills/`. As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
+Estas rules são complementares às skills ativas da biblioteca `saas-skills/` (lista em `catalog/registry.json`). As rules definem o que SEMPRE fazer. As skills definem COMO fazer quando um procedimento específico é necessário.
 
 Exemplo: a rule diz "ALWAYS add createdAt/updatedAt to every model". A skill `prisma-database-design` ensina o workflow completo de schema design, migrations e otimização de queries.
 
@@ -112,13 +112,13 @@ Exemplo: a rule diz "ALWAYS add createdAt/updatedAt to every model". A skill `pr
 
 ## Formato por Ambiente
 
-### Para `.cursorrules` (Cursor IDE)
+### Para `AGENTS.md` (Codex e Cursor)
 
-Copie o bloco inteiro acima. O Cursor lê `.cursorrules` como system prompt.
+Cole o bloco em `AGENTS.md` na raiz do projeto. Codex e Cursor carregam esse arquivo em toda sessão do repositório. Se o projeto usa o instalador (`node scripts/cw.mjs install ...`), mantenha o bloco fora dos marcadores `context-window`, que são gerenciados.
 
-### Para `.claude/RULES.md` (Claude Code)
+### Para `CLAUDE.md` (Claude Code)
 
-Crie o arquivo `.claude/RULES.md` na raiz do projeto e cole o bloco. Claude Code carrega automaticamente.
+Claude Code carrega `CLAUDE.md`. Para não manter duas cópias, deixe em `CLAUDE.md` apenas a linha `@AGENTS.md` (o instalador cria esse import).
 
 ### Para `.github/copilot-instructions.md` (GitHub Copilot)
 

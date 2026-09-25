@@ -1,0 +1,43 @@
+{
+  "schema": "context-window/p-eval-1-pilot-score@1",
+  "at": "2026-09-25",
+  "decision": "FAIL",
+  "meta": "15/15 calls completed; behavioral 15/15 not met",
+  "calls_used": 15,
+  "calls_authorized": 15,
+  "kit": "C:\\Temp\\cw-r3\\eval-pilot\\produto",
+  "codex_binary": {
+    "path": "C:\\Users\\harry\\.cursor\\extensions\\openai.chatgpt-26.5730.61309-win32-x64\\bin\\windows-x86_64\\codex.exe",
+    "version": "codex-cli 0.147.0-alpha.1.2",
+    "belongs_to": "Cursor extension openai.chatgpt-26.5730.61309-win32-x64 (ChatGPT)",
+    "other_binaries_found_not_used": [
+      "C:\\Users\\harry\\AppData\\Local\\OpenAI\\Codex\\bin\\13995fba801849b0\\codex.exe",
+      "C:\\Users\\harry\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\codex.exe",
+      "C:\\Users\\harry\\AppData\\Local\\OpenAI.ChatGPT_backup\\Codex\\bin\\aec6b7c6fcdfb66a\\codex.exe"
+    ],
+    "switched_mid_pilot": false
+  },
+  "cells": {
+    "cursor": {
+      "A": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "model": "Composer" },
+      "B": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "model": "Composer" },
+      "C": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "model": "Composer" },
+      "D": { "cell": "PASS", "discovery": "N/A", "selection": "PASS", "application": "PASS", "model": "Composer" },
+      "E": { "cell": "PASS", "discovery": "PASS", "selection": "PASS", "application": "PASS", "model": "Composer" }
+    },
+    "claude": {
+      "A": { "cell": "FAIL", "error": "OAuth 401 expired", "client_version": "2.1.74", "model_announced": "claude-opus-4-6" },
+      "B": { "cell": "FAIL", "error": "OAuth 401 expired" },
+      "C": { "cell": "FAIL", "error": "OAuth 401 expired" },
+      "D": { "cell": "FAIL", "error": "OAuth 401 expired" },
+      "E": { "cell": "FAIL", "error": "OAuth 401 expired" }
+    },
+    "codex": {
+      "A": { "cell": "FAIL", "error": "gpt-6-astra requires newer Codex", "binary": "extension 0.147.0-alpha.1.2" },
+      "B": { "cell": "FAIL", "error": "gpt-6-astra requires newer Codex", "binary": "extension 0.147.0-alpha.1.2" },
+      "C": { "cell": "FAIL", "error": "gpt-6-astra requires newer Codex", "binary": "extension 0.147.0-alpha.1.2" },
+      "D": { "cell": "FAIL", "error": "probe -m gpt-5 rejected for ChatGPT account", "binary": "extension 0.147.0-alpha.1.2" },
+      "E": { "cell": "FAIL", "error": "gpt-6-astra requires newer Codex", "binary": "extension 0.147.0-alpha.1.2" }
+    }
+  }
+}

@@ -1,0 +1,2727 @@
+{
+  "schema": "context-window/catalog-lock@1",
+  "library": "context-window/saas-skills",
+  "libraryVersion": "2.0.0",
+  "counts": {
+    "imported:imported-unreviewed": 83,
+    "canonical:active": 21
+  },
+  "duplicates": {
+    "identicalSkillMd": [],
+    "duplicateFileGroups": 71,
+    "redundantFiles": 123
+  },
+  "skills": [
+    {
+      "id": "art-direction",
+      "path": "imported-skills/criativos/art-direction",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "7c09f3a18a2cb9716ef12679a894977a4991d2826ca7d52ec6cd8ddf64249c9d",
+      "files": {
+        "SKILL.md": "443ad89fc13e8bf0ea8b5cd6f7604491f9b5484b19f9e7c2762833f12c0ecc0e"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "audiovisual-debugging",
+      "path": "imported-skills/criativos/audiovisual-debugging",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "2098dc15568cc0e89845cab70b6023121bd2554410b4f84a429cc1d2c22483ed",
+      "files": {
+        "SKILL.md": "1cb8ebc8390f5379be9b7ff57773d5deb1dd6b825995e5ec2323f9e24c833e04"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "b2b-tech-video",
+      "path": "imported-skills/criativos/b2b-tech-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "3ecb74d4fc13baadc18049f84b0ceadab3790abee2213f1f9721145ab913caab",
+      "files": {
+        "SKILL.md": "54da9c654762e0d28a72e9e5c6317375130f01e151671f1b9db8fe97ea71baef"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-to-resolve",
+      "path": "imported-skills/criativos/blender-to-resolve",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "35074934af25e75d1992713a23b6b92244e90d09a10da114690a9e236c75a16c",
+      "files": {
+        "SKILL.md": "f6f054c102e435207fddc61c9eb16c7a65b8d36f99e25d60b279920e6773d3f1"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "brand-video",
+      "path": "imported-skills/criativos/brand-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "878e4feca4025d603bdee527fd656c5b1c3120cd840b0a29723ef9c742e91608",
+      "files": {
+        "SKILL.md": "49474c804b7bcc9dbf92d801640c8e315bd7cd3ec0ff680b889614f1a2699114"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "cinematic-editing",
+      "path": "imported-skills/criativos/cinematic-editing",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "701178c86d263139c85902a3e548af424294cedf5aa93e12a7696e20802e16c6",
+      "files": {
+        "SKILL.md": "e101d1c00e0f3756bbd65538b5892232a9834b138847351b912ff9a706791e35"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "color-grading",
+      "path": "imported-skills/criativos/color-grading",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "766a61e6452fd65d4c30647c463fccb3b7d5862febf4fb237f51ce0bccf786ce",
+      "files": {
+        "SKILL.md": "bff60fec88534da84a82bd2569de6d382daa4955470c5bbc70d475129912caae"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "commercial-editor",
+      "path": "imported-skills/criativos/commercial-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "fc2ab0fb36752aaf95b08f96a6b23855d77f54ebd62e8fc4338a90e726cd736a",
+      "files": {
+        "SKILL.md": "3ceb5773eec39a550d9b7a381fbd456e62537a8fde915ab591cb302de4aa20a8"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "content-script",
+      "path": "imported-skills/criativos/content-script",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "7ea2bb347d7caa3fd0beb7db590b92c6725da4b190591106ff6c1d9788352838",
+      "files": {
+        "SKILL.md": "1efa67f70285042199ab29a42330a2b9f66cf600af162e7b0ebeb49faa732f1f"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "creative-video-orchestrator",
+      "path": "imported-skills/criativos/creative-video-orchestrator",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "09c39d5f46985300da7e6ac63a4dc0ba0637f98a50299bb293c49b61ebc6b491",
+      "files": {
+        "SKILL.md": "64b05b7e40cfcda5816c1b50577543d64a89922482594a48299d8c685688bae4"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "davinci-mcp-operator",
+      "path": "imported-skills/criativos/davinci-mcp-operator",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "e44567346c1f77143b203b90c024ac2c2605d0849e4462df2a3cdd7596f9b268",
+      "files": {
+        "SKILL.md": "eed9ee5973986a9b647f3cc8f019f2288f138796b5f7f96db7ca3b4ef22c827c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "davinci-resolve-editor",
+      "path": "imported-skills/criativos/davinci-resolve-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "de7f27ace004af1a3ee4d04beaa9e25218fea3f1a1cfa68a28d7ad02d2198542",
+      "files": {
+        "SKILL.md": "d07c1976267f1cafb40816b7893937192f2848ebaa4c4c0eb34d9313bec78310"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "design-system-import",
+      "path": "imported-skills/criativos/design-system-import",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "b553bd7e1d9e9c29b4e83397d611889de3f80ad4e991888246c113faf6ab81ec",
+      "files": {
+        "SKILL.md": "bf08710bc9fd161e33ca320fd8731afba3d0657dfe842663adbb90aa42fe3074"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "fairlight-audio",
+      "path": "imported-skills/criativos/fairlight-audio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a587a045275eb32fdab7d97925aca01f33a5c5f3390376b8d63d451f09f2425c",
+      "files": {
+        "SKILL.md": "f3cd27c53f183b7fede94adefcdaf4f52ceb744b713b6cdba7411d49d51b1082"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "fusion-vfx",
+      "path": "imported-skills/criativos/fusion-vfx",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "bced2c5045e7e11892add91b8ec2d96dd6c49eee6aebec8bcb9146e850c0ec02",
+      "files": {
+        "SKILL.md": "9cc2aa2f5922e150dc77ab2e6f3269beda6aed80f9cfde27c35ae67fce0cf12c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "hook-retention",
+      "path": "imported-skills/criativos/hook-retention",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a6cb53998a67cc7078ef4fc2a9df6537ceab469e8b7e027d7a32e76df8f37a97",
+      "files": {
+        "SKILL.md": "44c5f7c80ed1a2f8dad3e2f63c1341baaac121cb1b1613f3aaf6456e4a937297"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "instagram-delivery",
+      "path": "imported-skills/criativos/instagram-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "1df15b5079d3f2fb05e2e843b2ce01e095541288e80d00430455ea6441b8cec4",
+      "files": {
+        "SKILL.md": "20c6d2daeca80ea6370f48a643be9224b738ac7c23464f28d0bdc0d4f94be92f"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "logical-solution-video-director",
+      "path": "imported-skills/criativos/logical-solution-video-director",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "480613e9952f65c07ed9e8f4304e5746a3200f234d4a25a0d56c30d9d2760051",
+      "files": {
+        "SKILL.md": "c46f4e17da7866055d47c21a431b88d76964fc8519c5421eff7d14e923c96d3d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "media-ingest",
+      "path": "imported-skills/criativos/media-ingest",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "3d6c1fd578bc82846bb1215670114c290e80ad45c37d121028f733a9710a4fd4",
+      "files": {
+        "SKILL.md": "0931a27598e4133543d87d47705c4df8b3df69886dae438cfad9640b9fdef4c2"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "motion-3d",
+      "path": "imported-skills/criativos/motion-3d",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a7eab65e9e9d0baf5cf8d92e4ac1722601c1425034770aeea7675a9910a5b72f",
+      "files": {
+        "SKILL.md": "77a321c7cea29a9767b47af73da814f008b0bb7987a809aca869151a7ad2672e"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "motion-design",
+      "path": "imported-skills/criativos/motion-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "08dc3791c3bc335abfcab98d9c83a408a91a3cf7a3b986bdcb5099bce3f026bb",
+      "files": {
+        "SKILL.md": "2ffcaa72637c5eb91585e310cd9c1e4c17a44e0ea9fa9b29bb8fd39e86becec6"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "presenter-audio",
+      "path": "imported-skills/criativos/presenter-audio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a41a17b769f5b2c4204cff0435dd23275e6d2a6fc194430a22e949edc860ccb8",
+      "files": {
+        "SKILL.md": "2400bdca489177840fe907397ea460304bda7fd0edf6391088e7ee00f40e9a28"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "quality-control",
+      "path": "imported-skills/criativos/quality-control",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "4837db6c6de0de04b4d98437e21b96cf48d19618020fa2373119527e0704147e",
+      "files": {
+        "SKILL.md": "10ebd85ef0c05c24f0cbe0318a0bbc3e0450a10d42c9f64fa8fe6c0dad1b23d1"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-best-practices",
+      "path": "imported-skills/criativos/remotion-best-practices",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "47814f26eda23f2b0fea1d61cb95fc8b8fefb3afb1127b55876f592f7baefcb4",
+      "files": {
+        "SKILL.md": "bcca263d4b7a8a2cbcc773cc4d2f1c3bf882dd59767683e96b773432cfe2b6f8",
+        "agents/openai.yaml": "a4b00acf16604d87da4cd6de6f8e8e1c31a4ed291d1424e7ded3ca1df0a66936",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-captions/REFERENCE.md": "8ee80dae4c67fb7421df78d7145442cc3bc10eb0cacfb73d3672954f895d96d0",
+        "remotion-captions/agents/openai.yaml": "1746691f26d8d5cffb536ec986fc065e530b64d2a574c62c95e1e5d0d25a0271",
+        "remotion-captions/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-captions/display-captions.md": "bd4a0ab7f1ae563544ade645473750156680911f350578dbd716739e3ab07f7d",
+        "remotion-captions/import-srt-captions.md": "d87f42376221d4802b84ad2f81906a568b9ebb81525ccd1698dc434cea3eaa5c",
+        "remotion-captions/transcribe-captions.md": "c28bc6bb42ea61e8021019839df8f9eabaab91da85950f098c9bf3f2f4b65505",
+        "remotion-create/REFERENCE.md": "c9b4c93f7a3ffa6582ec422a254054fd54d471673f51836f57e13b50c5a39ad1",
+        "remotion-create/agents/openai.yaml": "6b668b11a26aa4d70fe6a08cc6432ab023a9b596ca95fd29af3c15ec3d8bb2c6",
+        "remotion-create/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-create/tailwind.md": "227275d9eb773b4f6767c7a4c0c309ede2eab144a7eb7827de8ecb486df05c63",
+        "remotion-create/video-layout.md": "201aa71c368999290047fffc292d0263dbe1260081528da726830ea64b4d011c",
+        "remotion-docs/REFERENCE.md": "5a5a3e319d39177a19147cd6491c6cb0d10f7974597b2745ed3ad5f7e6ab26d1",
+        "remotion-docs/agents/openai.yaml": "2474ce13adf4c123de8b52b95046ee4762a199ceb4227380c106e64c5e17488b",
+        "remotion-docs/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-interactivity/REFERENCE.md": "bfcc56e960d809fb004c690e3c93cc95ca70cfa50900ed5c3505d66a5cb9264b",
+        "remotion-interactivity/agents/openai.yaml": "343a80b8fa5e11492f7bf5e086ec843a834d58117af65f9a53a5c66f073a8021",
+        "remotion-interactivity/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
+        "remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
+        "remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
+        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
+        "remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
+        "remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
+        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
+        "remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
+        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
+        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
+        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
+        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
+        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
+        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
+        "remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
+        "remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
+        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
+        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
+        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
+        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
+        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
+        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
+        "remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
+        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
+        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
+        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
+        "remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
+        "remotion-maps/techniques/static-map/TECHNIQUE.md": "b5ac70a52106fca049d551fa39188f2239a31392f10ca843a146de0add1df26b",
+        "remotion-markup/3d.md": "22c36e087eefd6cfef597bda54f72ae1f39099f9cf33ec38079dd53c4b08e651",
+        "remotion-markup/REFERENCE.md": "07092b4f2564ae37458b22a10c9aa897b23532454a1a0b490b2914c6274fd931",
+        "remotion-markup/agents/openai.yaml": "c6d7963294b460e5585c7fedde8b5640f2853ec01ffa8ff63be3bd5c5efb96bc",
+        "remotion-markup/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-markup/audio-visualization.md": "ddb4440fdd236484a06fb39c81b532c48caa4365505b3b12438224832cb2857f",
+        "remotion-markup/audio.md": "9188fac3a960aeba742f8aa2413967ac0b7395d1f40918c4946ee17c6f180e5b",
+        "remotion-markup/calculate-metadata.md": "047b544808442f146b9bc62589a899369567ed8ea739c920113899063b8fbcb8",
+        "remotion-markup/compositions.md": "43fb2e244a7287658bb2309fd8954666583aa6c91d6474ea0b42bb3df359e5d6",
+        "remotion-markup/connected-compositions.md": "941b5b4eeaa021b6367597adb4b6b5ef5addd2f1828ca3d5ddc3330a51c5d669",
+        "remotion-markup/cropping.md": "d8eda6dcff713b50e149633b63f4a6bdb104d35dd3a35994699ad55acd3403c2",
+        "remotion-markup/effects.md": "630b28f25dc4787e757ee77c136ead3dba191ab42545fad6193e0d4832d4b458",
+        "remotion-markup/embedding-videos.md": "aa57b3b59ed1d9898d63ffd738a11f19f6895fb487e586e2a6c2fd95250fa42d",
+        "remotion-markup/ffmpeg.md": "60f34e4aca7976774872fa1b0cfda4a049c44bc1e8838d5b35bdb7270aa2cf6c",
+        "remotion-markup/gifs.md": "ed6a4a3952d4c04d744aa8289477b162939940c5bae4239494731c8a66da7a51",
+        "remotion-markup/google-fonts.md": "7fe5ea475a51383016c0acf8052febb46ac8ad5a943217acf8083787addc6cc8",
+        "remotion-markup/html-in-canvas.md": "164cc88f39234729e27611be8f212763c982e177ad2fa534e824aa41538f479f",
+        "remotion-markup/images.md": "815ff21943ce1bfb1efb82d0fd01b94874f4f1fb21af4bbc076cb64948b2df35",
+        "remotion-markup/light-leaks.md": "877b38fc29da2164c6024ab4a8061827b66c55892375e53cff8d8008af10dc6d",
+        "remotion-markup/local-fonts.md": "281ab53eecbbd18f6977c4eb26707a009d762de13987f67524688430e4f55c76",
+        "remotion-markup/lottie.md": "2f93ee403d4b03bf4616b19d0cf1eb4f71c52858ad1c15f1bc7e7186f8d3b790",
+        "remotion-markup/measuring-dom-nodes.md": "e093812aa55935fe9487462c8044ac09338ca5256643f4340faeff8c1e810df6",
+        "remotion-markup/measuring-text.md": "fa36a45e193b1ffc5930dac6b5e7cb8f0e858da5352127a340f0258f05842777",
+        "remotion-markup/multi-scene-video.md": "44bc4b41460364625d41eddd07dd7981fd0e521efd407edfc3c28f7ca6dc1f79",
+        "remotion-markup/parameters.md": "5955b1e509c8527372f7210911aab8c550c0ce38ecdbd1eeb85565ea25165b7a",
+        "remotion-markup/remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
+        "remotion-markup/remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
+        "remotion-markup/remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-markup/remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
+        "remotion-markup/remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
+        "remotion-markup/remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
+        "remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
+        "remotion-markup/remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
+        "remotion-markup/remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-markup/remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
+        "remotion-markup/remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-markup/remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
+        "remotion-markup/remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
+        "remotion-markup/remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-markup/remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
+        "remotion-markup/remotion-maps/techniques/static-map/TECHNIQUE.md": "4f31e832694f9bfb04a84b2b8569d075b4eabaec8681b0645fbb0b1894549cf1",
+        "remotion-markup/sequencing.md": "d8bf2eee00436703ace5c57c184da8587ca9599c44275be7d4ed9e24e99df6e3",
+        "remotion-markup/sfx.md": "f1da32a162c72a275ebe93c3345d617ca67d94082196929d9c7b7881fc06bade",
+        "remotion-markup/silence-detection.md": "d772d5f2e1e4030da52b7b8f258219ba3523d9fcf2d3cc0968e09fa9dce88c4f",
+        "remotion-markup/text-highlights.md": "e95c45db85aec639b8b9014d405eb4b9cc60e2100aed55a78544fbee925191d0",
+        "remotion-markup/timing.md": "67b19b7c8f628030fd3e6ff4967f55c2134557f5e3710c30a14fe5a8d598b053",
+        "remotion-markup/transitions.md": "2af74184c2bde1be094f1154c5d43561e1f9daae6242b2067f20e110c231a1c5",
+        "remotion-markup/video-editing.md": "50ed471194a5027a997085c419f79a7b41be0392989e15ae041ba07dd14fde34",
+        "remotion-markup/voiceover.md": "abbd9b20ca6ede9d928a187bb53e9aad6b4a65290f3901731e43d6c115512a2c",
+        "remotion-multimedia/REFERENCE.md": "bb32fee29bdcac88cd77ee63248c01e8f52ad2f74eb0ae27a9ebf6c2152ff0b3",
+        "remotion-multimedia/agents/openai.yaml": "5ddbc1064d068dd3547ff93cadd32a37b21c46bbd937e9c77753f14a1df66f55",
+        "remotion-multimedia/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-multimedia/get-audio-duration.md": "1a23e9f38e42d7d7ff9a48a1b7899f7e303aa89dc4022114633b82f15d388a0d",
+        "remotion-multimedia/get-video-dimensions.md": "ae2de992a4890912d56635b8c1e30af2933a7d53848d2e68a652f117fd92b73d",
+        "remotion-multimedia/get-video-duration.md": "d31a1716f9ba15c10cb90df87c078f3ad5dc0b4e6afd029c2c59467dfbc38e15",
+        "remotion-render/REFERENCE.md": "8d7a859696d63dfa8d20e2a4382dbe71e845968c956d3393d9b8c6205050c81a",
+        "remotion-render/agents/openai.yaml": "c3a468df5ca291e7e3a49172f779f505200cef39ca9539723656ea5dea7a8a75",
+        "remotion-render/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-render/transparent-videos.md": "605d2e7ec91d17eec7ccdc9630edd0cae694b11494e6ecdddc9bec6ab3ae841a",
+        "remotion-saas/REFERENCE.md": "ea5c6b853f6faef99e95e44489761d64306ab6d8861a349f468d671974ab17bd",
+        "remotion-saas/agents/openai.yaml": "57038c01a252fccf2154450f117052f036969f1f8e760fc6d1e2f0cd190e791b",
+        "remotion-saas/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-saas/framework.md": "cd7c98c657fc4e2b11771bd1f046ebad4173387105e73e2922397688027eb791",
+        "remotion-saas/player.md": "44e4bd7612b509e0a1324448abf82a86e4346340722574cada6e77e7e712d1fb",
+        "remotion-saas/rendering.md": "d47147f29dca95875aa26b6bbd48af7a000fe916497d706bbb7cc7de95066c3e",
+        "remotion-studio/REFERENCE.md": "a1dc43f5dca4227e6c520a57e7090bc6a630ee7e75fdaf97bbd67880109dd92b",
+        "remotion-studio/agents/openai.yaml": "f579ab3ace78b8d797753cb5371cf7a4523bb8cca4bc6ad43a8aef8d851b4ad7",
+        "remotion-studio/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-upgrade/REFERENCE.md": "89e0e02495ed7e597e4750a49cdac328bcfb24662012065cc52e480da609c4db",
+        "remotion-upgrade/agents/openai.yaml": "d65928d0a1731c8883dfa64bfdf70a63fe41feb07dbcbc562cec2188b01ac054",
+        "remotion-upgrade/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-captions",
+      "path": "imported-skills/criativos/remotion-captions",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a0bf1762b2098f2203df9998587725387fad7ac61c0f982948b5a5eb1161221d",
+      "files": {
+        "SKILL.md": "8ee80dae4c67fb7421df78d7145442cc3bc10eb0cacfb73d3672954f895d96d0",
+        "agents/openai.yaml": "1746691f26d8d5cffb536ec986fc065e530b64d2a574c62c95e1e5d0d25a0271",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "display-captions.md": "bd4a0ab7f1ae563544ade645473750156680911f350578dbd716739e3ab07f7d",
+        "import-srt-captions.md": "d87f42376221d4802b84ad2f81906a568b9ebb81525ccd1698dc434cea3eaa5c",
+        "transcribe-captions.md": "c28bc6bb42ea61e8021019839df8f9eabaab91da85950f098c9bf3f2f4b65505"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-docs",
+      "path": "imported-skills/criativos/remotion-docs",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "f01f9a156c2f8814f13a3c9da48649e21a7696997dff86a429ac62e463d67d87",
+      "files": {
+        "SKILL.md": "3ecb8c086c25e8d279f810a28c0a1dada6cb5aef451ce7acf7c46be210a8903a",
+        "agents/openai.yaml": "2474ce13adf4c123de8b52b95046ee4762a199ceb4227380c106e64c5e17488b",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-markup",
+      "path": "imported-skills/criativos/remotion-markup",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a9f3d64fbb401914c934af957d94c52ffad88c534bc705213a51fee1e498ee2b",
+      "files": {
+        "3d.md": "22c36e087eefd6cfef597bda54f72ae1f39099f9cf33ec38079dd53c4b08e651",
+        "SKILL.md": "80ed53d4a40f558d8343ab71e7e4094a043f251667975a3f2cc05329071aee37",
+        "agents/openai.yaml": "c6d7963294b460e5585c7fedde8b5640f2853ec01ffa8ff63be3bd5c5efb96bc",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "audio-visualization.md": "ddb4440fdd236484a06fb39c81b532c48caa4365505b3b12438224832cb2857f",
+        "audio.md": "9188fac3a960aeba742f8aa2413967ac0b7395d1f40918c4946ee17c6f180e5b",
+        "calculate-metadata.md": "38e3f8e5d621b01b3ae837118e43be249d27999722a6c514e788d3dec0d06d31",
+        "compositions.md": "43fb2e244a7287658bb2309fd8954666583aa6c91d6474ea0b42bb3df359e5d6",
+        "connected-compositions.md": "941b5b4eeaa021b6367597adb4b6b5ef5addd2f1828ca3d5ddc3330a51c5d669",
+        "cropping.md": "c57667d0b99194097f4d825cae39b177c4c83b2f2410c9838733248929e3b65d",
+        "effects.md": "630b28f25dc4787e757ee77c136ead3dba191ab42545fad6193e0d4832d4b458",
+        "embedding-videos.md": "aa57b3b59ed1d9898d63ffd738a11f19f6895fb487e586e2a6c2fd95250fa42d",
+        "ffmpeg.md": "60f34e4aca7976774872fa1b0cfda4a049c44bc1e8838d5b35bdb7270aa2cf6c",
+        "gifs.md": "ed6a4a3952d4c04d744aa8289477b162939940c5bae4239494731c8a66da7a51",
+        "google-fonts.md": "7fe5ea475a51383016c0acf8052febb46ac8ad5a943217acf8083787addc6cc8",
+        "html-in-canvas.md": "164cc88f39234729e27611be8f212763c982e177ad2fa534e824aa41538f479f",
+        "images.md": "815ff21943ce1bfb1efb82d0fd01b94874f4f1fb21af4bbc076cb64948b2df35",
+        "light-leaks.md": "877b38fc29da2164c6024ab4a8061827b66c55892375e53cff8d8008af10dc6d",
+        "local-fonts.md": "281ab53eecbbd18f6977c4eb26707a009d762de13987f67524688430e4f55c76",
+        "lottie.md": "2f93ee403d4b03bf4616b19d0cf1eb4f71c52858ad1c15f1bc7e7186f8d3b790",
+        "measuring-dom-nodes.md": "e093812aa55935fe9487462c8044ac09338ca5256643f4340faeff8c1e810df6",
+        "measuring-text.md": "fa36a45e193b1ffc5930dac6b5e7cb8f0e858da5352127a340f0258f05842777",
+        "multi-scene-video.md": "44bc4b41460364625d41eddd07dd7981fd0e521efd407edfc3c28f7ca6dc1f79",
+        "parameters.md": "5955b1e509c8527372f7210911aab8c550c0ce38ecdbd1eeb85565ea25165b7a",
+        "remotion-maps/REFERENCE.md": "0772cc10fd396ff31a53fdd930f64e27e45e390a1301b2ae631cb99c295c6368",
+        "remotion-maps/agents/openai.yaml": "7af90eeee2f71b81fb500084e54e52cafcdf32b20fe576f5040b1eb21e44059f",
+        "remotion-maps/assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "remotion-maps/techniques/cesium/TECHNIQUE.md": "74dfab6e9510ca021384ebfb9e995eaf5f2a372b0abb0ab9039bb0d678307e51",
+        "remotion-maps/techniques/cesium/assets/CesiumFlythrough.tsx": "eb2535fa1157e7ccfc260cc2f440af9e508ed0c3dbb41691bf4de37398650683",
+        "remotion-maps/techniques/cesium/assets/cesium-path.json": "dc7d5b6de13523d2906dd8fc2e2bf8eb38fe9150f93e4fd1add959e1cfcb4d90",
+        "remotion-maps/techniques/cesium/assets/city-path.json": "875cf47dd5aa1e6406fdafd313f961857bca615408e397d5f4d37cce13b562ce",
+        "remotion-maps/techniques/cesium/assets/example-Root.tsx": "3f842ac76dfabbc64ec91e8de43387f9ec6b1e8070dc1a7c6f27755a2281f865",
+        "remotion-maps/techniques/cesium/assets/flight-path.ts": "769e10a3652fba4dccf6cb7120800b7bc59c8d8c27ca2d413b4785b66fd628ff",
+        "remotion-maps/techniques/cesium/assets/sample-river.geojson": "ba9c594935a89ddc2dcb5daadc219b6493cd37b002e4b62739f4ffb613ced5bd",
+        "remotion-maps/techniques/cesium/references/3d-data-sources.md": "a48e9e361a2e52c3e0a714c3d9c49027fe430a9fe53e31f5caebd8503a6a2d85",
+        "remotion-maps/techniques/cesium/references/3d-flyover-architecture.md": "67717e5cc0c25577c7c1abe4f4af6b6b4b717473e7c3ff68bd56ad018dda3e9e",
+        "remotion-maps/techniques/cesium/references/3d-troubleshooting.md": "35b53fe40237899cf6f397b457a20be1b3902dbe404a7be047224589275a8d03",
+        "remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs": "276296ec14ecf5b5c1f1694e2a5950a3df2174dd7768c44d55a3dbb41bddef45",
+        "remotion-maps/techniques/mapbox/TECHNIQUE.md": "144fa950811eca48afd4a3c46c6c2f6397f6eb6d941d7ece90ce49c70815e2c8",
+        "remotion-maps/techniques/mapbox/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maplibre/TECHNIQUE.md": "12cbcbdb15ed15641b92287ce7ecfdfa828ff69cc9d1f64fa16815c1d907f9f5",
+        "remotion-maps/techniques/maplibre/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maptiler/TECHNIQUE.md": "12483d4e73b495fb5d68cc90a51f8718ce695cb58d5028d55573c1f6024d08a9",
+        "remotion-maps/techniques/maptiler/assets/CountryLabel.tsx": "13afe5ebecebdd8ad2dd102c98392f69d859ad853276ffc83d5ad51e46366334",
+        "remotion-maps/techniques/maptiler/assets/MapTilerVectorElement.ts": "8459596fd521f0a24e7645359e3abac158754d1a02189901ba3e64abc6d82379",
+        "remotion-maps/techniques/maptiler/assets/RiverReveal.tsx": "3e58e985a135676838ee4f7ff99671072fc23328772ccac846b8e6d53f7a0668",
+        "remotion-maps/techniques/maptiler/assets/example-Root.tsx": "719016f704af5ca258f493c995dcde1c4751abffcf463f7d009b6855eb31d301",
+        "remotion-maps/techniques/maptiler/assets/sample-data/country-meta.json": "4d5839ef77492bb22ce432fe7138d13a3dc4f4db454539131a21c2bb3710a21a",
+        "remotion-maps/techniques/maptiler/assets/sample-data/yarlung-flow.json": "6448cd1a1990d7fa61305371928cfa097b218f730d0d8ec6a3072ee97866a4fa",
+        "remotion-maps/techniques/maptiler/assets/tokens.ts": "59544b61a8d00852a1865cd18dd9d5e2e77449c47a63f3dde6d35cd6b8efbfa8",
+        "remotion-maps/techniques/maptiler/references/map-data-sources.md": "b11425a03e0ac423f82cad655eb35481adb41c7de0581bef0d82ebb59bcb6f7f",
+        "remotion-maps/techniques/maptiler/references/map-explainer-architecture.md": "f12c26d2055ff8ed8756e8899af957b55f17504c94a26fee56ff821b2726996f",
+        "remotion-maps/techniques/maptiler/references/map-geo-prep.md": "7b36cdcc3137c48657339ac9667802ef2e6079ede75f1b9beca9a906e6ce08aa",
+        "remotion-maps/techniques/maptiler/references/render-stability.md": "7fc711afa379f7afc3401ffa98660e53a372e026d7090c0447194f892622ccbd",
+        "remotion-maps/techniques/maptiler/scripts/prep-geo.mjs": "2affc2230115fd518c6483ef6f7f2b0516bc1224226a8eb9e62b3a8e66769f21",
+        "remotion-maps/techniques/static-map/TECHNIQUE.md": "8040e172945eaa585758816a4e361885b102bb9a33371f221851f61b444fb9cd",
+        "sequencing.md": "d8bf2eee00436703ace5c57c184da8587ca9599c44275be7d4ed9e24e99df6e3",
+        "sfx.md": "f1da32a162c72a275ebe93c3345d617ca67d94082196929d9c7b7881fc06bade",
+        "silence-detection.md": "d772d5f2e1e4030da52b7b8f258219ba3523d9fcf2d3cc0968e09fa9dce88c4f",
+        "text-highlights.md": "a007b55728bf3ef2a041fdfb73bbbf7bfe1050611fb924100abdc3af83186e1f",
+        "timing.md": "67b19b7c8f628030fd3e6ff4967f55c2134557f5e3710c30a14fe5a8d598b053",
+        "transitions.md": "2af74184c2bde1be094f1154c5d43561e1f9daae6242b2067f20e110c231a1c5",
+        "video-editing.md": "50ed471194a5027a997085c419f79a7b41be0392989e15ae041ba07dd14fde34",
+        "voiceover.md": "47634d2446de8eade6bb867ce3195876d9a1604289f8a080e56b97204f31852a"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-multimedia",
+      "path": "imported-skills/criativos/remotion-multimedia",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "5e99ff92ca0c23a62d18d12d30d0558297df69ba535bd7089ead8b8b0ad193d1",
+      "files": {
+        "SKILL.md": "bb32fee29bdcac88cd77ee63248c01e8f52ad2f74eb0ae27a9ebf6c2152ff0b3",
+        "agents/openai.yaml": "5ddbc1064d068dd3547ff93cadd32a37b21c46bbd937e9c77753f14a1df66f55",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "get-audio-duration.md": "1a23e9f38e42d7d7ff9a48a1b7899f7e303aa89dc4022114633b82f15d388a0d",
+        "get-video-dimensions.md": "ae2de992a4890912d56635b8c1e30af2933a7d53848d2e68a652f117fd92b73d",
+        "get-video-duration.md": "d31a1716f9ba15c10cb90df87c078f3ad5dc0b4e6afd029c2c59467dfbc38e15"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-render",
+      "path": "imported-skills/criativos/remotion-render",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a714fccf3dc80ce24d533cffda072a03495f6c40701cd4f843371cde8136d89c",
+      "files": {
+        "SKILL.md": "8d7a859696d63dfa8d20e2a4382dbe71e845968c956d3393d9b8c6205050c81a",
+        "agents/openai.yaml": "c3a468df5ca291e7e3a49172f779f505200cef39ca9539723656ea5dea7a8a75",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d",
+        "transparent-videos.md": "605d2e7ec91d17eec7ccdc9630edd0cae694b11494e6ecdddc9bec6ab3ae841a"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "remotion-studio",
+      "path": "imported-skills/criativos/remotion-studio",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "unknown — may derive from third-party Remotion skills; confirm before promotion"
+      },
+      "family": "creative-remotion",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "ffa9ccd86dd3686c1d935c80c88543711b202d4c5622f8773f154939b8f30897",
+      "files": {
+        "SKILL.md": "a1dc43f5dca4227e6c520a57e7090bc6a630ee7e75fdaf97bbd67880109dd92b",
+        "agents/openai.yaml": "f579ab3ace78b8d797753cb5371cf7a4523bb8cca4bc6ad43a8aef8d851b4ad7",
+        "assets/remotion-icon.svg": "38290921b8c62d5a95d357f7979b00a51dcfd1d8faf72aec0bce9f3e0a0aff5d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "render-delivery",
+      "path": "imported-skills/criativos/render-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "319ed4a4193cb4b5b2f8e7c005cadc0c863c1f781ed5c1e7cb7c759ee8010fa7",
+      "files": {
+        "SKILL.md": "556b7f2ea931c553b5493185be27deb0e72f02d8f448f6df2039319da6feb4c3"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "saas-product-video",
+      "path": "imported-skills/criativos/saas-product-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "88c10333e406ebf4ff3dd8534d1244d14fc55d50477c3361d59b9ad20e6e0fcf",
+      "files": {
+        "SKILL.md": "c46c3cabea182ac341a4df11134cf8663d08594c05eebb5d79c07eb262e16dbd"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "screen-recording-editor",
+      "path": "imported-skills/criativos/screen-recording-editor",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "e962fac5646fee0ca92f3968fe8cdcecee58c3bfd7713bcdccb235f20443b7aa",
+      "files": {
+        "SKILL.md": "e6271497fd31275662d98232234db3f0a21a8a1faeb3a6256a69b5945f2b6118"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "screencast-edit",
+      "path": "imported-skills/criativos/screencast-edit",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "156821e95f453ac29cd18655a1a5c86301dc0fffcc014a58dae45c40ac00a88e",
+      "files": {
+        "SKILL.md": "def0c7508254e3b30b75428bf11d9ad7534dc14d8b665bc97a4e38d69edb1577"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "social-video",
+      "path": "imported-skills/criativos/social-video",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "2f4e73374c659e85391f7665e2155c7e5b65ff25913bc773d7037e8ab4841624",
+      "files": {
+        "SKILL.md": "b514ff9dd1db9db74fafc3386afaa65667a74ab458f945728f76c519d14fa258"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "sound-design",
+      "path": "imported-skills/criativos/sound-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "2e379ae02a07e9217b1cbcb73957f1e6555788514b7f15ac3778cc9750a2c4d8",
+      "files": {
+        "SKILL.md": "5676467cad903fccba38c9cd7991a51a9d396ee02a1e271907c05e65f19b6f6d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "still-images",
+      "path": "imported-skills/criativos/still-images",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "f10309181d92c3ab5649e4b8910c3b5fecdd1d075edbf4b937e1495243d70d44",
+      "files": {
+        "SKILL.md": "01a54aef8aa0c8db38f6a59fbec45ce7ee6ea7aa85527bc6621a4e0ad6639683"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "storytelling",
+      "path": "imported-skills/criativos/storytelling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a7ce17a7d3decb3d607f5bcf94c3084ad12f908952a282cc2588fa9b02fe84dd",
+      "files": {
+        "SKILL.md": "369d0879a3f80e93db15355699dfb75bcba9e0c1fe12aa0cbd599dee90d13266"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "studio-router",
+      "path": "imported-skills/criativos/studio-router",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "ee41a37f3cce3a436fc75ee974dc5db0c293687f3cadbd1691158a54aeed9926",
+      "files": {
+        "SKILL.md": "98c6345978c17bdd2e8d9c983418736b927c3409a74981ef8a1238620279c4a9"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "subtitles-accessibility",
+      "path": "imported-skills/criativos/subtitles-accessibility",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "c227e93514fff4ae166b684e1c7623eea6015d88501cd7a13e7fd27f38e963f2",
+      "files": {
+        "SKILL.md": "14152bc559c9750924db921bad3ca008968f9ca8db9e41e1a06e37d88320cd2b"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "video-editing-director",
+      "path": "imported-skills/criativos/video-editing-director",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "021aa25b0fc914a832e14377cfa6e14ecf750746c21dab940b0f75c8eefdd8bb",
+      "files": {
+        "SKILL.md": "aeb17c1b5602b90424b6dd349354bc51655de9ed5c0a36979323d50193dfac1e"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "visual-review",
+      "path": "imported-skills/criativos/visual-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a2977193948455cfaa6beb2bf799d009f2ffa71036e1bee44b86dd86016bc6de",
+      "files": {
+        "SKILL.md": "88e2f43fc7d756632b176f61645e67e1381c0a06318aed1b5d8208fb39a09812"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "web-video-delivery",
+      "path": "imported-skills/criativos/web-video-delivery",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Criativos",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "creative-video",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "d143afb00edf0c2ee4998eab3b7648e1df7152795fe795ac9887d2f6c91ef579",
+      "files": {
+        "SKILL.md": "62fa82eb9a7b91a1b183471fa4dbc8c4de3bab7b1088ed8dae3636d3867555d7"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-animation",
+      "path": "imported-skills/logical-solution/blender-animation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "4dc00d727993bd7cda519bcdccf8e8ebdc1f42d2268e28a06ced6d697ec887a4",
+      "files": {
+        "SKILL.md": "0484bac6b471b5128cebbb383d0e9b1b9ec103e104a76e62e53dbce060caf18d",
+        "agents/openai.yaml": "2795848e721f7d2378841061fd0662c257e22005fcbe48fce902449fbb5a0fb6",
+        "references/principles.md": "200a2294e357da4389f6d89ffacda9937d3243999d2b4ccc21f23babac92d75c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-camera",
+      "path": "imported-skills/logical-solution/blender-camera",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "dafff8cd71df3f2c04bf35dc374524208963290292c4cae15ac6657459ba9162",
+      "files": {
+        "SKILL.md": "0a31b3bc5b737931378115c5da7979f2ec212bf2e1f6fa1b271a094b16ab3d0a",
+        "agents/openai.yaml": "04d5545d5da018da1a5069016103acf8c77fbde25ef1afdf551a19ecdf24d55d"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:26)"
+      ]
+    },
+    {
+      "id": "blender-debug",
+      "path": "imported-skills/logical-solution/blender-debug",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "d3a14a891ba12c480ae3f4a2e605f237837362e1a3bbb44e5574bd5941fc8172",
+      "files": {
+        "SKILL.md": "6dcecc44cedff482b184bb03195941f9c1d710922eb574934925e58ef51fcd21",
+        "agents/openai.yaml": "77eac48ac9f669e1530f1b8fc2caab0cb3a417b07c5867e6c5f04475494a0f31"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:67)"
+      ]
+    },
+    {
+      "id": "blender-lighting",
+      "path": "imported-skills/logical-solution/blender-lighting",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "8a2fc81f28ec4c4170a8ea8211c361645bfa15ff18b2de4a66389f584d78f47e",
+      "files": {
+        "SKILL.md": "fa627b941951debdc0d4aabb612a437828590c4872f8f8804ba05e76007abb4c",
+        "agents/openai.yaml": "ac1c84c63118e80abf551f1f7a36668f2225ee2ee7b1fa3c1b9ebae3c52e17c6"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-master",
+      "path": "imported-skills/logical-solution/blender-master",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "97888224ff3429f7977d27e96dd47daa6281e7983429b86f0a1e8fc75ae31317",
+      "files": {
+        "SKILL.md": "35fe52f23f4c4752bfbb59b8da21533575acde3b1a7bbe66fe9f655387fc1cb7",
+        "agents/openai.yaml": "fb8dc0c5a176774ff02ecd2b11f492e00324f9b6123b33aa0668df6825696c1f",
+        "references/mcp-tools.md": "40f772c0c97f82f4b6f12931305add2197e4d5f712372e3be43d8a55ad6a3ebe",
+        "references/registry.json": "0f82355d3ac5fb8b55deddd8dbc87ce74cdd52d7167f4abcfb2800f8c5610633",
+        "references/routing.md": "5a6697825d1827989385fb7dd9233f5604e8ba8c1e2d3553f71a605bcdd07c06",
+        "references/security.md": "6341898c98fe51dbfa67b48e316434e46edc972d6e82bba3189004494f373c19",
+        "scripts/route.mjs": "39775e69b3916e868dc0f3e4eae66a8c93a1029b6e7dc0e90387ea09fa2d4d15",
+        "scripts/smoke-headless.py": "7be9f3868906f0c72237739df7bde06c310a6c606cdf509c7655479ea4bec869",
+        "scripts/validate-skills.mjs": "bb687679aafac51efacfa92ac7648cbd8c0e431ad7765519809d1ffadc1dc56d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-materials",
+      "path": "imported-skills/logical-solution/blender-materials",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "9e234c065a1887c5ecba452fff0b4e7b57abc03bf69bf041717a719c0ad7e89e",
+      "files": {
+        "SKILL.md": "a1e55f17ba4150562e8589c4ced17aeafe2faf1f4b19f0b52e5d548765d4c989",
+        "agents/openai.yaml": "0e4eadc5170feaed7d900931599f52fe39bd173877a34cc74b3b6dfbb1026684"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:25)"
+      ]
+    },
+    {
+      "id": "blender-modeling",
+      "path": "imported-skills/logical-solution/blender-modeling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "fac8d4e5627bf05d0df247518ecba12224b255953d9ddbe6369d8d296f7c1cca",
+      "files": {
+        "SKILL.md": "269f4b55aaa3f4ce89903e4b47e12151cdbc9f5bc39d8c1703e417d6d9d808c6",
+        "agents/openai.yaml": "adf9d96cce41fd3d8649cde9271c1bff32b9fad32d9629ba3044679537ea10d9",
+        "references/approaches.md": "b4fb0dc18a6c3fd89ff56d9d9348a86b8ac86eb0fd1c4c9c2aaf9b4481d220bc"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (6:25)"
+      ]
+    },
+    {
+      "id": "blender-rendering",
+      "path": "imported-skills/logical-solution/blender-rendering",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "2fe7e4d7e004c77e0e61e3a81230938a009acbe3c9e68b5af84a89ba8ee88a42",
+      "files": {
+        "SKILL.md": "be525c48cfc6fd750f96d04c5efc205f4739b6d1907272e9a3972267c20d2e84",
+        "agents/openai.yaml": "ec1c11b0596d85d5b42ca154e2ecaeda51b7dc995f0423325729288b09961a23"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: bad indentation of a mapping entry (4:20)"
+      ]
+    },
+    {
+      "id": "blender-rigging",
+      "path": "imported-skills/logical-solution/blender-rigging",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "cef9fef4e012cb10b9d1059c5b0b81181d4c71114dd79abc9e99a53c1098fa4f",
+      "files": {
+        "SKILL.md": "af10b4dd0476f8d0dd5edd16c02472a5d615aee01b746795958489475da5e4ad",
+        "agents/openai.yaml": "14c06a5aa4b54148eda9e17faf1960b6bd379ba16ad4ca441e7054238640c19e",
+        "references/pipeline.md": "024815dd99098e8816cc47544d42231cfa01bde07f50c829876389c634bed2e6"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-scene-inspection",
+      "path": "imported-skills/logical-solution/blender-scene-inspection",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "b662a9d961d2aafdbf722758c1d11cb1ed448efed3216e8a367b5de17cfaf33e",
+      "files": {
+        "SKILL.md": "842598c0efa6b062eee9236416aa55f65cf55e70e0e6df8a4f28a46062878f8e",
+        "agents/openai.yaml": "fc56aacb99c1cfb9db79580e91ac692330562a4f8412b43818a6b07c9284ca90"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-visual-qa",
+      "path": "imported-skills/logical-solution/blender-visual-qa",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "9f45ca1e21436879c3dea74463b90d840954db52fea5b979d45ea1e1ee97e547",
+      "files": {
+        "SKILL.md": "4ef779f024365e5c4d9cf62ea788ceda63fd1ee91f9601e60f7ebc8e1ae447fa",
+        "agents/openai.yaml": "f9d17d42c2f1cef233fcbd0140a46ba6040259cd6710ed4f9b92f9c8cf4067fc"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "blender-web3d",
+      "path": "imported-skills/logical-solution/blender-web3d",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-blender",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "567cb275f6fc2bdd181edc4b2f0f81e86164acc35283f5d2e585d3e40e2e3a78",
+      "files": {
+        "SKILL.md": "68e4eb1f1b5e96f2f95e3dab5378d6e5b5cbc0d5e1a87e25c0ca72b37b30b530",
+        "agents/openai.yaml": "d2ceb280c315478c27a84489f570ebc1c11fb753133ce42db8d4d043a6efac2f",
+        "references/export.md": "e147d1149d1c3a9584c08758d1bcb9a1546a3a1d62d495170c91336efa188e5d"
+      },
+      "issues": [
+        "frontmatter: invalid YAML: can not read a block mapping entry; a multiline key may not be an implicit key (7:60)"
+      ]
+    },
+    {
+      "id": "spline-animation",
+      "path": "imported-skills/logical-solution/spline-animation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "a7f7552982ddaaa905c4b1f722afa07749517a7dfb36f93f6757755783cfc5cb",
+      "files": {
+        "SKILL.md": "a04e1c9885b83a46f42c9996789f06972ca0f1171f6228c2eb5d198f6816881b",
+        "agents/openai.yaml": "0dd4311a0080ef7454e46cd89386cad188122ebf4c7e3ec509ebd11ed1ef09f2",
+        "references/motion-principles.md": "eadb6d6ba177b25300b5e5b5ee8689d2fd2f625af7b9d36ee1ba6c018c67095b"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-camera-composition",
+      "path": "imported-skills/logical-solution/spline-camera-composition",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "42822e8a3fd65fce5ab539e7be886d21bc020511b7b73779ab8313371e2afa92",
+      "files": {
+        "SKILL.md": "f5e646201554d3c485c903ea97009f812f8a06fdb5391e4f5cf41c85e89de8f4",
+        "agents/openai.yaml": "11deb8012420c988d6e08b7a127ddea674b379bd5dcd1f57d3c275478516235d",
+        "references/web-framing.md": "11e3870d0432154dd583d07fe4529ec49d7dcb0ec12040cc2cff971b185db9f9"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-hero-design",
+      "path": "imported-skills/logical-solution/spline-hero-design",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "1082ae448be43185f0ff17380b45e22d25cf7a4a887367fa56535abb87790c7d",
+      "files": {
+        "SKILL.md": "4c8ffb343d2b25da3e5b083298a1121ac7f1ff217733460743959bb6dd19daf4",
+        "agents/openai.yaml": "69a75e0802a1f5ca25ecd97ef021f0a79d2a78b35e977fc18e974a8ab36b069c",
+        "references/logical-solution-register.md": "84afc91a35ad747cef34a2d6170ffccb45160da0d36c54bb213b826da647712c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-interaction",
+      "path": "imported-skills/logical-solution/spline-interaction",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "67453787e72f119e4c1e760e15c5bbd53d1012e3f87eb5149e9b798a0ca975d7",
+      "files": {
+        "SKILL.md": "07883431f10554648ab23f18864113cb7ca9b5a8972c14f06012d991b70c1765",
+        "agents/openai.yaml": "7e15fd568ceaff7149504fc620f43ef6e183fa19d29bb65d625b300924ebe71d",
+        "references/input-and-a11y.md": "92ee46e4e22d5437138c0880f99b0c2c8796e0993870eda7967fb8f23598a6eb"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-lighting",
+      "path": "imported-skills/logical-solution/spline-lighting",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "c086634b5dff25b07029601c0d575b6bdf3eede73775c5527028aca7f93c64ce",
+      "files": {
+        "SKILL.md": "02db1ffa43f70621ae45e2b5af093115b0e2d67cafa6ef08529d9e4947c580c3",
+        "agents/openai.yaml": "99f615d8334a4b3c7ba5f230cb3ed4cc6b80a5f03ba71a60998afa1d3d4bb17d",
+        "references/light-rigs.md": "c3579b655360e6ccba4401cd70d1ef226a943c1bcf5889e3453f733f74c6f70b"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-master",
+      "path": "imported-skills/logical-solution/spline-master",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "698e0b611d0e798c94396ec69e82a2e4061a49a0da3ad85500a9372db52705c9",
+      "files": {
+        "SKILL.md": "21b8b8a9c74fcd1172a9bb939fc0e82c00fe25b893106fc415392d64d7f7746b",
+        "agents/openai.yaml": "e887baf1a37a70d947ed55505dafba08cb9b4926f71036a21eaa96a218b74a0c",
+        "references/image-to-3d.md": "58ebbdd2a062880686fe36f6ce43168d0aee819df169fb33b924b295901c42b5",
+        "references/mcp-3d-tools.md": "839140f12c0947b28bb2d6e749ac4ce91e87aa4310ef5737b23821a8eef89800",
+        "references/routing.md": "2647e9fc763a54c97c71e98a256a6ad6cff1726fdaa9aaeffab5b0aaa2ec5e04",
+        "scripts/validate-skills.mjs": "faf7d95932d6bef93c1c2ad598f9c79a68f8b57ca5a248cfcabe36c68f6be613"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-materials",
+      "path": "imported-skills/logical-solution/spline-materials",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "75334d82bf1b7141f1279f732512bd99afffd0cea151636440bee69650fb27bb",
+      "files": {
+        "SKILL.md": "8c5026cb3c0b011c4752bb523bcf6385de2ea5e3379adb9f13c4bc9c5415b052",
+        "agents/openai.yaml": "8a22a0554087c94bd50145d143e53a73278f86068a9629eed593ab9a70c86204",
+        "references/pbr-register.md": "b742a1b1aff21ecd254c3341009f6805e286fc904765a9355600cd5b4738c908"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-modeling",
+      "path": "imported-skills/logical-solution/spline-modeling",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "014a99e535141054f71fe4177ef4de7ec2194a4c39e1b5da6a37fa7ce86b9b2d",
+      "files": {
+        "SKILL.md": "d5817ca330b24ece9516fde86b47ea0ff75a3f691988a2c903e841c7c2034186",
+        "agents/openai.yaml": "9bd56161ea8f1cdc867e9a49fdf9397540f216153e41bf3c80b41826e7758c20",
+        "references/geometry-cost.md": "7c6fc173886e7361489426a45840d5779ba14de9caa0c7a692fe77b9a71a77d6"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-scene-analysis",
+      "path": "imported-skills/logical-solution/spline-scene-analysis",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "65dc9a77974cc916bf656d2b92e7330347e1e971fa2ba40efcf102f42211f56f",
+      "files": {
+        "SKILL.md": "6d996c986ac0e879d4f4ce9fcfea4a21b5fcfd4064010bd9db7e1a1508a37c96",
+        "agents/openai.yaml": "d8727f75fe87d7fb6abf2c71ae812e82cb4f3988f9f730b51f5b103e5474243e",
+        "references/digest-flags.md": "c8cf81a016f829e9b893eb9efb2f5d4ca5492653d2f9a70a8f3a1263d4c2ad8d"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-visual-qa",
+      "path": "imported-skills/logical-solution/spline-visual-qa",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "2d3203c6d17e7c4f88cd28b1a5885ba0eb2727ce749a1ef104cc0c74b5297543",
+      "files": {
+        "SKILL.md": "03436a7f29501f6193229d1d3537617d136b76e02028e7d43c0dcf91de9f8e7d",
+        "agents/openai.yaml": "7ecee8ee34490f08ef06ece06c096a3439329a4b0e3a3c2532c7fab05179d125",
+        "references/critique-loop.md": "a7f8c9d1372db823eb3863ddd1af4a9507aca9ee26ce91c4a79d5f5d745e5f71"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-web-integration",
+      "path": "imported-skills/logical-solution/spline-web-integration",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "911ff1a986e14480292fdfd691e80c84e85e713c5cbf37ea45094ade4814e302",
+      "files": {
+        "SKILL.md": "94ed6a18d79df3d96fcc6e8e69ae5fc07a5ebfd3f702788f207ab8da7165e30d",
+        "agents/openai.yaml": "2696c42ca018b23f0de9a941f80093f8fbda3f300a99612d98f2d636c4cc8f71",
+        "references/this-repo.md": "d8617420dc7343ca9cb1953b1573c66833fb687cc20773f578f4146d48b11a48"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "spline-web-performance",
+      "path": "imported-skills/logical-solution/spline-web-performance",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "3d-spline",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "2742290e0adec770a60f39522dda9a77c26829c14dfb40ce512d262b91179af9",
+      "files": {
+        "SKILL.md": "80122bc773e417b8013005a0d699602c60731add1ed27e980c786233beadbf8a",
+        "agents/openai.yaml": "22ed661d6ec59184ade8a06d418bb7af0604bbace986ed2d7c96bba7ffe12fe6",
+        "references/analyze-scene.md": "532a45c1b6e705762b0ab3b17faebe074ddd9e5f6adff17c78197709576cd0a1"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "teste-iphone-perf",
+      "path": "imported-skills/logical-solution/teste-iphone-perf",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "Logical Solution",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "770e05cd0167fd3d0643eaeb0e3d0d3ccf739de94e688f9c96e70bead95b4707",
+      "files": {
+        "SKILL.md": "bde56ade1bc5a3a88d33f05604cc91dc61db7a93ad4920c3bb15abdba2328135"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-a11y-ui",
+      "path": "imported-skills/okgas/okgas-a11y-ui",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "0b759f13827c246f25b5f0f85de888774217d628bf521cbaad68079be6ae2c82",
+      "files": {
+        "SKILL.md": "f4a2e12481f7e5828eeaf38c4bdd5f0f2d1b74247509bda4f32cda01be479b77"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-agentops-diagnosis",
+      "path": "imported-skills/okgas/okgas-agentops-diagnosis",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "82f01f1c0eb9fe87c1f370540e34df2cb7690d61b5047c9eda0dad00385b41a1",
+      "files": {
+        "SKILL.md": "5b6fdacb8fb768067a395680e4bc4f0a057cc1755d26630659daf372a0a49a0e"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-ai-readiness",
+      "path": "imported-skills/okgas/okgas-ai-readiness",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "b444a2e3d3c54601d7b58d713060f07d5f259b233c5a0e10789a67ea934b3147",
+      "files": {
+        "SKILL.md": "2626e8786d2b5919b22ab1f23a22d5c8756b5fe4eb2d4783064fed210bb8a39c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-db-migration",
+      "path": "imported-skills/okgas/okgas-db-migration",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "5ae802187ab1d25cd32486c9bacac65125553f1b1adfc57b16de688a1ebeebeb",
+      "files": {
+        "SKILL.md": "e06eb525b4728562c36e8bf3794f385a7a954399c3c93c8ffea95c9986f0697e"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-eval-authoring",
+      "path": "imported-skills/okgas/okgas-eval-authoring",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "faa2357ee4ed19488981bf1c053035e094b47dd83073b601c5b63a6b212e4437",
+      "files": {
+        "SKILL.md": "b5c8e4a7862df8f0f9b8a1d55c56ac5de52d1e446be37c4979339bb5b002b717"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-feature-module-layout",
+      "path": "imported-skills/okgas/okgas-feature-module-layout",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "57429b73382199d5f2e8135e00da2a1f3d55d1c960f6549df1828f06a6bb99ef",
+      "files": {
+        "SKILL.md": "5f4d0b691e5c9cc69c747e3bd90ee95fbfa7871d7db6a14061d4a3f897831d77"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-lab-elicitation",
+      "path": "imported-skills/okgas/okgas-lab-elicitation",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "4345a9f96538e39257a8ec363b6f267a1958a0cdf5789ea7026acb2bd3de931c",
+      "files": {
+        "SKILL.md": "3ec29f4ca69b8be3260707ed8887b0586575a89c8451ba0e8f1803e965c91207"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-mobile-fsd",
+      "path": "imported-skills/okgas/okgas-mobile-fsd",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "fc74a366fd724224c105a3230bf1fbbc8a03e74d2a71f57ef6abd1f0bb4ae61f",
+      "files": {
+        "SKILL.md": "85c011b68fbde2c918b470e7f24159256b1f3a85df3773c68452e3f67153f1ee"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-module-boundaries",
+      "path": "imported-skills/okgas/okgas-module-boundaries",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "7465fa9afd89eb65fb8622e1ac17fb126b7fba2fb4161d446772cded09ab08b3",
+      "files": {
+        "SKILL.md": "ed7e7c057e3c4cd0e482351db5a3aff28fcf0e61a8bd01843576a09033b7d76f"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-offline-first",
+      "path": "imported-skills/okgas/okgas-offline-first",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "cce5b095a1b4950edde05fbd49b3b3cae17b8b083b7c8f94964224c8e8d6ad7e",
+      "files": {
+        "SKILL.md": "08e5947f59742a628f6aa357657e78d1c29cd55c25ba7696121375a04a782bc0"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-po-briefing",
+      "path": "imported-skills/okgas/okgas-po-briefing",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "f63a54a65060f4a387986796b4c096d0a624df5aa11e470561aaa4438cfbab31",
+      "files": {
+        "SKILL.md": "955123ae56b3a4081c125883bd3bc3af73040a4df7ef07c1096455bbdf40b666"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section",
+        "broken reference: assets/brand/"
+      ]
+    },
+    {
+      "id": "okgas-rag-grounding-review",
+      "path": "imported-skills/okgas/okgas-rag-grounding-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "c7b29bcb152f8b7f91638e2d28527f23be4b416fd2363b1039c73c0465b851af",
+      "files": {
+        "SKILL.md": "80d57d72b895d2f325bd7a25c2a9dcf81f06986f33434ca4f44a1fc65b6ebd7f"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "okgas-saas-security-review",
+      "path": "imported-skills/okgas/okgas-saas-security-review",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "not recorded at import; the owner must confirm authorship or the upstream license before promotion"
+      },
+      "family": "project-okgas",
+      "profiles": [],
+      "invocation": "auto",
+      "version": null,
+      "packageHash": "a4f671242de1a78bc6027149f2750abc771a1730d44cf52d9958b210c848849a",
+      "files": {
+        "SKILL.md": "a1415e848e84464d32f417643f6d5c7a78bdd80a933905ec1ef37135eed449c0"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "prisma-client-api",
+      "path": "imported-skills/okgas/prisma-client-api",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "7.9.1",
+      "packageHash": "ed91b7464f81a11aafda2b136ebb40b2d03886e1047bbf796c92217ea37bbb2e",
+      "files": {
+        "SKILL.md": "b7c6aeb7a807274a098b406e84d0b97c038f9b1e50d4d6d66a4dd78aaa99d388",
+        "references/client-methods.md": "019069afdde63d42c8a8e99b4d75bfbc461615786714da243e447f75cc28771f",
+        "references/constructor.md": "049d1e22c81f4230c28640be638e0d758207d1452712029367340c7a47b6724f",
+        "references/filters.md": "93e61792bb1b8780113b2914677fe12dc13597f194eaa8a82777cee9908e0a05",
+        "references/model-queries.md": "3d231c52bdf3a32b4fb2440f5f6af72fb51a5c8995ee2fcade5075fe1dac1b43",
+        "references/query-options.md": "8f3c1c3628f8cf45fcb6f59e62492afad83d6964f1068a1ed58b2657e012818c",
+        "references/raw-queries.md": "8e90f245cbb161f74450284accda431c7df6ee4dc94e19d9e159b680b1aa9d16",
+        "references/relations.md": "befb05bc267b919786e1457e99c1f3293fabbf961d9c55575f41668c45dfe3b8",
+        "references/transactions.md": "8bd66b8f772abac2cc18d378ffd2070e86d81446a37699ff3f1d3e0fa39eb85c"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section"
+      ]
+    },
+    {
+      "id": "react-best-practices",
+      "path": "imported-skills/okgas/react-best-practices",
+      "status": "imported-unreviewed",
+      "origin": {
+        "kind": "imported",
+        "project": "OkGas",
+        "sourcePath": ".agents/skills (in the origin project)",
+        "importedAt": "2026-09-24",
+        "license": "the package declares MIT; copyright holder and upstream source not recorded; confirm before promotion"
+      },
+      "family": "dev-imported",
+      "profiles": [],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "771d4f5d9267cb59caafc6fbb888872e14b3f401c93d1cd867e4384ad5165fa3",
+      "files": {
+        "SKILL.md": "c3f86dcbac634a8621f211cf1531efb4d89fc946cb81fc5fe16daf81378d077f"
+      },
+      "issues": [
+        "missing \"## Operational Contract\" section",
+        "broken reference: AGENTS.md"
+      ]
+    },
+    {
+      "id": "ai-context-diagrams",
+      "path": "saas-skills/ai-integration/ai-context-diagrams",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "cdf41638193cdfdbf89ea27c55c8f5e599631cb68e085296f755ff8a4dfd88ab",
+      "files": {
+        "SKILL.md": "674720a3640c21fb104c07c98210ff31b5c73094dcbec9951c78b9bca364d050",
+        "references/c4-model-patterns.md": "9aaae119efacf480d524512d114fdff7da2aa287320875d4fe103456b0c57fef",
+        "references/mermaid-examples.md": "0a6b03dff87c6b66664746223a5fc8d1a0fa156b6d5e1ab10e6e22d234de5cfd"
+      },
+      "issues": []
+    },
+    {
+      "id": "ai-interface-design",
+      "path": "saas-skills/ai-integration/ai-interface-design",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "25c177a99db8fdbc9430be48e1c20cd406935fbedb82b840e237200283a6d543",
+      "files": {
+        "SKILL.md": "8661c7c45eafabad3343a702141ee2dfb36da1e35a153f1b874b1c0c1c3d8b79",
+        "references/compliance-checklist.md": "35dda37fe726baaa230651e71adcfdce84284a015d12fc3f4fb11f7cd87ae97a",
+        "references/implementation-roadmap.md": "5edef20305fb5b5440db4efc4e9de630bbb3f93b4e0b3d38db21ac7b5433ca42"
+      },
+      "issues": []
+    },
+    {
+      "id": "context-window-optimization",
+      "path": "saas-skills/ai-integration/context-window-optimization",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.1",
+      "packageHash": "f84e651a52738ac81da186de50cab8c19e9f81ee09de00abf6accfc00450b14b",
+      "files": {
+        "SKILL.md": "db975d1cff51aa3834da1b18b7d250457d0918eb5adde747c6cbdcfcd0415947",
+        "references/compression-strategies.md": "ed4cd7d4597b7ef095df3b5d6a8906b61d00a08130fc49ecef2542ec103ab562",
+        "references/rag-decision-guide.md": "8bf5e4916ea3214d82dbf2de8d68fc3d470a3e7cfa9971c979c6e58572a1cbd3"
+      },
+      "issues": []
+    },
+    {
+      "id": "multi-agent-skill-creator",
+      "path": "saas-skills/ai-integration/multi-agent-skill-creator",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "e4e0651eb7acdbceccd7b251183fd25feb52c51ca3df0e495c1bf2c88aff3e57",
+      "files": {
+        "SKILL.md": "bcce4d78d6dff0e5ce85b595a2ea33387caad29c9c26d66c156eb41046f9bbfe",
+        "agents/openai.yaml": "a7fa9c511e191a5487c2eb6a94ffcad20b52829af6bfef681985d24b52748aab",
+        "references/runtime-contracts.md": "4c84e1e71b47babf0315c839be1ba349bd9ef75f22f7c986b8a241aaa67f909c",
+        "scripts/scaffold_portable_skill.py": "a14b88e0695aa4633f37170956b4653abce799c0ade7ac98f34e27e2990d17cc"
+      },
+      "issues": []
+    },
+    {
+      "id": "multi-agent-skill-installer",
+      "path": "saas-skills/ai-integration/multi-agent-skill-installer",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "explicit",
+      "version": "2.0.0",
+      "packageHash": "fc98e0cc36c75c854038b7f3a4114f6d6db55db868f447c7d86028f96da591d0",
+      "files": {
+        "SKILL.md": "42d65d4df21f76aec7700d5d3b243746a859ae2a8661e7c714a1bb01a42c3c10"
+      },
+      "issues": []
+    },
+    {
+      "id": "multi-perspective-council",
+      "path": "saas-skills/ai-integration/multi-perspective-council",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "1226d9fd595cc4a2ce4c6f50512485ee4930c730b824abd155e44327415917b9",
+      "files": {
+        "SKILL.md": "dc7f768fc22126ee52ef7041a4cb5d0217b62217c739a33a55dc7cc339981cb8",
+        "agents/openai.yaml": "64296822da3a8d78d2c2489ceb66641e084d800b1ba642c7868dda8797c83bbe",
+        "references/advisor-prompts.md": "fec92963b6a7a7189cefaaf1c427d3001a52e4defdff5645b09fce922c3e1e54",
+        "references/output-templates.md": "c0cb52bd2d15b0d4afb2657e6d6c6e0740b486178c0278fcfbe657661969eb81",
+        "references/runtime-degradation.md": "b5161bbb75c6c293ef7289446dc8f32d8e793858549abcfbbd8c0a414d950ae7"
+      },
+      "issues": []
+    },
+    {
+      "id": "prompt-engineering-hybrid",
+      "path": "saas-skills/ai-integration/prompt-engineering-hybrid",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "a1897b3206af9d3f030973bc2faf6ad3c9630301e8f05daf2a456989aee151bb",
+      "files": {
+        "SKILL.md": "1251d22eb5dcf7e3a45962a53c56968fc98b4ca3dd965956ece4aac690974767",
+        "references/format-selection-guide.md": "6aa8b2a82828e11e00a0bc4bff6a8eef78fedda52fb48be6c185f6b95c042815"
+      },
+      "issues": []
+    },
+    {
+      "id": "saas-ai-agent-engineer",
+      "path": "saas-skills/ai-integration/saas-ai-agent-engineer",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "ai-integration",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "cb0bf113699354a1b39f2d547fd94623419804ec79982073b25c1be4dbf045df",
+      "files": {
+        "SKILL.md": "81edde1f08e25daa59fc2b4f5bf7c15fcab7cb774c9430ed2b9948dcbfd2649d",
+        "references/architecture.md": "b7ebc6e9cfe12164cd27f7aa3ff9c7055990a7ab3bc0519f58cf415f51920e17",
+        "references/evals-observability.md": "cfe91efa5a26a0d10da24e4b2619ff616da11e6cbdcae2ff9f24e72a13e045cb",
+        "references/implementation-patterns.md": "b9f44dec418fc2702088f58e04995d1234811441c9ffefb4c64693adfb3f7344",
+        "references/rag-memory.md": "0a886871508f13fdd09fcfbfe6667be07b053e79c84f7a9ab8bc867ee1e03549",
+        "references/review-checklists.md": "3835ff0bad45e241ffce64afbdc45f360e482a7cd68c35514796a4343b16039b",
+        "references/security-governance.md": "a88b8b402ddfd8220f01fc84d0e59ac78405a05c945d74f4d5fbe43bf590f5b5"
+      },
+      "issues": []
+    },
+    {
+      "id": "api-design-patterns",
+      "path": "saas-skills/backend/api-design-patterns",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "062b03d96ece3599b2caeba190e189ab3ebdb9cd34fc8b35a3649481db8e4913",
+      "files": {
+        "SKILL.md": "6245a14a612793886e1e40873246a6158c5b568d35b99b28cb710e9c8f527348"
+      },
+      "issues": []
+    },
+    {
+      "id": "clean-architecture-ddd",
+      "path": "saas-skills/backend/clean-architecture-ddd",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.1",
+      "packageHash": "37d4b320afbba4fa43178809a2ddf1737f127bddd611a97953fd0890569baeae",
+      "files": {
+        "SKILL.md": "0e5d4c762dd747245dd2ad6a4ab366986df9481016abc983031ddce33dd73fb7",
+        "references/ddd-tactical-patterns.md": "bec63f6fe1d53380a7e0caadaef437dc81530f5d4b0d706d1106932d1481e6b3"
+      },
+      "issues": []
+    },
+    {
+      "id": "prisma-database-design",
+      "path": "saas-skills/backend/prisma-database-design",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "backend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "e5f2e7279c60fa0e78bdafbd00befb33f52e84e1c94cf74f4d5daac6d9f53ede",
+      "files": {
+        "SKILL.md": "19df5f06b48cd669e94f35d75b81b50891d9b101ea92e650a9f2f31abf23cfcf"
+      },
+      "issues": []
+    },
+    {
+      "id": "intelligent-project-docs",
+      "path": "saas-skills/documentation/intelligent-project-docs",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "documentation",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "04c04ce5e44dff4f93034536fbcab40c93808a0505f637a9b01d9f08edcdbda9",
+      "files": {
+        "SKILL.md": "b8f73152f8b0aae5ebec894296a46ee94c7aba823d63e331b4520da6aebca4c0",
+        "assets/agents-md-template.md": "d2326a912dbc6218df897122d3f70f73754e863e776763822b0f04b274e856fc"
+      },
+      "issues": []
+    },
+    {
+      "id": "technical-research-writing",
+      "path": "saas-skills/documentation/technical-research-writing",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "documentation",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "65175a87bd5756805f9fdc9bb47ef0e9ac4f8be922e1d7f93c2bb7837d35424c",
+      "files": {
+        "SKILL.md": "5af7e6dccd600324887ffcef144da55b2abc75273e41e83341b74622386390ed"
+      },
+      "issues": []
+    },
+    {
+      "id": "legacy-code-refactoring",
+      "path": "saas-skills/engineering/legacy-code-refactoring",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.1",
+      "packageHash": "9c71c8b548f05106d568fb2e67d60d3c1a18a0c68c22d698cc8463f23c9a1539",
+      "files": {
+        "SKILL.md": "b8dc64c78c0f8518bf7b43282a0ee36c9a236d1fbdac46471f84f781c4cbbee4",
+        "scripts/legacy-inventory.mjs": "aae1431ac406a40f0787e7336d146ce40835251935294c8fd2dba2388547773d"
+      },
+      "issues": []
+    },
+    {
+      "id": "multiplatform-platform-architecture",
+      "path": "saas-skills/engineering/multiplatform-platform-architecture",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "2.0.0",
+      "packageHash": "c445406b8015ec49fbea4075149baae39be5df00624670b5ab670c89cf460cc9",
+      "files": {
+        "SKILL.md": "bd6bd29de7417b318b401ccf1856333a5afdb37754818f11bd8ac5359c9deea7",
+        "assets/template/.gitignore": "0f08caea4c9b7d98cf7912b3afd19013956ac0b23902994fe35715882ae07487",
+        "assets/template/README.md": "ac8c9baa2950b760ce11e9525840e679988aab953b365bd19346d6762f567e75",
+        "assets/template/apps/clients/mobile/app.json": "d09feb0b804877bada271af1ace57eb97d51b9c36bd27921eb0e484cefa1aa30",
+        "assets/template/apps/clients/mobile/metro.config.js": "86aee24a6691c6f4d96dac28a7d38ae783a351b0dd7a23923e993e1d84d6d9c0",
+        "assets/template/apps/clients/mobile/package.json": "803cb0aec78d8f078349a7feb23979dd4e760a51e2da3d0452cbb810fcb64884",
+        "assets/template/apps/clients/mobile/src/app/_layout.tsx": "9229b85b8db97c0f9ca82a93153c6f906ce78a64112a89444c9d1cfe031712c2",
+        "assets/template/apps/clients/mobile/src/app/catalog.tsx": "df11a16fc0e2d0d95c756c246e4d29b87d873da052c380d606a28deb42ca1c9f",
+        "assets/template/apps/clients/mobile/src/app/index.tsx": "3297e996356f38e020a3a8b0e98b74a4cd4697e906b0abb2708708a741aee289",
+        "assets/template/apps/clients/mobile/tsconfig.json": "e57f22404b53cc9d48c00cde9768dc74ed8cfdaf9bb89cdf2030d6e322136e97",
+        "assets/template/apps/clients/web/next-env.d.ts": "879741880b6ab48da99dcc06dcc674d381c9826137b0496bf7bb368f302de9fc",
+        "assets/template/apps/clients/web/next.config.mjs": "c507a0922f57a0a253dd6f05a1a373432581d21ab2fb251c690569f6e01bcfff",
+        "assets/template/apps/clients/web/package.json": "311efdeebd7475388e6c8882d852c3139bffb4d0fea2441d3d45c42ea42d53c3",
+        "assets/template/apps/clients/web/src/app/catalog/page.tsx": "f0472ac52252e82d4b86217867710af8fe0c523e1572f2ad64615d37af3fa922",
+        "assets/template/apps/clients/web/src/app/layout.tsx": "0a81c28698b9189f89785fa1677a61698a36e819d0273cb53159e2315334501a",
+        "assets/template/apps/clients/web/src/app/page.tsx": "805fa790e0940051d6750a6ac6b0235fe3317ac52d4c98e982cb224a1c28d159",
+        "assets/template/apps/clients/web/tsconfig.json": "b146063f21c1565ebbd39ec4f1cdd0507023af2bfe7837be10accb4be012436b",
+        "assets/template/arch.config.json": "3f9efaa527e2ed771bbb4d951e0cd16f8c38972f8a47abfd8f5e4a0c40aacead",
+        "assets/template/package.json": "4ee48c56fbeb5c8eae872ef260f34ed35d7c1f823f8602374585ff34bba18203",
+        "assets/template/packages/design-tokens/package.json": "70b20e658d44ffbde6f7f0b690087021758a2152024a76946f728bc155308ed0",
+        "assets/template/packages/design-tokens/src/index.ts": "fa531b03706322ab64d2d4f9ae2f3aa918f230cef86d3ad3803b3b28e5ff1559",
+        "assets/template/packages/design-tokens/src/tokens.ts": "215e2359e84363214ab7c97bc4e2535653172c2f7b4fc7ec4aad4122d5c090d0",
+        "assets/template/packages/design-tokens/tsconfig.json": "34893bef7f98e46e0fb4675dd22cda30d20fa63a4a451e34100210dcb9dd0e20",
+        "assets/template/packages/frontend/package.json": "87e37f33eaa50c7aeeed507a12083fd7568a5d02a6aaa11fb99aa6f4009d2419",
+        "assets/template/packages/frontend/src/app/index.ts": "80b184f9f0ce99be4bcc54cb08cbc3ed44a9de7a17307028b6fd891600c62585",
+        "assets/template/packages/frontend/src/app/providers/AppProviders.tsx": "d772ce4bfa2d2cbef4f5100a337dd62e84d54a719272e8d067e9d079e3af82d4",
+        "assets/template/packages/frontend/src/entities/product/index.ts": "050b0ceea0e6dc39273dfe2f18b278ce7552a55907337a0b4c5818d6fdde664d",
+        "assets/template/packages/frontend/src/entities/product/model/product.test.ts": "1e92054217fc2eeb0eab6d66ddb366456239ffefd362ccd29913129691311340",
+        "assets/template/packages/frontend/src/entities/product/model/product.ts": "5856a9195280d11c82b2b1b0ba76f2fb0fcbb7074445f10e449ff53bfaf504d2",
+        "assets/template/packages/frontend/src/entities/product/ui/ProductCard.tsx": "b821d70f67e48deeb722e79f679cca35b9389bdf6791fda143d7955bc260a4a2",
+        "assets/template/packages/frontend/src/features/toggle-favorite/index.ts": "7a1c834400737bbcaeccda60c67e881523184dffdcffa28f236a4b23215319c4",
+        "assets/template/packages/frontend/src/features/toggle-favorite/model/favorite.test.ts": "fc74d8c5c27c9bfaa7dabb32fb10928b41e324012f38ebe47af190c44db81891",
+        "assets/template/packages/frontend/src/features/toggle-favorite/model/favorite.ts": "dd9e5aa34a493d8a4e57dbab0541c46c68ca9609aa9afea09a111612f47e971b",
+        "assets/template/packages/frontend/src/features/toggle-favorite/ui/ToggleFavoriteButton.tsx": "ce3bd9bbfb1737a3245503f5cef2f7dfd2f30c35edb685aac912d18715183f4f",
+        "assets/template/packages/frontend/src/pages/catalog/index.ts": "ffc8273efde5930b4f17e6cc5e8b01c5f75cb3a14010d1ac519741179f6fe332",
+        "assets/template/packages/frontend/src/pages/catalog/ui/CatalogPage.tsx": "578ababfafb51b3c411433bebf1948e1d613a27bde538dd5c308e09bc98283e7",
+        "assets/template/packages/frontend/src/pages/home/api/sample-product.ts": "5ec2147e3e3c71836c760b83e3cd9898d5125edfe330de3a10ecc6b229626e53",
+        "assets/template/packages/frontend/src/pages/home/index.ts": "e42e5c4c252a87be7f9a22aad1ba09d2d23daa34628045e065d382805e557034",
+        "assets/template/packages/frontend/src/pages/home/ui/HomePage.tsx": "31e357ec4e47b2d6dbb3fbcb1c92404218fc0ff07024283e0ade58de89a39e8f",
+        "assets/template/packages/frontend/src/pages/home/ui/HomePage.web.test.tsx": "e5d95513ebcefa2fe11fee530ec12dc26838033b536c81ca3705cdc3fd783d45",
+        "assets/template/packages/frontend/src/shared/ui/index.ts": "05ed3985058f158305ea3ae0953ffe4823d9baa469fba7111f5cb4b43e2ad8d3",
+        "assets/template/packages/frontend/src/widgets/product-highlight/index.ts": "52d83eb9a29e571f4dbd63d9d05d9d1dd340a7e9eb7a37b41562965f5d7b8fd4",
+        "assets/template/packages/frontend/src/widgets/product-highlight/ui/ProductHighlight.tsx": "808b8362d9573b470d81a46ce1d5585cf266a18f3f203e1e0e5ad46eebedf407",
+        "assets/template/packages/frontend/tsconfig.json": "3d01484de0020b9a7a9d8d6223c5fd1ea468e998a9a883b95c8e2a0dcd897b75",
+        "assets/template/packages/ui/package.json": "62aee0cd511195283a0987d0ac5e7e94de58f22f3b3dfd1bbbd30ff5bad30eee",
+        "assets/template/packages/ui/src/catalog.test.ts": "d349fd58319e70c7cdc469f5a20f5ad881b39817ed54100b73bcc3b780c1c0b1",
+        "assets/template/packages/ui/src/catalog.ts": "7436e8c1833a7f4fe5aec9b1a27c9bfdf788469d11ae6c966ea0d38c394db60f",
+        "assets/template/packages/ui/src/contract/button.test.ts": "975913162c07f0ed86d8481bd3f79817fa5a1b5ec6998876d0c041f387062fef",
+        "assets/template/packages/ui/src/contract/button.ts": "7396e375d1fe81feacecb075f5b6f8680656c26b56300d4d464ca3d6cbbc5bea",
+        "assets/template/packages/ui/src/contract/stack.ts": "148ea2cc3a68d294e0afb680ce944fc689aeaa820bd6fe6ad631ebe059a457d8",
+        "assets/template/packages/ui/src/contract/text.ts": "bd988b3c8982090fb1193046fcc47e6d9c2898fcd26451bd26c2393df5881213",
+        "assets/template/packages/ui/src/index.native.ts": "4bd28f4eb3339f534d9e7d0ef108455961dea3092bcd9217bfd3c7a5a350d94a",
+        "assets/template/packages/ui/src/index.web.ts": "e8bda221af0485c22851e6a63235115a4c68ee45dc5626013a8cd0826ecf04d9",
+        "assets/template/packages/ui/src/native/Button.native.test.tsx": "ab8b0aa950ea2085ce79fd5e430931c06e25d4f8e486291012886f2ab06a9728",
+        "assets/template/packages/ui/src/native/Button.native.tsx": "2caff9adc37a59f86881797db5e1e1cd7703a030d96e5d3c782e50afa9e3c2af",
+        "assets/template/packages/ui/src/native/Stack.native.tsx": "8e86d535af69ac1606d62cb14541278be820c6c10c010aa8864bd9d9b7dc7be8",
+        "assets/template/packages/ui/src/native/Text.native.tsx": "2d3a62b837ab023f3b42f26cc7e7dcbe2531626b5ebbc2ffabc9cc0ffe6a01c8",
+        "assets/template/packages/ui/src/theme/ThemeProvider.tsx": "43969fc86022fd3681b8fc1ff14998f4a83a949d5c61f3e95dc7acd46de6bc5b",
+        "assets/template/packages/ui/src/web/Button.web.test.tsx": "53aecea5a05bf44b98605a07b346c5b47cf17d1cab586c59705bd332195e36dd",
+        "assets/template/packages/ui/src/web/Button.web.tsx": "9a16ef133b3aca7965591bfb8194943f68b8484cab0ed32f53ac0867ad360f27",
+        "assets/template/packages/ui/src/web/Stack.web.tsx": "492448f2297ee2900ecb9afa1d315e06574c1444b9ac69280d439c6a12707bfb",
+        "assets/template/packages/ui/src/web/Text.web.tsx": "3e838a580645cbcf7790ce1e5656962cc719a07f84e787779bc5e6e498c62d40",
+        "assets/template/packages/ui/tsconfig.json": "6bd1b06324e8b9868b8c7c5e9891c453758c27f7f35461698619a877309a01d3",
+        "assets/template/packages/ui/tsconfig.native.json": "0c2de616a078b7313d6058f64e2c54be758a7134810529d34c8f3085ab0a35a3",
+        "assets/template/pnpm-lock.yaml": "7805353785e3a2f99f381d4b6ef67c0232dae044c951f2a61c7c748ebf543103",
+        "assets/template/pnpm-workspace.yaml": "d83ed2554c7a9962f67f1b8a27475f24d1fc3d4afa06027ae99369a347bfa33c",
+        "assets/template/tools/token-propagation-check.mjs": "c1aac1e96ebddb797c653c4df9a2f54324687b2a368873054168a7c6da38b013",
+        "assets/template/tsconfig.base.json": "ad27b484fd0dc477066947d34a772073e6eb68bede06dca821dd679f07fe69f7",
+        "assets/template/vitest.config.ts": "fffb8783b6ca25c4f512b0c7362c21f5899a956a7cb91d595c881be9ba54dce9",
+        "references/client-fsd-mirror.md": "d45a3edfe8b84331c3e8c2f39a5d1cdd252912845e877ba65242c7537c368c8f",
+        "references/fsd-frontend-taxonomy.md": "a11b276c102748212625d4e5ec8b33edafeb2755eb0f977f8f46707776311ea7",
+        "references/modular-api-anatomy.md": "e08e1c9a9f60b2db666c0f7133371c3e0b64b512d30891092c90ac2a27a1bc18",
+        "references/platform-monorepo-tree.md": "b16b3b54e6516e551c01af29abfbcc60e078a7d0eee29f1a0bf71d6a5b17cde1",
+        "scripts/arch-check.mjs": "941ddf73559999e48df52d458923543b4b82a076255ab35e1b459fbd5d7efcb3",
+        "scripts/scaffold.mjs": "514d95834f297756625cb90ae257d4700a000d052afacc61d0bd32d68e1d14fb",
+        "scripts/token-check.mjs": "95e051a513cb96d7ff3bbcfbe8c4b6202519c193d2f3705b34ea3c33e71851b9"
+      },
+      "issues": []
+    },
+    {
+      "id": "systems-analysis-saas",
+      "path": "saas-skills/engineering/systems-analysis-saas",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0",
+      "packageHash": "64be5146b9b7b8937affe50de6f35dc9bfc4c742c38f573bf9d9a8c75764d56c",
+      "files": {
+        "SKILL.md": "48757c58c5e463d15c3a419a1f05c78ad67e421c042b56201679a25af7a889c2"
+      },
+      "issues": []
+    },
+    {
+      "id": "testing-strategies",
+      "path": "saas-skills/engineering/testing-strategies",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "engineering",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.1",
+      "packageHash": "9a22c7533123202e19e7a0052c41323f05104a5cf69dbc72c4d5273bc47ed75a",
+      "files": {
+        "SKILL.md": "6f087d0cfae26811e0478087d4e0178650d49c2c5f5ccacde7735d06407992c5",
+        "references/test-examples.md": "674ba57dbf2f37dc8da923b24c1425540d0a8eae7b6e6a2a6dd3c643998ff100"
+      },
+      "issues": []
+    },
+    {
+      "id": "component-reuse-portability",
+      "path": "saas-skills/frontend/component-reuse-portability",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "40b4d328e46c30117e3926e31b617ba9929834614bf7a879b29eada01ca54e73",
+      "files": {
+        "SKILL.md": "42558389b49ccda7100d4db3f2029682680f8cd1a43b3684f47854353357d91a",
+        "references/registry-and-advanced-cases.md": "73b212f707521aa263c867919c5c522a576e435a19fc245d7ba14ece24d89b88"
+      },
+      "issues": []
+    },
+    {
+      "id": "design-system-implementation",
+      "path": "saas-skills/frontend/design-system-implementation",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "18467227398104edf20bdc72ac14180f5cfdd5c94bcd0d468408b0bbd3ddb224",
+      "files": {
+        "SKILL.md": "95923e9b47fb34811f7a536227b3040d577c2ced625e445a753ce198ce7a9aa9"
+      },
+      "issues": []
+    },
+    {
+      "id": "react-saas-architecture",
+      "path": "saas-skills/frontend/react-saas-architecture",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "2.0.0",
+      "packageHash": "e4084b5b2b17c87adb60fce4b80b0b4d738a9fce84bda7fd2b01607cd9541f98",
+      "files": {
+        "SKILL.md": "fc67bc055ea06f97bd0b0082e51fed5c0a5f4943a229d1ec46bc4f314d8238f8",
+        "references/advanced-component-patterns.md": "14d601bebaaac75fda15a832f23df31827f2789d075a609ea0086583d2ab1662",
+        "references/fsd-structure-examples.md": "3375ee7de1bcb3d4181fc74294f7cc6cf876eb00cace0430201e79622a5fc2b9"
+      },
+      "issues": []
+    },
+    {
+      "id": "saas-ui-specifications",
+      "path": "saas-skills/frontend/saas-ui-specifications",
+      "status": "active",
+      "origin": {
+        "kind": "canonical",
+        "project": "Context Window"
+      },
+      "family": "frontend",
+      "profiles": [
+        "dev"
+      ],
+      "invocation": "auto",
+      "version": "1.0.0",
+      "packageHash": "ddb9e6b82fb446cf1afb98524cc8a12c4dca500250a58f2c0ae9358e7c644408",
+      "files": {
+        "SKILL.md": "f6847078191a5bb134cf2f0bd4c09689a077690fc456b8be2209304cff4d7ba7",
+        "references/color-system.md": "c572ea4622ebc77ffc2b4e31079a78574b6babca53ce33cbe13f1e49c6ef1cf0",
+        "references/spacing-grid.md": "4053dc0c61a413de05c4ac2e6bb098f69bbd1b246daefbcc67bb0d71bd3ac4ec",
+        "references/typography-scale.md": "25109a4cd057039f03f186202e9b37a131911f5153ef869869e85681d4fc2624"
+      },
+      "issues": []
+    }
+  ]
+}

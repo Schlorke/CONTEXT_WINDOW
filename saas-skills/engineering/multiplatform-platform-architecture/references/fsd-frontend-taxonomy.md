@@ -1,112 +1,95 @@
 # FSD Frontend Taxonomy — Layers, Segments, Slice Groups
 
-Feature-Sliced Design (fsd.dev) is the official taxonomy for EVERY frontend
-surface of the platform (web and mobile). Same layers, same rules, different
-render targets — an engineer who learned one app navigates the other.
+Feature-Sliced Design is the mandatory taxonomy of the product frontend. The tree lives once, in
+`packages/frontend/src`, and both `apps/clients/web` and `apps/clients/mobile` render it. Reference:
+<https://feature-sliced.design/docs/reference/layers> (fetched 2026-09-24; layer list and import rule
+below are quoted from it). Mirror contract: `client-fsd-mirror.md`.
 
-## The six layers (import DOWNWARD only)
-
-```text
-src/
-├── app/        1 — initialization: providers, global styles, app config
-├── views/      2 — pages (FSD "pages" renamed: Next.js reserves pages/)
-├── widgets/    3 — large self-contained UI blocks (shell, map, data table)
-├── features/   4 — user actions, VERBS (client-save, fuel-record-register)
-├── entities/   5 — business nouns (client, vehicle, task, conversation)
-└── shared/     6 — business-agnostic, app-local: api/ ui/ lib/ config/
-```
-
-Rules (all enforced by Steiger, the official FSD linter, in CI):
-
-1. A layer imports only layers strictly below it.
-2. A slice never imports a sibling slice — not even inside the same group.
-3. Every slice exposes a public `index.ts`; internals are never imported.
-4. Anything platform-wide (design system, tokens, contracts, api-client)
-   lives in `packages/`, OUTSIDE the FSD tree — which keeps `shared/` thin.
-   Anything growing too large in `shared/` is a package candidate.
-
-## Next.js adaptations (web app)
-
-- The framework's `app/` directory (App Router) stays at the project root and
-  contains ROUTING ONLY: 3-5 line `page.tsx` files that render a view from
-  `src/views/`. Layouts/metadata live there too. It is outside the FSD tree.
-- The FSD pages layer is named `views/` because a `src/pages` directory would
-  activate the legacy Next.js Pages Router.
-- In Expo, `app/` (expo-router) plays the same routing-only role.
-
-## Slice groups (per-domain readability)
-
-Group slices by business domain inside each layer:
+## The layers (import downward only)
 
 ```text
-features/                     entities/                    views/
-├── crm/                      ├── crm/                     ├── dashboard/
-│   ├── client-save/          │   ├── client/              ├── crm/
-│   └── client-delete/        │   └── client-category/     ├── fleet-hub/
-├── fleet/                    ├── fleet/                   ├── fleet-tracking/
-│   ├── fuel-record-register/ │   ├── vehicle/             ├── tasks/
-│   └── km-record-register/   │   ├── driver/              └── login/
-└── auth/                     │   └── fuel-record/
-    ├── login/                └── session/
-    └── register/
+packages/frontend/src/
+├── app/        providers, global configuration, app-wide concerns (segments, no slices)
+├── pages/      screens; one slice per page or group of similar pages
+├── widgets/    large self-sufficient UI blocks reused by pages
+├── features/   user interactions reused on several pages (verbs)
+├── entities/   business nouns: model, api, ui of the concept
+└── shared/     business-agnostic foundation (segments, no slices): api, ui, lib, config
 ```
 
-Slice-group rules (spec-compliant):
+Official rules (FSD reference):
 
-- The group folder contains NO code of its own — no group `index.ts`, only
-  slices inside.
-- The group name is IDENTICAL across all layers (crm is "crm" everywhere) —
-  searching the group name reveals the whole domain in seconds.
-- Sibling-slice isolation still applies inside a group.
+1. "A module (file) in a slice can only import other slices when they are located on layers strictly below."
+2. App and Shared are both a layer and a slice: their segments import each other freely.
+3. Entities may reference each other only through the `@x` cross-import public API
+   (`entities/song/@x/artist.ts` is imported only by `entities/artist`).
+4. A slice's public API is its `index.ts`; wildcard re-exports (`export * from`) are bad practice.
+5. Processes is deprecated; do not create it.
 
-## Segment anatomy (identical in every slice)
+Project restrictions added by this library (not part of the official spec):
+
+- `shared/ui` only re-exports or composes `packages/ui`; it never defines a second component source.
+- There is no global barrel at `src/index.ts`; the package exports only `./app` and `./pages/*`.
+- The frontend is universal: no `next/*`, `react-dom`, `react-native`, Node built-ins or server code.
+- Inside `packages/frontend`, imports between slices are relative paths to the other slice's
+  `index.ts` (the package does not import itself by name).
+
+All of the above are checked by `tools/arch-check.mjs`. Steiger (official FSD linter) can run in
+addition for FSD-internal diagnostics; it does not see cross-package or runtime boundaries.
+
+## Framework routing stays in the clients
+
+- Next.js `src/app/` in `apps/clients/web` holds routes, layouts and metadata; each route renders a
+  page exported by `@scope/frontend/pages/*`. Because FSD lives in another package, the FSD `pages`
+  layer never collides with the Next.js Pages Router.
+- Expo Router `src/app/` in `apps/clients/mobile` plays the same role for screens.
+
+## Slice groups
+
+Slices of one domain may be grouped in a folder that contains no code of its own:
+
+```text
+features/                     entities/
+├── crm/                      ├── crm/
+│   ├── client-save/          │   ├── client/
+│   └── client-delete/        │   └── client-category/
+└── auth/                     └── session/
+    └── login/
+```
+
+- The group folder has no `index.ts`; each slice inside it has its own.
+- Sibling slices inside a group are still isolated (the gate treats `crm/client-save` and
+  `crm/client-delete` as different slices).
+- Use the same group name across layers so a domain is found by one search.
+
+## Segment anatomy
 
 ```text
 <slice>/
-├── ui/         React components (render only; "dumb")
-├── model/      state and logic: hooks, stores, view types
-├── api/        data access for this slice (via packages/api-client),
-│               offline adapters
+├── ui/         components (render only)
+├── model/      state and logic: reducers, stores, validation, view types
+├── api/        data access for this slice (through shared/api or the api-client package)
 ├── lib/        slice-local helpers
-└── index.ts    public API — the ONLY import surface
+└── index.ts    public API — the only import surface for other slices
 ```
 
-Example — a form action slice:
-
-```text
-features/crm/client-save/
-├── ui/client-form-dialog.tsx      form markup (React Hook Form wiring)
-├── model/use-client-form.ts       form state: useForm + zodResolver(contracts)
-├── model/use-client-save.ts       the action: online → API; offline → local
-│                                  queue + sync enqueue; optimistic update
-└── index.ts
-```
-
-`model/` means slice logic — NOT a database model. UI stays dumb; swapping
-form library, validation or persistence touches `model/` only.
+Name segments by purpose (`ui`, `model`, `api`, `lib`, `config`), not by essence (`components`,
+`hooks`, `types`); the gate warns on essence names.
 
 ## Entity vs Feature vs Widget decision table
 
-| Ask                                                                                          | If yes                                      |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| Is it a routed page?                                                                         | `views/`                                    |
-| Could it ship alone as a screen block (table with actions, map with panel, app shell)?       | `widgets/`                                  |
-| Does its name contain a verb / does it DO something on user intent?                          | `features/`                                 |
-| Is it a noun the business owns, reused across features (card, badge, queries of one entity)? | `entities/`                                 |
-| Does it know nothing about the business?                                                     | `shared/` (or a package if 2+ apps need it) |
+| Ask | If yes |
+| --- | --- |
+| Is it a screen? | `pages/` |
+| A large block reused by pages, or one of several independent blocks of a page? | `widgets/` |
+| A user interaction reused on several pages? | `features/` |
+| A business noun reused across features? | `entities/` |
+| Knows nothing about the business? | `shared/` (or a package if clients need it) |
 
-Tie-breakers:
+Tie-breakers: a block used by one page stays in that page; when two slices need each other, the
+shared part moves one layer down (usually an entity).
 
-- A component OF one entity used by many features → `entities/<domain>/<noun>/ui`.
-- Composition of several entities + features → `widgets/`.
-- If a slice needs a sibling slice, the shared part belongs one layer DOWN
-  (usually an entity) — never a cross-import.
+## Known costs and mitigations
 
-## Known FSD costs and mitigations
-
-- Classification debates ("entity or feature?") — mitigate with the table
-  above; when still ambiguous, prefer the LOWER layer (more reusable).
-- `entities/`/`shared/` bloat over time — mitigate with periodic review: big
-  `shared/` items graduate to packages; entity groups keep domain ownership.
-- A domain spans 4 predictable stops (views/widgets/features/entities) — the
-  identical group name makes this a search, not an exploration.
+- Classification debates: use the table and prefer the lower layer when ambiguous.
+- `shared/` bloat: review periodically; design-system parts belong in `packages/ui`.

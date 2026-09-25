@@ -5,114 +5,88 @@
 ```text
 platform/
 ├── apps/                              ═══ WHAT EXECUTES (deployables)
-│   ├── clients/                       User-facing surfaces
-│   │   ├── web/                       Next.js — SSR panel + PWA (FSD inside)
-│   │   │   ├── app/                   Next App Router: routing ONLY (3-5 line routes)
-│   │   │   ├── public/
-│   │   │   └── src/                   FSD: app/ views/ widgets/ features/ entities/ shared/
-│   │   ├── mobile/                    Expo RN — field app (FSD inside)
-│   │   │   ├── app/                   expo-router screens
-│   │   │   └── src/                   FSD layers in React Native
-│   │   └── desktop/                   (future) Tauri 2 thin shell over deployed web
+│   ├── clients/                       User-facing surfaces (thin)
+│   │   ├── web/                       Next.js: src/app routes/layout, public/, platform integration
+│   │   ├── mobile/                    Expo Router: app/ routes/layout, native integration
+│   │   └── desktop/                   (future) Tauri 2 thin shell over the deployed web
 │   ├── services/
-│   │   └── api/                       Modular monolith backend
-│   │       ├── Dockerfile             Born with the app
-│   │       └── src/                   app/ (bootstrap) + modules/ + shared/
-│   └── workers/                       Async deployables — create ONLY when one truly exists
-├── packages/                          ═══ LIBRARIES (2+ consumers rule)
-│   ├── contracts/                     Zod schemas + inferred types + generated OpenAPI.
-│   │                                  Depends on zod ONLY. The platform's lingua franca.
-│   ├── api-client/                    Typed isomorphic HTTP client. Token storage and
-│   │                                  refresh handling injected via interface.
-│   ├── database/                      Prisma schema (multi-file, per domain) + client.
-│   │                                  Consumed by api (and workers). NEVER by clients.
-│   ├── core/                          Platform kernel — product-agnostic. FORBIDDEN to
-│   │   │                              contain tenant/business rules (those live in data
-│   │   │                              or products/).
-│   │   ├── agent-runtime/             AI runtime: planner, tools, context, RAG
-│   │   ├── sync-engine/               Offline sync server engine (batch, LWW, policy)
-│   │   ├── reporting/                 Versioned templates + PDF generation
-│   │   ├── auth-lib/                  Session/token verification shared by api + web SSR
-│   │   ├── rbac/                      Roles, permissions, can()
-│   │   ├── tenancy/                   Org resolution, scoping helpers
-│   │   └── observability/             Tracing/telemetry wrappers
-│   ├── ui-web/                        DOM design system (React + Tailwind/Radix)
-│   ├── ui-native/                     React Native design system (consumes design-tokens)
-│   ├── design-tokens/                 Colors/spacing/typography as DATA (JSON/TS)
+│   │   └── api/                       Modular monolith backend (Dockerfile born with it)
+│   └── workers/                       Async deployables — only when one truly exists
+├── packages/                          ═══ LIBRARIES
+│   ├── frontend/                      Product frontend, strictly FSD (app, pages, widgets,
+│   │                                  features, entities, shared). Universal: no Next, Expo,
+│   │                                  React Native, DOM, server code or secrets.
+│   ├── ui/                            Design-system components: contract + .web + .native
+│   ├── design-tokens/                 Canonical tokens and themes (TS data)
+│   ├── contracts/                     Zod schemas + inferred types + generated OpenAPI
+│   ├── api-client/                    Typed HTTP client; token storage injected
+│   ├── database/                      Prisma schema + client; backend only ("runtime": "server")
+│   ├── core/                          Platform kernel (auth-lib, rbac, tenancy, observability...)
 │   └── config/                        tsconfig/eslint presets — configuration only
-├── products/                          ═══ PER-PRODUCT COMPOSITION
-│   └── <product>/                     Branding, enabled modules, seeds, tenant behavior,
-│                                      env schema. New product = new folder, NOT a fork.
-├── tooling/                           Gates, generators (gen:module, gen:slice), scripts
-└── docs/                              Editorial. NEVER imported by runtime code.
+├── products/                          ═══ PER-PRODUCT COMPOSITION (branding, modules, seeds)
+├── tools/                             arch-check.mjs, token-propagation-check.mjs, generators
+└── docs/                              Editorial; never imported by runtime code
 ```
+
+`frontend`, `ui` and `design-tokens` exist from day one. The other packages appear only when they
+have a real responsibility (two consumers, or a boundary such as server-only database access).
 
 ## Dependency matrix
 
-| From → To                                  | Rule                                                              |
-| ------------------------------------------ | ----------------------------------------------------------------- |
-| `packages/*` → `apps/*`                    | FORBIDDEN (structurally impossible — packages never declare apps) |
-| `apps/*` → `packages/*`                    | Allowed via package name declared in the app's `package.json`     |
-| `apps/clients/mobile` → `apps/clients/web` | FORBIDDEN (no path between client apps)                           |
-| `packages/contracts` → anything but `zod`  | FORBIDDEN (no framework, no Prisma, no browser/Node APIs)         |
-| `packages/core/*` → `packages/ui-*`        | FORBIDDEN (kernel never knows presentation)                       |
-| `packages/database` → clients              | FORBIDDEN (Prisma never leaves the backend)                       |
-| Any runtime code → `docs/**`               | FORBIDDEN                                                         |
-| api module A → api module B internals      | FORBIDDEN (public `index.ts` or events only)                      |
+| From → To | Rule |
+| --- | --- |
+| `packages/*` → `apps/*` | FORBIDDEN |
+| `apps/clients/mobile` ↔ `apps/clients/web` | FORBIDDEN |
+| clients → `packages/frontend` | Only `@scope/frontend/app` and `@scope/frontend/pages/*` |
+| clients → `packages/ui`, `packages/design-tokens` | Allowed through package exports |
+| `packages/ui` → `packages/frontend` or clients | FORBIDDEN |
+| `packages/design-tokens` → any workspace package | FORBIDDEN |
+| `packages/frontend` → `packages/ui`, `packages/design-tokens` | Allowed (`shared/ui` re-exports `ui`) |
+| universal code → `next/*`, `react-dom`, `react-native`, Node built-ins | FORBIDDEN (use `.web`/`.native` variants or client adapters) |
+| clients or universal packages → server-only packages (`database`, Prisma) | FORBIDDEN |
+| `packages/contracts` → anything but `zod` | FORBIDDEN |
+| api module A → api module B internals | FORBIDDEN (public `index.ts` or events only) |
+
+Each row except the last two is enforced by `tools/arch-check.mjs`.
 
 ## Placement decision table
 
-| Question                               | Answer     | Destination                         |
-| -------------------------------------- | ---------- | ----------------------------------- |
-| Does it execute/deploy?                | app        | `apps/<group>/<app>`                |
-| Is it a routed page?                   | view       | app's `src/views/<page>`            |
-| Is it a large self-contained UI block? | widget     | app's `src/widgets/<group>/<name>`  |
-| Is it a user action (verb)?            | feature    | app's `src/features/<group>/<verb>` |
-| Is it a business noun?                 | entity     | app's `src/entities/<group>/<name>` |
-| Business-agnostic, single app?         | app shared | app's `src/shared/*`                |
-| Reusable engine, 2+ consumers?         | package    | `packages/core/<name>`              |
-| Data contract crossing the network?    | contracts  | `packages/contracts`                |
-| One product's branding/rules/seeds?    | product    | `products/<product>`                |
+| Question | Destination |
+| --- | --- |
+| Does it execute or deploy? | `apps/<group>/<app>` |
+| Is it a route or screen mapping? | client route file (web `src/app`, mobile `app/`) rendering a page |
+| Is it a page (screen content)? | `packages/frontend/src/pages/<page>` |
+| Large self-contained block reused by pages? | `packages/frontend/src/widgets/<name>` |
+| User action (verb) reused on several pages? | `packages/frontend/src/features/<verb>` |
+| Business noun? | `packages/frontend/src/entities/<name>` |
+| Business-agnostic helper or API client setup? | `packages/frontend/src/shared/<segment>` |
+| Visual primitive/component of the design system? | `packages/ui` |
+| Color, spacing, type value? | `packages/design-tokens` |
+| Data contract crossing the network? | `packages/contracts` |
+| Product branding, rules, seeds? | `products/<product>` |
 
-## Sharing policy (web × mobile × desktop × future surfaces)
+## Sharing policy
 
-| Asset                                                      | Policy                                                                              |
-| ---------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Types, DTOs, Zod schemas                                   | Share fully (`contracts`)                                                           |
-| OpenAPI                                                    | Share the contract only (generated)                                                 |
-| API client                                                 | Share via interface (injected storage/token)                                        |
-| Pure business rules (calculations, validation, formatting) | Share fully                                                                         |
-| Server use-cases/services                                  | Never shared with clients — clients consume the API                                 |
-| React DOM components                                       | Never shared with mobile                                                            |
-| React Native components                                    | Implemented separately                                                              |
-| Design tokens                                              | Share fully as data                                                                 |
-| Icon set                                                   | Share semantically (lucide / lucide-react-native)                                   |
-| Tailwind classes / style recipes                           | Never shared (web-only)                                                             |
-| Data hooks                                                 | Share query keys + fetchers; final hook per platform                                |
-| Auth                                                       | Share the contract (endpoints); implementation per platform (cookie vs SecureStore) |
-| Offline storage/queue                                      | Separate implementations (IndexedDB web / SQLite mobile) under ONE sync contract    |
-| Prisma access                                              | Backend only, always                                                                |
-| Env values                                                 | Never shared; share the per-app env SCHEMA                                          |
-
-Anti-goal: 100% code sharing. Universal UI produces a mediocre panel AND a
-mediocre field app. Share knowledge; duplicate presentation.
+| Asset | Policy |
+| --- | --- |
+| Types, DTOs, Zod schemas | Shared (`contracts`) |
+| Pure business rules | Shared (entities/features models) |
+| Server use cases | Never shared with clients; clients call the API |
+| Product UI | One FSD tree in `packages/frontend`, rendered by both clients |
+| Component implementation | One contract, `.web` and `.native` implementations in `packages/ui` |
+| Tokens | Shared as data from `packages/design-tokens` |
+| Auth | Shared contract; cookie (web) vs SecureStore + Bearer (mobile) |
+| Offline storage | Per platform (IndexedDB vs SQLite) under one sync contract |
+| Prisma access | Backend only |
+| Env values | Never shared; share the env schema |
 
 ## Workspace mechanics
 
-- `pnpm-workspace.yaml` globs: `apps/clients/*`, `apps/services/*`,
-  `apps/workers/*`, `packages/*`, `products/*`.
-- Nested group folders (`clients/`, `services/`) are organization only — each
-  app keeps its own `package.json` and remains independent.
-- Add Turborepo when build/CI time hurts; it is an optimization, not a
-  prerequisite.
-- Versioning/ownership at scale: CODEOWNERS per package, Changesets when
-  packages need independent versions.
-
-## Two-stage migration for brownfield single-app repos
-
-1. **Stage 1:** repo root remains the web app; create `packages/*` on demand
-   (contracts first) and `apps/mobile` when the mobile phase starts.
-2. **Stage 2:** move the root into `apps/clients/web` (pure `git mv`, no logic
-   change) once packages stabilize; update CI/gate paths in the same change.
-
-Never do stage 2 first: path churn without functional gain blocks real work.
+- `pnpm-workspace.yaml`: `apps/clients/*`, `apps/services/*`, `packages/*` (add `products/*` when
+  used), plus the pnpm settings: `nodeLinker: hoisted` for Expo/Metro, `strictDepBuilds: true` with
+  an `allowBuilds` decision per dependency build, `verifyDepsBeforeRun: error`.
+- `package.json` pins `packageManager` to an exact pnpm version and `pnpm-lock.yaml` is committed;
+  installs use `--frozen-lockfile`. `.npmrc` holds only registry and auth settings, never secrets
+  committed to the repository.
+- Group folders (`clients/`, `services/`) are organization only; each app keeps its `package.json`.
+- Add Turborepo when build time hurts; Changesets when packages need independent versions.

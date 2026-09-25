@@ -1,6 +1,6 @@
 ---
 name: saas-ai-agent-engineer
-description: Design, implement, review, debug, refactor, secure, evaluate, and production-harden AI agents in multi-tenant SaaS products. Use for chat agents, tool calling, RAG, memory, agent skills, schema-driven configuration, prompt/version governance, approvals, RBAC/ABAC, audit logs, background AI jobs, observability, evals, model routing, or migrations away from domain hard-coding in Next.js/React/TypeScript/Vercel or similar stacks.
+description: "Design, build, secure and evaluate AI agents in multi-tenant SaaS: tool calling, RAG, memory, approvals, RBAC, audit logs, background AI jobs, observability, evals and model routing. Use when implementing, reviewing or hardening an agent feature."
 metadata:
   author: SaaS Skills Collection
   version: "1.0"
@@ -15,6 +15,21 @@ metadata:
 ---
 
 # SaaS AI Agent Engineer
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Design, implement and harden AI agents in multi-tenant SaaS products. |
+| Use when | Tool calling, RAG, memory, approvals, evals, observability and agent security work. |
+| Do not use when | Pure chat UI styling or prompt wording only. |
+| Inputs | Agent goals, tools, data-access rules and the tenancy model. |
+| Preconditions | The backend architecture is chosen (clean-architecture-ddd); secrets and permissions are known. |
+| Tools | The project's AI SDK, an eval harness, logging and tracing. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | agent design or implementation with permissions, audit trail, evals and rollout plan. |
+| Validation | Evals pass with recorded runs, permission tests pass and no cross-tenant access is possible. |
+| Known failures | Tools without authorization checks, unbounded memory, evals without baselines. |
 
 ## Core Rule
 

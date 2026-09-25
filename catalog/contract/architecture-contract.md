@@ -1,0 +1,13 @@
+## Context Window — mandatory product architecture contract
+
+Applies to every product repository that has, or will have, a frontend. Backend-only services, libraries, automations and creative/media projects keep their own profile.
+
+1. Topology: `apps/clients/web` (Next.js) and `apps/clients/mobile` (Expo/React Native) are thin hosts — routes, bootstrap, configuration and platform integration only. They consume workspace packages: `packages/frontend` (product frontend, strictly Feature-Sliced Design), `packages/ui` (design-system components), `packages/design-tokens` (canonical tokens and themes). Add other packages only for a real responsibility. New projects start with both clients running on the shared packages.
+2. FSD in `packages/frontend/src`: layers `app → pages → widgets → features → entities → shared`. A slice imports only from strictly lower layers, never from a sibling slice (entities may use `@x` cross-import APIs), and only through the other slice's `index.ts`. `shared` holds no business rules; `shared/ui` only delegates to `packages/ui`. No `export *` public APIs, no global barrel.
+3. Foundations: `packages/ui` and `packages/design-tokens` never import `packages/frontend` or the clients. Clients import only package entry points (`@<scope>/frontend/app`, `@<scope>/frontend/pages/*`, `@<scope>/ui`, `@<scope>/design-tokens`) and never each other.
+4. Runtime boundaries: universal code imports no `next/*`, `react-dom`, `react-native`, Node built-ins or server-only packages. Platform code lives in `.web.tsx` / `.native.tsx` variants behind one public contract. Prisma, secrets and server-only modules never reach client bundles.
+5. Gate: run `pnpm arch` (tools/arch-check.mjs) before finishing frontend work; any violation blocks completion.
+6. Legacy repositories: when the task authorizes adoption or modernization, follow `legacy-code-refactoring` (inventory → characterization tests → incremental moves → gate → retire replaced structure). Installing or updating skills never rewrites a project.
+7. Backend: choose modular monolith or ports-and-adapters with `clean-architecture-ddd`; FSD is not applied to backend code. Shared contracts live apart from server implementations.
+
+Skills: `multiplatform-platform-architecture` (bootstrap, topology, Next/Expo), `react-saas-architecture` (FSD rules), `design-system-implementation`, `legacy-code-refactoring`, `clean-architecture-ddd`, `testing-strategies`.

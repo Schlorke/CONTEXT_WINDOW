@@ -1,0 +1,378 @@
+{
+  "schema": "context-window/acceptance-run@1",
+  "at": "2026-09-25T06:15:08.718Z",
+  "node": "v25.2.1",
+  "platform": "win32 10.0.26200",
+  "repoHead": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+  "run": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z",
+  "policy": {
+    "writeConfinement": false,
+    "confinedExecutor": {
+      "available": false,
+      "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+    },
+    "scriptsAuthorized": false
+  },
+  "passed": 7,
+  "failed": [],
+  "pending": [
+    "P0",
+    "A7",
+    "A8",
+    "A9a",
+    "A9b",
+    "A9c",
+    "A10b",
+    "A11b",
+    "A12",
+    "A13a",
+    "A13b",
+    "A13c"
+  ],
+  "steps": [
+    {
+      "id": "P0",
+      "title": "execution policy for this acceptance run",
+      "ok": null,
+      "writeConfinement": false,
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "scriptsAuthorized": false,
+      "authorizeUnconfinedFile": null,
+      "note": "no authorize-unconfined file: installs use --ignore-scripts; scripted steps stay pending (not failed)"
+    },
+    {
+      "id": "A2",
+      "title": "distributable package built outside the checkout",
+      "ok": true,
+      "bundle": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\bundle",
+      "libraryVersion": "2.0.0",
+      "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+      "files": 150,
+      "markerSha256": "d22cb500182769d97fcd25aa03dae8f1c30d59a158e714534c7eb708ffdc4f3b"
+    },
+    {
+      "id": "A3",
+      "title": "package carries no credentials, private environments, keys or session caches",
+      "ok": true,
+      "privateFiles": []
+    },
+    {
+      "id": "A4",
+      "title": "product generated from the package; preflight of workspace, pnpm version, settings and scripts",
+      "ok": true,
+      "product": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+      "blockers": [],
+      "warnings": [],
+      "workspaceRoot": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+      "packageManager": {
+        "value": "pnpm@12.5.1",
+        "declaredIn": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+      },
+      "settings": {
+        "nodeLinker": "hoisted",
+        "verifyDepsBeforeRun": "error",
+        "strictDepBuilds": true,
+        "allowBuilds": {
+          "esbuild": false
+        },
+        "storeDir": null,
+        "cacheDir": null,
+        "stateDir": null
+      },
+      "lifecycleScripts": [],
+      "lockfileSha256": "c9b6d4f06f3b147faee288d787941a662d613f2656d7b6db5bb55e79abb59c1a"
+    },
+    {
+      "id": "A5",
+      "title": "library installed into the product from the package; verify and doctor --strict",
+      "ok": true,
+      "install": 0,
+      "verify": 0,
+      "doctor": 0
+    },
+    {
+      "id": "A6",
+      "title": "frozen install from the shipped lockfile (scripts disabled; store redirected)",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "manifestsUnchanged": true,
+      "nodeLinker": "hoisted",
+      "storeDir": "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\.pnpm-store\\v11",
+      "packageManager": "pnpm@12.5.1",
+      "decision": {
+        "allow": true,
+        "mode": "scripts-disabled",
+        "confinementRequirement": "not applicable",
+        "authorizeUnconfined": null
+      },
+      "effectiveMode": {
+        "ignoreScripts": true,
+        "installArgsAdditions": [
+          "--ignore-scripts",
+          "--store-dir=<sandbox>/.pnpm-store",
+          "--ignore-pnpmfile"
+        ],
+        "differencesFromNormalUse": [
+          "lifecycle scripts (preinstall/install/postinstall/prepare/…) are skipped via --ignore-scripts"
+        ],
+        "notes": [
+          "pnpmfile would still run under --ignore-scripts on pnpm 12; this runner refuses a present pnpmfile in preflight and also passes --ignore-pnpmfile",
+          "Corepack may download the pinned pnpm binary before the install; that is outside this policy's script gate"
+        ]
+      },
+      "telemetry": {
+        "changedOutside": [],
+        "watchList": [
+          "C:\\Users\\harry\\.npmrc",
+          "C:\\Users\\harry\\node_modules\\.modules.yaml",
+          "C:\\Users\\harry\\.expo"
+        ],
+        "meaning": "mtime changes among the watch list only; an empty array does not mean no external writes occurred"
+      },
+      "limits": {
+        "writeConfinement": false,
+        "mechanism": "preventive-preflight+env-redirection+post-mtime-watch",
+        "not": "OS/security sandbox for subprocess writes"
+      },
+      "watchedFilesUnchanged": []
+    },
+    {
+      "id": "A7",
+      "title": "product pnpm verify: FSD gate, token gate, typecheck web+native, tests, next build, expo export",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run verify",
+        "scripts": [
+          "verify"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
+          "redirected TEMP/XDG/store under the sandbox",
+          "possible writes elsewhere on the host (unconfined)"
+        ],
+        "risks": [
+          "lifecycle and build tools can write outside the declared sandbox",
+          "authorization does not approve write confinement"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A8",
+      "title": "token change consumed by both clients (style resolution, web render, mobile export)",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run check:tokens",
+        "scripts": [
+          "check:tokens"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product",
+          "redirected TEMP/XDG/store under the sandbox",
+          "possible writes elsewhere on the host (unconfined)"
+        ],
+        "risks": [
+          "lifecycle and build tools can write outside the declared sandbox",
+          "authorization does not approve write confinement"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A9a",
+      "title": "token counter-proof (#C0FFEE…)",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run tokens (with temporary #C0FFEE edits)",
+        "scripts": [
+          "tokens"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto",
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product"
+        ],
+        "risks": [
+          "unconfined node process for the token gate"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A9b",
+      "title": "FSD counter-proof (feature importing a widget)",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run arch",
+        "scripts": [
+          "arch"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+        ],
+        "risks": [
+          "unconfined node process"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A9c",
+      "title": "propagation negative control: native component bypasses the token",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run check:tokens",
+        "scripts": [
+          "check:tokens"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\product\\produto"
+        ],
+        "risks": [
+          "unconfined builds/tests"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A10",
+      "title": "legacy app: frozen install",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "blockers": [],
+      "fixtureLockSha256": "ffcf552457871ee3c321a5d1b4a59b744289b885e8ed5cfdaf2ed72a9f54c600"
+    },
+    {
+      "id": "A10b",
+      "title": "legacy app: characterization tests",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run test",
+        "scripts": [
+          "test"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy\\legacy-shop",
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\legacy",
+          "redirected TEMP/XDG/store under the sandbox",
+          "possible writes elsewhere on the host (unconfined)"
+        ],
+        "risks": [
+          "lifecycle and build tools can write outside the declared sandbox",
+          "authorization does not approve write confinement"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A11",
+      "title": "migrated product assembled from the package template: frozen install",
+      "ok": true,
+      "exit": 0,
+      "blocked": false,
+      "blockers": []
+    },
+    {
+      "id": "A11b",
+      "title": "migrated product: pnpm verify (gates, typecheck, same characterization cases, build, export)",
+      "ok": null,
+      "pendingAuthorization": true,
+      "authorizeUnconfinedRequest": {
+        "command": "pnpm run verify",
+        "scripts": [
+          "verify"
+        ],
+        "destinations": [
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated\\loja",
+          "C:\\Temp\\cw-r3\\acceptance-policy\\run-2026-09-25T06-14-02-084Z\\migrated",
+          "redirected TEMP/XDG/store under the sandbox",
+          "possible writes elsewhere on the host (unconfined)"
+        ],
+        "risks": [
+          "lifecycle and build tools can write outside the declared sandbox",
+          "authorization does not approve write confinement"
+        ],
+        "authorizedBy": "(awaiting owner)"
+      },
+      "confinedExecutor": {
+        "available": false,
+        "requirement": "an authorized executor that confines filesystem writes of pnpm and its child processes to a declared sandbox (for example OS-enforced allowlists), proven by a synthetic write-escape that fails to leave the sandbox"
+      },
+      "note": "blocked by execution policy until --authorize-unconfined <json> or a proven confined executor"
+    },
+    {
+      "id": "A12",
+      "title": "behavior preserved: same cases file and test titles (execution pending authorization)",
+      "ok": null,
+      "sameCases": true,
+      "sameTitles": true,
+      "expectCalls": [
+        3,
+        3
+      ],
+      "casesSha256": "b977a65fe01e993bddec3b4c4686819fd82f41ee45afcf3fa079463ac0d4ab6d",
+      "pendingAuthorization": true,
+      "note": "file-level comparison done; running the characterization suites needs authorize-unconfined"
+    },
+    {
+      "id": "A13a",
+      "title": "Codex discovery in the generated product",
+      "ok": null,
+      "notVerified": "skipped by --without-clients"
+    },
+    {
+      "id": "A13b",
+      "title": "Claude Code discovery in the generated product",
+      "ok": null,
+      "notVerified": "skipped by --without-clients"
+    },
+    {
+      "id": "A13c",
+      "title": "Cursor project-scope discovery in a new session",
+      "ok": null,
+      "notVerified": "requires a new Cursor session on the product (see acceptance/CURSOR-VERIFICATION.md)"
+    }
+  ]
+}

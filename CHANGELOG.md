@@ -11,6 +11,89 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## [2.0.0] - 2026-09-24
+
+Versão de ruptura. Responde à auditoria independente de 2026-09-24 (parecer REPROVADO, nota 3,7) e
+ao contrato obrigatório de arquitetura web + mobile.
+
+### Added in 2.0.0
+
+- Instalador `scripts/cw.mjs` (`plan`, `install`, `status`, `verify`, `doctor`, `uninstall`,
+  `recover`, `build`, `contract`, `catalog`): plano antes de aplicar, manifest v2 com hash por
+  arquivo, lock, journal, rollback, recuperação após interrupção, blocos gerenciados com hash no
+  `AGENTS.md`/`CLAUDE.md`, proteção contra links, maiúsculas, caminhos inseguros e conteúdo alheio.
+- `catalog/registry.json` com origem, status, perfis, invocação e gatilhos de 104 itens (21 ativos,
+  83 importados não revisados); `catalog/catalog.lock.json`; gate do catálogo.
+- Contrato de arquitetura (`catalog/contract/architecture-contract.md`) instalado por padrão no
+  perfil `dev`; export para Cursor User Rules com versão e hash.
+- Gate de arquitetura `arch-check.mjs`, template executável (Next.js 16 + Expo 57 +
+  `packages/frontend` FSD + `packages/ui` `.web`/`.native` + `packages/design-tokens`), scaffold e
+  prova de propagação de token.
+- `legacy-inventory.mjs` e fixture de migração legada com casos de caracterização compartilhados.
+- Suíte `node:test` (motor, catálogo, gate, legado, ferramentas, descoberta real do Codex e do
+  Claude Code sem chamada de modelo), varredura de segredos, orçamento de contexto, CI.
+
+### Changed in 2.0.0
+
+- Destinos: Codex em `.agents/skills` / `~/.agents/skills`; Claude em `.claude/skills` /
+  `$CLAUDE_CONFIG_DIR/skills`; Cursor lê essas pastas (sem regras `.mdc` geradas).
+- Topologia obrigatória: `packages/frontend` substitui `packages/<produto>-dom`; clientes em
+  `apps/clients/web` e `apps/clients/mobile` com `src/app`.
+- Skills reescritas ou alinhadas: FSD estrito, multiplataforma, design system, legado, backend
+  (monólito modular ou portas e adaptadores), reuso de componentes, testes, instalador; seção
+  `Operational Contract` em todas as 21 skills ativas; descrições encurtadas (lista ≈ 1.200 tokens).
+- `fix-markdownlint.mjs` só corrige MD040 e nunca altera blocos de código ou títulos.
+- `engines`: Node.js 22.13 ou mais novo.
+
+### Removed in 2.0.0
+
+- Scripts 1.x de instalação, exportação e auditoria (`install-agent-runtimes.mjs`,
+  `verify-agent-runtimes.mjs`, `status-agent-runtimes.mjs`, `runtime-adapter-utils.mjs`,
+  `export-*.mjs`, `install/verify-ide-runtime.mjs`, `install/verify-skill-usage-reporting.mjs`,
+  `skill-usage-reporting-utils.mjs`, `audit-skills.mjs`) e seus aliases `pnpm`.
+- `PORTABILITY_MATRIX.md` (conteúdo incorporado ao `IDE_RUNTIME_GUIDE.md`).
+
+### Migration from 1.x
+
+- Instalações 1.x são detectadas pelo `.saas-skills-manifest.json` e pelo bloco
+  `SAAS_SKILLS_USAGE_REPORTING`; `install ... --migrate-legacy` substitui com backup,
+  `--keep-legacy` mantém.
+- `saas-skills/integrations/cursor-rule-profiles.json` não é mais lido (ver
+  `saas-skills/integrations/README.md`).
+
+### Fixed in 2.0.0 (correção após a reprovação independente, 2026-09-25)
+
+- Template de produto: `packageManager` fixado em `pnpm@12.5.1`, `pnpm-lock.yaml` versionado e
+  configurações do pnpm em `pnpm-workspace.yaml` (`nodeLinker: hoisted`, `strictDepBuilds: true`,
+  `allowBuilds` explícito, `verifyDepsBeforeRun: error`). O `.npmrc`, ignorado pelo pnpm 11+, foi
+  removido. A instalação limpa com `--frozen-lockfile` volta a funcionar fora de qualquer
+  workspace pai.
+- Gate de tokens `token-check.mjs` no `pnpm verify` (TS/TSX, objetos de estilo e CSS; exceção só
+  com motivo). A prova de propagação passa a exigir o token em três níveis: estilo resolvido, HTML
+  do Next e bundles do Expo.
+- `build`, `scaffold` e o gate do catálogo recusam arquivos privados (`.env*`, `auth.json`,
+  `.credentials.json`, chaves, `.npmrc`, `.netrc`). A varredura de segredos reprova cópias locais
+  ignoradas pelo git.
+- Uma instalação que falha depois de escrever grava `incomplete` no registro; `status` e `verify`
+  mostram `INCOMPLETE` até uma instalação completa.
+- Lock: uma leitura que encontra o lock liberado tenta de novo em vez de apagar, e um lock velho
+  só é removido sob `lock.break`, se o conteúdo ainda for o mesmo.
+- Registry: licenças de itens importados registram só o que há evidência para sustentar.
+- CI usa o pnpm do `packageManager` e roda a aceitação.
+
+### Fixed in 2.0.0 (política de execução do guard, 2026-09-25)
+
+- Scripts habilitados sem confinamento de escrita comprovado passam a ser **recusados antes do
+  spawn**, salvo `authorizeUnconfined` completo (comando, scripts, destinos, riscos, authorizedBy).
+  Essa autorização não aprova o requisito de confinamento.
+- `ignoreScripts` deixa de ser apresentado como bloqueio universal: o preflight continua recusando
+  pnpmfile; o modo efetivo e as diferenças em relação ao uso normal ficam em `effectiveMode`.
+- `telemetry.changedOutside` documenta que a lista vazia não prova ausência de escritas externas.
+- Sem executor confinado (`CONFINED_EXECUTOR.available=false`), a suíte que exige confinamento fica
+  em skip, sem fallback ao host.
+- `pnpm acceptance` aceita `--authorize-unconfined <json>`; sem ele, etapas com scripts ficam
+  PENDING e os installs usam `--ignore-scripts`.
+
 ## [1.17.0] - 2026-08-31
 
 ### Added in 1.17.0

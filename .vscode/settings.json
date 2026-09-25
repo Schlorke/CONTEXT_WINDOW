@@ -1,0 +1,14 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "README.md": "AGENTS.md, CHANGELOG.md, SUMMARY.md, RELEASE_NOTES.md, LICENSE, LICENSE.md, CONTRIBUTING.md, SECURITY.md, CODE_OF_CONDUCT.md",
+    "package.json": "pnpm-lock.yaml, pnpm-workspace.yaml, package-lock.json, yarn.lock, .npmrc, .nvmrc, .gitignore, .gitattributes, .prettierignore, .prettierrc*, prettier.config.*, .markdownlint*, .editorconfig, .eslintignore, .eslintrc*, eslint.config.*, vitest.config.*, next.config.*, next-env.d.ts, metro.config.*, app.json, arch.config.json, tsconfig.base.json",
+    "tsconfig.json": "tsconfig.*.json",
+    "registry.json": "catalog.lock.json",
+    "*.json": "${capture}.report.md",
+    "*.ts": "${capture}.test.ts, ${capture}.spec.ts",
+    "*.tsx": "${capture}.test.tsx, ${capture}.spec.tsx, ${capture}.web.test.tsx, ${capture}.native.test.tsx",
+    "index.web.ts": "index.native.ts"
+  }
+}

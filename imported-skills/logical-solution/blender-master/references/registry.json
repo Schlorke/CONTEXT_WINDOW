@@ -1,0 +1,167 @@
+{
+  "skills": {
+    "blender-scene-inspection": {
+      "description": "Leitura da cena Blender: objetos, rigs, materiais e actions",
+      "load_when": [
+        "inspecion",
+        "analise este",
+        "analise a cena",
+        "analise o rig",
+        "sem modificar",
+        "estrutura do rig",
+        "o que tem"
+      ]
+    },
+    "blender-modeling": {
+      "description": "Decisão de modelagem, topologia, modifiers, UV e nós",
+      "load_when": [
+        "modelar",
+        "modelagem",
+        "malha",
+        "topolog",
+        "bevel",
+        "boolean",
+        "retopo",
+        "uv ",
+        "unwrap",
+        "escultur",
+        "geometry node",
+        "geometria nodal",
+        "physics",
+        "particul",
+        "rigid body",
+        "cloth",
+        "fluid"
+      ]
+    },
+    "blender-rigging": {
+      "description": "Armature, bones, pesos e constraints",
+      "load_when": [
+        "rig",
+        "armature",
+        "osso",
+        "bone",
+        "peso",
+        "weight",
+        "constraint",
+        "deform",
+        "vertex group"
+      ]
+    },
+    "blender-animation": {
+      "description": "Keyframes, F-Curves, timing, spacing e NLA",
+      "load_when": [
+        "anim",
+        "keyframe",
+        "f-curve",
+        "fcurve",
+        "nla",
+        "caminh",
+        "asas",
+        "pouso",
+        "timing",
+        "spacing",
+        "anticipa"
+      ]
+    },
+    "blender-materials": {
+      "description": "Principled BSDF, PBR e lookdev sem sobrescrever o que existe",
+      "load_when": [
+        "material",
+        "shader",
+        "principled",
+        "roughness",
+        "metallic",
+        "lookdev",
+        "pbr",
+        "bsdf"
+      ]
+    },
+    "blender-lighting": {
+      "description": "Key, fill, rim, HDRI e exposição com intenção",
+      "load_when": [
+        "ilumina",
+        "lighting",
+        "key light",
+        "fill light",
+        "rim light",
+        "hdri",
+        "luz ",
+        "luzes"
+      ]
+    },
+    "blender-camera": {
+      "description": "Lente, enquadramento, foco e movimento de câmera",
+      "load_when": [
+        "camera",
+        "enquadra",
+        "focal",
+        "depth of field",
+        "dof",
+        "parallax",
+        "cinemat"
+      ]
+    },
+    "blender-rendering": {
+      "description": "Cycles ou Eevee conforme o objetivo",
+      "load_when": [
+        "render",
+        "cycles",
+        "eevee",
+        "denoise",
+        "composit",
+        "amostr"
+      ]
+    },
+    "blender-web3d": {
+      "description": "GLB/glTF para web sem otimização destrutiva automática",
+      "load_when": [
+        "glb",
+        "gltf",
+        "draco",
+        "meshopt",
+        "ktx2",
+        "three",
+        "landing",
+        "para o site",
+        "para minha landing",
+        "otimize este modelo",
+        "otimizar o modelo",
+        "otimize este"
+      ]
+    },
+    "blender-visual-qa": {
+      "description": "Captura, crítica e limite de iterações",
+      "load_when": [
+        "visual qa",
+        "screenshot",
+        "viewport",
+        "valide o resultado",
+        "ficou certo"
+      ]
+    },
+    "blender-debug": {
+      "description": "Diagnóstico, retry único e rollback",
+      "load_when": [
+        "deform",
+        "artificial",
+        "por que",
+        "porque",
+        "traceback",
+        "exception",
+        "falhou",
+        "bug"
+      ]
+    }
+  },
+  "suppress": [
+    {
+      "skill": "blender-materials",
+      "when": "sem (alterar|mexer|mudar).{0,24}material"
+    },
+    {
+      "skill": "blender-animation",
+      "when_all": ["glb|gltf", "preserv"]
+    }
+  ]
+}

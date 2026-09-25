@@ -1,0 +1,19 @@
+{
+  "name": "@acme/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "react-native": "./src/index.native.ts",
+      "default": "./src/index.web.ts"
+    }
+  },
+  "dependencies": {
+    "@acme/design-tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}

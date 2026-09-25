@@ -66,7 +66,7 @@ Additional rules:
 
 ## Automation
 
-Run `pnpm audit:skills` to verify that:
+Run `pnpm catalog` (the catalog gate, `node scripts/cw.mjs catalog --check`) to verify that:
 
 - every skill exists in the library
 - every skill has eval coverage

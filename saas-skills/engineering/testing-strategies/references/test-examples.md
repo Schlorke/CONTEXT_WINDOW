@@ -84,3 +84,107 @@ than a single aggregate percentage.
 - Keep logs concise: report exit status, counts and actionable failures instead
   of repeatedly streaming thousands of successful lines into an agent context.
 - Respect explicit user limits on time, commands, paid suites and output volume.
+
+## Integration Test Example
+
+**Example** (component + API route):
+
+```text
+describe("UserList integration", () => {
+  beforeEach(() => {
+    // Reset database
+    db.clear();
+    db.insert("users", [
+      { id: 1, name: "Alice" },
+      { id: 2, name: "Bob" },
+    ]);
+  });
+
+  it("should fetch and display users from API", async () => {
+    render(<UserList />);
+
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByText("Alice")).toBeInTheDocument();
+      expect(screen.getByText("Bob")).toBeInTheDocument();
+    });
+  });
+});
+```
+
+## E2E Page Object Example
+
+**Page Object Pattern** (for maintainability):
+
+```text
+export class LoginPage {
+  constructor(private page: Page) {}
+
+  async goto() {
+    await this.page.goto("/login");
+  }
+
+  async fillEmail(email: string) {
+    await this.page.fill("input[type=email]", email);
+  }
+
+  async fillPassword(password: string) {
+    await this.page.fill("input[type=password]", password);
+  }
+
+  async clickSubmit() {
+    await this.page.click("button[type=submit]");
+  }
+
+  async isDashboardVisible() {
+    return this.page.isVisible("h1:has-text('Dashboard')");
+  }
+}
+```
+
+**Example E2E test**:
+
+```text
+import { test, expect } from "@playwright/test";
+import { LoginPage } from "./pages/LoginPage";
+
+test("should log in and view dashboard", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
+
+  await loginPage.fillEmail("user@example.com");
+  await loginPage.fillPassword("password123");
+  await loginPage.clickSubmit();
+
+  expect(await loginPage.isDashboardVisible()).toBe(true);
+});
+```
+
+## Mocking Examples
+
+**Mock external APIs** with Mock Service Worker (MSW):
+
+```text
+import { setupServer } from "msw/node";
+import { http, HttpResponse } from "msw";
+
+const server = setupServer(
+  http.get("https://api.example.com/users/:id", () => {
+    return HttpResponse.json({ id: 1, name: "Alice" });
+  })
+);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+```
+
+**Mock functions**:
+
+```text
+const mockCallback = vi.fn();
+mockCallback("arg1", "arg2");
+expect(mockCallback).toHaveBeenCalledWith("arg1", "arg2");
+expect(mockCallback).toHaveBeenCalledTimes(1);
+```

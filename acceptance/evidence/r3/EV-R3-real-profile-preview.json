@@ -1,0 +1,213 @@
+{
+  "schema": "context-window/real-profile-preview@1",
+  "at": "2026-09-25",
+  "how": "node --permission --allow-fs-read=* --allow-fs-write=C:\\Temp\\cw-r3\\preview --allow-child-process scripts/cw.mjs plan --user --profile dev --json; same with doctor --user --json (writes allowed only in the preview folder; the child process is git rev-parse)",
+  "plan": {
+    "exitCode": 2,
+    "meaning": "2 = conflicts, nothing would be written",
+    "sinks": [
+      {
+        "dir": "C:\\Users\\harry\\.claude\\skills",
+        "ops": 0
+      },
+      {
+        "dir": "C:\\Users\\harry\\.agents\\skills",
+        "ops": 0
+      }
+    ],
+    "legacy": [
+      "C:\\Users\\harry\\.codex\\skills",
+      "C:\\Users\\harry\\.cursor\\rules"
+    ],
+    "blocks": [
+      {
+        "file": "C:\\Users\\harry\\.claude\\CLAUDE.md",
+        "action": "write"
+      },
+      {
+        "file": "C:\\Users\\harry\\.codex\\AGENTS.md",
+        "action": "write"
+      }
+    ],
+    "conflicts": {
+      "legacy-managed @ C:\\Users\\harry\\.claude\\skills": {
+        "count": 21,
+        "ids": [
+          "ai-context-diagrams",
+          "ai-interface-design",
+          "api-design-patterns",
+          "clean-architecture-ddd",
+          "component-reuse-portability",
+          "context-window-optimization",
+          "design-system-implementation",
+          "intelligent-project-docs",
+          "legacy-code-refactoring",
+          "multi-agent-skill-creator",
+          "multi-agent-skill-installer",
+          "multi-perspective-council",
+          "multiplatform-platform-architecture",
+          "prisma-database-design",
+          "prompt-engineering-hybrid",
+          "react-saas-architecture",
+          "saas-ai-agent-engineer",
+          "saas-ui-specifications",
+          "systems-analysis-saas",
+          "technical-research-writing",
+          "testing-strategies"
+        ]
+      },
+      "unmanaged-collision @ C:\\Users\\harry\\.agents\\skills": {
+        "count": 21,
+        "ids": [
+          "ai-context-diagrams",
+          "ai-interface-design",
+          "api-design-patterns",
+          "clean-architecture-ddd",
+          "component-reuse-portability",
+          "context-window-optimization",
+          "design-system-implementation",
+          "intelligent-project-docs",
+          "legacy-code-refactoring",
+          "multi-agent-skill-creator",
+          "multi-agent-skill-installer",
+          "multi-perspective-council",
+          "multiplatform-platform-architecture",
+          "prisma-database-design",
+          "prompt-engineering-hybrid",
+          "react-saas-architecture",
+          "saas-ai-agent-engineer",
+          "saas-ui-specifications",
+          "systems-analysis-saas",
+          "technical-research-writing",
+          "testing-strategies"
+        ]
+      },
+      "legacy-install-present @ C:\\Users\\harry\\.codex\\skills": {
+        "count": 1,
+        "ids": [
+          "codex-legacy"
+        ]
+      },
+      "legacy-install-present @ C:\\Users\\harry\\.cursor\\rules": {
+        "count": 1,
+        "ids": [
+          "cursor-user-rules"
+        ]
+      }
+    }
+  },
+  "doctor": {
+    "exitCode": 0,
+    "clients": {
+      "claude": {
+        "copies": 26,
+        "states": {
+          "unmanaged-divergent": 21,
+          "foreign": 4,
+          "invalid-skill": 1
+        },
+        "duplicateNames": 0,
+        "divergentDuplicates": []
+      },
+      "codex": {
+        "copies": 75,
+        "states": {
+          "unmanaged-divergent": 42,
+          "foreign": 31,
+          "invalid-skill": 2
+        },
+        "duplicateNames": 22,
+        "divergentDuplicates": [
+          "ai-context-diagrams",
+          "ai-interface-design",
+          "api-design-patterns",
+          "context-window-optimization",
+          "design-system-implementation",
+          "intelligent-project-docs",
+          "multi-agent-skill-creator",
+          "multi-agent-skill-installer",
+          "multi-perspective-council",
+          "multiplatform-platform-architecture",
+          "prisma-database-design",
+          "prompt-engineering-hybrid",
+          "react-saas-architecture",
+          "saas-ai-agent-engineer",
+          "testing-strategies"
+        ]
+      },
+      "cursor": {
+        "copies": 102,
+        "states": {
+          "unmanaged-divergent": 63,
+          "foreign": 35,
+          "invalid-skill": 4
+        },
+        "duplicateNames": 27,
+        "divergentDuplicates": [
+          "ai-context-diagrams",
+          "ai-interface-design",
+          "api-design-patterns",
+          "context-window-optimization",
+          "design-system-implementation",
+          "intelligent-project-docs",
+          "multi-agent-skill-creator",
+          "multi-agent-skill-installer",
+          "multi-perspective-council",
+          "multiplatform-platform-architecture",
+          "prisma-database-design",
+          "prompt-engineering-hybrid",
+          "react-saas-architecture",
+          "rive-abertura-de-marca",
+          "saas-ai-agent-engineer",
+          "testing-strategies"
+        ]
+      }
+    }
+  },
+  "proposedPlan": {
+    "command": "cw install --user --profile dev --migrate-legacy --adopt-all (previewed with plan, read-only)",
+    "exitCode": 0,
+    "conflicts": 0,
+    "sinks": [
+      {
+        "dir": "C:\\Users\\harry\\.claude\\skills",
+        "ops": {
+          "replace": 21,
+          "legacy-manifest-remove": 1
+        }
+      },
+      {
+        "dir": "C:\\Users\\harry\\.agents\\skills",
+        "ops": {
+          "replace": 21
+        }
+      }
+    ],
+    "legacy": [
+      {
+        "dir": "C:\\Users\\harry\\.codex\\skills",
+        "ops": {
+          "legacy-remove": 21,
+          "legacy-manifest-remove": 1
+        }
+      },
+      {
+        "dir": "C:\\Users\\harry\\.cursor\\rules",
+        "ops": {
+          "legacy-remove": 22,
+          "legacy-manifest-remove": 1
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "file": "C:\\Users\\harry\\.claude\\CLAUDE.md",
+        "action": "write"
+      },
+      {
+        "file": "C:\\Users\\harry\\.codex\\AGENTS.md",
+        "action": "write"
+      }
+    ]
+  }
+}

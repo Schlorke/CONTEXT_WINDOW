@@ -1,0 +1,34 @@
+{
+  "schema": "context-window/p-eval-1-consolidated@1",
+  "at": "2026-09-25",
+  "decision": "FAIL",
+  "reason": "Claude RT-10 A returned OAuth 401; B-E interrupted; no valid Claude behavioral cells",
+  "cursor_e15": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "nature": "behavioral"
+  },
+  "claude_rt10": {
+    "executable": "C:\\Users\\harry\\.local\\bin\\claude.exe",
+    "version": "2.1.74",
+    "A": { "cell": "FAIL", "nature": "infrastructure", "error": "OAuth 401 expired" },
+    "B": { "cell": "NOT_RUN", "nature": "infrastructure_stop" },
+    "C": { "cell": "NOT_RUN", "nature": "infrastructure_stop" },
+    "D": { "cell": "NOT_RUN", "nature": "infrastructure_stop" },
+    "E": { "cell": "NOT_RUN", "nature": "infrastructure_stop" }
+  },
+  "codex_rt10": {
+    "executable": "%LOCALAPPDATA%\\OpenAI\\Codex\\bin\\13995fba801849b0\\codex.exe",
+    "version": "codex-cli 0.155.0-alpha.16.4",
+    "model": "gpt-6-astra",
+    "A": { "cell": "PASS", "discovery": "PASS", "selection": "PASS", "application": "PASS", "nature": "behavioral" },
+    "B": { "cell": "PASS", "discovery": "NOT_OBSERVABLE", "selection": "PASS", "application": "PASS", "nature": "behavioral" },
+    "C": { "cell": "PASS", "discovery": "PASS", "selection": "PASS", "application": "PASS", "nature": "behavioral" },
+    "D": { "cell": "PASS", "discovery": "N/A", "selection": "PASS", "application": "PASS", "nature": "behavioral" },
+    "E": { "cell": "PASS", "discovery": "PASS", "selection": "PASS", "application": "PASS", "nature": "behavioral" }
+  },
+  "rt10_calls_used": 6
+}

@@ -1,6 +1,6 @@
 ---
 name: multi-agent-skill-creator
-description: Create or update portable Agent Skills from one canonical source and adapt them safely for Codex, Claude, and Cursor. Use when a user asks to create, scaffold, revise, validate, package, evaluate, install, or synchronize a skill, SKILL.md, Claude skill, Cursor rule, Codex skill, trigger profile, or multi-agent skill workflow.
+description: "Create or update portable Agent Skills from one canonical source for Claude Code, Codex and Cursor: SKILL.md structure, operational contract, registry entry, triggers, evals and validation. Use when asked to create, scaffold, revise, validate or evaluate a skill."
 metadata:
   author: Context Window
   version: "1.0.0"
@@ -16,6 +16,21 @@ metadata:
 
 Create one reviewable canonical skill and derive runtime-specific artifacts from
 it. Do not maintain three independent implementations.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Create or update one canonical skill with its registry entry, evals and generated client packages. |
+| Use when | Adding or changing a skill in the Context Window library. |
+| Do not use when | Installing skills into projects (use multi-agent-skill-installer) or editing installed copies. |
+| Inputs | Purpose, triggers, non-triggers, required resources and target clients. |
+| Preconditions | Working inside the Context Window source repository. |
+| Tools | scripts/scaffold_portable_skill.py, node scripts/cw.mjs catalog, node --test. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | SKILL.md with Operational Contract, catalog/registry.json entry, eval matrix entry and a refreshed catalog lock. |
+| Validation | `node scripts/cw.mjs catalog --check` and `node --test` pass. |
+| Known failures | Name different from the folder, description over 1024 characters, missing eval cases, references outside the package. |
 
 ## When to Use
 
@@ -48,10 +63,10 @@ saas-skills/<collection>/<skill>/
 Runtime copies are generated artifacts:
 
 ```text
-canonical SKILL.md
-├── Codex  -> $CODEX_HOME/skills/<skill>/
-├── Claude -> ~/.claude/skills/<skill>/ or project .claude/skills/<skill>/
-└── Cursor -> generated .cursor/rules/skill-<skill>.mdc
+canonical SKILL.md (registered in catalog/registry.json)
+├── Codex  -> .agents/skills/<skill>/ (project) or ~/.agents/skills/<skill>/ (user)
+├── Claude -> .claude/skills/<skill>/ (project) or ~/.claude/skills/<skill>/ (user)
+└── Cursor -> reads the .claude/skills or .agents/skills copy (no generated rules)
 ```
 
 Read `references/runtime-contracts.md` before changing adapters, profiles, or
@@ -104,10 +119,11 @@ replace every placeholder with task-specific content.
 
 When working in Context Window:
 
-1. Add one runtime profile to
-   `saas-skills/integrations/cursor-rule-profiles.json`.
-2. Use narrow `promptTriggers`; add file globs only when file identity reliably
-   implies the skill.
+1. Register the skill in `catalog/registry.json` (status, origin, family,
+   profiles, invocation, summary).
+2. Use narrow multiword `triggers` for the Claude routing hook; a trigger that
+   also matches everyday prompts is a defect (the router test checks neutral and
+   ambiguous prompts).
 3. Add at least the configured minimum positive, negative, and conflict cases
    to `saas-skills/evals/skill-trigger-matrix.json`.
 4. Update catalog counts, release notes, changelog, and relevant operator docs.
@@ -120,15 +136,15 @@ Run the smallest validator first, then repository QA:
 
 ```bash
 python <platform-skill-creator>/scripts/quick_validate.py <skill-directory>
-pnpm audit:skills
-pnpm format:check
-pnpm lint:md
-pnpm qa:skills
+node scripts/cw.mjs catalog --write-lock
+pnpm qa
 ```
 
-If the repository provides different commands, use those instead. Inspect the
-generated Codex, Claude, and Cursor artifacts; a green source audit does not
-prove that adapters preserved the contract.
+If the repository provides different commands, use those instead. Then install
+into a scratch project with an isolated home and inspect what each client gets
+(`node scripts/cw.mjs install --target <scratch> --profile dev --home <sandbox>/home`);
+a green source audit does not prove that the rendered copies preserved the
+contract.
 
 ### 6. Synchronize Safely
 
@@ -147,8 +163,8 @@ and generate the closest non-lossy adapter instead of silently dropping intent.
 
 ## Anti-Patterns
 
-- Editing `$CODEX_HOME/skills`, `~/.claude/skills`, or `.cursor/rules` as the
-  canonical source.
+- Editing installed copies (`.agents/skills`, `.claude/skills`, `~/.agents/skills`,
+  `~/.claude/skills`) as the canonical source.
 - Creating separate hand-maintained bodies for each runtime.
 - Naming a skill after a vague technology without precise trigger conditions.
 - Stuffing every reference and example into `SKILL.md`.

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Hero Design"
+  short_description: "Directs premium Spline landing heroes"
+  default_prompt:
+    "Use $spline-hero-design to art-direct a Spline landing hero in the Logical
+    Solution register."
+policy:
+  allow_implicit_invocation: true

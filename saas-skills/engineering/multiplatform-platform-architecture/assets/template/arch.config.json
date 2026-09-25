@@ -1,0 +1,16 @@
+{
+  "frontend": "packages/frontend",
+  "foundations": {
+    "ui": "packages/ui",
+    "tokens": "packages/design-tokens"
+  },
+  "clients": {
+    "web": "apps/clients/web",
+    "mobile": "apps/clients/mobile"
+  },
+  "clientEntrypoints": [
+    "app",
+    "pages/*"
+  ],
+  "serverOnlyPackages": []
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Blender Web 3D"
+  short_description: "Exports Blender to GLB without baking"
+  default_prompt:
+    "Use $blender-web3d to export a GLB copy without applying destructive
+    modifiers."
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 ---
 name: systems-analysis-saas
-description: Procedural framework for systems analysis in SaaS B2B projects, covering requirements elicitation (functional and non-functional), system modeling (C4, BPMN, ER diagrams), wireframe specifications, MVP definition, product roadmap planning, business rules documentation, and validation checklists. Use when starting a new SaaS project, gathering requirements, creating system models, defining MVP scope, writing business rules, or validating architecture decisions with stakeholders.
+description: "Run systems analysis for B2B SaaS: requirements, business rules, MVP scope, roadmap, C4/BPMN/ER models, wireframe specs and stakeholder validation. Use when starting a product, gathering requirements, defining MVP scope or documenting business rules."
 metadata:
   author: Engineering Standards Team
   version: "1.0"
@@ -26,6 +26,21 @@ Trigger this skill when:
 - You plan product roadmaps across multiple releases.
 
 This skill is MANDATORY and must be followed without exception when its trigger fires.
+
+## Operational Contract
+
+| Field | Contract |
+| --- | --- |
+| Objective | Turn stakeholder needs into requirements, MVP scope, business rules and models. |
+| Use when | Requirements elicitation, MVP definition or business-rule documentation. |
+| Do not use when | Implementation details or code structure. |
+| Inputs | Stakeholder goals, constraints and current processes. |
+| Preconditions | Stakeholders or their documented answers are available. |
+| Tools | User stories with acceptance criteria; C4, BPMN or ER models when needed. |
+| Procedure | Follow the Core Workflow below in order. |
+| Output | requirements with acceptance criteria, MVP scope, business rules and open questions. |
+| Validation | Each requirement is testable and stakeholder sign-off is recorded. |
+| Known failures | Solution-first requirements, unmeasurable non-functional requirements, invented business rules. |
 
 ## Analyst Role in SaaS
 

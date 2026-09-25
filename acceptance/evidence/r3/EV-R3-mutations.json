@@ -1,0 +1,41 @@
+{
+  "schema": "context-window/mutations@1",
+  "harness": "C:\\Temp\\cw-r3\\harness\\mutate.mjs (applies the mutant, runs the test file, always restores and compares the source)",
+  "results": [
+    {
+      "id": "M-CX10",
+      "file": "scripts/cw.mjs",
+      "mutant": "verify ignores the incomplete-install marker",
+      "tests": "client adapter failures [CX-10]",
+      "verdict": "KILLED",
+      "failing": 2,
+      "restored": true
+    },
+    {
+      "id": "M-CX11a",
+      "file": "scripts/lib/apply.mjs",
+      "mutant": "a stale lock is deleted without re-checking its content under the breaker",
+      "tests": "lock races [CX-11]",
+      "verdict": "KILLED",
+      "failing": 1,
+      "restored": true
+    },
+    {
+      "id": "M-CX11b",
+      "file": "scripts/lib/apply.mjs",
+      "mutant": "no retry when the lock vanished between attempt and read",
+      "tests": "lock races [CX-11]",
+      "verdict": "SURVIVED (equivalent: the breaker content check also protects this path)",
+      "failing": 0,
+      "restored": true
+    },
+    {
+      "id": "M-CX02",
+      "file": "scripts/lib/pnpm-guard.mjs",
+      "mutant": "workspace-root rule removed from preflight",
+      "tests": "test/pnpm-guard.test.mjs",
+      "verdict": "KILLED",
+      "restored": true
+    }
+  ]
+}

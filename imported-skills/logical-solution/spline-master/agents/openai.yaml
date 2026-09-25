@@ -1,0 +1,8 @@
+interface:
+  display_name: "Spline Master"
+  short_description: "Orchestrates Spline 3D MCP work"
+  default_prompt:
+    "Use $spline-master to inspect the live Spline scene, pick only the needed
+    specialists, and execute through user-Spline MCP."
+policy:
+  allow_implicit_invocation: true

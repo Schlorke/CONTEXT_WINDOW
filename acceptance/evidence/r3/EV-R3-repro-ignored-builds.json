@@ -1,0 +1,59 @@
+{
+  "at": "2026-09-25T04:49:56.706Z",
+  "bundle": {
+    "path": "C:\\Temp\\cw-r3\\bundle-before",
+    "libraryVersion": "2.0.0",
+    "commit": "66194b0aafd9c1d6a6d77415e41545177bb773ea",
+    "files": 147
+  },
+  "results": {
+    "12.5.1": {
+      "pnpmVersionSelected": "12.5.1",
+      "blocked": false,
+      "exit": 1,
+      "errorCodes": [
+        "ERR_PNPM_IGNORED_BUILDS"
+      ],
+      "ignoredBuildLines": [
+        "Error: ERR_PNPM_IGNORED_BUILDS",
+        "  ╰─▶ Ignored build scripts: esbuild@0.28.2",
+        "  help: Run \"pnpm approve-builds\" to pick which dependencies should be allowed"
+      ],
+      "workspaceYamlChangedByPnpm": true,
+      "workspaceYamlAfter": "packages:\n  - apps/clients/*\n  - packages/*\nallowBuilds:\n  esbuild: set this to true or false\nminimumReleaseAgeExclude:\n  - '@expo/cli@57.0.27'\n  - '@expo/router-server@57.0.11'\n  - '@expo/ui@57.0.20'\n  - babel-preset-expo@57.0.13\n  - expo-glass-effect@57.0.4\n  - expo-linking@57.0.11\n  - expo-modules-core@57.0.19\n  - expo-modules-jsi@57.1.1\n  - expo-router@57.0.23\n  - expo@57.0.25\n",
+      "lockfileGenerated": true,
+      "esbuildVersionsInLock": [
+        "0.28.2",
+        "0.28.2"
+      ],
+      "modulesYamlWritten": true,
+      "changedOutsideSandbox": [],
+      "args": [
+        "install",
+        "--store-dir=C:\\Temp\\cw-r3\\repro-12.5.1\\.pnpm-store",
+        "--ignore-pnpmfile"
+      ]
+    },
+    "10.27.0": {
+      "pnpmVersionSelected": "10.27.0",
+      "blocked": false,
+      "exit": 0,
+      "errorCodes": [],
+      "ignoredBuildLines": [],
+      "workspaceYamlChangedByPnpm": false,
+      "workspaceYamlAfter": "packages:\n  - apps/clients/*\n  - packages/*\n",
+      "lockfileGenerated": true,
+      "esbuildVersionsInLock": [
+        "0.28.2",
+        "0.28.2"
+      ],
+      "modulesYamlWritten": true,
+      "changedOutsideSandbox": [],
+      "args": [
+        "install",
+        "--store-dir=C:\\Temp\\cw-r3\\repro-10.27.0\\.pnpm-store",
+        "--ignore-pnpmfile"
+      ]
+    }
+  }
+}
