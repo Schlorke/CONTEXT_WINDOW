@@ -11,6 +11,16 @@ Convenções deste projeto:
 - `CHANGELOG.md` para visão pública e limpa
 - `saas-skills/RELEASE_NOTES.md` para trilha operacional detalhada
 
+## 2026-10-22
+
+- `saas-ui-specifications` incorpora a revisão de responsividade da OkGas:
+  notebook medido em 1536 × 730 CSS px (DPR 1,25), desktop em 1920 × 967 (DPR 1)
+  e cenário mobile de 390 × 844 para UI compartilhada.
+- Matriz e procedimento portáteis acompanham a instalação do perfil `dev` nos
+  três clientes; o contrato pede a revisão em mudanças relevantes de layout.
+- Revisão cobre altura, largura e overflow e exige evidência para declarar
+  validação visual. Inclui gatilhos, avaliações e teste de distribuição isolada.
+
 ## [2.1.0] - 2026-09-25
 
 Primeira leva da canonicalização 2.1. `imported-skills/` permanece como procedência.

@@ -165,6 +165,24 @@
           "prompt": "Create a compact and comfortable density spec for tables, forms, and navigation in our SaaS product.",
           "expected_primary_skill": "saas-ui-specifications",
           "reason": "Density and concrete layout values are UI specifications."
+        },
+        {
+          "id": "sui-4",
+          "prompt": "Revise a responsividade deste dialogo no notebook e no desktop, incluindo altura e overflow.",
+          "expected_primary_skill": "saas-ui-specifications",
+          "reason": "A dialog layout change requires both measured reference viewports and evidence."
+        },
+        {
+          "id": "sui-5",
+          "prompt": "Review the layout of this page shell and check notebook viewport height with long content.",
+          "expected_primary_skill": "saas-ui-specifications",
+          "reason": "A width breakpoint does not prove fit within the available height."
+        },
+        {
+          "id": "sui-6",
+          "prompt": "Create a layout for the dashboard and verify its responsive layout on the measured notebook and desktop.",
+          "expected_primary_skill": "saas-ui-specifications",
+          "reason": "New layouts need reference viewport checks as well as existing-layout reviews."
         }
       ],
       "should_not_trigger": [
@@ -185,6 +203,17 @@
           "prompt": "Copy a Card component from another app and adapt its imports and design tokens.",
           "expected_primary_skill": "component-reuse-portability",
           "reason": "That is cross-project portability work."
+        },
+        {
+          "id": "sui-n4",
+          "prompt": "Add pagination to the backend API and index the organization query.",
+          "expected_primary_skill": "api-design-patterns",
+          "reason": "Backend pagination has no UI layout impact."
+        },
+        {
+          "id": "sui-n5",
+          "prompt": "Organize my research notebook and summarize its notes.",
+          "reason": "An unrelated notebook mention must not activate UI guidance."
         }
       ],
       "conflicts": [
@@ -196,11 +225,19 @@
             "design-system-implementation"
           ],
           "resolution": "Stay in specs mode unless governance or token system changes are also required."
+        },
+        {
+          "id": "sui-c2",
+          "prompt": "Review the responsive layout of a shared dialog and add Playwright coverage for its fit.",
+          "expected_primary_skill": "saas-ui-specifications",
+          "expected_secondary_skills": ["testing-strategies"],
+          "resolution": "Use measured UI fit criteria first; delegate test strategy to the testing skill without claiming unexecuted visual validation."
         }
       ],
       "minimum_output": [
         "Typography, color, and spacing decisions",
         "Responsive and dark mode rules",
+        "Measured notebook and desktop width/height evidence, plus mobile for shared UI, or explicit visual validation pending",
         "Accessibility acceptance criteria"
       ]
     },

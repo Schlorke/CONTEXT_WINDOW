@@ -57,6 +57,13 @@ node scripts/cw.mjs doctor --target <projeto>
 `doctor` mostra, por cliente, cópias com o mesmo nome em outras pastas lidas pelo cliente (inclusive
 no perfil do usuário) e restos de instalações antigas.
 
+No perfil `dev`, confira também os recursos de `saas-ui-specifications`:
+`references/reference-viewports.json` e `references/responsive-review.md`.
+O contrato instalado pede sua carga em mudanças relevantes de layout. A skill
+orienta a conferir notebook e desktop medidos, largura e altura, e mobile para
+UI compartilhada. `verify` comprova a distribuição dos arquivos; a validação
+visual do produto continua dependendo de execução e evidência no destino.
+
 ## 6. Smoke test
 
 Só prompts analíticos, sem editar arquivos: análise de API, organização FSD do frontend, proposta de

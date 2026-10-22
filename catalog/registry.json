@@ -628,7 +628,7 @@
       "family": "frontend",
       "profiles": ["dev"],
       "invocation": "auto",
-      "summary": "Frontend UI specification guidance for typography, color roles, spacing, density, responsive behavior, and accessibility.",
+      "summary": "UI specifications and responsive review at measured notebook and desktop viewports, with height, overflow, mobile and visual evidence checks.",
       "triggers": [
         "tipografia",
         "typography scale",
@@ -641,7 +641,19 @@
         "wcag",
         "contraste de cor",
         "acessibilidade web",
-        "density spec"
+        "density spec",
+        "responsive layout",
+        "responsive grid",
+        "responsividade",
+        "layout responsivo web",
+        "viewport height",
+        "altura da tela",
+        "notebook viewport",
+        "dialog fit",
+        "revisar layout",
+        "criar layout",
+        "create a layout",
+        "review the layout"
       ],
       "review": {
         "status": "reviewed",

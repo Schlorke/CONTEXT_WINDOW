@@ -1,10 +1,10 @@
 ---
 name: saas-ui-specifications
-description: "Concrete UI specifications for SaaS: type scale, color roles, spacing tokens, density, responsive grid, dark mode and WCAG 2.2 accessibility. Use when defining typography, palettes, spacing or layouts, or checking the accessibility of an interface."
+description: "Specify SaaS typography, colors, spacing, density, dark mode and accessibility. Use when creating or reviewing layouts, dialogs, sizing or responsive behavior, including notebook viewport height and visual evidence."
 metadata:
   author: SaaS Frontend Team
-  version: 1.0.0
-  last_validated: 2026-04-12
+  version: 1.1.0
+  last_validated: 2026-10-22
   sources:
     - W3C WCAG 2.2 guidelines
     - Modular Scale (Tim Brown)
@@ -21,6 +21,7 @@ This skill applies when:
 - Choosing a color palette and defining semantic color roles
 - Setting up spacing tokens and a consistent spacing system
 - Configuring responsive breakpoints and grid layout
+- Creating or reviewing layout, spacing, sizing, density, dialogs, page shells or shared UI components against measured notebook and desktop viewports
 - Implementing or adapting dark mode
 - Verifying WCAG 2.2 AA compliance for text, colors, and interactions
 - Deciding between compact vs. comfortable density for UI
@@ -33,15 +34,15 @@ Do NOT use this skill for: design system governance (see `design-system-implemen
 | Field | Contract |
 | --- | --- |
 | Objective | Specify typography, color roles, spacing, density, responsive behavior and accessibility for the product UI. |
-| Use when | Defining or reviewing visual specifications and token values. |
+| Use when | Defining visual specifications or reviewing layout changes against measured reference viewports. |
 | Do not use when | Component implementation mechanics (use design-system-implementation) or FSD placement (use react-saas-architecture). |
-| Inputs | Brand, content density and target platforms (web and mobile). |
+| Inputs | Brand, content density, target platforms and the project's measured viewport matrix (or the bundled starter matrix). |
 | Preconditions | Token values live in packages/design-tokens and both clients consume them. |
-| Tools | WCAG contrast checks and the tokens package. |
+| Tools | Existing browser, Storybook or visual test tools, WCAG contrast checks and the tokens package. |
 | Procedure | Follow the Core Workflow below in order. |
-| Output | semantic token values, usage rules and accessibility requirements. |
-| Validation | Text roles meet WCAG AA contrast and both clients use the same tokens with no duplicated values. |
-| Known failures | Color literals in components, web-only units in shared specs, touch targets ignored. |
+| Output | Semantic token values, usage rules, accessibility requirements and viewport evidence or explicit pending validation. |
+| Validation | WCAG AA contrast, shared tokens and width/height checks at both reference viewports; include mobile for shared UI. |
+| Known failures | Width-only checks, hidden overflow, page scaling, missing visual evidence, color literals and ignored touch targets. |
 
 ## Core Workflow
 
@@ -157,7 +158,8 @@ For spacing scale, grid specifications, density modes, and responsive breakpoint
 
 ### Step 4: Configure Responsive Breakpoints
 
-Standard Tailwind breakpoints (widely adopted):
+Inspect the project's configured breakpoints first. These are conventional
+Tailwind defaults, not device classifications or sufficient validation:
 
 ```text
 sm   : 640px   (small phones)
@@ -172,6 +174,24 @@ xl   : 1280px  (standard desktops)
 ```jsx
 <div className="text-sm md:text-base lg:text-lg">Responsive text</div>
 ```
+
+#### Required review for layout changes
+
+1. Load `references/responsive-review.md` and the canonical starter scenarios in
+   `references/reference-viewports.json`. Use the destination's measured matrix
+   when present; retain the starter notebook and desktop as additional checks
+   unless the project explicitly replaces them with measured references.
+2. Evaluate both width and available height at the notebook and desktop
+   references. Include the mobile scenario when shared components change.
+   Inspect density, hierarchy, legibility, keyboard access and unintended
+   overflow in realistic states, including open dialogs and long content.
+3. Adapt components to their actual space: prefer container queries for local
+   constraints and bound web overlays by `dvh` with a scrollable body. Do not
+   hide overflow or scale the page to force a fit.
+4. Keep screenshots, measurements or passing viewport-fit results for each
+   required scenario, using the destination's artifact directory (otherwise
+   `tmp/`). Static code review alone is not visual validation. If execution is
+   unavailable, report **visual validation pending** and list missing scenarios.
 
 ### Step 5: Implement Dark Mode
 
@@ -374,7 +394,7 @@ button:focus {
 /* ❌ BAD: assumes desktop layout, untested on mobile */
 <div className="grid grid-cols-4">
 
-/* ✅ GOOD: mobile-first, tested at md:/lg: breakpoints */
+/* ✅ GOOD: adapt the grid, then verify measured width AND height */
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 ```
 
@@ -407,10 +427,12 @@ When establishing UI specifications:
 4. Test dark mode with CSS custom properties (not duplicate components).
 5. Ensure WCAG 2.2 AA compliance: 4.5:1 contrast, 44x44px touch targets, keyboard navigation.
 6. Never use color as the sole means of conveying information.
-7. Responsive design must be mobile-first with tested breakpoints (sm, md, lg, xl, 2xl).
+7. For relevant UI changes, follow the required responsive review above; conventional breakpoint checks alone do not prove the notebook fits.
 
 ## Source References
 
+- Measured starter scenarios: `references/reference-viewports.json`
+- Portable review procedure and provenance: `references/responsive-review.md`
 - **W3C WCAG 2.2:** Web Content Accessibility Guidelines Level AA
 - **Modular Scale:** Tim Brown, "Modular Scale" (website and methodology)
 - **Tailwind CSS:** Official documentation, spacing scale, breakpoints, color system

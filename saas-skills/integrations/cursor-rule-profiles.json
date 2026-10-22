@@ -39,7 +39,7 @@
     {
       "skill": "saas-ui-specifications",
       "file": "skill-saas-ui-specifications.mdc",
-      "description": "Frontend UI specification guidance for typography, color roles, spacing, density, responsive behavior, and accessibility.",
+      "description": "UI specifications and responsive review at measured notebook and desktop viewports, including height, overflow and visual evidence.",
       "globs": [
         "**/*.{tsx,jsx,css,scss,mdx}",
         "app/**/*.{tsx,jsx,css,scss,mdx}",
@@ -56,7 +56,17 @@
         "dark mode",
         "acessibilidade",
         "wcag",
-        "responsivo"
+        "responsivo",
+        "responsividade",
+        "responsive layout",
+        "notebook viewport",
+        "viewport height",
+        "altura da tela",
+        "dialog fit",
+        "revisar layout",
+        "criar layout",
+        "create a layout",
+        "review the layout"
       ]
     },
     {

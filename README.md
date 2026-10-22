@@ -28,6 +28,23 @@ packages/design-tokens  tokens e temas canônicos (única origem de cor, espaço
 Texto normativo: [CLIENT_FSD_MIRROR.md](saas-skills/docs/governance/CLIENT_FSD_MIRROR.md). O mesmo
 contrato vai para o `AGENTS.md` do projeto quando a biblioteca é instalada com o perfil `dev`.
 
+## Responsividade no notebook e no desktop
+
+O perfil `dev` inclui a revisão de responsividade em `saas-ui-specifications`.
+Mudanças de layout são conferidas no notebook Acer Aspire Go 15
+(1536 × 730 CSS px, DPR 1,25) e no desktop (1920 × 967, DPR 1), verificando
+largura, altura disponível, overflow e evidência visual. Componentes compartilhados
+incluem também o cenário mobile de 390 × 844. Sem execução, a revisão informa
+«validação visual pendente».
+
+A instalação leva a matriz e o procedimento completos para Claude Code, Codex e
+Cursor; o contrato instalado lembra a IA de carregar a skill em mudanças de UI.
+O projeto pode usar suas referências locais medidas. Veja o
+[procedimento portátil](saas-skills/frontend/saas-ui-specifications/references/responsive-review.md).
+Para receber essa orientação, instale ou atualize com
+`node scripts/cw.mjs install --target <projeto> --profile dev`.
+Isso distribui instruções; não modifica o layout ou os testes da aplicação.
+
 ## Começo rápido
 
 Requisitos: Node.js 22.13 ou mais novo e o pnpm fixado em `packageManager` (via Corepack ou a

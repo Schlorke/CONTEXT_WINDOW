@@ -526,11 +526,13 @@
         "dev"
       ],
       "invocation": "auto",
-      "version": "1.0.0",
-      "packageHash": "c5608f701c6366fd383867b60be45be46b66b2a01a86c49c3c6415020682fbdb",
+      "version": "1.1.0",
+      "packageHash": "dbd7b50d80b5d4aececdb3e084dcc5068edaa48115327547d8aee1e996483858",
       "files": {
-        "SKILL.md": "3917c61e17080850af1380757c8a6cdab0a69a22eff9cbbb8fae476ccbe090e9",
+        "SKILL.md": "19774f084d6b3b734b6cf71aeef5fd4526fa1587d938f5d5c030435a285b012b",
         "references/color-system.md": "c572ea4622ebc77ffc2b4e31079a78574b6babca53ce33cbe13f1e49c6ef1cf0",
+        "references/reference-viewports.json": "e47b1b9fe650e43e6cc9b49c0fd8ee759ecf743e963d07082fb0acd4d0f5e439",
+        "references/responsive-review.md": "6d635fce96f8d99414a318c28f9507a5a6480ee8b8c0a9d9c42a5fbc8fd83066",
         "references/spacing-grid.md": "4053dc0c61a413de05c4ac2e6bb098f69bbd1b246daefbcc67bb0d71bd3ac4ec",
         "references/typography-scale.md": "25109a4cd057039f03f186202e9b37a131911f5153ef869869e85681d4fc2624"
       },

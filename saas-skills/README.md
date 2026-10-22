@@ -15,6 +15,11 @@ distribuído; esta pasta guarda o conteúdo.
 | `ai-integration/` | `ai-context-diagrams`, `ai-interface-design`, `context-window-optimization`, `prompt-engineering-hybrid`, `saas-ai-agent-engineer`, `multi-perspective-council`, `multi-agent-skill-creator`, `multi-agent-skill-installer` (só invocação explícita) |
 | `documentation/` | `intelligent-project-docs`, `technical-research-writing` |
 
+`saas-ui-specifications` inclui revisão por largura e altura nos viewports
+medidos de notebook e desktop, cenário mobile para UI compartilhada e evidência
+visual obrigatória para declarar validação. A matriz e o procedimento ficam no
+próprio pacote, em `references/`, e acompanham a instalação do perfil `dev`.
+
 ## Coleções ativas (perfil `creative`)
 
 | Coleção | Skills |

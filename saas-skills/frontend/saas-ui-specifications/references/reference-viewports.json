@@ -1,0 +1,40 @@
+{
+  "schema": "context-window/reference-viewports@1",
+  "units": "CSS px",
+  "provenance": {
+    "project": "OkGas",
+    "reviewedAt": "2026-10-22",
+    "sources": [
+      "specs/ui/responsive-layout.md",
+      "apps/clients/web/tests/visual/viewports.ts"
+    ]
+  },
+  "referenceViewports": {
+    "acerAspireGo15": {
+      "label": "Acer Aspire Go 15 — AG15-71P",
+      "width": 1536,
+      "height": 730,
+      "deviceScaleFactor": 1.25,
+      "isMobile": false,
+      "hasTouch": false
+    },
+    "desktopMain": {
+      "label": "Main desktop — maximized Chrome",
+      "width": 1920,
+      "height": 967,
+      "deviceScaleFactor": 1,
+      "isMobile": false,
+      "hasTouch": false
+    }
+  },
+  "complementaryViewports": {
+    "mobileStandard": {
+      "label": "Standard mobile test scenario",
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 3,
+      "isMobile": true,
+      "hasTouch": true
+    }
+  }
+}
